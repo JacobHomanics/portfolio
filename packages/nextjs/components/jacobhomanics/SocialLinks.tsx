@@ -2,8 +2,7 @@
 
 // import Link from "next/link";
 import { EtherscanLogo } from "./EtherscanLogo";
-import { SocialIcon } from "./SocialIcon";
-import { SocialLink } from "./SocialLink";
+import { IconLink } from "./IconLink";
 import { BuidlGuidlLogo } from "~~/components/assets/BuidlGuidlLogo";
 import fc from "~~/public/social-icons/farcaster.png";
 import github from "~~/public/social-icons/github.png";
@@ -42,54 +41,54 @@ Props) => {
     <div className="flex flex-col items-center">
       <div className="flex space-x-1 items-center justify-center">
         {twitterUrl ? (
-          <SocialLink url={twitterUrl}>
-            <SocialIcon img={twitter} alt="X" />
-          </SocialLink>
+          <IconLink url={twitterUrl}>
+            <img src={twitter.src} alt="X" className="w-7 lg:w-10" />
+          </IconLink>
         ) : (
           <></>
         )}
         {farcasterUrl ? (
-          <SocialLink url={farcasterUrl}>
-            <SocialIcon img={fc} alt="Warpcast" />
-          </SocialLink>
+          <IconLink url={farcasterUrl}>
+            <img src={fc.src} alt="Warpcast" className="w-7 lg:w-10" />
+          </IconLink>
         ) : (
           <></>
         )}
         {instagramUrl ? (
-          <SocialLink url={instagramUrl}>
-            <SocialIcon img={ig} alt="Instagram" />
-          </SocialLink>
+          <IconLink url={instagramUrl}>
+            <img src={ig.src} alt="Instagram" className="w-7 lg:w-10" />
+          </IconLink>
         ) : (
           <></>
         )}
         {linkedinUrl ? (
-          <SocialLink url={linkedinUrl}>
-            <SocialIcon img={linkedin} alt="Linkedin" />
-          </SocialLink>
+          <IconLink url={linkedinUrl}>
+            <img src={linkedin.src} alt="Linkedin" className="w-7 lg:w-10" />
+          </IconLink>
         ) : (
           <></>
         )}
         {githubUrl ? (
-          <SocialLink url={githubUrl}>
+          <IconLink url={githubUrl}>
             <div className="bg-black">
-              <SocialIcon img={github} alt="Github" />
+              <img src={github.src} alt="Github" className="w-7 lg:w-10" />
             </div>
-          </SocialLink>
+          </IconLink>
         ) : (
           <></>
         )}
         {buidlguidlUrl ? (
-          <SocialLink url={buidlguidlUrl}>
-            <BuidlGuidlLogo className="w-10 h-10 hover:brightness-75" />
-          </SocialLink>
+          <IconLink url={buidlguidlUrl}>
+            <BuidlGuidlLogo className="w-7 h-7 lg:w-10 lg:h-10" />
+          </IconLink>
         ) : (
           <></>
         )}
 
         {etherscanUrl ? (
-          <SocialLink url={etherscanUrl}>
-            <EtherscanLogo className="w-10 h-10 hover:brightness-75" />
-          </SocialLink>
+          <IconLink url={etherscanUrl}>
+            <EtherscanLogo className="w-7 h-7 lg:w-10 lg:h-10" />
+          </IconLink>
         ) : (
           <></>
         )}

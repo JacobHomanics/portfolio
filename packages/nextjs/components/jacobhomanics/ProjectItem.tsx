@@ -1,9 +1,10 @@
 "use client";
 
 import Link from "next/link";
+import { IconLink } from "./IconLink";
 import { EtherscanLogo } from "~~/components/jacobhomanics/EtherscanLogo";
-import { SocialIcon } from "~~/components/jacobhomanics/SocialIcon";
-import { SocialLink } from "~~/components/jacobhomanics/SocialLink";
+// import { SocialIcon } from "~~/components/jacobhomanics/SocialIcon";
+// import { SocialLink } from "~~/components/jacobhomanics/SocialLink";
 import github from "~~/public/social-icons/github.png";
 
 type Props = {
@@ -47,18 +48,18 @@ export const ProjectItem = ({
         <div className="p-[2px] bg-black"></div>
         <p>{description}</p>
         <div className="flex space-x-1">
-          <SocialLink url={link}>
-            <SocialIcon img={img} alt={alt ?? name} />
-          </SocialLink>
+          <IconLink url={link}>
+            <img src={img.src} alt={alt ?? name} className="w-7 lg:w-10" />
+          </IconLink>
           <div className="w-[40px] h-[40[x]">
-            <SocialLink url={githubUrl}>
-              <SocialIcon img={github} alt="Github" />
-            </SocialLink>
+            <IconLink url={githubUrl}>
+              <img src={github.src} alt={"Github"} className="w-7 lg:w-10" />
+            </IconLink>
           </div>
 
-          <SocialLink url={githubUrl}>
-            <EtherscanLogo className="w-10 h-10 hover:brightness-75" />
-          </SocialLink>
+          <IconLink url={githubUrl}>
+            <EtherscanLogo className="w-7 h-7 lg:w-10 lg:h-10" />
+          </IconLink>
         </div>
       </div>
     </div>
