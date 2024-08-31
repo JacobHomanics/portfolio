@@ -45,8 +45,7 @@ export const Footer = () => {
             )}
           </div> */}
 
-          <SwitchTheme className={`pointer-events-auto ${isLocalNetwork ? "self-end md:self-auto" : ""}`} />
-          <div className="bg-primary p-1 border-4 border-indigo-500 rounded-lg">
+          <div className="pointer-events-auto bg-primary p-1 border-2 border-indigo-500 rounded-lg">
             <SocialLinks
               twitterUrl={socialLinks.twitterUrl}
               farcasterUrl={socialLinks.farcasterUrl}
@@ -56,6 +55,7 @@ export const Footer = () => {
               etherscanUrl={socialLinks.etherscanUrl}
             />
           </div>
+          <SwitchTheme className={`pointer-events-auto ${isLocalNetwork ? "self-end md:self-auto" : ""}`} />
         </div>
       </div>
       {/* <div className="w-full">

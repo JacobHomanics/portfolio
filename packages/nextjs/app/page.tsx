@@ -7,8 +7,8 @@ import type { NextPage } from "next";
 // import { BugAntIcon, MagnifyingGlassIcon } from "@heroicons/react/24/outline";
 import { PfpCard } from "~~/components/jacobhomanics/PfpCard";
 import { ProjectItem } from "~~/components/jacobhomanics/ProjectItem";
-import { SocialLinks } from "~~/components/jacobhomanics/SocialLinks";
-import { socialLinks } from "~~/components/jacobhomanics/SocialLinksObject";
+// import { SocialLinks } from "~~/components/jacobhomanics/SocialLinks";
+// import { socialLinks } from "~~/components/jacobhomanics/SocialLinksObject";
 // import { SocialIcon } from "~~/components/jacobhomanics/SocialIcon";
 // import { SocialLink } from "~~/components/jacobhomanics/SocialLink";
 import jake from "~~/public/jake.gif";
@@ -24,17 +24,6 @@ const Home: NextPage = () => {
 
   return (
     <>
-      <div className="bg-primary p-1 border-4 border-indigo-500 rounded-lg">
-        <SocialLinks
-          twitterUrl={socialLinks.twitterUrl}
-          farcasterUrl={socialLinks.farcasterUrl}
-          githubUrl={socialLinks.githubUrl}
-          linkedinUrl={socialLinks.linkedinUrl}
-          buidlguidlUrl={socialLinks.buidlGuidlUrl}
-          etherscanUrl={socialLinks.etherscanUrl}
-        />
-      </div>
-
       <div className="flex items-center flex-col flex-grow pt-10">
         <div className="px-5">
           <h1 className="text-center">
