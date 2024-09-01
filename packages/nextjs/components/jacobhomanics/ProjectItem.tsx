@@ -3,15 +3,16 @@
 import { useState } from "react";
 import Link from "next/link";
 import { BuidlGuidlLogo } from "../assets/BuidlGuidlLogo";
+// import { SocialIcon } from "~~/components/jacobhomanics/SocialIcon";
+// import { SocialLink } from "~~/components/jacobhomanics/SocialLink";
+// import github from "~~/public/social-icons/github.png";
+import { GithubLogo } from "./GithubLogo";
 // import { IconLink } from "./IconLink";
 import { ScrollIcon } from "./ScrollIcon";
 import { SocialLinks } from "./SocialLinks";
 import { EtherscanLogo } from "~~/components/jacobhomanics/EtherscanLogo";
 import laddersDotVision from "~~/public/ladders.webp";
 import opensea from "~~/public/opensea.png";
-// import { SocialIcon } from "~~/components/jacobhomanics/SocialIcon";
-// import { SocialLink } from "~~/components/jacobhomanics/SocialLink";
-import github from "~~/public/social-icons/github.png";
 
 type Props = {
   name: string;
@@ -62,7 +63,7 @@ export const ProjectItem = ({
   if (description.length > maxDescriptionLength) {
     descriptionLengthOutput = (
       <button onClick={onClick} className="hover:underline cursor-pointer mb-2 ml-1">
-        {displayedDescription === shortenedStr ? "Show more" : "Show less"}
+        {displayedDescription === shortenedStr ? "Tell me more." : "Ahh show me less!"}
       </button>
     );
   }
@@ -77,7 +78,7 @@ export const ProjectItem = ({
   }
 
   if (githubUrl) {
-    items.push({ url: githubUrl, img: github, type: "img" });
+    items.push({ url: githubUrl, img: GithubLogo, type: "component" });
   }
 
   if (etherscanUrl) {
@@ -111,9 +112,9 @@ export const ProjectItem = ({
 
       <div className="pl-4 flex-col overflow-hidden w-full">
         <Link href={link} target="#">
-          <p className="text-2xl text-blue-600 dark:text-blue-500 hover:underline">{name}</p>
+          <p className="text-2xl text-blue-600 dark:text-blue-500 hover:underline m-1">{name}</p>
         </Link>
-        <div className="p-[2px] bg-black"></div>
+        {/* <div className="p-[2px] bg-black"></div> */}
         <p className="m-1">{displayedDescription}</p>
         {descriptionLengthOutput}
 

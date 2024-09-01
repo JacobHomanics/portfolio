@@ -1,20 +1,24 @@
 import { EtherscanLogo } from "./EtherscanLogo";
+import { GithubLogo } from "./GithubLogo";
 // import { IconLink } from "./IconLink";
 import { NounspaceLogo } from "./NounspaceLogo";
+import { XLogo } from "./XLogo";
 import { BuidlGuidlLogo } from "~~/components/assets/BuidlGuidlLogo";
+import linkedinIcon from "~~/public/icons/LI-In-Bug.png";
+import warpcastIcon from "~~/public/icons/warpcast-icon.png";
 // import ladders from "~~/public/ladders.webp";
-import fc from "~~/public/social-icons/farcaster.png";
-import github from "~~/public/social-icons/github.png";
+// import fc from "~~/public/social-icons/farcaster.png";
+// import github from "~~/public/social-icons/github.png";
 // import ig from "~~/public/social-icons/instagram.png";
-import linkedin from "~~/public/social-icons/linkedin.png";
-import twitter from "~~/public/social-icons/x.png";
+// import linkedin from "~~/public/social-icons/linkedin.png";
+// import twitter from "~~/public/social-icons/x.png";
 import youtube from "~~/public/youtube_social_circle_red.png";
 
 export const socialLinks2 = [
-  { url: "https://x.com/jacobhomanics", img: twitter, type: "img" },
-  { url: "https://warpcast.com/jacobhomanics.eth", img: fc, type: "img" },
-  { url: "https://github.com/hotmanics", img: github, type: "img" },
-  { url: "https://linkedin.com/in/jacobhomanics", img: linkedin, type: "img" },
+  { url: "https://x.com/jacobhomanics", img: XLogo, type: "component" },
+  { url: "https://warpcast.com/jacobhomanics.eth", img: warpcastIcon, type: "img" },
+  { url: "https://linkedin.com/in/jacobhomanics", img: linkedinIcon, type: "img" },
+  { url: "https://github.com/hotmanics", img: GithubLogo, type: "component" },
   {
     url: "https://app.buidlguidl.com/builders/0xc689c800a7121b186208ea3b182fAb2671B337E7",
     img: BuidlGuidlLogo,

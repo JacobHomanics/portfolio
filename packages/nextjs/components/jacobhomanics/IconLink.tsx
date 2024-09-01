@@ -10,7 +10,10 @@ type Props = {
 
 export const IconLink = ({ url, children }: Props) => {
   return (
-    <Link href={url || ""} target="#" className="hover:brightness-75">
+    <Link
+      href={url || ""}
+      target="#" //className="hover:brightness-200 dark:hover:brightness-50"
+    >
       {children}
     </Link>
   );
