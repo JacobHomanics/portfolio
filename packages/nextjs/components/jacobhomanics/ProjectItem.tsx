@@ -116,7 +116,7 @@ export const ProjectItem = ({
           <p className="text-2xl text-blue-600 dark:text-blue-500 hover:underline m-1">{name}</p>
         </Link>
         {/* <div className="p-[2px] bg-black"></div> */}
-        <p className="m-1">{displayedDescription}</p>
+        <p className="m-1 w-fit">{displayedDescription}</p>
         {descriptionLengthOutput}
 
         <div className="mt-2">

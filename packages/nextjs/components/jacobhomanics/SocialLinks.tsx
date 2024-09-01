@@ -22,14 +22,16 @@ Props) => {
     return (
       <div
         key={"socialLinks-" + index}
-        className={item.type === "component" ? "hover:brightness-200 dark:hover:brightness-75" : "hover:brightness-75"}
+        className={
+          item.type === "component" ? "m-1 hover:brightness-200 dark:hover:brightness-75" : "m-1 hover:brightness-75"
+        }
       >
         <IconLink url={item.url}>
           {item.type === "img" ? (
             /* eslint-disable-next-line @next/next/no-img-element */
-            <img src={item.img.src} alt="Link" className="w-auto h-7 lg:h-10 m-1" />
+            <img src={item.img.src} alt="Link" className="w-min h-7 lg:h-10" />
           ) : (
-            <div className="m-1 p-1">
+            <div className="">
               <item.img className="w-7 h-7 lg:w-8 lg:h-8" />
             </div>
           )}
@@ -38,5 +40,5 @@ Props) => {
     );
   });
 
-  return <div className="flex flex-wrap items-center">{itemsElements}</div>;
+  return <div className="flex flex-wrap items-center justify-start">{itemsElements}</div>;
 };
