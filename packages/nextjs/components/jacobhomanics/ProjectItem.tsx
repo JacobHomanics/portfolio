@@ -1,8 +1,12 @@
 "use client";
 
 import Link from "next/link";
-import { IconLink } from "./IconLink";
+// import { IconLink } from "./IconLink";
+import { ScrollIcon } from "./ScrollIcon";
+import { SocialLinks } from "./SocialLinks";
 import { EtherscanLogo } from "~~/components/jacobhomanics/EtherscanLogo";
+import laddersDotVision from "~~/public/ladders.webp";
+import opensea from "~~/public/opensea.png";
 // import { SocialIcon } from "~~/components/jacobhomanics/SocialIcon";
 // import { SocialLink } from "~~/components/jacobhomanics/SocialLink";
 import github from "~~/public/social-icons/github.png";
@@ -14,6 +18,10 @@ type Props = {
   img: any;
   alt?: string;
   githubUrl?: string;
+  etherscanUrl?: string;
+  openseaUrl?: string;
+  laddersDotVisionUrl?: string;
+  documentationUrl?: string;
   size?: "sm" | "base" | "lg";
 };
 
@@ -31,7 +39,32 @@ export const ProjectItem = ({
   alt,
   //size = "base",
   githubUrl,
+  etherscanUrl,
+  openseaUrl,
+  laddersDotVisionUrl,
+  documentationUrl,
 }: Props) => {
+  const items = [{ url: link, img: img, type: "img" }];
+
+  if (laddersDotVisionUrl) {
+    items.push({ url: laddersDotVisionUrl, img: laddersDotVision, type: "img" });
+  }
+  if (openseaUrl) {
+    items.push({ url: openseaUrl, img: opensea, type: "img" });
+  }
+
+  if (githubUrl) {
+    items.push({ url: githubUrl, img: github, type: "img" });
+  }
+
+  if (etherscanUrl) {
+    items.push({ url: etherscanUrl, img: EtherscanLogo, type: "component" });
+  }
+
+  if (documentationUrl) {
+    items.push({ url: documentationUrl, img: ScrollIcon, type: "component" });
+  }
+
   return (
     <div className="flex bg-secondary p-4 rounded-lg border-2 border-indigo-500 items-center">
       <Link href={link} target="#">
@@ -47,20 +80,7 @@ export const ProjectItem = ({
         </Link>
         <div className="p-[2px] bg-black"></div>
         <p>{description}</p>
-        <div className="flex space-x-1">
-          <IconLink url={link}>
-            <img src={img.src} alt={alt ?? name} className="w-7 lg:w-10" />
-          </IconLink>
-          <div className="w-[40px] h-[40[x]">
-            <IconLink url={githubUrl}>
-              <img src={github.src} alt={"Github"} className="w-7 lg:w-10" />
-            </IconLink>
-          </div>
-
-          <IconLink url={githubUrl}>
-            <EtherscanLogo className="w-7 h-7 lg:w-10 lg:h-10" />
-          </IconLink>
-        </div>
+        <SocialLinks items={items} />
       </div>
     </div>
   );

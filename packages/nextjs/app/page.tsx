@@ -49,15 +49,22 @@ const Home: NextPage = () => {
               img={pizzaPeople}
               link="https://pizzapeople.wtf"
               githubUrl="https://github.com/hotmanics/pizza-people"
+              etherscanUrl="https://basescan.org/address/0xF2137f6E039Cc0d2a19709a259CCCe13168cCD33"
+              openseaUrl="https://opensea.io/collection/pizza-people-1"
+              laddersDotVisionUrl="https://www.ladders.vision/collections/base/0xF2137f6E039Cc0d2a19709a259CCCe13168cCD33"
             />
 
             <ProjectItem
-              name="Reputation & Roles"
+              name="Reputation & Roles Starter Kit"
               description="Track trust onchain and grant roles in decentralized/permissionless ways!"
               img={repAndRolesIcon}
               alt="Rep & Roles"
               link="https://github.com/ATXDAO/rep-and-roles-starter-kit"
               githubUrl="https://github.com/ATXDAO/rep-and-roles-starter-kit"
+              laddersDotVisionUrl="https://www.ladders.vision/collections/optimism/0xFEe6635F43E1eeff88F0A6876Dc9153Fb128a81F"
+              etherscanUrl="https://optimistic.etherscan.io/address/0xFEe6635F43E1eeff88F0A6876Dc9153Fb128a81F"
+              openseaUrl="https://opensea.io/collection/unidentified-contract-7c2a4c1a-3ced-47a3-8c48-1f2d"
+              documentationUrl="https://hotmanics.github.io/rep-and-roles-docs/starter-kit/overview.html"
             />
           </div>
         </div>

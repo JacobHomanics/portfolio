@@ -1,6 +1,6 @@
 import React from "react";
 import { SocialLinks } from "./jacobhomanics/SocialLinks";
-import { socialLinks } from "./jacobhomanics/SocialLinksObject";
+import { socialLinks2 } from "./jacobhomanics/SocialLinksObject";
 // import Link from "next/link";
 // import { hardhat } from "viem/chains";
 // import { CurrencyDollarIcon, MagnifyingGlassIcon } from "@heroicons/react/24/outline";
@@ -46,14 +46,7 @@ export const Footer = () => {
           </div> */}
 
           <div className="pointer-events-auto bg-primary p-1 border-2 border-indigo-500 rounded-lg">
-            <SocialLinks
-              twitterUrl={socialLinks.twitterUrl}
-              farcasterUrl={socialLinks.farcasterUrl}
-              githubUrl={socialLinks.githubUrl}
-              linkedinUrl={socialLinks.linkedinUrl}
-              buidlguidlUrl={socialLinks.buidlGuidlUrl}
-              etherscanUrl={socialLinks.etherscanUrl}
-            />
+            <SocialLinks items={socialLinks2} />
           </div>
           <SwitchTheme className={`pointer-events-auto ${isLocalNetwork ? "self-end md:self-auto" : ""}`} />
         </div>

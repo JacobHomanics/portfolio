@@ -1,15 +1,13 @@
 "use client";
 
+import { Address } from "../scaffold-eth";
 import { SocialLinks } from "./SocialLinks";
+import { normalize } from "viem/ens";
+import { useEnsAddress } from "wagmi";
 
 type Props = {
   name?: string;
   image?: any;
-  twitterUrl?: string;
-  farcasterUrl?: string;
-  instagramUrl?: string;
-  linkedinUrl?: string;
-  githubUrl?: string;
   size?: "sm" | "base" | "lg";
 };
 
@@ -19,28 +17,19 @@ const sizeMap = {
   lg: "",
 };
 
-export const PfpCard = ({
-  name,
-  image,
-  twitterUrl,
-  farcasterUrl,
-  instagramUrl,
-  linkedinUrl,
-  githubUrl,
-  size = "base",
-}: Props) => {
+export const PfpCard = ({ name, image, size = "base" }: Props) => {
+  const result = useEnsAddress({
+    name: normalize(name || ""),
+  });
+
+  console.log(result);
+
   return (
     <div className="flex flex-col items-center">
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img src={image.src} alt={name} className={`rounded-full ${sizeMap[size]}`} />
-      <p className="m-1 lg:m-4 grilledCheese lg:text-4xl">{name}</p>
-      <SocialLinks
-        twitterUrl={twitterUrl}
-        farcasterUrl={farcasterUrl}
-        instagramUrl={instagramUrl}
-        linkedinUrl={linkedinUrl}
-        githubUrl={githubUrl}
-      />
+      <Address address={result.data as string} size="3xl" />
+      <SocialLinks items={[]} />
     </div>
   );
 };
