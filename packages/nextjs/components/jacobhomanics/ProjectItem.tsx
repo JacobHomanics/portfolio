@@ -3,16 +3,17 @@
 import { useState } from "react";
 import Link from "next/link";
 import { BuidlGuidlLogo } from "../assets/BuidlGuidlLogo";
-// import { SocialIcon } from "~~/components/jacobhomanics/SocialIcon";
-// import { SocialLink } from "~~/components/jacobhomanics/SocialLink";
-// import github from "~~/public/social-icons/github.png";
-import { GithubLogo } from "./GithubLogo";
 // import { IconLink } from "./IconLink";
 import { ScrollIcon } from "./ScrollIcon";
 import { SocialLinks } from "./SocialLinks";
-import { EtherscanLogo } from "~~/components/jacobhomanics/EtherscanLogo";
+// import { SocialIcon } from "~~/components/jacobhomanics/SocialIcon";
+// import { SocialLink } from "~~/components/jacobhomanics/SocialLink";
+// import github from "~~/public/social-icons/github.png";
+import { GithubLogo } from "./logos/GithubLogo";
+// import opensea from "~~/public/opensea.png";
+import { OpenSeaLogo } from "./logos/OpenSeaLogo";
+import { EtherscanLogo } from "~~/components/jacobhomanics/logos/EtherscanLogo";
 import laddersDotVision from "~~/public/ladders.webp";
-import opensea from "~~/public/opensea.png";
 
 type Props = {
   name: string;
@@ -74,7 +75,7 @@ export const ProjectItem = ({
     items.push({ url: laddersDotVisionUrl, img: laddersDotVision, type: "img" });
   }
   if (openseaUrl) {
-    items.push({ url: openseaUrl, img: opensea, type: "img" });
+    items.push({ url: openseaUrl, img: OpenSeaLogo, type: "component" });
   }
 
   if (githubUrl) {
