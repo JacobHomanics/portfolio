@@ -103,7 +103,7 @@ export const ProjectItem = ({
   }
 
   return (
-    <div className="flex bg-secondary p-4 rounded-lg border-2 border-indigo-500 w-[648px]">
+    <div className="flex bg-secondary p-4 rounded-lg border-2 border-indigo-500 w-full">
       <Link href={link} target="#">
         <div className="w-[100px] h-[100px]">
           {/* eslint-disable-next-line @next/next/no-img-element */}
