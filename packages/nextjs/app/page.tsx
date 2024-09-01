@@ -41,6 +41,7 @@ const Home: NextPage = () => {
               img={laddersDotVision}
               link="https://ladders.vision"
               githubUrl="https://github.com/hotmanics/ladders.vision"
+              buidlguidlUrl="https://app.buidlguidl.com/build/VKVHbZcjnrtUbUSwE1e5"
             />
 
             <ProjectItem
@@ -52,6 +53,7 @@ const Home: NextPage = () => {
               etherscanUrl="https://basescan.org/address/0xF2137f6E039Cc0d2a19709a259CCCe13168cCD33"
               openseaUrl="https://opensea.io/collection/pizza-people-1"
               laddersDotVisionUrl="https://www.ladders.vision/collections/base/0xF2137f6E039Cc0d2a19709a259CCCe13168cCD33"
+              buidlguidlUrl="https://app.buidlguidl.com/build/s8wG9A0CKk2SOzAoVmUN"
             />
 
             <ProjectItem
@@ -65,6 +67,7 @@ const Home: NextPage = () => {
               etherscanUrl="https://optimistic.etherscan.io/address/0xFEe6635F43E1eeff88F0A6876Dc9153Fb128a81F"
               openseaUrl="https://opensea.io/collection/unidentified-contract-7c2a4c1a-3ced-47a3-8c48-1f2d"
               documentationUrl="https://hotmanics.github.io/rep-and-roles-docs/starter-kit/overview.html"
+              buidlguidlUrl="https://app.buidlguidl.com/build/hAIIsrHf8dnOBcu6UUZn"
             />
           </div>
         </div>

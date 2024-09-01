@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { BuidlGuidlLogo } from "../assets/BuidlGuidlLogo";
 // import { IconLink } from "./IconLink";
 import { ScrollIcon } from "./ScrollIcon";
 import { SocialLinks } from "./SocialLinks";
@@ -22,6 +23,7 @@ type Props = {
   openseaUrl?: string;
   laddersDotVisionUrl?: string;
   documentationUrl?: string;
+  buidlguidlUrl?: string;
   size?: "sm" | "base" | "lg";
 };
 
@@ -43,6 +45,7 @@ export const ProjectItem = ({
   openseaUrl,
   laddersDotVisionUrl,
   documentationUrl,
+  buidlguidlUrl,
 }: Props) => {
   const items = [{ url: link, img: img, type: "img" }];
 
@@ -63,6 +66,10 @@ export const ProjectItem = ({
 
   if (documentationUrl) {
     items.push({ url: documentationUrl, img: ScrollIcon, type: "component" });
+  }
+
+  if (buidlguidlUrl) {
+    items.push({ url: buidlguidlUrl, img: BuidlGuidlLogo, type: "component" });
   }
 
   return (
