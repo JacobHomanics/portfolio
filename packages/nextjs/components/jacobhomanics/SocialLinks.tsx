@@ -22,7 +22,7 @@ Props) => {
     return (
       <IconLink url={item.url} key={"socialLinks-" + index}>
         {item.type === "img" ? (
-          <img src={item.img.src} alt="Link" className="w-7 lg:w-10 h-7 lg:h-10" />
+          <img src={item.img.src} alt="Link" className="w-7 lg:w-10 h-7 lg:h-10 m-1" />
         ) : (
           <item.img className="w-7 h-7 lg:w-10 lg:h-10" />
         )}
@@ -30,5 +30,5 @@ Props) => {
     );
   });
 
-  return <div className="flex space-x-1">{itemsElements}</div>;
+  return <div className="flex flex-wrap items-center">{itemsElements}</div>;
 };

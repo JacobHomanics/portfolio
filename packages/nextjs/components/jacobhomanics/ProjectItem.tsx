@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import Link from "next/link";
 import { BuidlGuidlLogo } from "../assets/BuidlGuidlLogo";
 // import { IconLink } from "./IconLink";
@@ -33,6 +34,7 @@ type Props = {
 //   lg: "",
 // };
 
+const maxDescriptionLength = 110;
 export const ProjectItem = ({
   name,
   description,
@@ -47,6 +49,24 @@ export const ProjectItem = ({
   documentationUrl,
   buidlguidlUrl,
 }: Props) => {
+  let shortenedStr = description.substring(0, maxDescriptionLength);
+  if (description.length >= maxDescriptionLength) {
+    shortenedStr = shortenedStr + "...";
+  }
+
+  const [displayedDescription, setDisplayedDescription] = useState(shortenedStr);
+
+  console.log(displayedDescription);
+
+  let descriptionLengthOutput;
+  if (description.length > maxDescriptionLength) {
+    descriptionLengthOutput = (
+      <button onClick={onClick} className="hover:underline cursor-pointer mb-2 ml-1">
+        {displayedDescription === shortenedStr ? "Show more" : "Show less"}
+      </button>
+    );
+  }
+
   const items = [{ url: link, img: img, type: "img" }];
 
   if (laddersDotVisionUrl) {
@@ -72,8 +92,16 @@ export const ProjectItem = ({
     items.push({ url: buidlguidlUrl, img: BuidlGuidlLogo, type: "component" });
   }
 
+  async function onClick() {
+    if (displayedDescription === shortenedStr) {
+      setDisplayedDescription(description);
+    } else {
+      setDisplayedDescription(shortenedStr);
+    }
+  }
+
   return (
-    <div className="flex bg-secondary p-4 rounded-lg border-2 border-indigo-500 items-center">
+    <div className="flex bg-secondary p-4 rounded-lg border-2 border-indigo-500 w-[648px]">
       <Link href={link} target="#">
         <div className="w-[100px] h-[100px]">
           {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -81,13 +109,17 @@ export const ProjectItem = ({
         </div>
       </Link>
 
-      <div className="pl-4 w-full">
+      <div className="pl-4 flex-col overflow-hidden w-full">
         <Link href={link} target="#">
           <p className="text-2xl text-blue-600 dark:text-blue-500 hover:underline">{name}</p>
         </Link>
         <div className="p-[2px] bg-black"></div>
-        <p>{description}</p>
-        <SocialLinks items={items} />
+        <p className="m-1">{displayedDescription}</p>
+        {descriptionLengthOutput}
+
+        <div className="mt-2">
+          <SocialLinks items={items} />
+        </div>
       </div>
     </div>
   );
