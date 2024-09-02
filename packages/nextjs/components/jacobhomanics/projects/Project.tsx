@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
+import { useWindowSize } from "usehooks-ts";
 
 type Props = {
   name: string;
@@ -15,12 +16,14 @@ export const Project = ({ name, description, img, url }: Props) => {
   const [isClamped, setIsClamped] = useState(false);
   const descriptionRef = useRef<HTMLDivElement>(null);
 
+  const result = useWindowSize();
+
   useEffect(() => {
     const element = descriptionRef.current;
     if (element) {
       setIsClamped(element.scrollHeight > element.clientHeight);
     }
-  }, [description]);
+  }, [result.width, description]);
 
   return (
     <div className="flex bg-secondary p-4 rounded-lg border-2 border-indigo-500 items-start">
