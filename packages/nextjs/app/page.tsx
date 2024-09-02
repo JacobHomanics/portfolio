@@ -5,12 +5,25 @@
 // import Link from "next/link";
 // import Link from "next/link";
 import type { NextPage } from "next";
+import { PfpCard } from "~~/components/jacobhomanics/PfpCard";
 import { projectsData } from "~~/components/jacobhomanics/data/ProjectsData";
+import { IconsLinks } from "~~/components/jacobhomanics/icons-links/IconLinks";
 // import { BuidlGuidlLogo } from "~~/components/assets/BuidlGuidlLogo";
 // import { IconLink } from "~~/components/jacobhomanics/IconLink";
 // import { IconsLinks } from "~~/components/jacobhomanics/IconLinks";
 // import { Project } from "~~/components/jacobhomanics/Project";
 import { Projects } from "~~/components/jacobhomanics/projects/Projects";
+import jake from "~~/public/jake.gif";
+import atxDaoLogo from "~~/public/organizations/atx-dao.png";
+import baseLogo from "~~/public/organizations/base-logo-in-blue.png";
+import bstwLogo from "~~/public/organizations/bstw.png";
+import buidlguidlLogo from "~~/public/organizations/buidlguidllogo.jpg";
+import curios from "~~/public/organizations/curios.jpg";
+import daoCoalition from "~~/public/organizations/dao-coalition.png";
+import developerDaoLogo from "~~/public/organizations/dd.png";
+import optimismLogo from "~~/public/organizations/optimism-ethereum-op-logo.png";
+import optimismFractalLogo from "~~/public/organizations/optimism-fractal.jpg";
+import solidityGuildLogo from "~~/public/organizations/solidity-guild.png";
 
 // import { UniversalIcon } from "~~/components/jacobhomanics/UniversalIcon";
 // import { EtherscanLogo } from "~~/components/jacobhomanics/logos/EtherscanLogo";
@@ -54,7 +67,33 @@ const Home: NextPage = () => {
 
   return (
     <>
-      <div className="bg-primary p-4 rounded-lg border-2 border-indigo-500 w-full">
+      <h1 className="text-center">
+        <span className="block text-2xl mb-2">Presented to you by</span>
+        <PfpCard name="jacobhomanics.eth" image={jake} />
+      </h1>
+      <div className="text-center">Organizations</div>
+      <div className="rounded-lg p-2">
+        <IconsLinks
+          iconsLinks={[
+            { url: "https://atxdao.com", icon: atxDaoLogo.src, title: "ATX DAO" },
+            { url: "https://www.bigshottoyworks.com/", icon: bstwLogo.src, title: "Bigshot Toyworks" },
+            { url: "https://buidlguidl.com", icon: buidlguidlLogo.src, title: "Buidl Guidl" },
+            { url: "https://www.developerdao.com/", icon: developerDaoLogo.src, title: "Developer DAO" },
+
+            { url: "https://optimism.io/", icon: optimismLogo.src, title: "Optimism" },
+            { url: "https://base.org/", icon: baseLogo.src, title: "Base" },
+            { url: "https://optimismfractal.com/", icon: optimismFractalLogo.src, title: "Optimism Fractal" },
+            { url: "https://curios.com/", icon: curios.src, title: "Curios" },
+            { url: "https://solidityguild.com/", icon: solidityGuildLogo.src, title: "Solidity Guild" },
+            { url: "https://www.daocoalition.org/", icon: daoCoalition.src, title: "DAO Coalition" },
+          ]}
+          size="lg"
+          areIconsRounded={true}
+        />
+      </div>
+
+      <div className="bg-primary p-4 rounded-lg border-2 border-indigo-500 w-full md:w-[700px]">
+        <p>My Projects</p>
         <Projects projects={projectsData} />
       </div>
 
