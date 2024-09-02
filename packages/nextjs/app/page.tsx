@@ -89,6 +89,7 @@ const Home: NextPage = () => {
           ]}
           size="lg"
           areIconsRounded={true}
+          justify="center"
         />
       </div>
 
