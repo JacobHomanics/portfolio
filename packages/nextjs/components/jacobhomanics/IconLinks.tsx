@@ -10,15 +10,12 @@ type Props = {
     | { url: string; icon: string }
     | { url: string; icon: ({ className }: { className: string }) => Element }
   )[];
+  size?: "base" | "sm" | "lg";
 };
 
-export const IconsLinks = ({ iconsLinks }: Props) => {
+export const IconsLinks = ({ iconsLinks, size }: Props) => {
   const iconsLinksElements = iconsLinks.map((iconLink: any, index: number) => {
-    return <IconLink iconLink={iconLink} key={"iconLink" + index} />;
+    return <IconLink iconLink={iconLink} size={size} key={"iconLink" + index} />;
   });
-  return (
-    <div className="flex flex-wrap items-center gap-4 border-4 border-indigo-400 rounded-lg bg-primary w-full">
-      {iconsLinksElements}
-    </div>
-  );
+  return <div className="flex flex-wrap items-center gap-4">{iconsLinksElements}</div>;
 };

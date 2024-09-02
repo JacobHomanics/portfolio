@@ -1,4 +1,6 @@
 import React from "react";
+import { IconsLinks } from "./jacobhomanics/IconLinks";
+import { IconsLinksData } from "./jacobhomanics/social/IconsLinksData";
 // import { SocialLinks } from "./jacobhomanics/SocialLinks";
 // import { socialLinks2 } from "./jacobhomanics/SocialLinksObject";
 // import Link from "next/link";
@@ -45,9 +47,12 @@ export const Footer = () => {
             )}
           </div> */}
 
-          <div className="pointer-events-auto bg-primary p-1 border-2 border-indigo-500 rounded-lg">
-            {/* <SocialLinks items={socialLinks2} />   */}
+          <div className="pointer-events-auto border-4 border-indigo-400 rounded-lg bg-primary p-2">
+            <IconsLinks iconsLinks={IconsLinksData} size="sm" />
           </div>
+          {/* <div className="pointer-events-auto bg-primary p-1 border-2 border-indigo-500 rounded-lg">
+            <SocialLinks items={socialLinks2} />  
+          </div> */}
           <SwitchTheme className={`pointer-events-auto ${isLocalNetwork ? "self-end md:self-auto" : ""}`} />
         </div>
       </div>

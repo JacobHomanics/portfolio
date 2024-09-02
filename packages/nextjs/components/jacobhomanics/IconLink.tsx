@@ -8,12 +8,13 @@ type Props = {
     url: string;
     icon: any;
   };
+  size?: "base" | "sm" | "lg";
 };
 
-export const IconLink = ({ iconLink }: Props) => {
+export const IconLink = ({ iconLink, size = "base" }: Props) => {
   return (
     <Link href={iconLink.url} target="#">
-      <UniversalIcon Icon={iconLink.icon} />
+      <UniversalIcon Icon={iconLink.icon} size={size} />
     </Link>
   );
 };
