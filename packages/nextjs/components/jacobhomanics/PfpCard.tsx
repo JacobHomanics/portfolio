@@ -1,7 +1,7 @@
 "use client";
 
 import { Address } from "../scaffold-eth";
-import { SocialLinks } from "./SocialLinks";
+// import { SocialLinks } from "./SocialLinks";
 import { normalize } from "viem/ens";
 import { useEnsAddress } from "wagmi";
 
@@ -29,7 +29,7 @@ export const PfpCard = ({ name, image, size = "base" }: Props) => {
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img src={image.src} alt={name} className={`rounded-full ${sizeMap[size]}`} />
       <Address address={result.data as string} size="3xl" />
-      <SocialLinks items={[]} />
+      {/* <SocialLinks items={[]} /> */}
     </div>
   );
 };

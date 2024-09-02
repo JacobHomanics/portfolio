@@ -1,20 +1,19 @@
 "use client";
 
 import Link from "next/link";
+import { UniversalIcon } from "./UniversalIcon";
 
 type Props = {
-  url?: string;
-  children?: any;
-  size?: "sm" | "base" | "lg";
+  iconLink: {
+    url: string;
+    icon: any;
+  };
 };
 
-export const IconLink = ({ url, children }: Props) => {
+export const IconLink = ({ iconLink }: Props) => {
   return (
-    <Link
-      href={url || ""}
-      target="#" //className="hover:brightness-200 dark:hover:brightness-50"
-    >
-      {children}
+    <Link href={iconLink.url} target="#">
+      <UniversalIcon Icon={iconLink.icon} />
     </Link>
   );
 };

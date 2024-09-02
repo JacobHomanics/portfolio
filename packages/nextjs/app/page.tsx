@@ -3,17 +3,23 @@
 // import Link from "next/link";
 // import Link from "next/link";
 // import Link from "next/link";
+// import Link from "next/link";
 import type { NextPage } from "next";
 // import { Project } from "~~/components/Project";
-import { BuidlGuidlLogo } from "~~/components/assets/BuidlGuidlLogo";
-import { UniversalIcon } from "~~/components/jacobhomanics/UniversalIcon";
-import { EtherscanLogo } from "~~/components/jacobhomanics/logos/EtherscanLogo";
-import { GithubLogo } from "~~/components/jacobhomanics/logos/GithubLogo";
-import { NounspaceLogo } from "~~/components/jacobhomanics/logos/NounspaceLogo";
-import { OpenSeaLogo } from "~~/components/jacobhomanics/logos/OpenSeaLogo";
-import { XLogo } from "~~/components/jacobhomanics/logos/XLogo";
-import linkedinIcon from "~~/public/icons/LI-In-Bug.png";
-import warpcastIcon from "~~/public/icons/warpcast-icon.png";
+// import { BuidlGuidlLogo } from "~~/components/assets/BuidlGuidlLogo";
+// import { IconLink } from "~~/components/jacobhomanics/IconLink";
+import { IconsLinks } from "~~/components/jacobhomanics/IconLinks";
+// import { UniversalIcon } from "~~/components/jacobhomanics/UniversalIcon";
+// import { EtherscanLogo } from "~~/components/jacobhomanics/logos/EtherscanLogo";
+// import { GithubLogo } from "~~/components/jacobhomanics/logos/GithubLogo";
+// import { NounspaceLogo } from "~~/components/jacobhomanics/logos/NounspaceLogo";
+// import { OpenSeaLogo } from "~~/components/jacobhomanics/logos/OpenSeaLogo";
+// import { ScrollLogo } from "~~/components/jacobhomanics/logos/ScrollLogo";
+// import { XLogo } from "~~/components/jacobhomanics/logos/XLogo";
+import { IconsLinksData } from "~~/components/jacobhomanics/social/IconsLinksData";
+
+// import linkedinIcon from "~~/public/icons/LI-In-Bug.png";
+// import warpcastIcon from "~~/public/icons/warpcast-icon.png";
 // import { useAccount } from "wagmi";
 // import { BugAntIcon, MagnifyingGlassIcon } from "@heroicons/react/24/outline";
 // import { PfpCard } from "~~/components/jacobhomanics/PfpCard";
@@ -29,7 +35,7 @@ import warpcastIcon from "~~/public/icons/warpcast-icon.png";
 // import trashIcon from "~~/public/trashIcon.png";
 // import weedies from "~~/public/weedies.webp";
 // import wwbtcIcon from "~~/public/wwbtc-icon.png";
-import youtubeLogo from "~~/public/youtube_social_circle_red.png";
+// import youtubeLogo from "~~/public/youtube_social_circle_red.png";
 
 // import { Address } from "~~/components/scaffold-eth";
 // import github from "~~/public/social-icons/github.png";
@@ -87,43 +93,23 @@ const Home: NextPage = () => {
   //   );
   // });
 
-  const warpcast = { url: "https://warpcast.com/jacobhomanics.eth", img: warpcastIcon, type: "img" };
-  const x = { url: "https://x.com/jacobhomanics", img: XLogo, type: "component" };
-  const linkedin = { url: "https://linkedin.com/in/jacobhomanics", img: linkedinIcon, type: "img" };
-
-  const github = { url: "https://github.com/hotmanics", img: GithubLogo, type: "component" };
-  const etherscan = {
-    url: "https://etherscan.io/name-lookup-search?id=jacobhomanics.eth",
-    img: EtherscanLogo,
-    type: "component",
-  };
-  const buidlguidl = {
-    url: "https://app.buidlguidl.com/builders/0xc689c800a7121b186208ea3b182fAb2671B337E7",
-    img: BuidlGuidlLogo,
-    type: "component",
-  };
-  const youtube = { url: "https://www.youtube.com/@jacobhomanics8018", img: youtubeLogo, type: "img" };
-  const nounspace = { url: "https://nounspace.com/s/jacobhomanics.eth", img: NounspaceLogo, type: "component" };
-  const opensea = {
-    url: "https://opensea.io/0xc689c800a7121b186208ea3b182fAb2671B337E7",
-    img: OpenSeaLogo,
-    type: "component",
-  };
+  // const warpcastIconData = { img: warpcastIcon, type: "img" };
 
   return (
     <>
-      <div className="flex items-center">
-        <UniversalIcon icon={warpcast} />
-        <UniversalIcon icon={x} />
-        <UniversalIcon icon={linkedin} />
-
-        <UniversalIcon icon={github} />
-        <UniversalIcon icon={youtube} />
-        <UniversalIcon icon={etherscan} />
-        <UniversalIcon icon={buidlguidl} />
-        <UniversalIcon icon={nounspace} />
-        <UniversalIcon icon={opensea} />
-      </div>
+      <IconsLinks iconsLinks={IconsLinksData} />
+      {/* <div className="flex flex-wrap items-center gap-4 border-4 border-indigo-400 rounded-lg bg-primary w-full">
+        <IconLink iconLink={Links.warpcastIconLink} />
+        <IconLink iconLink={Links.xIconLink} />
+        <IconLink iconLink={Links.linkedinIconLink} />
+        <IconLink iconLink={Links.githubIconLink} />
+        <IconLink iconLink={Links.youtubeIconLink} />
+        <IconLink iconLink={Links.etherscanIconLink} />
+        <IconLink iconLink={Links.buidlguidlIconLink} />
+        <IconLink iconLink={Links.nounspaceIconLink} />
+        <IconLink iconLink={Links.openseaIconLink} />
+        <IconLink iconLink={Links.documentationIconLink} />
+      </div> */}
       {/* <div className="bg-primary p-4 rounded-lg border-2 border-indigo-500 w-full">
         <div className="space-y-5">{projectsElements}</div>
       </div> */}
