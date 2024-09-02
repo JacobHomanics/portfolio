@@ -1,9 +1,6 @@
 "use client";
 
-// import Link from "next/link";
 import { IconLink } from "./IconLink";
-
-// import { UniversalIcon } from "./UniversalIcon";
 
 type Props = {
   iconsLinks: (

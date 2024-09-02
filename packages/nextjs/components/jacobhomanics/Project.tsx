@@ -11,7 +11,7 @@ type Props = {
 
 export const Project = ({ name, description, img, url }: Props) => {
   return (
-    <div className="flex bg-primary p-4 rounded-lg border-2 border-indigo-500 items-start">
+    <div className="flex bg-secondary p-4 rounded-lg border-2 border-indigo-500 items-start">
       <Link href={url} target="#" className="w-[100px] h-[100px] flex-none">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img src={img.src} alt="Hejh" className="w-full h-full object-cover rounded-lg" />

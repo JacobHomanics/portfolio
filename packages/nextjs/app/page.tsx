@@ -5,10 +5,13 @@
 // import Link from "next/link";
 // import Link from "next/link";
 import type { NextPage } from "next";
-// import { Project } from "~~/components/Project";
 // import { BuidlGuidlLogo } from "~~/components/assets/BuidlGuidlLogo";
 // import { IconLink } from "~~/components/jacobhomanics/IconLink";
-import { IconsLinks } from "~~/components/jacobhomanics/IconLinks";
+// import { IconsLinks } from "~~/components/jacobhomanics/IconLinks";
+// import { Project } from "~~/components/jacobhomanics/Project";
+import { Projects } from "~~/components/jacobhomanics/Projects";
+import { projectsData } from "~~/components/jacobhomanics/ProjectsData";
+
 // import { UniversalIcon } from "~~/components/jacobhomanics/UniversalIcon";
 // import { EtherscanLogo } from "~~/components/jacobhomanics/logos/EtherscanLogo";
 // import { GithubLogo } from "~~/components/jacobhomanics/logos/GithubLogo";
@@ -16,7 +19,7 @@ import { IconsLinks } from "~~/components/jacobhomanics/IconLinks";
 // import { OpenSeaLogo } from "~~/components/jacobhomanics/logos/OpenSeaLogo";
 // import { ScrollLogo } from "~~/components/jacobhomanics/logos/ScrollLogo";
 // import { XLogo } from "~~/components/jacobhomanics/logos/XLogo";
-import { IconsLinksData } from "~~/components/jacobhomanics/social/IconsLinksData";
+// import { IconsLinksData } from "~~/components/jacobhomanics/social/IconsLinksData";
 
 // import linkedinIcon from "~~/public/icons/LI-In-Bug.png";
 // import warpcastIcon from "~~/public/icons/warpcast-icon.png";
@@ -29,13 +32,6 @@ import { IconsLinksData } from "~~/components/jacobhomanics/social/IconsLinksDat
 // import { SocialIcon } from "~~/components/jacobhomanics/SocialIcon";
 // import { SocialLink } from "~~/components/jacobhomanics/SocialLink";
 // import jake from "~~/public/jake.gif";
-// import laddersDotVision from "~~/public/ladders.webp";
-// import pizzaPeople from "~~/public/pizzapeople.webp";
-// import repAndRolesIcon from "~~/public/rep-and-roles.png";
-// import trashIcon from "~~/public/trashIcon.png";
-// import weedies from "~~/public/weedies.webp";
-// import wwbtcIcon from "~~/public/wwbtc-icon.png";
-// import youtubeLogo from "~~/public/youtube_social_circle_red.png";
 
 // import { Address } from "~~/components/scaffold-eth";
 // import github from "~~/public/social-icons/github.png";
@@ -43,47 +39,6 @@ import { IconsLinksData } from "~~/components/jacobhomanics/social/IconsLinksDat
 //   "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at risus velit. Integer porta lectus ac nisi semper, a vehicula lectus iaculis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Fusce vitae sollicitudin dui. Integer scelerisque a purus eget hendrerit. Nam sagittis elit quis fermentum tempus. Aliquam non venenatis ante, eget efficitur tortor. Maecenas lorem felis, ullamcorper ac volutpat et, fringilla ac est. Donec scelerisque purus magna, id volutpat mauris feugiat id. Phasellus dignissim sed ex sed porttitor. Ut fringilla accumsan lectus, vel aliquet quam laoreet vitae. Duis eros massa, dictum pellentesque nisl vitae, malesuada rhoncus neque." +
 //   "Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. In nec ultrices ex. Pellentesque accumsan varius odio non ullamcorper. Vivamus blandit ligula a aliquet imperdiet. Donec sapien purus, rutrum facilisis maximus nec, eleifend vel tortor. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Ut hendrerit semper mauris. Integer sed dictum augue. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.";
 
-// const projects = [
-//   {
-//     name: "Wild Water Bottle Cap Token",
-//     description:
-//       "A tokenized Real World Asset (RWA) where the supply of the token matches the actual number of bottle caps that Jacob Homanics owns in the physical world.",
-//     img: wwbtcIcon,
-//     url: "https://bottlecaptoken.com",
-//   },
-//   {
-//     name: "Ladders.Vision",
-//     description: "View any NFT on any blockchain using the most decentralized methods!",
-//     img: laddersDotVision,
-//     url: "https://ladders.vision",
-//   },
-//   {
-//     name: "Pizza People",
-//     description: "A Nounish NFT collection celebrating Pizza!",
-//     img: pizzaPeople,
-//     url: "https://pizzapeople.wtf",
-//   },
-
-//   {
-//     name: "Reputation & Roles Starter Kit",
-//     description: "Track trust onchain and grant roles in decentralized & permissionless ways!",
-//     img: repAndRolesIcon,
-//     url: "https://github.com/ATXDAO/rep-and-roles-starter-kit",
-//   },
-//   {
-//     name: "Weedies",
-//     description: "A Nounish NFT collection celebrating marijuana!",
-//     img: weedies,
-//     url: "https://weedies.wtf",
-//   },
-//   {
-//     name: "Trash NFTs",
-//     description:
-//       "Trash NFTs is a project built on Base that leverages the unique properties of the ERC404 token standard. We had the idea for Trash NFTs as a way to combine artichokelord’s incredible artwork with novel tech to create something fun that pushed the boundaries of what’s possible for a memecoin. We chose to build Trash NFTs on Base because we believe in the future of the Superchain and the supportive community of builders it fosters. Between the two contracts associated with Trash NFTs, the project has generated over 1300 onchain transactions. Demo video: https://youtu.be/KORe_xnJx1w?si=6V52TlkOfLz3hySz Video of artichokelord drawing the art: https://warpcast.com/trashnfts/0xc65d2a4e ERC404 is an experimental token standard pioneered by Pandora on February 2, 2024. ERC404 tokens embrace characteristics of both ERC20 and ERC721 tokens: They are “semi-fungible,” enabling both highly liquid markets and uniqueness within a single asset. This allows collectors to sell their tokens when they want and in pieces, if they’d like, as well as introduces the ability to reroll your NFT traits by making more transactions. ERC404s are inherently fractionalized and designed to work natively with existing DeFi protocols. While innovative, it’s important to note that ERC404 is also experimental. When we first launched $TRASH, we forked Pandora’s contract and raced to be one of the first, if not the first project to deploy an ERC404 on Base. Pandora’s contract was limited to 5 variations of artwork, images that implied a reveal down the line, so we followed suit with 5 closed-lid NFTs of different rarities. Our next goal was to have a PFP collection with the lids removed, so we came up with the idea to create a new contract where you could stash your $TRASH and mint a Dumpster Diver. This contract is named The Dumpster. It is open source and available to any other ERC404 token that wishes to fork it to enable their holders to redeem their ERC404 token for an ERC721. In addition to the ability to mint an ERC721 by depositing an ERC404, the Dumpster contract enables holders of Dumpster Divers PFP tokens to burn their ERC721 to redeem the original ERC404 that the ERC721 was minted with (retaining the rarity and token ID). A small cleaning fee (0.00042069 ETH, updatable by governance) is charged, and this mechanism can also be used for regenerating/rerolling or ‘recycling’, Dumpster Diver PFPs to get the desired traits. We have grown to 185 holders and have generated $44k from trade fees (50% of which is $TRASH and 100% of which is reinvested in providing liquidity for our pools), and 1,654,148 DEGEN (~$40k) from liquidity mining rewards. We were also a finalist in the Backdrop Build V3 Accelerator Program (top 5% of applicants). Trash NFTs have built an effective machine: by owning the LPs that facilitate the swaps into $TRASH we capture 1% of the volume and store that in our treasury. We have two liquidity pools: 1) TRASH/ETH and 2) TRASH/ DEGEN, the rapidly growing meme token with utility in the Farcaster network and beyond. This exposes Trash NFTs to volatility, which generates more revenue because arbitrage bots stabilize the price across pools. Trash NFTs is also governed by a DAO called Waste Management that was initially allocated 20% of all $TRASH tokens. This DAO collects the cleaning fees associated with trait rerolls as well as the transaction fees and LP rewards from its DeFi activities. Finally, Trash NFTs has entered the meatspace by hosting a trash pickup event during Farcon 2024 with /humankind. We are proud of Trash NFTs, as it has maintained and proven to be a sound investment for its holder base while operating successfully. There are definite improvements we continue working toward: 1) expanding growth efforts to the broader 404 ecosystem with partnerships (such as Scattering.io with which we have built a relationship) and promotion, 2) revamping The Dumpster website for a more seamless experience and 3) engaging the community to take leadership in expanding the DAO.",
-//     img: trashIcon,
-//     url: "https://trashnfts.com",
-//   },
-// ];
 const Home: NextPage = () => {
   // const { address: connectedAddress } = useAccount();
 
@@ -97,22 +52,9 @@ const Home: NextPage = () => {
 
   return (
     <>
-      <IconsLinks iconsLinks={IconsLinksData} />
-      {/* <div className="flex flex-wrap items-center gap-4 border-4 border-indigo-400 rounded-lg bg-primary w-full">
-        <IconLink iconLink={Links.warpcastIconLink} />
-        <IconLink iconLink={Links.xIconLink} />
-        <IconLink iconLink={Links.linkedinIconLink} />
-        <IconLink iconLink={Links.githubIconLink} />
-        <IconLink iconLink={Links.youtubeIconLink} />
-        <IconLink iconLink={Links.etherscanIconLink} />
-        <IconLink iconLink={Links.buidlguidlIconLink} />
-        <IconLink iconLink={Links.nounspaceIconLink} />
-        <IconLink iconLink={Links.openseaIconLink} />
-        <IconLink iconLink={Links.documentationIconLink} />
-      </div> */}
-      {/* <div className="bg-primary p-4 rounded-lg border-2 border-indigo-500 w-full">
-        <div className="space-y-5">{projectsElements}</div>
-      </div> */}
+      <div className="bg-primary p-4 rounded-lg border-2 border-indigo-500 w-full">
+        <Projects projects={projectsData} />
+      </div>
 
       {/* <div className="flex space-x-4 bg-black m-10">
         <Link href={"jakdwkjwanjkdn"} target="#" className="w-full h-full"> */}
