@@ -71,7 +71,7 @@ const Home: NextPage = () => {
         <span className="block text-2xl mb-2">Presented to you by</span>
         <PfpCard name="jacobhomanics.eth" image={jake} />
       </h1>
-      <div className="text-center">Organizations</div>
+      <div className="text-center text-4xl">Organizations</div>
       <div className="rounded-lg p-2">
         <IconsLinks
           iconsLinks={[
@@ -93,8 +93,8 @@ const Home: NextPage = () => {
         />
       </div>
 
-      <div className="bg-primary p-4 rounded-lg border-2 border-indigo-500 w-full md:w-[700px]">
-        <p>My Projects</p>
+      <div className="p-4 rounded-lg w-full">
+        <p className="text-center text-4xl">My Projects</p>
         <Projects projects={projectsData} />
       </div>
 

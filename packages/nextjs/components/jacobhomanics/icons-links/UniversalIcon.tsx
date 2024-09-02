@@ -12,7 +12,7 @@ const sizeMap = {
   xs: "w-[24px] h-[24px]",
   sm: "w-[32px] h-[32px]",
   base: "w-[64px] h-[64px]",
-  lg: "w-[128px] h-[128px]",
+  lg: "w-[64x] h-[64px] md:w-[128px] md:h-[128px]",
 };
 
 export const UniversalIcon = ({ Icon, size = "base", isRounded }: Props) => {

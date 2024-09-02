@@ -19,5 +19,5 @@ export const Projects = ({ projects }: Props) => {
       />
     );
   });
-  return <div className="flex flex-col gap-4">{projectsElements}</div>;
+  return <div className="flex flex-wrap gap-4 justify-center">{projectsElements}</div>;
 };
