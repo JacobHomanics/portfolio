@@ -20,13 +20,17 @@ export const UniversalIcon = ({ Icon, size = "base" }: Props) => {
   useEffect(() => {
     if (typeof Icon === "string") {
       setOutput(
-        <div className={sizeMap[size]}>
+        <div className={"hover:brightness-75 dark:hover:brightness-25" + sizeMap[size]}>
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src={Icon} alt="Link" className={`h-full object-scale-down`} />
         </div>,
       );
     } else {
-      setOutput(<Icon className={sizeMap[size]} />);
+      setOutput(
+        <Icon
+          className={"fill-current text-base-100 hover:brightness-50 hover:dark:brightness-200 " + sizeMap[size]}
+        />,
+      );
     }
   }, [Icon]);
 

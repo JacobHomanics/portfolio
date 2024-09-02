@@ -31,7 +31,7 @@ export const Project = ({ name, description, img, url }: Props) => {
     <div className="flex bg-secondary p-4 rounded-lg border-2 border-indigo-500 items-start">
       <Link href={url} target="#" className="w-[100px] h-[100px] flex-none">
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src={img.src} alt="Hejh" className="w-full h-full object-cover rounded-lg" />
+        <img src={img.src} alt="Hejh" className="w-full h-full object-cover rounded-lg hover:brightness-75" />
       </Link>
       <div className="flex flex-col pl-6 items-start">
         <Link href={url} target="#">
@@ -51,7 +51,7 @@ export const Project = ({ name, description, img, url }: Props) => {
             {isLineClamped ? "Click to show more." : "Click to show less."}
           </button>
         )}
-        <div className="mt-2">
+        <div className="mt-2 border-2 border-indigo-400 bg-primary p-1 rounded-lg">
           <IconsLinks iconsLinks={IconsLinksData} size="xs" />
         </div>
       </div>
