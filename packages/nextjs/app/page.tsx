@@ -71,12 +71,13 @@ const Home: NextPage = () => {
         <span className="block text-2xl mb-2">Presented to you by</span>
         <PfpCard name="jacobhomanics.eth" image={jake} />
       </h1>
+      <div className="m-4" />
+
       <div className="text-center text-4xl">Organizations</div>
       <div className="rounded-lg p-2">
         <IconsLinks
           iconsLinks={[
             { url: "https://atxdao.com", icon: atxDaoLogo.src, title: "ATX DAO" },
-            { url: "https://www.bigshottoyworks.com/", icon: bstwLogo.src, title: "Bigshot Toyworks" },
             { url: "https://buidlguidl.com", icon: buidlguidlLogo.src, title: "Buidl Guidl" },
             { url: "https://www.developerdao.com/", icon: developerDaoLogo.src, title: "Developer DAO" },
 
@@ -86,13 +87,13 @@ const Home: NextPage = () => {
             { url: "https://curios.com/", icon: curios.src, title: "Curios" },
             { url: "https://solidityguild.com/", icon: solidityGuildLogo.src, title: "Solidity Guild" },
             { url: "https://www.daocoalition.org/", icon: daoCoalition.src, title: "DAO Coalition" },
+            { url: "https://www.bigshottoyworks.com/", icon: bstwLogo.src, title: "Bigshot Toyworks" },
           ]}
           size="lg"
           areIconsRounded={true}
           justify="center"
         />
       </div>
-
       <div className="p-4 rounded-lg w-full">
         <p className="text-center text-4xl">My Projects</p>
         <Projects projects={projectsData} />

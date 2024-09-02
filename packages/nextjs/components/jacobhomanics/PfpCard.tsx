@@ -28,7 +28,7 @@ export const PfpCard = ({ name, image, size = "base" }: Props) => {
     <div className="flex flex-col items-center">
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img src={image.src} alt={name} className={`rounded-full ${sizeMap[size]}`} />
-      <Address address={result.data as string} size="2xl" />
+      <Address address={result.data as string} size="3xl" />
       {/* <SocialLinks items={[]} /> */}
     </div>
   );
