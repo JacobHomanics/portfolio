@@ -5,8 +5,8 @@ import Link from "next/link";
 type Props = {
   name: string;
   description: string;
-  img: any;
   url: string;
+  img: any;
 };
 
 export const Project = ({ name, description, img, url }: Props) => {
