@@ -8,7 +8,7 @@ type Props = {
     url: string;
     icon: any;
   };
-  size?: "base" | "sm" | "lg";
+  size?: "base" | "sm" | "lg" | "xs";
 };
 
 export const IconLink = ({ iconLink, size = "base" }: Props) => {

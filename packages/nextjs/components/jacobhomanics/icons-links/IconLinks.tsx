@@ -7,7 +7,7 @@ type Props = {
     | { url: string; icon: string }
     | { url: string; icon: ({ className }: { className: string }) => Element }
   )[];
-  size?: "base" | "sm" | "lg";
+  size?: "base" | "sm" | "lg" | "xs";
 };
 
 export const IconsLinks = ({ iconsLinks, size }: Props) => {

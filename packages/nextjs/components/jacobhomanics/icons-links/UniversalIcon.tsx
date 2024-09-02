@@ -4,10 +4,11 @@ import { useEffect, useState } from "react";
 
 type Props = {
   Icon: string | any;
-  size?: "base" | "sm" | "lg";
+  size?: "base" | "sm" | "lg" | "xs";
 };
 
 const sizeMap = {
+  xs: "w-[24px] h-[24px]",
   sm: "w-[32px] h-[32px]",
   base: "w-[64px] h-[64px]",
   lg: "w-[128px] h-[128px]",

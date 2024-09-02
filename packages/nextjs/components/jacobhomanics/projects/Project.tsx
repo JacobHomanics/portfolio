@@ -2,6 +2,8 @@
 
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
+import { IconsLinksData } from "../data/IconsLinksData";
+import { IconsLinks } from "../icons-links/IconLinks";
 import { useWindowSize } from "usehooks-ts";
 
 type Props = {
@@ -44,11 +46,14 @@ export const Project = ({ name, description, img, url }: Props) => {
             onClick={() => {
               setIsLineClamped(!isLineClamped);
             }}
-            className="hover:underline cursor-pointer"
+            className="hover:underline cursor-pointer mt-2 mb-1"
           >
             {isLineClamped ? "Click to show more." : "Click to show less."}
           </button>
         )}
+        <div className="mt-2">
+          <IconsLinks iconsLinks={IconsLinksData} size="xs" />
+        </div>
       </div>
     </div>
   );
