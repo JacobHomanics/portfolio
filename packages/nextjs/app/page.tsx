@@ -2,11 +2,13 @@
 
 // import Link from "next/link";
 // import Link from "next/link";
+// import Link from "next/link";
 import type { NextPage } from "next";
+import { Project } from "~~/components/Project";
 // import { useAccount } from "wagmi";
 // import { BugAntIcon, MagnifyingGlassIcon } from "@heroicons/react/24/outline";
 // import { PfpCard } from "~~/components/jacobhomanics/PfpCard";
-import { ProjectItem } from "~~/components/jacobhomanics/ProjectItem";
+// import { ProjectItem } from "~~/components/jacobhomanics/ProjectItem";
 // import { SocialLinks } from "~~/components/jacobhomanics/SocialLinks";
 // import { socialLinks } from "~~/components/jacobhomanics/SocialLinksObject";
 // import { SocialIcon } from "~~/components/jacobhomanics/SocialIcon";
@@ -14,20 +16,39 @@ import { ProjectItem } from "~~/components/jacobhomanics/ProjectItem";
 // import jake from "~~/public/jake.gif";
 import laddersDotVision from "~~/public/ladders.webp";
 import pizzaPeople from "~~/public/pizzapeople.webp";
-import repAndRolesIcon from "~~/public/rep-and-roles.png";
-import trashIcon from "~~/public/trashIcon.png";
-import weedies from "~~/public/weedies.webp";
-import wwbtcIcon from "~~/public/wwbtc-icon.png";
+
+// import repAndRolesIcon from "~~/public/rep-and-roles.png";
+// import trashIcon from "~~/public/trashIcon.png";
+// import weedies from "~~/public/weedies.webp";
+// import wwbtcIcon from "~~/public/wwbtc-icon.png";
 
 // import { Address } from "~~/components/scaffold-eth";
 // import github from "~~/public/social-icons/github.png";
+// const textExample =
+//   "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at risus velit. Integer porta lectus ac nisi semper, a vehicula lectus iaculis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Fusce vitae sollicitudin dui. Integer scelerisque a purus eget hendrerit. Nam sagittis elit quis fermentum tempus. Aliquam non venenatis ante, eget efficitur tortor. Maecenas lorem felis, ullamcorper ac volutpat et, fringilla ac est. Donec scelerisque purus magna, id volutpat mauris feugiat id. Phasellus dignissim sed ex sed porttitor. Ut fringilla accumsan lectus, vel aliquet quam laoreet vitae. Duis eros massa, dictum pellentesque nisl vitae, malesuada rhoncus neque." +
+//   "Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. In nec ultrices ex. Pellentesque accumsan varius odio non ullamcorper. Vivamus blandit ligula a aliquet imperdiet. Donec sapien purus, rutrum facilisis maximus nec, eleifend vel tortor. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Ut hendrerit semper mauris. Integer sed dictum augue. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.";
 
 const Home: NextPage = () => {
   // const { address: connectedAddress } = useAccount();
 
   return (
     <>
-      <div className="lg:w-[648px] flex">
+      <div className="">
+        <Project img={laddersDotVision} />
+        <Project img={pizzaPeople} />
+      </div>
+
+      {/* <div className="flex space-x-4 bg-black m-10">
+        <Link href={"jakdwkjwanjkdn"} target="#" className="w-full h-full"> */}
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      {/* <img src={pizzaPeople.src} alt={"Hejh" ?? name} className="rounded-lg hover:brightness-75" />
+        </Link>
+        <div>
+          <p className="w-full p-10">Pizza People</p>
+          <div className="w-full p-10">{textExample}</div>
+        </div>
+      </div> */}
+      {/* <div className="lg:w-[648px] flex">
         <div className="bg-primary p-4 rounded-lg border-2 border-indigo-500 w-full">
           <p>My Projects</p>
 
@@ -100,7 +121,7 @@ const Home: NextPage = () => {
             />
           </div>
         </div>
-        {/* <div className="flex flex-col flex-grow pt-10">
+         <div className="flex flex-col flex-grow pt-10">
         <div className="px-5">
           <h1 className="text-center">
             <span className="block text-2xl mb-2">Presented to you by</span>
@@ -108,8 +129,8 @@ const Home: NextPage = () => {
           </h1>
         </div>
         
-        </div> */}
-      </div>
+        </div> 
+      </div> */}
     </>
   );
 };
