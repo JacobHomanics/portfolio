@@ -50,6 +50,8 @@ const Home: NextPage = () => {
 
   // const warpcastIconData = { img: warpcastIcon, type: "img" };
 
+  console.log(projectsData);
+
   return (
     <>
       <div className="bg-primary p-4 rounded-lg border-2 border-indigo-500 w-full">

@@ -1,3 +1,4 @@
+import { GithubLogo } from "~~/components/jacobhomanics/logos/GithubLogo";
 import laddersDotVision from "~~/public/ladders.webp";
 import pizzaPeople from "~~/public/pizzapeople.webp";
 import repAndRolesIcon from "~~/public/rep-and-roles.png";
@@ -12,6 +13,7 @@ export const projectsData = [
       "A tokenized Real World Asset (RWA) where the supply of the token matches the actual number of bottle caps that Jacob Homanics owns in the physical world.",
     img: wwbtcIcon,
     url: "https://bottlecaptoken.com",
+    links: [{ url: "https://github.com/hotmanics/wild-water-bottle-cap-token", icon: GithubLogo }],
   },
   {
     name: "Ladders.Vision",

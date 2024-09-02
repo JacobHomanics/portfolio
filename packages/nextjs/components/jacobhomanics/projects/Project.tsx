@@ -2,7 +2,6 @@
 
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
-import { IconsLinksData } from "../data/IconsLinksData";
 import { IconsLinks } from "../icons-links/IconLinks";
 import { useWindowSize } from "usehooks-ts";
 
@@ -11,14 +10,10 @@ type Props = {
   description: string;
   url: string;
   img: any;
+  links?: ({ url: string; icon: string } | { url: string; icon: ({ className }: { className: string }) => Element })[];
 };
 
-// const links = [] as (
-//   | { url: string; icon: string }
-//   | { url: string; icon: ({ className }: { className: string }) => Element }
-// )[];
-
-export const Project = ({ name, description, img, url }: Props) => {
+export const Project = ({ name, description, img, url, links = [] }: Props) => {
   const [isLineClamped, setIsLineClamped] = useState(true);
   const [isClamped, setIsClamped] = useState(false);
   const descriptionRef = useRef<HTMLDivElement>(null);
@@ -31,6 +26,8 @@ export const Project = ({ name, description, img, url }: Props) => {
       setIsClamped(element.scrollHeight > element.clientHeight);
     }
   }, [result.width, description]);
+
+  const finalLinksArr = [{ url: url, icon: img.src }, ...links];
 
   return (
     <div className="flex bg-secondary p-4 rounded-lg border-2 border-indigo-500 items-start">
@@ -53,11 +50,11 @@ export const Project = ({ name, description, img, url }: Props) => {
             }}
             className="hover:underline cursor-pointer mt-2 mb-1"
           >
-            {isLineClamped ? "Click to show more." : "Click to show less."}
+            {isLineClamped ? "Show more" : "Show less"}
           </button>
         )}
         <div className="mt-2 p-1 rounded-lg">
-          <IconsLinks iconsLinks={IconsLinksData} size="xs" />
+          <IconsLinks iconsLinks={finalLinksArr} size="xs" />
         </div>
       </div>
     </div>
