@@ -13,6 +13,11 @@ type Props = {
   img: any;
 };
 
+// const links = [] as (
+//   | { url: string; icon: string }
+//   | { url: string; icon: ({ className }: { className: string }) => Element }
+// )[];
+
 export const Project = ({ name, description, img, url }: Props) => {
   const [isLineClamped, setIsLineClamped] = useState(true);
   const [isClamped, setIsClamped] = useState(false);

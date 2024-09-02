@@ -1,4 +1,5 @@
 import React from "react";
+import { SwitchWeb } from "./SwitchWeb";
 import { IconsLinksData } from "./jacobhomanics/data/IconsLinksData";
 import { IconsLinks } from "./jacobhomanics/icons-links/IconLinks";
 // import { SocialLinks } from "./jacobhomanics/SocialLinks";
@@ -53,7 +54,10 @@ export const Footer = () => {
           {/* <div className="pointer-events-auto bg-primary p-1 border-2 border-indigo-500 rounded-lg">
             <SocialLinks items={socialLinks2} />  
           </div> */}
-          <SwitchTheme className={`pointer-events-auto ${isLocalNetwork ? "self-end md:self-auto" : ""}`} />
+          <div className="flex flex-col mr-2">
+            <SwitchWeb className={`pointer-events-auto ${isLocalNetwork ? "self-end md:self-auto" : ""}`} />
+            <SwitchTheme className={`pointer-events-auto ${isLocalNetwork ? "self-end md:self-auto" : ""}`} />
+          </div>
         </div>
       </div>
       {/* <div className="w-full">
