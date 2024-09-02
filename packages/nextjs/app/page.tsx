@@ -5,12 +5,12 @@
 // import Link from "next/link";
 // import Link from "next/link";
 import type { NextPage } from "next";
+import { projectsData } from "~~/components/jacobhomanics/data/ProjectsData";
 // import { BuidlGuidlLogo } from "~~/components/assets/BuidlGuidlLogo";
 // import { IconLink } from "~~/components/jacobhomanics/IconLink";
 // import { IconsLinks } from "~~/components/jacobhomanics/IconLinks";
 // import { Project } from "~~/components/jacobhomanics/Project";
-import { Projects } from "~~/components/jacobhomanics/Projects";
-import { projectsData } from "~~/components/jacobhomanics/ProjectsData";
+import { Projects } from "~~/components/jacobhomanics/projects/Projects";
 
 // import { UniversalIcon } from "~~/components/jacobhomanics/UniversalIcon";
 // import { EtherscanLogo } from "~~/components/jacobhomanics/logos/EtherscanLogo";

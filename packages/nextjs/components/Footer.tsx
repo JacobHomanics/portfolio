@@ -1,6 +1,6 @@
 import React from "react";
-import { IconsLinks } from "./jacobhomanics/IconLinks";
-import { IconsLinksData } from "./jacobhomanics/social/IconsLinksData";
+import { IconsLinksData } from "./jacobhomanics/data/IconsLinksData";
+import { IconsLinks } from "./jacobhomanics/icons-links/IconLinks";
 // import { SocialLinks } from "./jacobhomanics/SocialLinks";
 // import { socialLinks2 } from "./jacobhomanics/SocialLinksObject";
 // import Link from "next/link";

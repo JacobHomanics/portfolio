@@ -1,9 +1,9 @@
-import { EtherscanLogo } from "./logos/EtherscanLogo";
-import { GithubLogo } from "./logos/GithubLogo";
+import { EtherscanLogo } from "../logos/EtherscanLogo";
+import { GithubLogo } from "../logos/GithubLogo";
 // import { IconLink } from "./IconLink";
-import { NounspaceLogo } from "./logos/NounspaceLogo";
-import { OpenSeaLogo } from "./logos/OpenSeaLogo";
-import { XLogo } from "./logos/XLogo";
+import { NounspaceLogo } from "../logos/NounspaceLogo";
+import { OpenSeaLogo } from "../logos/OpenSeaLogo";
+import { XLogo } from "../logos/XLogo";
 import { BuidlGuidlLogo } from "~~/components/assets/BuidlGuidlLogo";
 import linkedinIcon from "~~/public/icons/LI-In-Bug.png";
 import warpcastIcon from "~~/public/icons/warpcast-icon.png";
