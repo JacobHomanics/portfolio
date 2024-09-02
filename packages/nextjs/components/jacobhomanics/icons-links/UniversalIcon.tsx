@@ -28,7 +28,10 @@ export const UniversalIcon = ({ Icon, size = "base" }: Props) => {
     } else {
       setOutput(
         <Icon
-          className={"fill-current text-base-100 hover:brightness-50 hover:dark:brightness-200 " + sizeMap[size]}
+          className={
+            "fill-current text-secondary-content hover:text-secondary hover:brightness-200 hover:dark:brightness-50 " +
+            sizeMap[size]
+          }
         />,
       );
     }

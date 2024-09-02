@@ -51,7 +51,7 @@ export const Project = ({ name, description, img, url }: Props) => {
             {isLineClamped ? "Click to show more." : "Click to show less."}
           </button>
         )}
-        <div className="mt-2 border-2 border-indigo-400 bg-primary p-1 rounded-lg">
+        <div className="mt-2 p-1 rounded-lg">
           <IconsLinks iconsLinks={IconsLinksData} size="xs" />
         </div>
       </div>
