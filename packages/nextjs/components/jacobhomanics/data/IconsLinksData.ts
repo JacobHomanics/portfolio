@@ -25,7 +25,6 @@ export const IconsLinksData = [
     url: "https://opensea.io/0xc689c800a7121b186208ea3b182fAb2671B337E7",
     icon: OpenSeaLogo,
   },
-  { url: "", icon: ScrollLogo },
 ] as ({ url: string; icon: string } | { url: string; icon: ({ className }: { className: string }) => Element })[];
 
 export const warpcastIconLink = {
