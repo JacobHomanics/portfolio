@@ -36,7 +36,7 @@ export const UniversalIcon = ({ Icon, size = "base", isRounded }: Props) => {
         />,
       );
     }
-  }, [Icon]);
+  }, [Icon, isRounded, size]);
 
   return output;
 };

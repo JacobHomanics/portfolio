@@ -82,7 +82,7 @@ export const Header = () => {
     } else {
       setSelectedPersonConfig(PersonData);
     }
-  }, [isWeb3]);
+  }, [personConfig?.name, isWeb3]);
 
   const sendETH = async () => {
     try {

@@ -24,26 +24,30 @@ const Home: NextPage = () => {
 
   const [web3Orgs, setWeb3Orgs] = useState<any[]>([]);
 
-  useEffect(() => {
-    async function get() {
-      if (!organizationsContract) return;
-      if (!organizationsCount) return;
+  useEffect(
+    () => {
+      async function get() {
+        if (!organizationsContract) return;
+        if (!organizationsCount) return;
 
-      const orgs = [];
-      for (let i = 0; i < organizationsCount; i++) {
-        const result = await readContract(wagmiConfig, {
-          abi: organizationsContract.abi,
-          address: organizationsContract.address,
-          functionName: "getData",
-          args: [BigInt(i)],
-        });
-        orgs.push(result);
+        const orgs = [];
+        for (let i = 0; i < organizationsCount; i++) {
+          const result = await readContract(wagmiConfig, {
+            abi: organizationsContract.abi,
+            address: organizationsContract.address,
+            functionName: "getData",
+            args: [BigInt(i)],
+          });
+          orgs.push(result);
 
-        setWeb3Orgs([...orgs]);
+          setWeb3Orgs([...orgs]);
+        }
       }
-    }
-    get();
-  }, [organizationsContract?.address, organizationsCount]);
+      get();
+    },
+    /* eslint-disable-next-line @next/next/no-img-element */
+    [(organizationsContract?.address, organizationsCount)],
+  );
 
   const { isWeb3 } = useGlobalState();
 
