@@ -5,9 +5,9 @@ import { NounspaceLogo } from "~~/components/portfolio/logos/NounspaceLogo";
 import { OpenSeaLogo } from "~~/components/portfolio/logos/OpenSeaLogo";
 import { ScrollLogo } from "~~/components/portfolio/logos/ScrollLogo";
 import { XLogo } from "~~/components/portfolio/logos/XLogo";
-import linkedinIcon from "~~/public/icons/LI-In-Bug.png";
-import warpcastIcon from "~~/public/icons/warpcast-icon.png";
-import youtubeLogo from "~~/public/youtube_social_circle_red.png";
+import linkedinIcon from "~~/public/website-icons/LI-In-Bug.png";
+import warpcastIcon from "~~/public/website-icons/warpcast-icon.png";
+import youtubeLogo from "~~/public/website-icons/youtube_social_circle_red.png";
 
 export const IconsLinksData = [
   { url: "https://warpcast.com/jacobhomanics.eth", icon: warpcastIcon.src },

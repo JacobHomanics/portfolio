@@ -4,19 +4,19 @@ import { GithubLogo } from "~~/components/portfolio/logos/GithubLogo";
 import { OpenSeaLogo } from "~~/components/portfolio/logos/OpenSeaLogo";
 import { ScrollLogo } from "~~/components/portfolio/logos/ScrollLogo";
 import { XLogo } from "~~/components/portfolio/logos/XLogo";
-import warpcastIcon from "~~/public/icons/warpcast-icon.png";
-import laddersDotVision from "~~/public/ladders.webp";
 import daoCoalitionLogo from "~~/public/organizations/dao-coalition.png";
 import hatsLogo from "~~/public/organizations/hats.jpg";
 import optimismFractalIcon from "~~/public/organizations/optimism-fractal.jpg";
-import pizzaPeople from "~~/public/pizzapeople.webp";
 import atxDaoRepAndRolesIcon from "~~/public/projects/lifetimetoken.jpg";
-import repAndRolesIcon from "~~/public/rep-and-roles.png";
-import snapshotIcon from "~~/public/snapshot.png";
-import trashIcon from "~~/public/trashIcon.png";
-import unlockIcon from "~~/public/unlock.png";
-import weedies from "~~/public/weedies.webp";
-import wwbtcIcon from "~~/public/wwbtc-icon.png";
+import pizzaPeople from "~~/public/projects/pizzapeople.webp";
+import repAndRolesIcon from "~~/public/projects/rep-and-roles.png";
+import trashIcon from "~~/public/projects/trashIcon.png";
+import weedies from "~~/public/projects/weedies.webp";
+import wwbtcIcon from "~~/public/projects/wwbtc-icon.png";
+import laddersDotVision from "~~/public/website-icons/ladders.webp";
+import snapshotIcon from "~~/public/website-icons/snapshot.png";
+import unlockIcon from "~~/public/website-icons/unlock.png";
+import warpcastIcon from "~~/public/website-icons/warpcast-icon.png";
 
 export const projectsData = [
   {
