@@ -132,7 +132,10 @@ export const Header = () => {
           </div>
         </Link> */}
 
-        <button onClick={sendETH} className="btn btn-primary text-xs md:text-md w-3/5 md:w-1/5 justify-center">
+        <button
+          onClick={sendETH}
+          className="btn btn-primary text-xs md:text-xs lg:text-xs w-3/5 md:w-2/5 lg:w-1/5 justify-center"
+        >
           Buy me a coffee (with Crypto!)
         </button>
 

@@ -7,7 +7,7 @@ import { GenericContractsDeclaration } from "~~/utils/scaffold-eth/contract";
 const deployedContracts = {
   31337: {
     Person: {
-      address: "0x9e545e3c0baab3e08cdfd552c960a1050f373042",
+      address: "0x851356ae760d987e095750cceb3bc6014560891c",
       abi: [
         {
           type: "constructor",
@@ -85,7 +85,7 @@ const deployedContracts = {
       inheritedFunctions: {},
     },
     Organizations: {
-      address: "0xa82ff9afd8f496c3d6ac40e2a0f282e47488cfc9",
+      address: "0xf5059a5d33d5853360d16c683c16e67980206f36",
       abi: [
         {
           type: "constructor",
@@ -208,7 +208,7 @@ const deployedContracts = {
       inheritedFunctions: {},
     },
     YourContract: {
-      address: "0x1613beb3b2c4f22ee086b2b38c1476a3ce7f78e8",
+      address: "0x95401dc811bb5740090279ba06cfa8fcf6113778",
       abi: [
         {
           type: "constructor",

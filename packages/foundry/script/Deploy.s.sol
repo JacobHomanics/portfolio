@@ -25,8 +25,63 @@ contract DeployScript is ScaffoldETHDeploy {
             "https://atxdao.com",
             "https://jacobhomanics-organizations.s3.us-east-2.amazonaws.com/atx-dao.png"
         );
-        Organizations.Config[] memory configs = new Organizations.Config[](1);
+        Organizations.Config memory config2 = Organizations.Config(
+            "Buidl Guidl",
+            "https://buidlguidl.com",
+            "https://jacobhomanics-organizations.s3.us-east-2.amazonaws.com/buidlguidllogo.jpg"
+        );
+        Organizations.Config memory config3 = Organizations.Config(
+            "Base",
+            "https://base.org",
+            "https://jacobhomanics-organizations.s3.us-east-2.amazonaws.com/base-logo-in-blue.png"
+        );
+        Organizations.Config memory config4 = Organizations.Config(
+            "Bigshot Toyworks",
+            "https://bigshottoyworks.com",
+            "https://jacobhomanics-organizations.s3.us-east-2.amazonaws.com/bstw.png"
+        );
+        Organizations.Config memory config5 = Organizations.Config(
+            "Curios",
+            "https://curios.com",
+            "https://jacobhomanics-organizations.s3.us-east-2.amazonaws.com/curios.jpg"
+        );
+        Organizations.Config memory config6 = Organizations.Config(
+            "DAO Coalition",
+            "https://daocoalition.org",
+            "https://jacobhomanics-organizations.s3.us-east-2.amazonaws.com/dao-coalition.png"
+        );
+        Organizations.Config memory config7 = Organizations.Config(
+            "Developer DAO",
+            "https://developerdao.com",
+            "https://jacobhomanics-organizations.s3.us-east-2.amazonaws.com/dd.png"
+        );
+        Organizations.Config memory config8 = Organizations.Config(
+            "Optimism",
+            "https://optimism.io",
+            "https://jacobhomanics-organizations.s3.us-east-2.amazonaws.com/optimism-ethereum-op-logo.png"
+        );
+        Organizations.Config memory config9 = Organizations.Config(
+            "Optimism Fractal",
+            "https://optimismfractal.com",
+            "https://jacobhomanics-organizations.s3.us-east-2.amazonaws.com/optimism-fractal.jpg"
+        );
+        Organizations.Config memory config10 = Organizations.Config(
+            "Solidity Guild",
+            "https://solidityguild.com",
+            "https://jacobhomanics-organizations.s3.us-east-2.amazonaws.com/solidity-guild.png"
+        );
+
+        Organizations.Config[] memory configs = new Organizations.Config[](10);
         configs[0] = config1;
+        configs[1] = config2;
+        configs[2] = config3;
+        configs[3] = config4;
+        configs[4] = config5;
+        configs[5] = config6;
+        configs[6] = config7;
+        configs[7] = config8;
+        configs[8] = config9;
+        configs[9] = config10;
         new Organizations(configs, 0xCbEbcc04B4A5fA18089695AB357fD149c7862Cce);
 
         YourContract yourContract = new YourContract(
