@@ -7,13 +7,18 @@ import { GenericContractsDeclaration } from "~~/utils/scaffold-eth/contract";
 const deployedContracts = {
   31337: {
     Person: {
-      address: "0x998abeb3e57409262ae5b751f60747921b33613e",
+      address: "0x99bba657f2bbc93c02d617f8ba121cb8fc104acf",
       abi: [
         {
           type: "constructor",
           inputs: [
             {
               name: "name",
+              type: "string",
+              internalType: "string",
+            },
+            {
+              name: "description",
               type: "string",
               internalType: "string",
             },
@@ -37,6 +42,11 @@ const deployedContracts = {
               components: [
                 {
                   name: "name",
+                  type: "string",
+                  internalType: "string",
+                },
+                {
+                  name: "description",
                   type: "string",
                   internalType: "string",
                 },
@@ -65,6 +75,19 @@ const deployedContracts = {
         },
         {
           type: "function",
+          name: "setDescription",
+          inputs: [
+            {
+              name: "description",
+              type: "string",
+              internalType: "string",
+            },
+          ],
+          outputs: [],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
           name: "setName",
           inputs: [
             {
@@ -85,7 +108,7 @@ const deployedContracts = {
       inheritedFunctions: {},
     },
     Organizations: {
-      address: "0x70e0ba845a1a0f2da3359c97e0285013525ffc49",
+      address: "0x0e801d84fa97b50751dbf25036d067dcf18858bf",
       abi: [
         {
           type: "constructor",
@@ -208,7 +231,7 @@ const deployedContracts = {
       inheritedFunctions: {},
     },
     YourContract: {
-      address: "0x4826533b4897376654bb4d4ad88b7fafd0c98528",
+      address: "0x8f86403a4de0bb5791fa46b8e795c547942fe4cf",
       abi: [
         {
           type: "constructor",

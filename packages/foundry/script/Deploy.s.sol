@@ -25,14 +25,14 @@ contract DeployScript is ScaffoldETHDeploy {
         );
 
         Organizations.Config memory config1 = Organizations.Config(
-            "ATX DAO",
-            "https://atxdao.com",
-            "https://jacobhomanics-organizations.s3.us-east-2.amazonaws.com/atx-dao.png"
+            "Curios",
+            "https://curios.com",
+            "https://jacobhomanics-organizations.s3.us-east-2.amazonaws.com/curios.jpg"
         );
         Organizations.Config memory config2 = Organizations.Config(
-            "Buidl Guidl",
-            "https://buidlguidl.com",
-            "https://jacobhomanics-organizations.s3.us-east-2.amazonaws.com/buidlguidllogo.jpg"
+            "DAO Coalition",
+            "https://daocoalition.org",
+            "https://jacobhomanics-organizations.s3.us-east-2.amazonaws.com/dao-coalition.png"
         );
         Organizations.Config memory config3 = Organizations.Config(
             "Base",
@@ -45,14 +45,14 @@ contract DeployScript is ScaffoldETHDeploy {
             "https://jacobhomanics-organizations.s3.us-east-2.amazonaws.com/bstw.png"
         );
         Organizations.Config memory config5 = Organizations.Config(
-            "Curios",
-            "https://curios.com",
-            "https://jacobhomanics-organizations.s3.us-east-2.amazonaws.com/curios.jpg"
+            "ATX DAO",
+            "https://atxdao.com",
+            "https://jacobhomanics-organizations.s3.us-east-2.amazonaws.com/atx-dao.png"
         );
         Organizations.Config memory config6 = Organizations.Config(
-            "DAO Coalition",
-            "https://daocoalition.org",
-            "https://jacobhomanics-organizations.s3.us-east-2.amazonaws.com/dao-coalition.png"
+            "Optimism Fractal",
+            "https://optimismfractal.com",
+            "https://jacobhomanics-organizations.s3.us-east-2.amazonaws.com/optimism-fractal.jpg"
         );
         Organizations.Config memory config7 = Organizations.Config(
             "Developer DAO",
@@ -65,9 +65,9 @@ contract DeployScript is ScaffoldETHDeploy {
             "https://jacobhomanics-organizations.s3.us-east-2.amazonaws.com/optimism-ethereum-op-logo.png"
         );
         Organizations.Config memory config9 = Organizations.Config(
-            "Optimism Fractal",
-            "https://optimismfractal.com",
-            "https://jacobhomanics-organizations.s3.us-east-2.amazonaws.com/optimism-fractal.jpg"
+            "Buidl Guidl",
+            "https://buidlguidl.com",
+            "https://jacobhomanics-organizations.s3.us-east-2.amazonaws.com/buidlguidllogo.jpg"
         );
         Organizations.Config memory config10 = Organizations.Config(
             "Solidity Guild",
