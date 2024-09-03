@@ -5,6 +5,7 @@ import buidlguidlLogo from "~~/public/organizations/buidlguidllogo.jpg";
 import curios from "~~/public/organizations/curios.jpg";
 import daoCoalition from "~~/public/organizations/dao-coalition.png";
 import developerDaoLogo from "~~/public/organizations/dd.png";
+import hatsProtocolLogo from "~~/public/organizations/hats.jpg";
 import optimismLogo from "~~/public/organizations/optimism-ethereum-op-logo.png";
 import optimismFractalLogo from "~~/public/organizations/optimism-fractal.jpg";
 import solidityGuildLogo from "~~/public/organizations/solidity-guild.png";
@@ -16,6 +17,7 @@ export const organizations = [
   { url: "https://www.developerdao.com/", icon: developerDaoLogo.src, name: "Developer DAO" },
   { url: "https://atxdao.com", icon: atxDaoLogo.src, name: "ATX DAO" },
   { url: "https://optimismfractal.com/", icon: optimismFractalLogo.src, name: "Optimism Fractal" },
+  { url: "https://hatsprotocol.xyz/", icon: hatsProtocolLogo.src, name: "Hats Protocol" },
   { url: "https://buidlguidl.com", icon: buidlguidlLogo.src, name: "Buidl Guidl" },
   { url: "https://optimism.io/", icon: optimismLogo.src, name: "Optimism" },
   { url: "https://base.org/", icon: baseLogo.src, name: "Base" },

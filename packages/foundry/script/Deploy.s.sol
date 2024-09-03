@@ -20,7 +20,7 @@ contract DeployScript is ScaffoldETHDeploy {
 
         new Person(
             "Jacob Homanics",
-            "Building Public Goods and striving to make the world a better place.",
+            "DAO oriented, Public Goods Developer, and an Open Source Advocate striving to make the world a better place.",
             0xc689c800a7121b186208ea3b182fAb2671B337E7
         );
 
@@ -75,7 +75,13 @@ contract DeployScript is ScaffoldETHDeploy {
             "https://jacobhomanics-organizations.s3.us-east-2.amazonaws.com/solidity-guild.png"
         );
 
-        Organizations.Config[] memory configs = new Organizations.Config[](10);
+        Organizations.Config memory config11 = Organizations.Config(
+            "Hats Protocol",
+            "https://hatsprotocol.xyz",
+            "https://jacobhomanics-organizations.s3.us-east-2.amazonaws.com/hats.jpg"
+        );
+
+        Organizations.Config[] memory configs = new Organizations.Config[](11);
         configs[0] = config1;
         configs[1] = config2;
         configs[2] = config3;
@@ -86,6 +92,7 @@ contract DeployScript is ScaffoldETHDeploy {
         configs[7] = config8;
         configs[8] = config9;
         configs[9] = config10;
+        configs[10] = config11;
         new Organizations(configs, 0xCbEbcc04B4A5fA18089695AB357fD149c7862Cce);
 
         YourContract yourContract = new YourContract(
