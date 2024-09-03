@@ -31,7 +31,7 @@ export const Project = ({ name, description, img, url, links = [] }: Props) => {
   const finalLinksArr = [...links];
 
   return (
-    <div className="flex bg-secondary p-4 rounded-lg border-2 border-indigo-500 items-start w-full md:w-2/5">
+    <div className="flex bg-secondary p-4 rounded-lg border-2 border-primary items-start w-full md:w-2/5">
       <Link href={url} target="#" className="w-[100px] h-[100px] flex-none">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img src={img.src} alt="Hejh" className="w-full h-full object-cover rounded-lg hover:brightness-75" />

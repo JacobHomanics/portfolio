@@ -60,7 +60,7 @@ export const Footer = () => {
               )}
             </div>
 
-            <div className="pointer-events-auto border-4 border-indigo-400 rounded-lg bg-base-300 dark:bg-base-200 p-2">
+            <div className="pointer-events-auto border-4 border-primary rounded-lg bg-base-300 dark:bg-base-200 p-2">
               <IconsLinks iconsLinks={IconsLinksData} size="sm" />
             </div>
           </div>
