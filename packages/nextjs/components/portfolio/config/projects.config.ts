@@ -22,7 +22,7 @@ export const projectsData = [
   {
     name: "Reputation & Roles Starter Kit",
     description:
-      "Implement a way to track trust onchain and grant roles in decentralized & permissionless ways for your organizations!",
+      "An all-in-one toolkit to deploy a fully onchain way of tracking trust and granting authorities/permissions in decentralized and permissionless ways!",
     img: repAndRolesIcon,
     url: "https://github.com/ATXDAO/rep-and-roles-starter-kit",
     links: [
@@ -45,7 +45,7 @@ export const projectsData = [
   },
   {
     name: "ATX DAO - Reputation & Roles",
-    description: "A way to track trust onchain and grant roles in decentralized & permissionless ways for ATX DAO!",
+    description: "A complete implementation of the Reputation & Roles Starter Kit for ATX DAO.",
     img: atxDaoRepAndRolesIcon,
     url: "https://app.hatsprotocol.xyz/trees/10/105",
     links: [

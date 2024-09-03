@@ -3,8 +3,8 @@ import React, { useEffect, useState } from "react";
 // import { socialLinks2 } from "./jacobhomanics/SocialLinksObject";
 import Link from "next/link";
 import { SwitchWeb } from "./portfolio/SwitchWeb";
-import { IconsLinksData } from "./portfolio/config/socials.config";
-import { IconsLinks } from "./portfolio/icons-links/IconLinks";
+// import { IconsLinksData } from "./portfolio/config/socials.config";
+// import { IconsLinks } from "./portfolio/icons-links/IconLinks";
 import { hardhat } from "viem/chains";
 import { CurrencyDollarIcon, MagnifyingGlassIcon } from "@heroicons/react/24/outline";
 import { HeartIcon } from "@heroicons/react/24/outline";
@@ -60,9 +60,9 @@ export const Footer = () => {
               )}
             </div>
 
-            <div className="pointer-events-auto border-4 border-primary rounded-lg bg-base-300 dark:bg-base-200 p-2">
+            {/* <div className="pointer-events-auto border-4 border-primary rounded-lg bg-base-300 dark:bg-base-200 p-2">
               <IconsLinks iconsLinks={IconsLinksData} size="sm" />
-            </div>
+            </div> */}
           </div>
 
           {isWeb3 ? (
