@@ -1,9 +1,10 @@
 "use client";
 
 import React, { useCallback, useRef, useState } from "react";
-import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { parseEther } from "viem";
+import { useSendTransaction } from "wagmi";
 import { Bars3Icon, BugAntIcon } from "@heroicons/react/24/outline";
 import { FaucetButton, RainbowKitCustomConnectButton } from "~~/components/scaffold-eth";
 import { useOutsideClick } from "~~/hooks/scaffold-eth";
@@ -63,6 +64,8 @@ export const Header = () => {
     useCallback(() => setIsDrawerOpen(false), []),
   );
 
+  const { sendTransaction } = useSendTransaction();
+
   return (
     <div className="sticky lg:static top-0 navbar bg-base-100 min-h-0 flex-shrink-0 justify-between z-20 shadow-md shadow-secondary px-0 sm:px-2">
       <div className="navbar-start w-auto lg:w-1/2">
@@ -88,7 +91,7 @@ export const Header = () => {
             </ul>
           )}
         </div>
-        <Link href="/" passHref className="hidden lg:flex items-center gap-2 ml-4 mr-6 shrink-0">
+        {/* <Link href="/" passHref className="hidden lg:flex items-center gap-2 ml-4 mr-6 shrink-0">
           <div className="flex relative w-10 h-10">
             <Image alt="SE2 logo" className="cursor-pointer" fill src="/logo.svg" />
           </div>
@@ -96,7 +99,17 @@ export const Header = () => {
             <span className="font-bold leading-tight">Scaffold-ETH</span>
             <span className="text-xs">Ethereum dev stack</span>
           </div>
-        </Link>
+        </Link> */}
+
+        <button
+          onClick={async () => {
+            sendTransaction({ to: "0xc689c800a7121b186208ea3b182fAb2671B337E7", value: parseEther("0.0020") });
+          }}
+          className="btn btn-primary text-xs md:text-md w-3/5 md:w-1/5 justify-center"
+        >
+          Buy me a coffee (with Crypto!)
+        </button>
+
         <ul className="hidden lg:flex lg:flex-nowrap menu menu-horizontal px-1 gap-2">
           <HeaderMenuLinks />
         </ul>

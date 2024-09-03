@@ -1,13 +1,11 @@
 "use client";
 
 import { Address } from "../scaffold-eth";
-// import { SocialLinks } from "./SocialLinks";
-import { normalize } from "viem/ens";
-import { useEnsAddress } from "wagmi";
 
 type Props = {
   name?: string;
   image?: any;
+  address?: string;
   size?: "sm" | "base" | "lg";
 };
 
@@ -17,18 +15,13 @@ const sizeMap = {
   lg: "",
 };
 
-export const PfpCard = ({ name, image, size = "base" }: Props) => {
-  const result = useEnsAddress({
-    name: normalize(name || ""),
-  });
-
-  console.log(result);
-
+export const PfpCard = ({ name, address, image, size = "base" }: Props) => {
   return (
     <div className="flex flex-col items-center">
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img src={image.src} alt={name} className={`rounded-full ${sizeMap[size]}`} />
-      <Address address={result.data as string} size="3xl" />
+      <div className="text-3xl">Jacob Homanics</div>
+      <Address address={address} />
       {/* <SocialLinks items={[]} /> */}
     </div>
   );

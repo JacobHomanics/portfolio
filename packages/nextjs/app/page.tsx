@@ -65,12 +65,18 @@ const Home: NextPage = () => {
 
   console.log(projectsData);
 
+  // const result = useEnsAddress({
+  //   name: normalize("jacobhomanics.eth"),
+  //   chainId: 1,
+  // });
+
   return (
-    <>
+    <div className="flex flex-col items-center">
       <h1 className="text-center">
         <span className="block text-2xl mb-2">Presented to you by</span>
-        <PfpCard name="jacobhomanics.eth" image={jake} />
+        <PfpCard name="Jacob Homanics" address="0xc689c800a7121b186208ea3b182fAb2671B337E7" image={jake} />
       </h1>
+
       <div className="m-4" />
 
       <div className="text-center text-4xl">Organizations</div>
@@ -89,7 +95,7 @@ const Home: NextPage = () => {
             { url: "https://www.daocoalition.org/", icon: daoCoalition.src, title: "DAO Coalition" },
             { url: "https://www.bigshottoyworks.com/", icon: bstwLogo.src, title: "Bigshot Toyworks" },
           ]}
-          size="lg"
+          size="base"
           areIconsRounded={true}
           justify="center"
         />
@@ -192,7 +198,7 @@ const Home: NextPage = () => {
         
         </div> 
       </div> */}
-    </>
+    </div>
   );
 };
 
