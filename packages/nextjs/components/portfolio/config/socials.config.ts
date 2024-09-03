@@ -1,10 +1,10 @@
 import { BuidlGuidlLogo } from "~~/components/assets/BuidlGuidlLogo";
-import { EtherscanLogo } from "~~/components/jacobhomanics/logos/EtherscanLogo";
-import { GithubLogo } from "~~/components/jacobhomanics/logos/GithubLogo";
-import { NounspaceLogo } from "~~/components/jacobhomanics/logos/NounspaceLogo";
-import { OpenSeaLogo } from "~~/components/jacobhomanics/logos/OpenSeaLogo";
-import { ScrollLogo } from "~~/components/jacobhomanics/logos/ScrollLogo";
-import { XLogo } from "~~/components/jacobhomanics/logos/XLogo";
+import { EtherscanLogo } from "~~/components/portfolio/logos/EtherscanLogo";
+import { GithubLogo } from "~~/components/portfolio/logos/GithubLogo";
+import { NounspaceLogo } from "~~/components/portfolio/logos/NounspaceLogo";
+import { OpenSeaLogo } from "~~/components/portfolio/logos/OpenSeaLogo";
+import { ScrollLogo } from "~~/components/portfolio/logos/ScrollLogo";
+import { XLogo } from "~~/components/portfolio/logos/XLogo";
 import linkedinIcon from "~~/public/icons/LI-In-Bug.png";
 import warpcastIcon from "~~/public/icons/warpcast-icon.png";
 import youtubeLogo from "~~/public/youtube_social_circle_red.png";

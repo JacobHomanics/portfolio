@@ -1,12 +1,12 @@
 "use client";
 
 import type { NextPage } from "next";
-import { PfpCard } from "~~/components/jacobhomanics/PfpCard";
-import { organizations } from "~~/components/jacobhomanics/data/OrganizationsData";
-import * as PersonData from "~~/components/jacobhomanics/data/PersonData";
-import { projectsData } from "~~/components/jacobhomanics/data/ProjectsData";
-import { IconsLinks } from "~~/components/jacobhomanics/icons-links/IconLinks";
-import { Projects } from "~~/components/jacobhomanics/projects/Projects";
+import { PfpCard } from "~~/components/portfolio/PfpCard";
+import { organizations } from "~~/components/portfolio/config/organization.config";
+import * as PersonData from "~~/components/portfolio/config/person.config";
+import { projectsData } from "~~/components/portfolio/config/projects.config";
+import { IconsLinks } from "~~/components/portfolio/icons-links/IconLinks";
+import { Projects } from "~~/components/portfolio/projects/Projects";
 import jake from "~~/public/jake.gif";
 
 const Home: NextPage = () => {

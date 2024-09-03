@@ -1,7 +1,7 @@
 import React from "react";
 import { SwitchWeb } from "./SwitchWeb";
-import { IconsLinksData } from "./jacobhomanics/data/IconsLinksData";
-import { IconsLinks } from "./jacobhomanics/icons-links/IconLinks";
+import { IconsLinksData } from "./portfolio/config/socials.config";
+import { IconsLinks } from "./portfolio/icons-links/IconLinks";
 // import { SocialLinks } from "./jacobhomanics/SocialLinks";
 // import { socialLinks2 } from "./jacobhomanics/SocialLinksObject";
 // import Link from "next/link";

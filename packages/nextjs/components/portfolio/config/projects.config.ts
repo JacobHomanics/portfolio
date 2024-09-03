@@ -1,9 +1,9 @@
 import { BuidlGuidlLogo } from "~~/components/assets/BuidlGuidlLogo";
-import { EtherscanLogo } from "~~/components/jacobhomanics/logos/EtherscanLogo";
-import { GithubLogo } from "~~/components/jacobhomanics/logos/GithubLogo";
-import { OpenSeaLogo } from "~~/components/jacobhomanics/logos/OpenSeaLogo";
-import { ScrollLogo } from "~~/components/jacobhomanics/logos/ScrollLogo";
-import { XLogo } from "~~/components/jacobhomanics/logos/XLogo";
+import { EtherscanLogo } from "~~/components/portfolio/logos/EtherscanLogo";
+import { GithubLogo } from "~~/components/portfolio/logos/GithubLogo";
+import { OpenSeaLogo } from "~~/components/portfolio/logos/OpenSeaLogo";
+import { ScrollLogo } from "~~/components/portfolio/logos/ScrollLogo";
+import { XLogo } from "~~/components/portfolio/logos/XLogo";
 import warpcastIcon from "~~/public/icons/warpcast-icon.png";
 import laddersDotVision from "~~/public/ladders.webp";
 import pizzaPeople from "~~/public/pizzapeople.webp";
