@@ -3,6 +3,7 @@ pragma solidity ^0.8.19;
 
 import "../contracts/YourContract.sol";
 import "../contracts/Person.sol";
+import "../contracts/Organizations.sol";
 import "./DeployHelpers.s.sol";
 
 contract DeployScript is ScaffoldETHDeploy {
@@ -17,10 +18,16 @@ contract DeployScript is ScaffoldETHDeploy {
         }
         vm.startBroadcast(deployerPrivateKey);
 
-        Person personConfig = new Person(
-            "Tony Homanics",
-            "0xc689c800a7121b186208ea3b182fAb2671B337E8"
+        new Person("Tony Homanics", 0xc689c800a7121b186208ea3b182fAb2671B337E7);
+
+        Organizations.Config memory config1 = Organizations.Config(
+            "ATX DAO",
+            "https://atxdao.com",
+            "https://jacobhomanics-organizations.s3.us-east-2.amazonaws.com/atx-dao.png"
         );
+        Organizations.Config[] memory configs = new Organizations.Config[](1);
+        configs[0] = config1;
+        new Organizations(configs, 0xCbEbcc04B4A5fA18089695AB357fD149c7862Cce);
 
         YourContract yourContract = new YourContract(
             vm.addr(deployerPrivateKey)

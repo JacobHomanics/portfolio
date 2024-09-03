@@ -7,7 +7,7 @@ import { GenericContractsDeclaration } from "~~/utils/scaffold-eth/contract";
 const deployedContracts = {
   31337: {
     Person: {
-      address: "0x3aa5ebb10dc797cac828524e59a333d0a371443c",
+      address: "0x9e545e3c0baab3e08cdfd552c960a1050f373042",
       abi: [
         {
           type: "constructor",
@@ -18,9 +18,9 @@ const deployedContracts = {
               internalType: "string",
             },
             {
-              name: "description",
-              type: "string",
-              internalType: "string",
+              name: "addr",
+              type: "address",
+              internalType: "address",
             },
           ],
           stateMutability: "nonpayable",
@@ -42,6 +42,142 @@ const deployedContracts = {
                 },
                 {
                   name: "addr",
+                  type: "address",
+                  internalType: "address",
+                },
+              ],
+            },
+          ],
+          stateMutability: "view",
+        },
+        {
+          type: "function",
+          name: "setAddress",
+          inputs: [
+            {
+              name: "addr",
+              type: "address",
+              internalType: "address",
+            },
+          ],
+          outputs: [],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "setName",
+          inputs: [
+            {
+              name: "name",
+              type: "string",
+              internalType: "string",
+            },
+          ],
+          outputs: [],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "error",
+          name: "NotAuthorized",
+          inputs: [],
+        },
+      ],
+      inheritedFunctions: {},
+    },
+    Organizations: {
+      address: "0xa82ff9afd8f496c3d6ac40e2a0f282e47488cfc9",
+      abi: [
+        {
+          type: "constructor",
+          inputs: [
+            {
+              name: "configs",
+              type: "tuple[]",
+              internalType: "struct Organizations.Config[]",
+              components: [
+                {
+                  name: "name",
+                  type: "string",
+                  internalType: "string",
+                },
+                {
+                  name: "url",
+                  type: "string",
+                  internalType: "string",
+                },
+                {
+                  name: "icon",
+                  type: "string",
+                  internalType: "string",
+                },
+              ],
+            },
+            {
+              name: "authorizedUser",
+              type: "address",
+              internalType: "address",
+            },
+          ],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "addConfig",
+          inputs: [
+            {
+              name: "config",
+              type: "tuple",
+              internalType: "struct Organizations.Config",
+              components: [
+                {
+                  name: "name",
+                  type: "string",
+                  internalType: "string",
+                },
+                {
+                  name: "url",
+                  type: "string",
+                  internalType: "string",
+                },
+                {
+                  name: "icon",
+                  type: "string",
+                  internalType: "string",
+                },
+              ],
+            },
+          ],
+          outputs: [],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "getData",
+          inputs: [
+            {
+              name: "orgId",
+              type: "uint256",
+              internalType: "uint256",
+            },
+          ],
+          outputs: [
+            {
+              name: "",
+              type: "tuple",
+              internalType: "struct Organizations.Config",
+              components: [
+                {
+                  name: "name",
+                  type: "string",
+                  internalType: "string",
+                },
+                {
+                  name: "url",
+                  type: "string",
+                  internalType: "string",
+                },
+                {
+                  name: "icon",
                   type: "string",
                   internalType: "string",
                 },
@@ -50,11 +186,29 @@ const deployedContracts = {
           ],
           stateMutability: "view",
         },
+        {
+          type: "function",
+          name: "getOrgCount",
+          inputs: [],
+          outputs: [
+            {
+              name: "",
+              type: "uint256",
+              internalType: "uint256",
+            },
+          ],
+          stateMutability: "view",
+        },
+        {
+          type: "error",
+          name: "NotAuthorized",
+          inputs: [],
+        },
       ],
       inheritedFunctions: {},
     },
     YourContract: {
-      address: "0xc6e7df5e7b4f2a278906862b61205850344d4e7d",
+      address: "0x1613beb3b2c4f22ee086b2b38c1476a3ce7f78e8",
       abi: [
         {
           type: "constructor",

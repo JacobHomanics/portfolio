@@ -1,27 +1,35 @@
 //SPDX-License-Identifier: MIT
 pragma solidity >=0.8.0 <0.9.0;
 
-// Useful for debugging. Remove when deploying to a live network.
 import "forge-std/console.sol";
 
-// Use openzeppelin to inherit battle-tested implementations (ERC20, ERC721, etc)
-// import "@openzeppelin/contracts/access/Ownable.sol";
-
-/**
- * A smart contract that allows changing a state variable of the contract and tracking the changes
- * It also allows the owner to withdraw the Ether in the contract
- * @author BuidlGuidl
- */
 contract Person {
+    error NotAuthorized();
+
     PersonConfig s_personConfig;
 
     struct PersonConfig {
         string name;
-        string addr;
+        address addr;
     }
 
-    constructor(string memory name, string memory description) {
-        s_personConfig = PersonConfig(name, description);
+    constructor(string memory name, address addr) {
+        s_personConfig = PersonConfig(name, addr);
+    }
+
+    modifier onlyPerson() {
+        if (msg.sender != s_personConfig.addr) {
+            revert NotAuthorized();
+        }
+        _;
+    }
+
+    function setName(string memory name) external onlyPerson {
+        s_personConfig.name = name;
+    }
+
+    function setAddress(address addr) external onlyPerson {
+        s_personConfig.addr = addr;
     }
 
     function getData() external view returns (PersonConfig memory) {
