@@ -13,6 +13,15 @@ import "forge-std/console.sol";
  * @author BuidlGuidl
  */
 contract PersonConfig {
-    string name;
-    string description;
+    string s_name;
+    string s_description;
+
+    constructor(string memory name, string memory description) {
+        s_name = name;
+        s_description = description;
+    }
+
+    function getData() external view returns (string memory, string memory) {
+        return (s_name, s_description);
+    }
 }

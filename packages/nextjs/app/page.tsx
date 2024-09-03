@@ -7,9 +7,18 @@ import * as PersonData from "~~/components/portfolio/config/person.config";
 import { projectsData } from "~~/components/portfolio/config/projects.config";
 import { IconsLinks } from "~~/components/portfolio/icons-links/IconLinks";
 import { Projects } from "~~/components/portfolio/projects/Projects";
+import { useScaffoldReadContract } from "~~/hooks/scaffold-eth";
 import jake from "~~/public/jake.gif";
+import { useGlobalState } from "~~/services/store/store";
 
 const Home: NextPage = () => {
+  const { data: personConfig } = useScaffoldReadContract({ contractName: "PersonConfig", functionName: "getData" });
+
+  console.log(personConfig);
+
+  const { isWeb3 } = useGlobalState();
+  console.log(isWeb3);
+
   return (
     <div className="flex flex-col items-center">
       <h1 className="text-center">

@@ -17,7 +17,10 @@ contract DeployScript is ScaffoldETHDeploy {
         }
         vm.startBroadcast(deployerPrivateKey);
 
-        PersonConfig personConfig = new PersonConfig();
+        PersonConfig personConfig = new PersonConfig(
+            "Jacob Homanics",
+            "0xc689c800a7121b186208ea3b182fAb2671B337E7"
+        );
 
         YourContract yourContract = new YourContract(
             vm.addr(deployerPrivateKey)

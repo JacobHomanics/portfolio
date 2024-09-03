@@ -1,5 +1,5 @@
 import React from "react";
-import { SwitchWeb } from "./SwitchWeb";
+import { SwitchWeb } from "./portfolio/SwitchWeb";
 import { IconsLinksData } from "./portfolio/config/socials.config";
 import { IconsLinks } from "./portfolio/icons-links/IconLinks";
 // import { SocialLinks } from "./jacobhomanics/SocialLinks";

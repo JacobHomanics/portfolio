@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { useGlobalState } from "~~/services/store/store";
 
 // import { useTheme } from "next-themes";
 // import { MoonIcon, SunIcon } from "@heroicons/react/24/outline";
@@ -11,7 +12,7 @@ export const SwitchWeb = ({ className }: { className?: string }) => {
 
   // const isDarkMode = resolvedTheme === "dark";
 
-  const [isWeb3, setIsWeb3] = useState<boolean>(false);
+  const { isWeb3, setIsWeb3 } = useGlobalState();
 
   const handleToggle = () => {
     if (isWeb3) {
