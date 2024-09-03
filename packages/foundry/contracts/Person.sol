@@ -10,11 +10,12 @@ contract Person {
 
     struct PersonConfig {
         string name;
+        string description;
         address addr;
     }
 
-    constructor(string memory name, address addr) {
-        s_personConfig = PersonConfig(name, addr);
+    constructor(string memory name, string memory description, address addr) {
+        s_personConfig = PersonConfig(name, description, addr);
     }
 
     modifier onlyPerson() {
@@ -26,6 +27,10 @@ contract Person {
 
     function setName(string memory name) external onlyPerson {
         s_personConfig.name = name;
+    }
+
+    function setDescription(string memory description) external onlyPerson {
+        s_personConfig.description = description;
     }
 
     function setAddress(address addr) external onlyPerson {

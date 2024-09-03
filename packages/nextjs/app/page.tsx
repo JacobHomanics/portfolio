@@ -64,7 +64,12 @@ const Home: NextPage = () => {
     <div className="flex flex-col items-center">
       <h1 className="text-center">
         <span className="block text-2xl mb-2">Presented to you by</span>
-        <PfpCard name={selectedPersonConfig?.name} address={selectedPersonConfig?.addr} image={jake} />
+        <PfpCard
+          name={selectedPersonConfig?.name}
+          address={selectedPersonConfig?.addr}
+          description={selectedPersonConfig?.description}
+          image={jake}
+        />
       </h1>
 
       <div className="m-4" />

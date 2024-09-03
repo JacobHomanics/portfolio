@@ -20,6 +20,7 @@ contract DeployScript is ScaffoldETHDeploy {
 
         new Person(
             "Jacob Homanics",
+            "Building Public Goods and striving to make the world a better place.",
             0xc689c800a7121b186208ea3b182fAb2671B337E7
         );
 
