@@ -4,10 +4,11 @@ import React, { useCallback, useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { parseEther } from "viem";
-import { useSendTransaction } from "wagmi";
+import { useAccount } from "wagmi";
 import { Bars3Icon, BugAntIcon } from "@heroicons/react/24/outline";
+import * as PersonData from "~~/components/portfolio/config/person.config";
 import { FaucetButton, RainbowKitCustomConnectButton } from "~~/components/scaffold-eth";
-import { useOutsideClick } from "~~/hooks/scaffold-eth";
+import { useOutsideClick, useTransactor } from "~~/hooks/scaffold-eth";
 
 type HeaderMenuLink = {
   label: string;
@@ -64,7 +65,21 @@ export const Header = () => {
     useCallback(() => setIsDrawerOpen(false), []),
   );
 
-  const { sendTransaction } = useSendTransaction();
+  const { address: user } = useAccount();
+
+  const faucetTxn = useTransactor();
+
+  const sendETH = async () => {
+    try {
+      await faucetTxn({
+        to: PersonData.address,
+        value: parseEther("0.0020"),
+        account: user,
+      });
+    } catch (error) {
+      console.error("⚡️ ~ file: Faucet.tsx:sendETH ~ error", error);
+    }
+  };
 
   return (
     <div className="sticky lg:static top-0 navbar bg-base-100 min-h-0 flex-shrink-0 justify-between z-20 shadow-md shadow-secondary px-0 sm:px-2">
@@ -79,6 +94,7 @@ export const Header = () => {
           >
             <Bars3Icon className="h-1/2" />
           </label>
+
           {isDrawerOpen && (
             <ul
               tabIndex={0}
@@ -101,12 +117,7 @@ export const Header = () => {
           </div>
         </Link> */}
 
-        <button
-          onClick={async () => {
-            sendTransaction({ to: "0xc689c800a7121b186208ea3b182fAb2671B337E7", value: parseEther("0.0020") });
-          }}
-          className="btn btn-primary text-xs md:text-md w-3/5 md:w-1/5 justify-center"
-        >
+        <button onClick={sendETH} className="btn btn-primary text-xs md:text-md w-3/5 md:w-1/5 justify-center">
           Buy me a coffee (with Crypto!)
         </button>
 
