@@ -2,7 +2,7 @@
 pragma solidity ^0.8.19;
 
 import "../contracts/YourContract.sol";
-import "../contracts/PersonConfig.sol";
+import "../contracts/Person.sol";
 import "./DeployHelpers.s.sol";
 
 contract DeployScript is ScaffoldETHDeploy {
@@ -17,9 +17,9 @@ contract DeployScript is ScaffoldETHDeploy {
         }
         vm.startBroadcast(deployerPrivateKey);
 
-        PersonConfig personConfig = new PersonConfig(
-            "Jacob Homanics",
-            "0xc689c800a7121b186208ea3b182fAb2671B337E7"
+        Person personConfig = new Person(
+            "Tony Homanics",
+            "0xc689c800a7121b186208ea3b182fAb2671B337E8"
         );
 
         YourContract yourContract = new YourContract(

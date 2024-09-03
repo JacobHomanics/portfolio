@@ -6,8 +6,8 @@ import { GenericContractsDeclaration } from "~~/utils/scaffold-eth/contract";
 
 const deployedContracts = {
   31337: {
-    PersonConfig: {
-      address: "0xb7f8bc63bbcad18155201308c8f3540b07f84f5e",
+    Person: {
+      address: "0x3aa5ebb10dc797cac828524e59a333d0a371443c",
       abi: [
         {
           type: "constructor",
@@ -32,13 +32,20 @@ const deployedContracts = {
           outputs: [
             {
               name: "",
-              type: "string",
-              internalType: "string",
-            },
-            {
-              name: "",
-              type: "string",
-              internalType: "string",
+              type: "tuple",
+              internalType: "struct Person.PersonConfig",
+              components: [
+                {
+                  name: "name",
+                  type: "string",
+                  internalType: "string",
+                },
+                {
+                  name: "addr",
+                  type: "string",
+                  internalType: "string",
+                },
+              ],
             },
           ],
           stateMutability: "view",
@@ -47,7 +54,7 @@ const deployedContracts = {
       inheritedFunctions: {},
     },
     YourContract: {
-      address: "0xa51c1fc2f0d1a1b8494ed1fe312d7c3a78ed91c0",
+      address: "0xc6e7df5e7b4f2a278906862b61205850344d4e7d",
       abi: [
         {
           type: "constructor",

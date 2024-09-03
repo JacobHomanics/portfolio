@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import type { NextPage } from "next";
 import { PfpCard } from "~~/components/portfolio/PfpCard";
 import { organizations } from "~~/components/portfolio/config/organization.config";
@@ -12,18 +13,25 @@ import jake from "~~/public/jake.gif";
 import { useGlobalState } from "~~/services/store/store";
 
 const Home: NextPage = () => {
-  const { data: personConfig } = useScaffoldReadContract({ contractName: "PersonConfig", functionName: "getData" });
-
-  console.log(personConfig);
+  const { data: personConfig } = useScaffoldReadContract({ contractName: "Person", functionName: "getData" });
 
   const { isWeb3 } = useGlobalState();
-  console.log(isWeb3);
+
+  const [selectedPersonConfig, setSelectedPersonConfig] = useState<any>(PersonData);
+
+  useEffect(() => {
+    if (isWeb3) {
+      setSelectedPersonConfig(personConfig);
+    } else {
+      setSelectedPersonConfig(PersonData);
+    }
+  }, [isWeb3]);
 
   return (
     <div className="flex flex-col items-center">
       <h1 className="text-center">
         <span className="block text-2xl mb-2">Presented to you by</span>
-        <PfpCard name={PersonData.name} address={PersonData.address} image={jake} />
+        <PfpCard name={selectedPersonConfig.name} address={selectedPersonConfig.addr} image={jake} />
       </h1>
 
       <div className="m-4" />

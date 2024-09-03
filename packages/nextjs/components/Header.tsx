@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useCallback, useRef, useState } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { parseEther } from "viem";
@@ -8,7 +8,8 @@ import { useAccount } from "wagmi";
 import { Bars3Icon, BugAntIcon } from "@heroicons/react/24/outline";
 import * as PersonData from "~~/components/portfolio/config/person.config";
 import { FaucetButton, RainbowKitCustomConnectButton } from "~~/components/scaffold-eth";
-import { useOutsideClick, useTransactor } from "~~/hooks/scaffold-eth";
+import { useOutsideClick, useScaffoldReadContract, useTransactor } from "~~/hooks/scaffold-eth";
+import { useGlobalState } from "~~/services/store/store";
 
 type HeaderMenuLink = {
   label: string;
@@ -69,10 +70,24 @@ export const Header = () => {
 
   const faucetTxn = useTransactor();
 
+  const { data: personConfig } = useScaffoldReadContract({ contractName: "Person", functionName: "getData" });
+
+  const { isWeb3 } = useGlobalState();
+
+  const [selectedPersonConfig, setSelectedPersonConfig] = useState<any>(PersonData);
+
+  useEffect(() => {
+    if (isWeb3) {
+      setSelectedPersonConfig(personConfig);
+    } else {
+      setSelectedPersonConfig(PersonData);
+    }
+  }, [isWeb3]);
+
   const sendETH = async () => {
     try {
       await faucetTxn({
-        to: PersonData.address,
+        to: selectedPersonConfig.addr,
         value: parseEther("0.0020"),
         account: user,
       });

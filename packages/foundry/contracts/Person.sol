@@ -12,16 +12,19 @@ import "forge-std/console.sol";
  * It also allows the owner to withdraw the Ether in the contract
  * @author BuidlGuidl
  */
-contract PersonConfig {
-    string s_name;
-    string s_description;
+contract Person {
+    PersonConfig s_personConfig;
 
-    constructor(string memory name, string memory description) {
-        s_name = name;
-        s_description = description;
+    struct PersonConfig {
+        string name;
+        string addr;
     }
 
-    function getData() external view returns (string memory, string memory) {
-        return (s_name, s_description);
+    constructor(string memory name, string memory description) {
+        s_personConfig = PersonConfig(name, description);
+    }
+
+    function getData() external view returns (PersonConfig memory) {
+        return s_personConfig;
     }
 }
