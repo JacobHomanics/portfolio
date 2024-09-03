@@ -18,7 +18,10 @@ contract DeployScript is ScaffoldETHDeploy {
         }
         vm.startBroadcast(deployerPrivateKey);
 
-        new Person("Tony Homanics", 0xc689c800a7121b186208ea3b182fAb2671B337E7);
+        new Person(
+            "Jacob Homanics",
+            0xc689c800a7121b186208ea3b182fAb2671B337E7
+        );
 
         Organizations.Config memory config1 = Organizations.Config(
             "ATX DAO",
