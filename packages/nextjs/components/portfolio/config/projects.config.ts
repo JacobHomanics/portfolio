@@ -6,9 +6,15 @@ import { ScrollLogo } from "~~/components/portfolio/logos/ScrollLogo";
 import { XLogo } from "~~/components/portfolio/logos/XLogo";
 import warpcastIcon from "~~/public/icons/warpcast-icon.png";
 import laddersDotVision from "~~/public/ladders.webp";
+import daoCoalitionLogo from "~~/public/organizations/dao-coalition.png";
+import hatsLogo from "~~/public/organizations/hats.jpg";
+import optimismFractalIcon from "~~/public/organizations/optimism-fractal.jpg";
 import pizzaPeople from "~~/public/pizzapeople.webp";
+import atxDaoRepAndRolesIcon from "~~/public/projects/lifetimetoken.jpg";
 import repAndRolesIcon from "~~/public/rep-and-roles.png";
+import snapshotIcon from "~~/public/snapshot.png";
 import trashIcon from "~~/public/trashIcon.png";
+import unlockIcon from "~~/public/unlock.png";
 import weedies from "~~/public/weedies.webp";
 import wwbtcIcon from "~~/public/wwbtc-icon.png";
 
@@ -22,6 +28,28 @@ export const projectsData = [
     links: [
       { url: "https://github.com/ATXDAO/rep-and-roles-starter-kit", icon: GithubLogo },
       {
+        url: "https://hotmanics.github.io/rep-and-roles-docs/starter-kit/overview.html",
+        icon: ScrollLogo,
+      },
+    ],
+  },
+  {
+    name: "Wild Water Bottle Cap Token",
+    description: "A tokenized Real World Asset (RWA) based on a physical supply of bottle cap tokens!",
+    img: wwbtcIcon,
+    url: "https://bottlecaptoken.com",
+    links: [
+      { url: "https://github.com/hotmanics/wild-water-bottle-cap-token", icon: GithubLogo },
+      { url: "https://basescan.org/address/0x4169De2404a1484a50aB34fFf631F4B5dba90428", icon: EtherscanLogo },
+    ],
+  },
+  {
+    name: "ATX DAO - Reputation & Roles",
+    description: "A way to track trust onchain and grant roles in decentralized & permissionless ways for ATX DAO!",
+    img: atxDaoRepAndRolesIcon,
+    url: "https://app.hatsprotocol.xyz/trees/10/105",
+    links: [
+      {
         url: "https://optimistic.etherscan.io/address/0xFEe6635F43E1eeff88F0A6876Dc9153Fb128a81F",
         icon: EtherscanLogo,
       },
@@ -31,21 +59,11 @@ export const projectsData = [
         url: "https://www.ladders.vision/collections/optimism/0xFEe6635F43E1eeff88F0A6876Dc9153Fb128a81F",
         icon: laddersDotVision.src,
       },
-      {
-        url: "https://hotmanics.github.io/rep-and-roles-docs/starter-kit/overview.html",
-        icon: ScrollLogo,
-      },
-    ],
-  },
 
-  {
-    name: "Wild Water Bottle Cap Token",
-    description: "A tokenized Real World Asset (RWA) based on a physical supply of bottle cap tokens!",
-    img: wwbtcIcon,
-    url: "https://bottlecaptoken.com",
-    links: [
-      { url: "https://github.com/hotmanics/wild-water-bottle-cap-token", icon: GithubLogo },
-      { url: "https://basescan.org/address/0x4169De2404a1484a50aB34fFf631F4B5dba90428", icon: EtherscanLogo },
+      {
+        url: "https://app.hatsprotocol.xyz/trees/10/105",
+        icon: hatsLogo.src,
+      },
     ],
   },
   {
@@ -64,6 +82,27 @@ export const projectsData = [
       },
     ],
   },
+  {
+    name: "Optimism Fractal Hats Tree",
+    description:
+      "A Hats tree that allows participants of the Respect Game to claim authorities/responsibilities based on their number of Respect tokens.",
+    img: optimismFractalIcon,
+    url: "https://app.hatsprotocol.xyz/trees/10/175",
+    links: [{ url: "https://app.hatsprotocol.xyz/trees/10/175", icon: hatsLogo.src }],
+  },
+  {
+    name: "DAO Coalition Hats Tree",
+    description:
+      "A Hats tree which utilizes the Gitcoin Passport and Signer Agreement Modules, which hooks into an Unlock checkout experience which unlocks a Voter Hat to be used in Snapshot.",
+    img: daoCoalitionLogo,
+    url: "https://app.hatsprotocol.xyz/trees/10/167",
+    links: [
+      { url: "https://app.hatsprotocol.xyz/trees/10/167", icon: hatsLogo.src },
+      { url: "https://snapshot.org/#/daocoa.eth", icon: snapshotIcon.src },
+      { url: "https://app.unlock-protocol.com/checkout?id=4b82ba6e-661b-4cf6-8a35-fa60850eba6f", icon: unlockIcon.src },
+    ],
+  },
+
   {
     name: "Ladders.Vision",
     description: "View any NFT on any blockchain using the most decentralized methods!",
