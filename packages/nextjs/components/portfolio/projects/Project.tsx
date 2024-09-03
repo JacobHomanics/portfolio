@@ -27,7 +27,8 @@ export const Project = ({ name, description, img, url, links = [] }: Props) => {
     }
   }, [result.width, description]);
 
-  const finalLinksArr = [{ url: url, icon: img.src }, ...links];
+  // const finalLinksArr = [{ url: url, icon: img.src }, ...links];
+  const finalLinksArr = [...links];
 
   return (
     <div className="flex bg-secondary p-4 rounded-lg border-2 border-indigo-500 items-start w-full md:w-2/5">

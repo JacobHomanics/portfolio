@@ -82,6 +82,17 @@ export const projectsData = [
       },
     ],
   },
+
+  {
+    name: "Ladders.Vision",
+    description: "View any NFT on any blockchain using the most decentralized methods!",
+    img: laddersDotVision,
+    url: "https://ladders.vision",
+    links: [
+      { url: "https://github.com/hotmanics/ladders.vision", icon: GithubLogo },
+      { url: "https://app.buidlguidl.com/build/VKVHbZcjnrtUbUSwE1e5", icon: BuidlGuidlLogo },
+    ],
+  },
   {
     name: "Optimism Fractal Hats Tree",
     description:
@@ -100,17 +111,6 @@ export const projectsData = [
       { url: "https://app.hatsprotocol.xyz/trees/10/167", icon: hatsLogo.src },
       { url: "https://snapshot.org/#/daocoa.eth", icon: snapshotIcon.src },
       { url: "https://app.unlock-protocol.com/checkout?id=4b82ba6e-661b-4cf6-8a35-fa60850eba6f", icon: unlockIcon.src },
-    ],
-  },
-
-  {
-    name: "Ladders.Vision",
-    description: "View any NFT on any blockchain using the most decentralized methods!",
-    img: laddersDotVision,
-    url: "https://ladders.vision",
-    links: [
-      { url: "https://github.com/hotmanics/ladders.vision", icon: GithubLogo },
-      { url: "https://app.buidlguidl.com/build/VKVHbZcjnrtUbUSwE1e5", icon: BuidlGuidlLogo },
     ],
   },
 
