@@ -5,6 +5,375 @@
 import { GenericContractsDeclaration } from "~~/utils/scaffold-eth/contract";
 
 const deployedContracts = {
+  8453: {
+    Person: {
+      address: "0x0034fe8713c036a2c38176a854a59786d1b15b08",
+      abi: [
+        {
+          type: "constructor",
+          inputs: [
+            {
+              name: "name",
+              type: "string",
+              internalType: "string",
+            },
+            {
+              name: "description",
+              type: "string",
+              internalType: "string",
+            },
+            {
+              name: "addr",
+              type: "address",
+              internalType: "address",
+            },
+          ],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "getData",
+          inputs: [],
+          outputs: [
+            {
+              name: "",
+              type: "tuple",
+              internalType: "struct Person.PersonConfig",
+              components: [
+                {
+                  name: "name",
+                  type: "string",
+                  internalType: "string",
+                },
+                {
+                  name: "description",
+                  type: "string",
+                  internalType: "string",
+                },
+                {
+                  name: "addr",
+                  type: "address",
+                  internalType: "address",
+                },
+              ],
+            },
+          ],
+          stateMutability: "view",
+        },
+        {
+          type: "function",
+          name: "setAddress",
+          inputs: [
+            {
+              name: "addr",
+              type: "address",
+              internalType: "address",
+            },
+          ],
+          outputs: [],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "setDescription",
+          inputs: [
+            {
+              name: "description",
+              type: "string",
+              internalType: "string",
+            },
+          ],
+          outputs: [],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "setName",
+          inputs: [
+            {
+              name: "name",
+              type: "string",
+              internalType: "string",
+            },
+          ],
+          outputs: [],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "error",
+          name: "NotAuthorized",
+          inputs: [],
+        },
+      ],
+      inheritedFunctions: {},
+    },
+    Organizations: {
+      address: "0x7aea3f08195328bab13fc14ff7b5f4be2ede7a09",
+      abi: [
+        {
+          type: "constructor",
+          inputs: [
+            {
+              name: "configs",
+              type: "tuple[]",
+              internalType: "struct Organizations.Config[]",
+              components: [
+                {
+                  name: "name",
+                  type: "string",
+                  internalType: "string",
+                },
+                {
+                  name: "url",
+                  type: "string",
+                  internalType: "string",
+                },
+                {
+                  name: "icon",
+                  type: "string",
+                  internalType: "string",
+                },
+              ],
+            },
+            {
+              name: "authorizedUser",
+              type: "address",
+              internalType: "address",
+            },
+          ],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "addConfig",
+          inputs: [
+            {
+              name: "config",
+              type: "tuple",
+              internalType: "struct Organizations.Config",
+              components: [
+                {
+                  name: "name",
+                  type: "string",
+                  internalType: "string",
+                },
+                {
+                  name: "url",
+                  type: "string",
+                  internalType: "string",
+                },
+                {
+                  name: "icon",
+                  type: "string",
+                  internalType: "string",
+                },
+              ],
+            },
+          ],
+          outputs: [],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "getData",
+          inputs: [
+            {
+              name: "orgId",
+              type: "uint256",
+              internalType: "uint256",
+            },
+          ],
+          outputs: [
+            {
+              name: "",
+              type: "tuple",
+              internalType: "struct Organizations.Config",
+              components: [
+                {
+                  name: "name",
+                  type: "string",
+                  internalType: "string",
+                },
+                {
+                  name: "url",
+                  type: "string",
+                  internalType: "string",
+                },
+                {
+                  name: "icon",
+                  type: "string",
+                  internalType: "string",
+                },
+              ],
+            },
+          ],
+          stateMutability: "view",
+        },
+        {
+          type: "function",
+          name: "getOrgCount",
+          inputs: [],
+          outputs: [
+            {
+              name: "",
+              type: "uint256",
+              internalType: "uint256",
+            },
+          ],
+          stateMutability: "view",
+        },
+        {
+          type: "error",
+          name: "NotAuthorized",
+          inputs: [],
+        },
+      ],
+      inheritedFunctions: {},
+    },
+    YourContract: {
+      address: "0xac859df47347ad8610c79f448ca329c89a82c8e7",
+      abi: [
+        {
+          type: "constructor",
+          inputs: [
+            {
+              name: "_owner",
+              type: "address",
+              internalType: "address",
+            },
+          ],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "receive",
+          stateMutability: "payable",
+        },
+        {
+          type: "function",
+          name: "greeting",
+          inputs: [],
+          outputs: [
+            {
+              name: "",
+              type: "string",
+              internalType: "string",
+            },
+          ],
+          stateMutability: "view",
+        },
+        {
+          type: "function",
+          name: "owner",
+          inputs: [],
+          outputs: [
+            {
+              name: "",
+              type: "address",
+              internalType: "address",
+            },
+          ],
+          stateMutability: "view",
+        },
+        {
+          type: "function",
+          name: "premium",
+          inputs: [],
+          outputs: [
+            {
+              name: "",
+              type: "bool",
+              internalType: "bool",
+            },
+          ],
+          stateMutability: "view",
+        },
+        {
+          type: "function",
+          name: "setGreeting",
+          inputs: [
+            {
+              name: "_newGreeting",
+              type: "string",
+              internalType: "string",
+            },
+          ],
+          outputs: [],
+          stateMutability: "payable",
+        },
+        {
+          type: "function",
+          name: "totalCounter",
+          inputs: [],
+          outputs: [
+            {
+              name: "",
+              type: "uint256",
+              internalType: "uint256",
+            },
+          ],
+          stateMutability: "view",
+        },
+        {
+          type: "function",
+          name: "userGreetingCounter",
+          inputs: [
+            {
+              name: "",
+              type: "address",
+              internalType: "address",
+            },
+          ],
+          outputs: [
+            {
+              name: "",
+              type: "uint256",
+              internalType: "uint256",
+            },
+          ],
+          stateMutability: "view",
+        },
+        {
+          type: "function",
+          name: "withdraw",
+          inputs: [],
+          outputs: [],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "event",
+          name: "GreetingChange",
+          inputs: [
+            {
+              name: "greetingSetter",
+              type: "address",
+              indexed: true,
+              internalType: "address",
+            },
+            {
+              name: "newGreeting",
+              type: "string",
+              indexed: false,
+              internalType: "string",
+            },
+            {
+              name: "premium",
+              type: "bool",
+              indexed: false,
+              internalType: "bool",
+            },
+            {
+              name: "value",
+              type: "uint256",
+              indexed: false,
+              internalType: "uint256",
+            },
+          ],
+          anonymous: false,
+        },
+      ],
+      inheritedFunctions: {},
+    },
+  },
   31337: {
     Person: {
       address: "0x5f3f1dbd7b74c6b46e8c44f98792a1daf8d69154",
