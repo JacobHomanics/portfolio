@@ -60,16 +60,11 @@ const Home: NextPage = () => {
     }
   }, [personConfig, web3Orgs, isWeb3]);
 
-  // console.log(web3Orgs);
-  // console.log(organizations);
-  // console.log(web3Orgs[0]?.icon);
-
-  console.log("re-render");
   return (
     <div className="flex flex-col items-center">
       <h1 className="text-center">
         <span className="block text-2xl mb-2">Presented to you by</span>
-        <PfpCard name={selectedPersonConfig.name} address={selectedPersonConfig.addr} image={jake} />
+        <PfpCard name={selectedPersonConfig?.name} address={selectedPersonConfig?.addr} image={jake} />
       </h1>
 
       <div className="m-4" />
