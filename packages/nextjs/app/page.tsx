@@ -45,8 +45,8 @@ const Home: NextPage = () => {
       }
       get();
     },
-    /* eslint-disable-next-line @next/next/no-img-element */
-    [(organizationsContract?.address, organizationsCount)],
+    /* eslint-disable-next-line */
+    [organizationsContract?.address, organizationsCount],
   );
 
   const { isWeb3 } = useGlobalState();
