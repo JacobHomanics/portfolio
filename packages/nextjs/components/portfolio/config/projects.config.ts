@@ -14,44 +14,6 @@ import wwbtcIcon from "~~/public/wwbtc-icon.png";
 
 export const projectsData = [
   {
-    name: "Wild Water Bottle Cap Token",
-    description:
-      "A tokenized Real World Asset (RWA) where the supply of the token matches the actual number of bottle caps that Jacob Homanics owns in the physical world.",
-    img: wwbtcIcon,
-    url: "https://bottlecaptoken.com",
-    links: [
-      { url: "https://github.com/hotmanics/wild-water-bottle-cap-token", icon: GithubLogo },
-      { url: "https://basescan.org/address/0x4169De2404a1484a50aB34fFf631F4B5dba90428", icon: EtherscanLogo },
-    ],
-  },
-  {
-    name: "Ladders.Vision",
-    description: "View any NFT on any blockchain using the most decentralized methods!",
-    img: laddersDotVision,
-    url: "https://ladders.vision",
-    links: [
-      { url: "https://github.com/hotmanics/ladders.vision", icon: GithubLogo },
-      { url: "https://app.buidlguidl.com/build/VKVHbZcjnrtUbUSwE1e5", icon: BuidlGuidlLogo },
-    ],
-  },
-  {
-    name: "Pizza People",
-    description: "A Nounish NFT collection celebrating Pizza!",
-    img: pizzaPeople,
-    url: "https://pizzapeople.wtf",
-    links: [
-      { url: "https://github.com/hotmanics/pizza-people", icon: GithubLogo },
-      { url: "https://basescan.org/address/0xF2137f6E039Cc0d2a19709a259CCCe13168cCD33", icon: EtherscanLogo },
-      { url: "https://app.buidlguidl.com/build/s8wG9A0CKk2SOzAoVmUN", icon: BuidlGuidlLogo },
-      { url: "https://opensea.io/collection/pizza-people-1", icon: OpenSeaLogo },
-      {
-        url: "https://www.ladders.vision/collections/base/0xF2137f6E039Cc0d2a19709a259CCCe13168cCD33",
-        icon: laddersDotVision.src,
-      },
-    ],
-  },
-
-  {
     name: "Reputation & Roles Starter Kit",
     description: "Track trust onchain and grant roles in decentralized & permissionless ways!",
     img: repAndRolesIcon,
@@ -74,6 +36,45 @@ export const projectsData = [
       },
     ],
   },
+
+  {
+    name: "Wild Water Bottle Cap Token",
+    description:
+      "A tokenized Real World Asset (RWA) where the supply of the token matches the actual number of bottle caps that Jacob Homanics owns in the physical world.",
+    img: wwbtcIcon,
+    url: "https://bottlecaptoken.com",
+    links: [
+      { url: "https://github.com/hotmanics/wild-water-bottle-cap-token", icon: GithubLogo },
+      { url: "https://basescan.org/address/0x4169De2404a1484a50aB34fFf631F4B5dba90428", icon: EtherscanLogo },
+    ],
+  },
+  {
+    name: "Pizza People",
+    description: "A Nounish NFT collection celebrating Pizza!",
+    img: pizzaPeople,
+    url: "https://pizzapeople.wtf",
+    links: [
+      { url: "https://github.com/hotmanics/pizza-people", icon: GithubLogo },
+      { url: "https://basescan.org/address/0xF2137f6E039Cc0d2a19709a259CCCe13168cCD33", icon: EtherscanLogo },
+      { url: "https://app.buidlguidl.com/build/s8wG9A0CKk2SOzAoVmUN", icon: BuidlGuidlLogo },
+      { url: "https://opensea.io/collection/pizza-people-1", icon: OpenSeaLogo },
+      {
+        url: "https://www.ladders.vision/collections/base/0xF2137f6E039Cc0d2a19709a259CCCe13168cCD33",
+        icon: laddersDotVision.src,
+      },
+    ],
+  },
+  {
+    name: "Ladders.Vision",
+    description: "View any NFT on any blockchain using the most decentralized methods!",
+    img: laddersDotVision,
+    url: "https://ladders.vision",
+    links: [
+      { url: "https://github.com/hotmanics/ladders.vision", icon: GithubLogo },
+      { url: "https://app.buidlguidl.com/build/VKVHbZcjnrtUbUSwE1e5", icon: BuidlGuidlLogo },
+    ],
+  },
+
   {
     name: "Weedies",
     description: "A Nounish NFT collection celebrating marijuana!",
