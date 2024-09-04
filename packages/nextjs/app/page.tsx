@@ -10,7 +10,7 @@ import { projectsData } from "~~/components/portfolio/config/projects.config";
 import { IconsLinks } from "~~/components/portfolio/icons-links/IconLinks";
 import { Projects } from "~~/components/portfolio/projects/Projects";
 import { useScaffoldContract, useScaffoldReadContract } from "~~/hooks/scaffold-eth";
-import jake from "~~/public/jake2.gif";
+import jake from "~~/public/jake3.gif";
 import { useGlobalState } from "~~/services/store/store";
 import { wagmiConfig } from "~~/services/web3/wagmiConfig";
 
