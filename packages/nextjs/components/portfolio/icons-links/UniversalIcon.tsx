@@ -21,9 +21,13 @@ export const UniversalIcon = ({ Icon, size = "base", isRounded }: Props) => {
   useEffect(() => {
     if (typeof Icon === "string") {
       setOutput(
-        <div className={"hover:brightness-75 dark:hover:brightness-25" + sizeMap[size]}>
+        <div className={"hover:brightness-75 dark:hover:brightness-25"}>
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src={Icon} alt="Link" className={`h-full object-scale-down ${isRounded ? "rounded-xl" : ""}`} />
+          <img
+            src={Icon}
+            alt="Link"
+            className={`${sizeMap[size]} object-scale-down ${isRounded ? "rounded-xl" : ""}`}
+          />
         </div>,
       );
     } else {

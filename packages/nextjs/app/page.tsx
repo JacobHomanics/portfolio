@@ -79,7 +79,13 @@ const Home: NextPage = () => {
 
       <div className="text-center text-4xl">Organizations</div>
       <div className="rounded-lg p-2">
-        <IconsLinks iconsLinks={selectedOrganizationsConfig} size="base" areIconsRounded={true} justify="center" />
+        <IconsLinks
+          iconsLinks={selectedOrganizationsConfig}
+          size="base"
+          areIconsRounded={true}
+          justify="center"
+          align="start"
+        />
       </div>
       <div className="p-4 rounded-lg w-full">
         <p className="text-center text-4xl">My Projects</p>

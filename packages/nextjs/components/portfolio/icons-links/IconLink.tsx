@@ -16,9 +16,9 @@ type Props = {
 
 export const IconLink = ({ iconLink, size = "base", isRounded }: Props) => {
   return (
-    <Link href={iconLink.url} target="#" className="flex flex-col items-center">
+    <Link href={iconLink.url} target="#" className="flex flex-col max-w-[128px] items-center flex-grow p-1">
       <UniversalIcon Icon={iconLink.icon} size={size} isRounded={isRounded} />
-      <div className="text-center text-xl text-wrap">{iconLink.name}</div>
+      <div className="text-center text-xl text-wrap break-word text-center w-full">{iconLink.name}</div>
     </Link>
   );
 };
