@@ -22,7 +22,7 @@ export const projectsData = [
   {
     name: "Reputation & Roles Starter Kit",
     description:
-      "An all-in-one toolkit to deploy a fully onchain way of tracking trust and granting authorities/permissions in decentralized and permissionless ways!",
+      "Toolkit to deploy trust tracking onchain and grant authorities/permissions in decentralized and permissionless ways!",
     img: repAndRolesIcon,
     url: "https://github.com/ATXDAO/rep-and-roles-starter-kit",
     links: [
