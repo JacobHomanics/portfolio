@@ -35,7 +35,7 @@ export const projectsData = [
   },
   {
     name: "Wild Water Bottle Cap Token",
-    description: "A tokenized Real World Asset (RWA) based on a physical supply of bottle cap tokens!",
+    description: "A Real World Asset currency where the proof of reserve is bottle caps!",
     img: wwbtcIcon,
     url: "https://bottlecaptoken.com",
     links: [
