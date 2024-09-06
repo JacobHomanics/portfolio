@@ -2,7 +2,6 @@
 pragma solidity ^0.8.19;
 
 import "../contracts/YourContract.sol";
-import "../contracts/Person.sol";
 import "../contracts/Organizations.sol";
 import "./DeployHelpers.s.sol";
 
@@ -17,12 +16,6 @@ contract DeployScript is ScaffoldETHDeploy {
             );
         }
         vm.startBroadcast(deployerPrivateKey);
-
-        new Person(
-            "Jacob Homanics",
-            "DAO oriented, Public Goods Developer, and an Open Source Advocate striving to make the world a better place.",
-            0xc689c800a7121b186208ea3b182fAb2671B337E7
-        );
 
         Organizations.Config memory config1 = Organizations.Config(
             "Curios",

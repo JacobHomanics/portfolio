@@ -1,18 +1,16 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { readContract } from "@wagmi/core";
 import type { NextPage } from "next";
 import { Chain, createClient, http, isAddress } from "viem";
 import { hardhat, mainnet } from "viem/chains";
 import { normalize } from "viem/ens";
 import { createConfig, useEnsName } from "wagmi";
 import { getEnsAvatar, getEnsText } from "wagmi/actions";
+import { Organizations } from "~~/components/portfolio/Organizations";
 import { PfpCard } from "~~/components/portfolio/PfpCard";
-import { organizations } from "~~/components/portfolio/config/organization.config";
 import { PersonData } from "~~/components/portfolio/config/person.config";
 import { projectsData } from "~~/components/portfolio/config/projects.config";
-import { IconsLinks } from "~~/components/portfolio/icons-links/IconLinks";
 import { Projects } from "~~/components/portfolio/projects/Projects";
 import { BuidlGuidl } from "~~/components/portfolio/socials/BuidlGuidl";
 import { Discord } from "~~/components/portfolio/socials/Discord";
@@ -27,10 +25,8 @@ import { Telegram } from "~~/components/portfolio/socials/Telegram";
 import { Warpcast } from "~~/components/portfolio/socials/Warpcast";
 import { X } from "~~/components/portfolio/socials/X";
 import { Youtube } from "~~/components/portfolio/socials/Youtube";
-import { useScaffoldContract, useScaffoldReadContract } from "~~/hooks/scaffold-eth";
 import scaffoldConfig from "~~/scaffold.config";
 import { useGlobalState } from "~~/services/store/store";
-import { wagmiConfig } from "~~/services/web3/wagmiConfig";
 import { wagmiConnectors } from "~~/services/web3/wagmiConnectors";
 import { getAlchemyHttpUrl } from "~~/utils/scaffold-eth";
 
@@ -127,52 +123,7 @@ const Home: NextPage = () => {
       setSocialLinks(finalLinksArr);
     }
     get();
-  }, [fetchedEns, isWeb3, PersonData?.links, PersonData?.links?.length]);
-
-  const { data: personConfig } = useScaffoldReadContract({ contractName: "Person", functionName: "getData" });
-
-  const { data: organizationsCount } = useScaffoldReadContract({
-    contractName: "Organizations",
-    functionName: "getOrgCount",
-  });
-  const { data: organizationsContract } = useScaffoldContract({ contractName: "Organizations" });
-
-  const [web3Orgs, setWeb3Orgs] = useState<any[]>([]);
-
-  useEffect(
-    () => {
-      async function get() {
-        if (!organizationsContract) return;
-        if (!organizationsCount) return;
-
-        const orgs = [];
-        for (let i = 0; i < organizationsCount; i++) {
-          const result = await readContract(wagmiConfig, {
-            abi: organizationsContract.abi,
-            address: organizationsContract.address,
-            functionName: "getData",
-            args: [BigInt(i)],
-          });
-          orgs.push(result);
-
-          setWeb3Orgs([...orgs]);
-        }
-      }
-      get();
-    },
-    /* eslint-disable-next-line */
-    [organizationsContract?.address, organizationsCount],
-  );
-
-  const [selectedOrganizationsConfig, setSelectedOrganizationsConfig] = useState<any>();
-
-  useEffect(() => {
-    if (isWeb3) {
-      setSelectedOrganizationsConfig(web3Orgs);
-    } else {
-      setSelectedOrganizationsConfig(organizations);
-    }
-  }, [personConfig, web3Orgs, isWeb3]);
+  }, [fetchedEns, isWeb3]);
 
   console.log("bleh");
 
@@ -195,16 +146,7 @@ const Home: NextPage = () => {
 
       <div className="m-4" />
 
-      <div className="text-center text-4xl">Organizations</div>
-      <div className="rounded-lg p-2">
-        <IconsLinks
-          iconsLinks={selectedOrganizationsConfig}
-          size="base"
-          areIconsRounded={true}
-          justify="center"
-          align="start"
-        />
-      </div>
+      <Organizations />
       <div className="p-4 rounded-lg w-full">
         <p className="text-center text-4xl">My Projects</p>
         <Projects projects={projectsData} />
