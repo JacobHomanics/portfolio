@@ -12,15 +12,15 @@ import { getEnsAvatar, getEnsText } from "wagmi/actions";
 // import { normalize } from "viem/ens";
 // import { useEnsAvatar, useEnsName, useEnsText } from "wagmi";
 import { PfpCard } from "~~/components/portfolio/PfpCard";
-// import { organizations } from "~~/components/portfolio/config/organization.config";
+import { organizations } from "~~/components/portfolio/config/organization.config";
 import { PersonData } from "~~/components/portfolio/config/person.config";
-import { BuidlGuidl } from "~~/components/portfolio/socials/BuidlGuidl";
-// import { projectsData } from "~~/components/portfolio/config/projects.config";
-// import { IconsLinks } from "~~/components/portfolio/icons-links/IconLinks";
+import { projectsData } from "~~/components/portfolio/config/projects.config";
+import { IconsLinks } from "~~/components/portfolio/icons-links/IconLinks";
 // import { EmailLogo } from "~~/components/portfolio/logos/EmailLogo";
 // import { GithubLogo } from "~~/components/portfolio/logos/GithubLogo";
 // import { XLogo } from "~~/components/portfolio/logos/XLogo";
-// import { Projects } from "~~/components/portfolio/projects/Projects";
+import { Projects } from "~~/components/portfolio/projects/Projects";
+import { BuidlGuidl } from "~~/components/portfolio/socials/BuidlGuidl";
 import { Discord } from "~~/components/portfolio/socials/Discord";
 import { Email } from "~~/components/portfolio/socials/Email";
 import { Etherscan } from "~~/components/portfolio/socials/Etherscan";
@@ -80,25 +80,26 @@ const Home: NextPage = () => {
 
   const [selectedPersonConfig, setSelectedPersonConfig] = useState<any>({ ...PersonData });
 
+  const [selectedOrganizationsConfig, setSelectedOrganizationsConfig] = useState<any>();
+
   useEffect(() => {
     if (isWeb3) {
       setSelectedPersonConfig({
         addr: PersonData.addr,
         name: PersonData.name,
       });
-      // setSelectedOrganizationsConfig(web3Orgs);
+      setSelectedOrganizationsConfig(web3Orgs);
     } else {
       setSelectedPersonConfig(PersonData);
-      // setSelectedOrganizationsConfig(organizations);
+      setSelectedOrganizationsConfig(organizations);
     }
   }, [personConfig, web3Orgs, isWeb3]);
-
-  // console.log({ ...PersonData });
 
   const [socialLinks, setSocialLinks] = useState<any[]>([]);
 
   const [selectedName, setSelectedName] = useState<any>();
   const [selectedImage, setSelectedImage] = useState<string>();
+  const [selectedDescription, setSelectedDescription] = useState<any>();
 
   const { data: fetchedEns } = useEnsName({
     address: selectedPersonConfig.addr,
@@ -110,39 +111,10 @@ const Home: NextPage = () => {
 
   useEffect(() => {
     async function get() {
-      function checkLinkWithTag(link: { url: string; tag: string }) {
-        let finalSocialLink;
-
-        if (link.tag === "Github") {
-          finalSocialLink = github(link.url);
-        } else if (link.tag === "Email") {
-          finalSocialLink = Email(link.url);
-        } else if (link.tag === "X") {
-          finalSocialLink = X(link.url);
-        } else if (link.tag === "Discord") {
-          finalSocialLink = Discord(link.url);
-        } else if (link.tag === "Telegram") {
-          finalSocialLink = Telegram(link.url);
-        } else if (link.tag === "Warpcast") {
-          finalSocialLink = Warpcast(link.url);
-        } else if (link.tag === "Youtube") {
-          finalSocialLink = Youtube(link.url);
-        } else if (link.tag === "Linkedin") {
-          finalSocialLink = Linkedin(link.url);
-        } else if (link.tag === "BuidlGuidl") {
-          finalSocialLink = BuidlGuidl(link.url);
-        } else if (link.tag === "Etherscan") {
-          finalSocialLink = Etherscan(link.url);
-        } else if (link.tag === "Nounspace") {
-          finalSocialLink = Nounspace(link.url);
-        } else if (link.tag === "Opensea") {
-          finalSocialLink = Opensea(link.url);
-        } else {
-          finalSocialLink = Link(link.url);
-        }
-
-        return finalSocialLink;
-      }
+      const finalLinksArr: any[] = [];
+      let finalName;
+      let finalImage;
+      let finalDescription;
 
       if (isWeb3) {
         const wagmiConfig = createConfig({
@@ -164,10 +136,11 @@ const Home: NextPage = () => {
 
         const normalizedName = fetchedEns ? normalize(fetchedEns) : "";
 
-        const name = await getEnsText(wagmiConfig, { name: normalizedName, key: "name" });
+        const nickname = await getEnsText(wagmiConfig, { name: normalizedName, key: "name" });
+        const description = await getEnsText(wagmiConfig, { name: normalizedName, key: "description" });
         const image = await getEnsAvatar(wagmiConfig, { name: normalizedName });
 
-        const finalArr = [];
+        // const finalArr = [];
 
         const link1 = await getEnsText(wagmiConfig, { name: normalizedName, key: "com.twitter" });
         const link2 = await getEnsText(wagmiConfig, { name: normalizedName, key: "com.github" });
@@ -175,57 +148,58 @@ const Home: NextPage = () => {
         const link4 = await getEnsText(wagmiConfig, { name: normalizedName, key: "org.telegram" });
         const link5 = await getEnsText(wagmiConfig, { name: normalizedName, key: "email" });
 
-        finalArr.push(
+        finalLinksArr.push(
           checkLinkWithTag({
             tag: "X",
             url: link1 as string,
           }),
         );
 
-        finalArr.push(
+        finalLinksArr.push(
           checkLinkWithTag({
             tag: "Github",
             url: link2 as string,
           }),
         );
 
-        finalArr.push(
+        finalLinksArr.push(
           checkLinkWithTag({
             tag: "Discord",
             url: link3 as string,
           }),
         );
 
-        finalArr.push(
+        finalLinksArr.push(
           checkLinkWithTag({
             tag: "Telegram",
             url: link4 as string,
           }),
         );
 
-        finalArr.push(
+        finalLinksArr.push(
           checkLinkWithTag({
             tag: "Email",
             url: link5 as string,
           }),
         );
 
-        setSelectedImage(image || "");
-        setSelectedName(name);
-
-        console.log(link1);
-        setSocialLinks(finalArr);
+        finalName = nickname;
+        finalDescription = description;
+        finalImage = image || "";
       } else {
-        const finalArr = [];
-
         for (let i = 0; i < selectedPersonConfig.links.length; i++) {
-          finalArr.push(checkLinkWithTag(selectedPersonConfig.links[i]));
+          finalLinksArr.push(checkLinkWithTag(selectedPersonConfig.links[i]));
         }
 
-        setSelectedName(PersonData.name);
-        setSelectedImage(PersonData?.img);
-        setSocialLinks(finalArr);
+        finalName = PersonData.name;
+        finalImage = PersonData.img;
+        finalDescription = PersonData.description;
       }
+
+      setSelectedName(finalName);
+      setSelectedDescription(finalDescription);
+      setSelectedImage(finalImage);
+      setSocialLinks(finalLinksArr);
     }
     get();
   }, [fetchedEns, isWeb3, selectedPersonConfig?.links, selectedPersonConfig?.links?.length]);
@@ -239,7 +213,7 @@ const Home: NextPage = () => {
         <PfpCard
           name={selectedName}
           address={selectedPersonConfig?.addr}
-          description={selectedPersonConfig?.description}
+          description={selectedDescription}
           image={selectedImage}
           iconslinks={socialLinks}
         />
@@ -247,7 +221,7 @@ const Home: NextPage = () => {
 
       <div className="m-4" />
 
-      {/* <div className="text-center text-4xl">Organizations</div>
+      <div className="text-center text-4xl">Organizations</div>
       <div className="rounded-lg p-2">
         <IconsLinks
           iconsLinks={selectedOrganizationsConfig}
@@ -260,9 +234,43 @@ const Home: NextPage = () => {
       <div className="p-4 rounded-lg w-full">
         <p className="text-center text-4xl">My Projects</p>
         <Projects projects={projectsData} />
-      </div> */}
+      </div>
     </div>
   );
 };
 
 export default Home;
+
+function checkLinkWithTag(link: { url: string; tag: string }) {
+  let finalSocialLink;
+
+  if (link.tag === "Github") {
+    finalSocialLink = github(link.url);
+  } else if (link.tag === "Email") {
+    finalSocialLink = Email(link.url);
+  } else if (link.tag === "X") {
+    finalSocialLink = X(link.url);
+  } else if (link.tag === "Discord") {
+    finalSocialLink = Discord(link.url);
+  } else if (link.tag === "Telegram") {
+    finalSocialLink = Telegram(link.url);
+  } else if (link.tag === "Warpcast") {
+    finalSocialLink = Warpcast(link.url);
+  } else if (link.tag === "Youtube") {
+    finalSocialLink = Youtube(link.url);
+  } else if (link.tag === "Linkedin") {
+    finalSocialLink = Linkedin(link.url);
+  } else if (link.tag === "BuidlGuidl") {
+    finalSocialLink = BuidlGuidl(link.url);
+  } else if (link.tag === "Etherscan") {
+    finalSocialLink = Etherscan(link.url);
+  } else if (link.tag === "Nounspace") {
+    finalSocialLink = Nounspace(link.url);
+  } else if (link.tag === "Opensea") {
+    finalSocialLink = Opensea(link.url);
+  } else {
+    finalSocialLink = Link(link.url);
+  }
+
+  return finalSocialLink;
+}
