@@ -8,17 +8,11 @@ import { hardhat, mainnet } from "viem/chains";
 import { normalize } from "viem/ens";
 import { createConfig, useEnsName } from "wagmi";
 import { getEnsAvatar, getEnsText } from "wagmi/actions";
-// import { isAddress } from "viem";
-// import { normalize } from "viem/ens";
-// import { useEnsAvatar, useEnsName, useEnsText } from "wagmi";
 import { PfpCard } from "~~/components/portfolio/PfpCard";
 import { organizations } from "~~/components/portfolio/config/organization.config";
 import { PersonData } from "~~/components/portfolio/config/person.config";
 import { projectsData } from "~~/components/portfolio/config/projects.config";
 import { IconsLinks } from "~~/components/portfolio/icons-links/IconLinks";
-// import { EmailLogo } from "~~/components/portfolio/logos/EmailLogo";
-// import { GithubLogo } from "~~/components/portfolio/logos/GithubLogo";
-// import { XLogo } from "~~/components/portfolio/logos/XLogo";
 import { Projects } from "~~/components/portfolio/projects/Projects";
 import { BuidlGuidl } from "~~/components/portfolio/socials/BuidlGuidl";
 import { Discord } from "~~/components/portfolio/socials/Discord";
@@ -111,10 +105,10 @@ const Home: NextPage = () => {
 
   useEffect(() => {
     async function get() {
-      const finalLinksArr: any[] = [];
       let finalName;
       let finalImage;
       let finalDescription;
+      const finalLinksArr: any[] = [];
 
       if (isWeb3) {
         const wagmiConfig = createConfig({
@@ -140,48 +134,23 @@ const Home: NextPage = () => {
         const description = await getEnsText(wagmiConfig, { name: normalizedName, key: "description" });
         const image = await getEnsAvatar(wagmiConfig, { name: normalizedName });
 
-        // const finalArr = [];
+        const link1 = (await getEnsText(wagmiConfig, { name: normalizedName, key: "com.twitter" })) as string;
+        const link2 = (await getEnsText(wagmiConfig, { name: normalizedName, key: "com.github" })) as string;
+        const link3 = (await getEnsText(wagmiConfig, { name: normalizedName, key: "com.discord" })) as string;
+        const link4 = (await getEnsText(wagmiConfig, { name: normalizedName, key: "org.telegram" })) as string;
+        const link5 = (await getEnsText(wagmiConfig, { name: normalizedName, key: "email" })) as string;
 
-        const link1 = await getEnsText(wagmiConfig, { name: normalizedName, key: "com.twitter" });
-        const link2 = await getEnsText(wagmiConfig, { name: normalizedName, key: "com.github" });
-        const link3 = await getEnsText(wagmiConfig, { name: normalizedName, key: "com.discord" });
-        const link4 = await getEnsText(wagmiConfig, { name: normalizedName, key: "org.telegram" });
-        const link5 = await getEnsText(wagmiConfig, { name: normalizedName, key: "email" });
+        const link1Transformed = { tag: "X", url: link1 };
+        const link2Transformed = { tag: "Github", url: link2 };
+        const link3Transformed = { tag: "Discord", url: link3 };
+        const link4Transformed = { tag: "Telegram", url: link4 };
+        const link5Transformed = { tag: "Email", url: link5 };
 
-        finalLinksArr.push(
-          checkLinkWithTag({
-            tag: "X",
-            url: link1 as string,
-          }),
-        );
-
-        finalLinksArr.push(
-          checkLinkWithTag({
-            tag: "Github",
-            url: link2 as string,
-          }),
-        );
-
-        finalLinksArr.push(
-          checkLinkWithTag({
-            tag: "Discord",
-            url: link3 as string,
-          }),
-        );
-
-        finalLinksArr.push(
-          checkLinkWithTag({
-            tag: "Telegram",
-            url: link4 as string,
-          }),
-        );
-
-        finalLinksArr.push(
-          checkLinkWithTag({
-            tag: "Email",
-            url: link5 as string,
-          }),
-        );
+        finalLinksArr.push(checkLinkWithTag(link1Transformed));
+        finalLinksArr.push(checkLinkWithTag(link2Transformed));
+        finalLinksArr.push(checkLinkWithTag(link3Transformed));
+        finalLinksArr.push(checkLinkWithTag(link4Transformed));
+        finalLinksArr.push(checkLinkWithTag(link5Transformed));
 
         finalName = nickname;
         finalDescription = description;
