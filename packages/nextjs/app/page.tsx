@@ -3,6 +3,11 @@
 import { useEffect, useState } from "react";
 import { readContract } from "@wagmi/core";
 import type { NextPage } from "next";
+import { Chain, createClient, http, isAddress } from "viem";
+import { hardhat, mainnet } from "viem/chains";
+import { normalize } from "viem/ens";
+import { createConfig, useEnsName } from "wagmi";
+import { getEnsAvatar, getEnsText } from "wagmi/actions";
 // import { isAddress } from "viem";
 // import { normalize } from "viem/ens";
 // import { useEnsAvatar, useEnsName, useEnsText } from "wagmi";
@@ -29,18 +34,14 @@ import { Warpcast } from "~~/components/portfolio/socials/Warpcast";
 import { X } from "~~/components/portfolio/socials/X";
 import { Youtube } from "~~/components/portfolio/socials/Youtube";
 import { useScaffoldContract, useScaffoldReadContract } from "~~/hooks/scaffold-eth";
-// import avatarUrl from "~~/public/jake3.gif";
-// import TelegramLogo from "~~/public/website-icons/Logo.png";
+import scaffoldConfig from "~~/scaffold.config";
 import { useGlobalState } from "~~/services/store/store";
 import { wagmiConfig } from "~~/services/web3/wagmiConfig";
+import { wagmiConnectors } from "~~/services/web3/wagmiConnectors";
+import { getAlchemyHttpUrl } from "~~/utils/scaffold-eth";
 
 const Home: NextPage = () => {
   const { data: personConfig } = useScaffoldReadContract({ contractName: "Person", functionName: "getData" });
-
-  // const { data: linkedinUrl } = useEnsText({
-  //   name: normalize("jacobhomanics.eth"),
-  //   key: "com.linkedin",
-  // });
 
   const { data: organizationsCount } = useScaffoldReadContract({
     contractName: "Organizations",
@@ -79,96 +80,6 @@ const Home: NextPage = () => {
 
   const [selectedPersonConfig, setSelectedPersonConfig] = useState<any>({ ...PersonData });
 
-  // const { data: fetchedEns } = useEnsName({
-  //   address: selectedPersonConfig.addr,
-  //   chainId: 1,
-  //   query: {
-  //     enabled: isAddress(selectedPersonConfig.addr ?? ""),
-  //   },
-  // });
-
-  // const { data: githubUrl } = useEnsText({
-  //   name: fetchedEns ? normalize(fetchedEns) : undefined,
-  //   key: "com.github",
-  //   query: {
-  //     enabled: Boolean(fetchedEns),
-  //     gcTime: 30_000,
-  //   },
-  // });
-
-  // const { data: twitterUrl } = useEnsText({
-  //   name: fetchedEns ? normalize(fetchedEns) : undefined,
-  //   key: "com.twitter",
-  //   query: {
-  //     enabled: Boolean(fetchedEns),
-  //     gcTime: 30_000,
-  //   },
-  // });
-
-  // const { data: telegramUrl } = useEnsText({
-  //   name: fetchedEns ? normalize(fetchedEns) : undefined,
-  //   key: "org.telegram",
-  //   query: {
-  //     enabled: Boolean(fetchedEns),
-  //     gcTime: 30_000,
-  //   },
-  // });
-
-  // const { data: descript } = useEnsText({
-  //   name: fetchedEns ? normalize(fetchedEns) : undefined,
-  //   key: "description",
-  //   query: {
-  //     enabled: Boolean(fetchedEns),
-  //     gcTime: 30_000,
-  //   },
-  // });
-
-  // const { data: email } = useEnsText({
-  //   name: fetchedEns ? normalize(fetchedEns) : undefined,
-  //   key: "email",
-  //   query: {
-  //     enabled: Boolean(fetchedEns),
-  //     gcTime: 30_000,
-  //   },
-  // });
-
-  // // console.log(descript);
-
-  // const { data: ensAvatar } = useEnsAvatar({
-  //   name: fetchedEns ? normalize(fetchedEns) : undefined,
-  //   query: {
-  //     enabled: Boolean(fetchedEns),
-  //     gcTime: 30_000,
-  //   },
-  // });
-
-  // console.log(normalize("jacobhomanics.eth"));
-  // console.log(test);
-  // console.log(result);
-
-  // console.log(githubUrl);
-  // console.log(linkedinUrl);
-  // console.log(twitterUrl);
-  // console.log(telegramUrl);
-  // console.log(avatarUrl);
-
-  // const githubObj = { url: "https://github.com/" + githubUrl, icon: GithubLogo };
-  // const xObj = { url: "https://x.com/" + twitterUrl, icon: XLogo };
-  // const tgObj = { url: "https://t.me/" + telegramUrl, icon: TelegramLogo.src };
-  // // const emailObj = { url: "mailto:" + email, icon: EmailLogo };
-
-  // const iconsLinks = [githubObj, xObj, tgObj, emailObj];
-  // const githubObj = { url: "https://github.com/" + githubUrl, icon: GithubLogo};
-  // const githubObj = { url: "https://github.com/" + githubUrl, icon: GithubLogo};
-
-  // const { data: resolver } = useEnsResolver({
-  //   name: normalize("jacobhomanics.eth"),
-  // });
-
-  // console.log(resolver);
-
-  // const [selectedOrganizationsConfig, setSelectedOrganizationsConfig] = useState<any>(organizations);
-
   useEffect(() => {
     if (isWeb3) {
       setSelectedPersonConfig({
@@ -186,41 +97,138 @@ const Home: NextPage = () => {
 
   const [socialLinks, setSocialLinks] = useState<any[]>([]);
 
-  useEffect(() => {
-    const finalArr = [];
+  const [selectedName, setSelectedName] = useState<any>();
+  const [selectedImage, setSelectedImage] = useState<string>();
 
-    for (let i = 0; i < selectedPersonConfig.links.length; i++) {
-      if (selectedPersonConfig.links[i].tag === "Github") {
-        finalArr.push(github(selectedPersonConfig.links[i].url));
-      } else if (selectedPersonConfig.links[i].tag === "Email") {
-        finalArr.push(Email(selectedPersonConfig.links[i].url));
-      } else if (selectedPersonConfig.links[i].tag === "X") {
-        finalArr.push(X(selectedPersonConfig.links[i].url));
-      } else if (selectedPersonConfig.links[i].tag === "Discord") {
-        finalArr.push(Discord(selectedPersonConfig.links[i].url));
-      } else if (selectedPersonConfig.links[i].tag === "Telegram") {
-        finalArr.push(Telegram(selectedPersonConfig.links[i].url));
-      } else if (selectedPersonConfig.links[i].tag === "Warpcast") {
-        finalArr.push(Warpcast(selectedPersonConfig.links[i].url));
-      } else if (selectedPersonConfig.links[i].tag === "Youtube") {
-        finalArr.push(Youtube(selectedPersonConfig.links[i].url));
-      } else if (selectedPersonConfig.links[i].tag === "Linkedin") {
-        finalArr.push(Linkedin(selectedPersonConfig.links[i].url));
-      } else if (selectedPersonConfig.links[i].tag === "BuidlGuidl") {
-        finalArr.push(BuidlGuidl(selectedPersonConfig.links[i].url));
-      } else if (selectedPersonConfig.links[i].tag === "Etherscan") {
-        finalArr.push(Etherscan(selectedPersonConfig.links[i].url));
-      } else if (selectedPersonConfig.links[i].tag === "Nounspace") {
-        finalArr.push(Nounspace(selectedPersonConfig.links[i].url));
-      } else if (selectedPersonConfig.links[i].tag === "Opensea") {
-        finalArr.push(Opensea(selectedPersonConfig.links[i].url));
+  const { data: fetchedEns } = useEnsName({
+    address: selectedPersonConfig.addr,
+    chainId: 1,
+    query: {
+      enabled: isAddress(selectedPersonConfig.addr ?? ""),
+    },
+  });
+
+  useEffect(() => {
+    async function get() {
+      function checkLinkWithTag(link: { url: string; tag: string }) {
+        let finalSocialLink;
+
+        if (link.tag === "Github") {
+          finalSocialLink = github(link.url);
+        } else if (link.tag === "Email") {
+          finalSocialLink = Email(link.url);
+        } else if (link.tag === "X") {
+          finalSocialLink = X(link.url);
+        } else if (link.tag === "Discord") {
+          finalSocialLink = Discord(link.url);
+        } else if (link.tag === "Telegram") {
+          finalSocialLink = Telegram(link.url);
+        } else if (link.tag === "Warpcast") {
+          finalSocialLink = Warpcast(link.url);
+        } else if (link.tag === "Youtube") {
+          finalSocialLink = Youtube(link.url);
+        } else if (link.tag === "Linkedin") {
+          finalSocialLink = Linkedin(link.url);
+        } else if (link.tag === "BuidlGuidl") {
+          finalSocialLink = BuidlGuidl(link.url);
+        } else if (link.tag === "Etherscan") {
+          finalSocialLink = Etherscan(link.url);
+        } else if (link.tag === "Nounspace") {
+          finalSocialLink = Nounspace(link.url);
+        } else if (link.tag === "Opensea") {
+          finalSocialLink = Opensea(link.url);
+        } else {
+          finalSocialLink = Link(link.url);
+        }
+
+        return finalSocialLink;
+      }
+
+      if (isWeb3) {
+        const wagmiConfig = createConfig({
+          chains: [mainnet],
+          connectors: wagmiConnectors,
+          ssr: true,
+          client({ chain }) {
+            return createClient({
+              chain,
+              transport: http(getAlchemyHttpUrl(chain.id)),
+              ...(chain.id !== (hardhat as Chain).id
+                ? {
+                    pollingInterval: scaffoldConfig.pollingInterval,
+                  }
+                : {}),
+            });
+          },
+        });
+
+        const normalizedName = fetchedEns ? normalize(fetchedEns) : "";
+
+        const name = await getEnsText(wagmiConfig, { name: normalizedName, key: "name" });
+        const image = await getEnsAvatar(wagmiConfig, { name: normalizedName });
+
+        const finalArr = [];
+
+        const link1 = await getEnsText(wagmiConfig, { name: normalizedName, key: "com.twitter" });
+        const link2 = await getEnsText(wagmiConfig, { name: normalizedName, key: "com.github" });
+        const link3 = await getEnsText(wagmiConfig, { name: normalizedName, key: "com.discord" });
+        const link4 = await getEnsText(wagmiConfig, { name: normalizedName, key: "org.telegram" });
+        const link5 = await getEnsText(wagmiConfig, { name: normalizedName, key: "email" });
+
+        finalArr.push(
+          checkLinkWithTag({
+            tag: "X",
+            url: link1 as string,
+          }),
+        );
+
+        finalArr.push(
+          checkLinkWithTag({
+            tag: "Github",
+            url: link2 as string,
+          }),
+        );
+
+        finalArr.push(
+          checkLinkWithTag({
+            tag: "Discord",
+            url: link3 as string,
+          }),
+        );
+
+        finalArr.push(
+          checkLinkWithTag({
+            tag: "Telegram",
+            url: link4 as string,
+          }),
+        );
+
+        finalArr.push(
+          checkLinkWithTag({
+            tag: "Email",
+            url: link5 as string,
+          }),
+        );
+
+        setSelectedImage(image || "");
+        setSelectedName(name);
+
+        console.log(link1);
+        setSocialLinks(finalArr);
       } else {
-        finalArr.push(Link(selectedPersonConfig.links[i].url));
+        const finalArr = [];
+
+        for (let i = 0; i < selectedPersonConfig.links.length; i++) {
+          finalArr.push(checkLinkWithTag(selectedPersonConfig.links[i]));
+        }
+
+        setSelectedName(PersonData.name);
+        setSelectedImage(PersonData?.img);
+        setSocialLinks(finalArr);
       }
     }
-
-    setSocialLinks(finalArr);
-  }, [selectedPersonConfig?.links, selectedPersonConfig?.links?.length]);
+    get();
+  }, [fetchedEns, isWeb3, selectedPersonConfig?.links, selectedPersonConfig?.links?.length]);
 
   console.log("bleh");
 
@@ -229,10 +237,10 @@ const Home: NextPage = () => {
       <div className="bg-primary w-full p-4">
         <p className="text-center text-xs">profile loaded from ENS</p>
         <PfpCard
-          name={selectedPersonConfig?.name}
+          name={selectedName}
           address={selectedPersonConfig?.addr}
           description={selectedPersonConfig?.description}
-          image={selectedPersonConfig?.img}
+          image={selectedImage}
           iconslinks={socialLinks}
         />
       </div>
