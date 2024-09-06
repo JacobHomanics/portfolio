@@ -65,17 +65,13 @@ export const Footer = () => {
             </div> */}
           </div>
 
-          {isWeb3 ? (
-            <div className="bg-primary p-1 rounded-lg">This website is now pulling data from the blockchain!</div>
-          ) : (
-            <></>
-          )}
+          {isWeb3 ? <div className="bg-primary p-1 rounded-lg">This website is now pulling data from ENS!</div> : <></>}
           {/* <div className="pointer-events-auto bg-primary p-1 border-2 border-indigo-500 rounded-lg">
             <SocialLinks items={socialLinks2} />  
           </div> */}
-          <div className="flex flex-col mr-2">
-            <SwitchWeb className={`pointer-events-auto ${isLocalNetwork ? "self-end md:self-auto" : ""}`} />
+          <div className="flex flex-col mr-6">
             <SwitchTheme className={`pointer-events-auto ${isLocalNetwork ? "self-end md:self-auto" : ""}`} />
+            <SwitchWeb className={`pointer-events-auto ${isLocalNetwork ? "self-end md:self-auto" : ""}`} />
           </div>
         </div>
       </div>

@@ -38,7 +38,7 @@ export const SwitchWeb = ({ className }: { className?: string }) => {
         checked={isWeb3}
       />
       <label htmlFor="theme-toggle" className={`swap swap-rotate ${!isWeb3 ? "swap-active" : ""}`}>
-        <div className="swap-on h-5 w-5">Trad</div>
+        <div className="swap-on h-5 w-5">Offchain</div>
         <div className="swap-off h-5 w-5">ENS</div>
       </label>
     </div>

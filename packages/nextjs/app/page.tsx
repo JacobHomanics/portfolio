@@ -9,6 +9,7 @@ import type { NextPage } from "next";
 import { PfpCard } from "~~/components/portfolio/PfpCard";
 // import { organizations } from "~~/components/portfolio/config/organization.config";
 import { PersonData } from "~~/components/portfolio/config/person.config";
+import { BuidlGuidl } from "~~/components/portfolio/socials/BuidlGuidl";
 // import { projectsData } from "~~/components/portfolio/config/projects.config";
 // import { IconsLinks } from "~~/components/portfolio/icons-links/IconLinks";
 // import { EmailLogo } from "~~/components/portfolio/logos/EmailLogo";
@@ -17,10 +18,16 @@ import { PersonData } from "~~/components/portfolio/config/person.config";
 // import { Projects } from "~~/components/portfolio/projects/Projects";
 import { Discord } from "~~/components/portfolio/socials/Discord";
 import { Email } from "~~/components/portfolio/socials/Email";
+import { Etherscan } from "~~/components/portfolio/socials/Etherscan";
 import { github } from "~~/components/portfolio/socials/Github";
 import { Link } from "~~/components/portfolio/socials/Link";
+import { Linkedin } from "~~/components/portfolio/socials/Linkedin";
+import { Nounspace } from "~~/components/portfolio/socials/Nounspace";
+import { Opensea } from "~~/components/portfolio/socials/Opensea";
 import { Telegram } from "~~/components/portfolio/socials/Telegram";
+import { Warpcast } from "~~/components/portfolio/socials/Warpcast";
 import { X } from "~~/components/portfolio/socials/X";
+import { Youtube } from "~~/components/portfolio/socials/Youtube";
 import { useScaffoldContract, useScaffoldReadContract } from "~~/hooks/scaffold-eth";
 // import avatarUrl from "~~/public/jake3.gif";
 // import TelegramLogo from "~~/public/website-icons/Logo.png";
@@ -193,6 +200,20 @@ const Home: NextPage = () => {
         finalArr.push(Discord(selectedPersonConfig.links[i].url));
       } else if (selectedPersonConfig.links[i].tag === "Telegram") {
         finalArr.push(Telegram(selectedPersonConfig.links[i].url));
+      } else if (selectedPersonConfig.links[i].tag === "Warpcast") {
+        finalArr.push(Warpcast(selectedPersonConfig.links[i].url));
+      } else if (selectedPersonConfig.links[i].tag === "Youtube") {
+        finalArr.push(Youtube(selectedPersonConfig.links[i].url));
+      } else if (selectedPersonConfig.links[i].tag === "Linkedin") {
+        finalArr.push(Linkedin(selectedPersonConfig.links[i].url));
+      } else if (selectedPersonConfig.links[i].tag === "BuidlGuidl") {
+        finalArr.push(BuidlGuidl(selectedPersonConfig.links[i].url));
+      } else if (selectedPersonConfig.links[i].tag === "Etherscan") {
+        finalArr.push(Etherscan(selectedPersonConfig.links[i].url));
+      } else if (selectedPersonConfig.links[i].tag === "Nounspace") {
+        finalArr.push(Nounspace(selectedPersonConfig.links[i].url));
+      } else if (selectedPersonConfig.links[i].tag === "Opensea") {
+        finalArr.push(Opensea(selectedPersonConfig.links[i].url));
       } else {
         finalArr.push(Link(selectedPersonConfig.links[i].url));
       }
