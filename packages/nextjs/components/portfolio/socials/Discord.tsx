@@ -1,8 +1,8 @@
 import { DiscordLogo } from "../logos/DiscordLogo";
 
-export const Discord = (username: string) => {
+export const Discord = (username: string, logo?: string) => {
   return {
     url: username,
-    icon: DiscordLogo,
+    icon: logo ?? DiscordLogo,
   };
 };

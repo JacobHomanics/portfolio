@@ -1,8 +1,8 @@
 import { NounspaceLogo } from "../logos/NounspaceLogo";
 
-export const Nounspace = (username: string) => {
+export const Nounspace = (username: string, logo?: string) => {
   return {
     url: "https://nounspace.com/s/" + username,
-    icon: NounspaceLogo,
+    icon: logo ?? NounspaceLogo,
   };
 };

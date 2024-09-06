@@ -1,8 +1,8 @@
 import WarpcastLogo from "~~/public/website-icons/warpcast-icon.png";
 
-export const Warpcast = (username: string) => {
+export const Warpcast = (username: string, logo?: string) => {
   return {
     url: "https://warpcast.com/" + username,
-    icon: WarpcastLogo.src,
+    icon: logo ?? WarpcastLogo.src,
   };
 };

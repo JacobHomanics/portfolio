@@ -1,8 +1,8 @@
 import { XLogo } from "../logos/XLogo";
 
-export const X = (username: string) => {
+export const X = (username: string, logo?: string) => {
   return {
     url: "https://x.com/" + username,
-    icon: XLogo,
+    icon: logo ?? XLogo,
   };
 };

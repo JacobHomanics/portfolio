@@ -1,17 +1,17 @@
+// import { GithubLogo } from "../logos/GithubLogo";
 import profilePic from "~~/public/jake3.gif";
-
-// import TelegramLogo from "~~/public/website-icons/Logo.png";
 
 export const personAddress = "0xc689c800a7121b186208ea3b182fAb2671B337E7";
 export const PersonData = {
   addr: personAddress,
-  name: "Tony Rodriguez",
+  name: "Jacob Homanics",
   description: "Web3 Developer focusing on NFTs, DAOs, open source technologies, and public goods.",
   img: profilePic.src,
   links: [
     {
       tag: "Telegram",
-      url: "jacobhomanics", //, icon: TelegramLogo.src
+      url: "jacobhomanics",
+      //   img: GithubLogo,
     },
     { tag: "Github", url: "hotmanics" },
     { tag: "Email", url: "homanicsjake@gmail.com" },

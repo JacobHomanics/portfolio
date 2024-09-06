@@ -35,65 +35,17 @@ import { wagmiConnectors } from "~~/services/web3/wagmiConnectors";
 import { getAlchemyHttpUrl } from "~~/utils/scaffold-eth";
 
 const Home: NextPage = () => {
-  const { data: personConfig } = useScaffoldReadContract({ contractName: "Person", functionName: "getData" });
-
-  const { data: organizationsCount } = useScaffoldReadContract({
-    contractName: "Organizations",
-    functionName: "getOrgCount",
-  });
-  const { data: organizationsContract } = useScaffoldContract({ contractName: "Organizations" });
-
-  const [web3Orgs, setWeb3Orgs] = useState<any[]>([]);
-
-  useEffect(
-    () => {
-      async function get() {
-        if (!organizationsContract) return;
-        if (!organizationsCount) return;
-
-        const orgs = [];
-        for (let i = 0; i < organizationsCount; i++) {
-          const result = await readContract(wagmiConfig, {
-            abi: organizationsContract.abi,
-            address: organizationsContract.address,
-            functionName: "getData",
-            args: [BigInt(i)],
-          });
-          orgs.push(result);
-
-          setWeb3Orgs([...orgs]);
-        }
-      }
-      get();
-    },
-    /* eslint-disable-next-line */
-    [organizationsContract?.address, organizationsCount],
-  );
-
   const { isWeb3 } = useGlobalState();
 
-  // const [selectedPersonConfig, setSelectedPersonConfig] = useState<any>({ ...PersonData });
+  const [selectedName, setSelectedName] = useState<any>(PersonData.name);
+  const [selectedImage, setSelectedImage] = useState<string>(PersonData.img);
+  const [selectedDescription, setSelectedDescription] = useState<any>(PersonData.description);
 
-  const [selectedOrganizationsConfig, setSelectedOrganizationsConfig] = useState<any>();
-
-  useEffect(() => {
-    if (isWeb3) {
-      // setSelectedPersonConfig({
-      //   addr: PersonData.addr,
-      //   name: PersonData.name,
-      // });
-      setSelectedOrganizationsConfig(web3Orgs);
-    } else {
-      // setSelectedPersonConfig(PersonData);
-      setSelectedOrganizationsConfig(organizations);
-    }
-  }, [personConfig, web3Orgs, isWeb3]);
-
-  const [socialLinks, setSocialLinks] = useState<any[]>([]);
-
-  const [selectedName, setSelectedName] = useState<any>();
-  const [selectedImage, setSelectedImage] = useState<string>();
-  const [selectedDescription, setSelectedDescription] = useState<any>();
+  const arr = [];
+  for (let i = 0; i < PersonData.links.length; i++) {
+    arr.push(checkLinkWithTag(PersonData.links[i]));
+  }
+  const [socialLinks, setSocialLinks] = useState<any[]>(arr);
 
   const { data: fetchedEns } = useEnsName({
     address: PersonData.addr,
@@ -103,14 +55,17 @@ const Home: NextPage = () => {
     },
   });
 
+  const [isLoading, setIsLoading] = useState<boolean>();
+
   useEffect(() => {
     async function get() {
       let finalName;
-      let finalImage;
+      let finalImage = "";
       let finalDescription;
       const finalLinksArr: any[] = [];
 
       if (isWeb3) {
+        setIsLoading(true);
         const wagmiConfig = createConfig({
           chains: [mainnet],
           connectors: wagmiConnectors,
@@ -155,6 +110,7 @@ const Home: NextPage = () => {
         finalName = nickname;
         finalDescription = description;
         finalImage = image || "";
+        setIsLoading(false);
       } else {
         for (let i = 0; i < PersonData.links.length; i++) {
           finalLinksArr.push(checkLinkWithTag(PersonData.links[i]));
@@ -173,19 +129,68 @@ const Home: NextPage = () => {
     get();
   }, [fetchedEns, isWeb3, PersonData?.links, PersonData?.links?.length]);
 
+  const { data: personConfig } = useScaffoldReadContract({ contractName: "Person", functionName: "getData" });
+
+  const { data: organizationsCount } = useScaffoldReadContract({
+    contractName: "Organizations",
+    functionName: "getOrgCount",
+  });
+  const { data: organizationsContract } = useScaffoldContract({ contractName: "Organizations" });
+
+  const [web3Orgs, setWeb3Orgs] = useState<any[]>([]);
+
+  useEffect(
+    () => {
+      async function get() {
+        if (!organizationsContract) return;
+        if (!organizationsCount) return;
+
+        const orgs = [];
+        for (let i = 0; i < organizationsCount; i++) {
+          const result = await readContract(wagmiConfig, {
+            abi: organizationsContract.abi,
+            address: organizationsContract.address,
+            functionName: "getData",
+            args: [BigInt(i)],
+          });
+          orgs.push(result);
+
+          setWeb3Orgs([...orgs]);
+        }
+      }
+      get();
+    },
+    /* eslint-disable-next-line */
+    [organizationsContract?.address, organizationsCount],
+  );
+
+  const [selectedOrganizationsConfig, setSelectedOrganizationsConfig] = useState<any>();
+
+  useEffect(() => {
+    if (isWeb3) {
+      setSelectedOrganizationsConfig(web3Orgs);
+    } else {
+      setSelectedOrganizationsConfig(organizations);
+    }
+  }, [personConfig, web3Orgs, isWeb3]);
+
   console.log("bleh");
 
   return (
     <div className="flex flex-col items-center">
       <div className="bg-primary w-full p-4">
-        <p className="text-center text-xs">profile loaded from ENS</p>
-        <PfpCard
-          address={PersonData?.addr}
-          name={selectedName}
-          description={selectedDescription}
-          image={selectedImage}
-          iconslinks={socialLinks}
-        />
+        <p className="text-center text-xs">{isWeb3 ? "profile loaded from ENS" : ""}</p>
+        {isLoading ? (
+          <p className="text-center">Loading ENS Profile...</p>
+        ) : (
+          <PfpCard
+            address={PersonData?.addr}
+            name={selectedName}
+            description={selectedDescription}
+            image={selectedImage}
+            iconslinks={socialLinks}
+          />
+        )}
       </div>
 
       <div className="m-4" />
@@ -210,35 +215,36 @@ const Home: NextPage = () => {
 
 export default Home;
 
-function checkLinkWithTag(link: { url: string; tag: string }) {
+function checkLinkWithTag(link: { url: string; tag: string; img?: any }) {
   let finalSocialLink;
 
   if (link.tag === "Github") {
-    finalSocialLink = github(link.url);
+    finalSocialLink = github(link.url, link.img);
   } else if (link.tag === "Email") {
-    finalSocialLink = Email(link.url);
+    finalSocialLink = Email(link.url, link.img);
   } else if (link.tag === "X") {
-    finalSocialLink = X(link.url);
+    finalSocialLink = X(link.url, link.img);
   } else if (link.tag === "Discord") {
-    finalSocialLink = Discord(link.url);
+    finalSocialLink = Discord(link.url, link.img);
   } else if (link.tag === "Telegram") {
-    finalSocialLink = Telegram(link.url);
+    console.log(link.img);
+    finalSocialLink = Telegram(link.url, link.img);
   } else if (link.tag === "Warpcast") {
-    finalSocialLink = Warpcast(link.url);
+    finalSocialLink = Warpcast(link.url, link.img);
   } else if (link.tag === "Youtube") {
-    finalSocialLink = Youtube(link.url);
+    finalSocialLink = Youtube(link.url, link.img);
   } else if (link.tag === "Linkedin") {
-    finalSocialLink = Linkedin(link.url);
+    finalSocialLink = Linkedin(link.url, link.img);
   } else if (link.tag === "BuidlGuidl") {
-    finalSocialLink = BuidlGuidl(link.url);
+    finalSocialLink = BuidlGuidl(link.url, link.img);
   } else if (link.tag === "Etherscan") {
-    finalSocialLink = Etherscan(link.url);
+    finalSocialLink = Etherscan(link.url, link.img);
   } else if (link.tag === "Nounspace") {
-    finalSocialLink = Nounspace(link.url);
+    finalSocialLink = Nounspace(link.url, link.img);
   } else if (link.tag === "Opensea") {
-    finalSocialLink = Opensea(link.url);
+    finalSocialLink = Opensea(link.url, link.img);
   } else {
-    finalSocialLink = Link(link.url);
+    finalSocialLink = Link(link.url, link.img);
   }
 
   return finalSocialLink;
