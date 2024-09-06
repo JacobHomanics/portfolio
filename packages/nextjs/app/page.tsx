@@ -72,19 +72,19 @@ const Home: NextPage = () => {
 
   const { isWeb3 } = useGlobalState();
 
-  const [selectedPersonConfig, setSelectedPersonConfig] = useState<any>({ ...PersonData });
+  // const [selectedPersonConfig, setSelectedPersonConfig] = useState<any>({ ...PersonData });
 
   const [selectedOrganizationsConfig, setSelectedOrganizationsConfig] = useState<any>();
 
   useEffect(() => {
     if (isWeb3) {
-      setSelectedPersonConfig({
-        addr: PersonData.addr,
-        name: PersonData.name,
-      });
+      // setSelectedPersonConfig({
+      //   addr: PersonData.addr,
+      //   name: PersonData.name,
+      // });
       setSelectedOrganizationsConfig(web3Orgs);
     } else {
-      setSelectedPersonConfig(PersonData);
+      // setSelectedPersonConfig(PersonData);
       setSelectedOrganizationsConfig(organizations);
     }
   }, [personConfig, web3Orgs, isWeb3]);
@@ -96,10 +96,10 @@ const Home: NextPage = () => {
   const [selectedDescription, setSelectedDescription] = useState<any>();
 
   const { data: fetchedEns } = useEnsName({
-    address: selectedPersonConfig.addr,
+    address: PersonData.addr,
     chainId: 1,
     query: {
-      enabled: isAddress(selectedPersonConfig.addr ?? ""),
+      enabled: isAddress(PersonData.addr ?? ""),
     },
   });
 
@@ -156,8 +156,8 @@ const Home: NextPage = () => {
         finalDescription = description;
         finalImage = image || "";
       } else {
-        for (let i = 0; i < selectedPersonConfig.links.length; i++) {
-          finalLinksArr.push(checkLinkWithTag(selectedPersonConfig.links[i]));
+        for (let i = 0; i < PersonData.links.length; i++) {
+          finalLinksArr.push(checkLinkWithTag(PersonData.links[i]));
         }
 
         finalName = PersonData.name;
@@ -171,7 +171,7 @@ const Home: NextPage = () => {
       setSocialLinks(finalLinksArr);
     }
     get();
-  }, [fetchedEns, isWeb3, selectedPersonConfig?.links, selectedPersonConfig?.links?.length]);
+  }, [fetchedEns, isWeb3, PersonData?.links, PersonData?.links?.length]);
 
   console.log("bleh");
 
@@ -180,8 +180,8 @@ const Home: NextPage = () => {
       <div className="bg-primary w-full p-4">
         <p className="text-center text-xs">profile loaded from ENS</p>
         <PfpCard
+          address={PersonData?.addr}
           name={selectedName}
-          address={selectedPersonConfig?.addr}
           description={selectedDescription}
           image={selectedImage}
           iconslinks={socialLinks}
