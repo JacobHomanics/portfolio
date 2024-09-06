@@ -14,7 +14,7 @@ type Props = {
 };
 
 export const IconsLinks = ({ iconsLinks, size, areIconsRounded, justify = "start", align = "center" }: Props) => {
-  const iconsLinksElements = iconsLinks.map((iconLink: any, index: number) => {
+  const iconsLinksElements = iconsLinks?.map((iconLink: any, index: number) => {
     return <IconLink iconLink={iconLink} isRounded={areIconsRounded} size={size} key={"iconLink" + index} />;
   });
   return <div className={`flex flex-wrap items-${align} justify-${justify}`}>{iconsLinksElements}</div>;

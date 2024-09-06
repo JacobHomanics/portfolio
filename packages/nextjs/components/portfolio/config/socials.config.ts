@@ -1,3 +1,4 @@
+import { EmailLogo } from "../logos/EmailLogo";
 import { BuidlGuidlLogo } from "~~/components/assets/BuidlGuidlLogo";
 import { EtherscanLogo } from "~~/components/portfolio/logos/EtherscanLogo";
 import { GithubLogo } from "~~/components/portfolio/logos/GithubLogo";
@@ -6,15 +7,18 @@ import { OpenSeaLogo } from "~~/components/portfolio/logos/OpenSeaLogo";
 import { ScrollLogo } from "~~/components/portfolio/logos/ScrollLogo";
 import { XLogo } from "~~/components/portfolio/logos/XLogo";
 import linkedinIcon from "~~/public/website-icons/LI-In-Bug.png";
+import TelegramLogo from "~~/public/website-icons/Logo.png";
 import warpcastIcon from "~~/public/website-icons/warpcast-icon.png";
 import youtubeLogo from "~~/public/website-icons/youtube_social_circle_red.png";
 
 export const IconsLinksData = [
-  { url: "https://warpcast.com/jacobhomanics.eth", icon: warpcastIcon.src },
   { url: "https://x.com/jacobhomanics", icon: XLogo },
-  { url: "https://linkedin.com/in/jacobhomanics", icon: linkedinIcon.src },
   { url: "https://github.com/hotmanics", icon: GithubLogo },
+  { url: "https://warpcast.com/jacobhomanics.eth", icon: warpcastIcon.src },
+  { url: "https://linkedin.com/in/jacobhomanics", icon: linkedinIcon.src },
   { url: "https://etherscan.io/name-lookup-search?id=jacobhomanics.eth", icon: EtherscanLogo },
+  { url: "t.me/jacobhomanics", icon: TelegramLogo.src },
+  { url: "mailto:homanicsjake@gmail.com", icon: EmailLogo },
   {
     url: "https://app.buidlguidl.com/builders/0xc689c800a7121b186208ea3b182fAb2671B337E7",
     icon: BuidlGuidlLogo,
