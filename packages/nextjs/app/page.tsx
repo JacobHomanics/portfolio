@@ -11,7 +11,7 @@ const Home: NextPage = () => {
   console.log("bleh");
 
   return (
-    <div className="flex flex-col items-center">
+    <div className="flex flex-col items-center bg-gradient-to-t from-base-100 to-base-300">
       <div className="bg-primary w-full">
         <Profile />
         {/* <SwitchWeb /> */}
