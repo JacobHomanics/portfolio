@@ -123,7 +123,7 @@ export const Profile = () => {
 
   return (
     <>
-      <div className="bg-primary w-full p-4">
+      <div className="p-4">
         <p className="text-center text-xs">{isWeb3 ? "profile loaded from ENS" : ""}</p>
         {isLoading ? (
           <p className="text-center">Loading ENS Profile...</p>
