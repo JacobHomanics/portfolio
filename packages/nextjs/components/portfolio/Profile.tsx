@@ -47,6 +47,8 @@ export const Profile = () => {
     },
   });
 
+  console.log(fetchedEns);
+
   const [isLoading, setIsLoading] = useState<boolean>();
 
   useEffect(() => {
@@ -128,13 +130,15 @@ export const Profile = () => {
         {isLoading ? (
           <p className="text-center">Loading ENS Profile...</p>
         ) : (
-          <PfpCard
-            address={PersonData?.addr}
-            name={selectedName}
-            description={selectedDescription}
-            image={selectedImage}
-            iconslinks={socialLinks}
-          />
+          <>
+            <PfpCard
+              address={PersonData?.addr}
+              name={selectedName}
+              description={selectedDescription}
+              image={selectedImage}
+              iconslinks={socialLinks}
+            />
+          </>
         )}
       </div>
     </>
