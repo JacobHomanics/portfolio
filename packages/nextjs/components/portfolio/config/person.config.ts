@@ -13,7 +13,7 @@ export const PersonData = {
       url: "jacobhomanics",
       //   img: GithubLogo,
     },
-    { tag: "Github", url: "hotmanics" },
+    { tag: "Github", url: "jacobhomanics" },
     { tag: "Email", url: "homanicsjake@gmail.com" },
     { tag: "X", url: "jacobhomanics" },
     { tag: "Discord", url: "jakehomanics" },

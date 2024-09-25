@@ -13,7 +13,7 @@ import youtubeLogo from "~~/public/website-icons/youtube_social_circle_red.png";
 
 export const IconsLinksData = [
   { url: "https://x.com/jacobhomanics", icon: XLogo },
-  { url: "https://github.com/hotmanics", icon: GithubLogo },
+  { url: "https://github.com/jacobhomanics", icon: GithubLogo },
   { url: "https://warpcast.com/jacobhomanics.eth", icon: warpcastIcon.src },
   { url: "https://linkedin.com/in/jacobhomanics", icon: linkedinIcon.src },
   { url: "https://etherscan.io/name-lookup-search?id=jacobhomanics.eth", icon: EtherscanLogo },
@@ -39,7 +39,7 @@ export const warpcastIconLink = {
 export const xIconLink = { url: "https://x.com/jacobhomanics", icon: XLogo };
 export const linkedinIconLink = { url: "https://linkedin.com/in/jacobhomanics", icon: linkedinIcon.src };
 
-export const githubIconLink = { url: "https://github.com/hotmanics", icon: GithubLogo };
+export const githubIconLink = { url: "https://github.com/jacobhomanics", icon: GithubLogo };
 export const etherscanIconLink = {
   url: "https://etherscan.io/name-lookup-search?id=jacobhomanics.eth",
   icon: EtherscanLogo,

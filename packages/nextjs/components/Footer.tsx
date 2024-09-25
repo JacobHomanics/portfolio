@@ -80,7 +80,7 @@ export const Footer = () => {
           <div className="flex justify-center items-center gap-2 text-sm w-full">
             <div className="text-center">
               <a
-                href="https://github.com/hotmanics/jacobhomanics-website"
+                href="https://github.com/jacobhomanics/jacobhomanics-website"
                 target="_blank"
                 rel="noreferrer"
                 className="link"

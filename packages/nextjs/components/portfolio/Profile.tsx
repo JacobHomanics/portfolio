@@ -47,8 +47,6 @@ export const Profile = () => {
     },
   });
 
-  console.log(fetchedEns);
-
   const [isLoading, setIsLoading] = useState<boolean>();
 
   useEffect(() => {

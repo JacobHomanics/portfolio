@@ -28,7 +28,7 @@ export const projectsData = [
     links: [
       { url: "https://github.com/ATXDAO/rep-and-roles-starter-kit", icon: GithubLogo },
       {
-        url: "https://hotmanics.github.io/rep-and-roles-docs/starter-kit/overview.html",
+        url: "https://jacobhomanics.github.io/rep-and-roles-docs/starter-kit/overview.html",
         icon: ScrollLogo,
       },
     ],
@@ -39,7 +39,7 @@ export const projectsData = [
     img: wwbtcIcon,
     url: "https://bottlecaptoken.com",
     links: [
-      { url: "https://github.com/hotmanics/wild-water-bottle-cap-token", icon: GithubLogo },
+      { url: "https://github.com/jacobhomanics/wild-water-bottle-cap-token", icon: GithubLogo },
       { url: "https://basescan.org/address/0x4169De2404a1484a50aB34fFf631F4B5dba90428", icon: EtherscanLogo },
     ],
   },
@@ -72,7 +72,7 @@ export const projectsData = [
     img: pizzaPeople,
     url: "https://pizzapeople.wtf",
     links: [
-      { url: "https://github.com/hotmanics/pizza-people", icon: GithubLogo },
+      { url: "https://github.com/jacobhomanics/pizza-people", icon: GithubLogo },
       { url: "https://basescan.org/address/0xF2137f6E039Cc0d2a19709a259CCCe13168cCD33", icon: EtherscanLogo },
       { url: "https://app.buidlguidl.com/build/s8wG9A0CKk2SOzAoVmUN", icon: BuidlGuidlLogo },
       { url: "https://opensea.io/collection/pizza-people-1", icon: OpenSeaLogo },
@@ -89,7 +89,7 @@ export const projectsData = [
     img: laddersDotVision,
     url: "https://ladders.vision",
     links: [
-      { url: "https://github.com/hotmanics/ladders.vision", icon: GithubLogo },
+      { url: "https://github.com/jacobhomanics/ladders.vision", icon: GithubLogo },
       { url: "https://app.buidlguidl.com/build/VKVHbZcjnrtUbUSwE1e5", icon: BuidlGuidlLogo },
     ],
   },
@@ -120,7 +120,7 @@ export const projectsData = [
     img: weedies,
     url: "https://weedies.wtf",
     links: [
-      { url: "https://github.com/hotmanics/weedies", icon: GithubLogo },
+      { url: "https://github.com/jacobhomanics/weedies", icon: GithubLogo },
       { url: "https://basescan.org/address/0x1c8264Cee472ef10758DFe8AE05156A1E52E6e40", icon: EtherscanLogo },
       { url: "https://app.buidlguidl.com/build/b8RxW8ys6vt2d0Rk3fYa", icon: BuidlGuidlLogo },
       { url: "https://opensea.io/collection/weedies-3", icon: OpenSeaLogo },

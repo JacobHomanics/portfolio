@@ -18,7 +18,7 @@ import youtube from "~~/public/youtube_social_circle_red.png";
 export const socialLinks2 = [
   { url: "https://x.com/jacobhomanics", img: XLogo, type: "component" },
   { url: "https://warpcast.com/jacobhomanics.eth", img: warpcastIcon, type: "img" },
-  { url: "https://github.com/hotmanics", img: GithubLogo, type: "component" },
+  { url: "https://github.com/jacobhomanics", img: GithubLogo, type: "component" },
   { url: "https://linkedin.com/in/jacobhomanics", img: linkedinIcon, type: "img" },
   { url: "https://etherscan.io/name-lookup-search?id=jacobhomanics.eth", img: EtherscanLogo, type: "component" },
   {
