@@ -132,8 +132,8 @@ export const Header = () => {
           </div>
         </Link> */}
 
-        <button onClick={sendETH} className="bg-primary hover:brightness-125 btn-primary btn-small p-4 rounded-lg">
-          <p className="text-xs m-0">Buy me a coffee</p> <p className="text-xs m-0">(With Crypto!)</p>
+        <button onClick={sendETH} className="bg-primary hover:brightness-125 btn-primary btn-small p-2 rounded-lg">
+          <p className="text-xs m-0">Buy me a coffee</p>
         </button>
         {/* <button onClick={sendETH} className="btn btn-primary w-3/5 md:w-2/5 lg:w-1/5 justify-center flex p-1">
           <div className="text-xs">Buy me a coffee</div>

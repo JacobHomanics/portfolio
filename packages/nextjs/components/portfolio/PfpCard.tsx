@@ -29,7 +29,7 @@ export const PfpCard = ({ name, address, description, image, iconslinks, size = 
       <div className="pointer-events-auto border-4 border-primary rounded-lg p-2">
         <IconsLinks iconsLinks={iconslinks} size="sm" justify="center" />
       </div>
-      <div className="text-xl m-2">{description}</div>
+      <div className="text-xl m-2 w-[700px]">{description}</div>
     </div>
   );
 };

@@ -11,11 +11,12 @@ type Props = {
   areIconsRounded?: boolean;
   justify?: "start" | "center";
   align?: "start" | "center";
+  gap?: "gap-1";
 };
 
-export const IconsLinks = ({ iconsLinks, size, areIconsRounded, justify = "start", align = "center" }: Props) => {
+export const IconsLinks = ({ iconsLinks, size, areIconsRounded, justify = "start", align = "center", gap }: Props) => {
   const iconsLinksElements = iconsLinks?.map((iconLink: any, index: number) => {
     return <IconLink iconLink={iconLink} isRounded={areIconsRounded} size={size} key={"iconLink" + index} />;
   });
-  return <div className={`flex flex-wrap items-${align} justify-${justify}`}>{iconsLinksElements}</div>;
+  return <div className={`flex flex-wrap items-${align} justify-${justify} ${gap}`}>{iconsLinksElements}</div>;
 };

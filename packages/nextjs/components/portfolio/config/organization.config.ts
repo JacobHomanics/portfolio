@@ -8,12 +8,14 @@ import developerDaoLogo from "~~/public/organizations/dd.png";
 import hatsProtocolLogo from "~~/public/organizations/hats.jpg";
 // import optimismLogo from "~~/public/organizations/optimism-ethereum-op-logo.png";
 import optimismFractalLogo from "~~/public/organizations/optimism-fractal.jpg";
+import raidGuildLogo from "~~/public/organizations/rg-icon.png";
 import solidityGuildLogo from "~~/public/organizations/solidity-guild.png";
 
 export const organizations = [
   { url: "https://buidlguidl.com", icon: buidlguidlLogo.src, name: "Buidl Guidl" },
-  { url: "https://hatsprotocol.xyz/", icon: hatsProtocolLogo.src, name: "Hats Protocol" },
+  { url: "https://raidguild.org", icon: raidGuildLogo.src, name: "Raid Guild" },
   { url: "https://solidityguild.com/", icon: solidityGuildLogo.src, name: "Solidity Guild" },
+  { url: "https://hatsprotocol.xyz/", icon: hatsProtocolLogo.src, name: "Hats Protocol" },
   { url: "https://www.developerdao.com/", icon: developerDaoLogo.src, name: "Developer DAO" },
 
   // { url: "https://optimism.io/", icon: optimismLogo.src, name: "Optimism" },

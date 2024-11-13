@@ -75,7 +75,14 @@ export const Organizations = () => {
     <>
       <div className="text-center text-4xl">Organizations</div>
       <div className="rounded-lg p-2">
-        <IconsLinks iconsLinks={organizations} size="base" areIconsRounded={true} justify="center" align="start" />
+        <IconsLinks
+          iconsLinks={organizations}
+          size="base"
+          areIconsRounded={true}
+          justify="center"
+          align="start"
+          gap="gap-1"
+        />
       </div>
     </>
   );
