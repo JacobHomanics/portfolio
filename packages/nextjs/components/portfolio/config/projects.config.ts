@@ -7,6 +7,7 @@ import { XLogo } from "~~/components/portfolio/logos/XLogo";
 import daoCoalitionLogo from "~~/public/organizations/dao-coalition.png";
 import hatsLogo from "~~/public/organizations/hats.jpg";
 import optimismFractalIcon from "~~/public/organizations/optimism-fractal.jpg";
+import engagementIcon from "~~/public/projects/engagementvision.png";
 import atxDaoRepAndRolesIcon from "~~/public/projects/lifetimetoken.jpg";
 import pizzaPeople from "~~/public/projects/pizzapeople.webp";
 import repAndRolesIcon from "~~/public/projects/rep-and-roles.png";
@@ -19,6 +20,14 @@ import unlockIcon from "~~/public/website-icons/unlock.png";
 import warpcastIcon from "~~/public/website-icons/warpcast-icon.png";
 
 export const projectsData = [
+  {
+    name: "Engagement.Vision",
+    description:
+      "Generate a user engagement score within specific communities or blockchains through a variety of different metrics from different data sources like blockchains, KarmaGAP, Talent Protocol, Ethereum Follow Protocol, and more!",
+    img: engagementIcon,
+    url: "https://engagement.vision",
+    links: [{ url: "https://github.com/JacobHomanicsOrganization/engagement.vision", icon: GithubLogo }],
+  },
   {
     name: "Reputation & Roles Starter Kit",
     description:
