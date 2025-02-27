@@ -7,14 +7,14 @@ import { parseEther } from "viem";
 // import { IconsLinksData } from "./portfolio/config/socials.config";
 // import { IconsLinks } from "./portfolio/icons-links/IconLinks";
 import { hardhat } from "viem/chains";
-import { useAccount } from "wagmi";
+import { useAccount, useSendTransaction } from "wagmi";
 // import { CurrencyDollarIcon, MagnifyingGlassIcon } from "@heroicons/react/24/outline";
 import { HeartIcon } from "@heroicons/react/24/outline";
 import { SwitchTheme } from "~~/components/SwitchTheme";
 import * as PersonData from "~~/components/portfolio/config/person.config";
 import { personAddress } from "~~/components/portfolio/config/person.config";
 // import { Faucet } from "~~/components/scaffold-eth";
-import { useTransactor } from "~~/hooks/scaffold-eth";
+// import { useTransactor } from "~~/hooks/scaffold-eth";
 import { useTargetNetwork } from "~~/hooks/scaffold-eth/useTargetNetwork";
 
 // import { useGlobalState } from "~~/services/store/store";
@@ -32,15 +32,17 @@ export const Footer = () => {
 
   // const [selectedPersonConfig, setSelectedPersonConfig] = useState<any>(PersonData);
 
-  const faucetTxn = useTransactor();
+  // const faucetTxn = useTransactor();
+
+  const { sendTransaction } = useSendTransaction();
 
   const { address: user } = useAccount();
 
   const sendETH = async () => {
     try {
-      await faucetTxn({
+      await sendTransaction({
         to: personAddress,
-        value: parseEther("0.0020"),
+        value: parseEther("0.002"),
         account: user,
       });
     } catch (error) {
@@ -60,12 +62,12 @@ export const Footer = () => {
       <div>
         <div className="fixed flex justify-between items-end w-full z-10 p-4 bottom-0 left-0 pointer-events-none gap-4">
           <div className="flex flex-col gap-4">
-            <button className="btn btn-primary btn-sm" onClick={sendETH} type="button">
-              Buy me a coffee
-            </button>
+            <div className="flex flex-col md:flex-row gap-2 pointer-events-auto">
+              <button className="btn btn-primary btn-sm" onClick={sendETH} type="button">
+                Buy me a coffee
+              </button>
 
-            {/* <div className="flex flex-col md:flex-row gap-2 pointer-events-auto">
-              {nativeCurrencyPrice > 0 && (
+              {/* {nativeCurrencyPrice > 0 && (
                 <div>
                   <div className="btn btn-primary btn-sm font-normal gap-1 cursor-auto">
                     <CurrencyDollarIcon className="h-4 w-4" />
@@ -81,8 +83,8 @@ export const Footer = () => {
                     <span>Block Explorer</span>
                   </Link>
                 </>
-              )}
-            </div> */}
+              )} */}
+            </div>
 
             {/* <div className="pointer-events-auto border-4 border-primary rounded-lg bg-base-300 dark:bg-base-200 p-2">
               <IconsLinks iconsLinks={IconsLinksData} size="sm" />
