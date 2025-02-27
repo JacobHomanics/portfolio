@@ -1,15 +1,16 @@
 "use client";
 
-import React, { useCallback, useEffect, useRef, useState } from "react";
+import React, { useCallback, useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { parseEther } from "viem";
-import { useAccount } from "wagmi";
-import { Bars3Icon, BugAntIcon } from "@heroicons/react/24/outline";
-import * as PersonData from "~~/components/portfolio/config/person.config";
+// import { parseEther } from "viem";
+// import { useAccount } from "wagmi";
+import { Bars3Icon } from "@heroicons/react/24/outline";
+// import * as PersonData from "~~/components/portfolio/config/person.config";
 import { FaucetButton, RainbowKitCustomConnectButton } from "~~/components/scaffold-eth";
-import { useOutsideClick, useScaffoldReadContract, useTransactor } from "~~/hooks/scaffold-eth";
-import { useGlobalState } from "~~/services/store/store";
+import { useOutsideClick } from "~~/hooks/scaffold-eth";
+
+// import { useGlobalState } from "~~/services/store/store";
 
 type HeaderMenuLink = {
   label: string;
@@ -18,15 +19,15 @@ type HeaderMenuLink = {
 };
 
 export const menuLinks: HeaderMenuLink[] = [
-  {
-    label: "Home",
-    href: "/",
-  },
-  {
-    label: "Debug Contracts",
-    href: "/debug",
-    icon: <BugAntIcon className="h-4 w-4" />,
-  },
+  // {
+  //   label: "Home",
+  //   href: "/",
+  // },
+  // {
+  //   label: "Debug Contracts",
+  //   href: "/debug",
+  //   icon: <BugAntIcon className="h-4 w-4" />,
+  // },
 ];
 
 export const HeaderMenuLinks = () => {
@@ -66,35 +67,23 @@ export const Header = () => {
     useCallback(() => setIsDrawerOpen(false), []),
   );
 
-  const { address: user } = useAccount();
+  // const { address: user } = useAccount();
 
-  const faucetTxn = useTransactor();
+  // const faucetTxn = useTransactor();
 
-  const { data: personConfig } = useScaffoldReadContract({ contractName: "Person", functionName: "getData" });
+  // const { data: personConfig } = useScaffoldReadContract({ contractName: "Person", functionName: "getData" });
 
-  const { isWeb3 } = useGlobalState();
+  // const { isWeb3 } = useGlobalState();
 
-  const [selectedPersonConfig, setSelectedPersonConfig] = useState<any>(PersonData);
+  // const [selectedPersonConfig, setSelectedPersonConfig] = useState<any>(PersonData);
 
-  useEffect(() => {
-    if (isWeb3) {
-      setSelectedPersonConfig(personConfig);
-    } else {
-      setSelectedPersonConfig(PersonData);
-    }
-  }, [personConfig, personConfig?.name, isWeb3]);
-
-  const sendETH = async () => {
-    try {
-      await faucetTxn({
-        to: selectedPersonConfig.addr,
-        value: parseEther("0.0020"),
-        account: user,
-      });
-    } catch (error) {
-      console.error("⚡️ ~ file: Faucet.tsx:sendETH ~ error", error);
-    }
-  };
+  // useEffect(() => {
+  //   if (isWeb3) {
+  //     setSelectedPersonConfig(personConfig);
+  //   } else {
+  //     setSelectedPersonConfig(PersonData);
+  //   }
+  // }, [personConfig, personConfig?.name, isWeb3]);
 
   return (
     <div className="sticky lg:static top-0 navbar bg-base-100 min-h-0 flex-shrink-0 justify-between z-20 shadow-md shadow-secondary px-0 sm:px-2">
@@ -132,9 +121,6 @@ export const Header = () => {
           </div>
         </Link> */}
 
-        <button onClick={sendETH} className="bg-primary hover:brightness-125 btn-primary btn-small p-2 rounded-lg">
-          <p className="text-xs m-0">Buy me a coffee</p>
-        </button>
         {/* <button onClick={sendETH} className="btn btn-primary w-3/5 md:w-2/5 lg:w-1/5 justify-center flex p-1">
           <div className="text-xs">Buy me a coffee</div>
           <div className="text-xs">(With Crypto!)</div>
@@ -144,7 +130,7 @@ export const Header = () => {
           <HeaderMenuLinks />
         </ul>
       </div>
-      <div className="navbar-end flex-grow mr-4">
+      <div className="navbar-end flex-grow mr-4 space-x-4">
         <RainbowKitCustomConnectButton />
         <FaucetButton />
       </div>

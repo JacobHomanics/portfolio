@@ -47,26 +47,34 @@ export const PfpCard = ({ name, address, description, image, iconslinks, size = 
 
   return (
     <div className="flex flex-col items-center text-center">
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img src={image} alt={"Profile Picture"} className={`rounded-full ${sizeMap[size]}`} />
+      <div className="flex gap-4">
+        <div className="flex flex-col items-center text-center w-full">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src={image} alt={"Profile Picture"} className={`rounded-full ${sizeMap[size]}`} />
+        </div>
+
+        <div className="w-full flex flex-col items-start justify-start gap-4">
+          <div className="w-[200px]">
+            <EFPCard
+              address="jacobhomanics.eth"
+              efpFollowers={efpData?.followers_count}
+              efpFollowing={efpData?.following_count}
+            />
+          </div>
+          <div className="w-[200px]">
+            <BuilderScoreCard talentScore={passport?.score} />
+          </div>
+        </div>
+      </div>
+
       <div className="text-3xl">{name}</div>
-      <Address address={address} />
-      <div className="pointer-events-auto border-4 border-primary rounded-lg p-2">
+      <Address address={address} showIcon={false} />
+
+      <div className="pointer-events-auto border-4 border-primary rounded-lg p-2 w-[200px]">
         <IconsLinks iconsLinks={iconslinks} size="sm" justify="center" />
       </div>
-      <div className="w-full flex items-start justify-center gap-4">
-        <div className="w-[250px]">
-          <EFPCard
-            address="jacobhomanics.eth"
-            efpFollowers={efpData?.followers_count}
-            efpFollowing={efpData?.following_count}
-          />
-        </div>
-        <div className="w-[250px]">
-          <BuilderScoreCard talentScore={passport?.score} />
-        </div>
-      </div>
-      <div className="text-xl m-2 w-[700px]">{description}</div>
+
+      <div className="md:text-xl m-2 md:w-[700px]">{description}</div>
     </div>
   );
 };

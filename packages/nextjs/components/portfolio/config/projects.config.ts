@@ -8,7 +8,7 @@ import daoCoalitionLogo from "~~/public/organizations/dao-coalition.png";
 import hatsLogo from "~~/public/organizations/hats.jpg";
 import optimismFractalIcon from "~~/public/organizations/optimism-fractal.jpg";
 import engagementIcon from "~~/public/projects/engagementvision.png";
-import atxDaoRepAndRolesIcon from "~~/public/projects/lifetimetoken.jpg";
+// import atxDaoRepAndRolesIcon from "~~/public/projects/lifetimetoken.jpg";
 import pizzaPeople from "~~/public/projects/pizzapeople.webp";
 import repAndRolesIcon from "~~/public/projects/rep-and-roles.png";
 import trashIcon from "~~/public/projects/trashIcon.png";
@@ -52,29 +52,29 @@ export const projectsData = [
       { url: "https://basescan.org/address/0x4169De2404a1484a50aB34fFf631F4B5dba90428", icon: EtherscanLogo },
     ],
   },
-  {
-    name: "ATX DAO - Reputation & Roles",
-    description: "A complete implementation of the Reputation & Roles Starter Kit for ATX DAO.",
-    img: atxDaoRepAndRolesIcon,
-    url: "https://app.hatsprotocol.xyz/trees/10/105",
-    links: [
-      {
-        url: "https://optimistic.etherscan.io/address/0xFEe6635F43E1eeff88F0A6876Dc9153Fb128a81F",
-        icon: EtherscanLogo,
-      },
-      { url: "https://app.buidlguidl.com/build/hAIIsrHf8dnOBcu6UUZn", icon: BuidlGuidlLogo },
-      { url: "https://opensea.io/collection/unidentified-contract-7c2a4c1a-3ced-47a3-8c48-1f2d", icon: OpenSeaLogo },
-      {
-        url: "https://www.ladders.vision/collections/optimism/0xFEe6635F43E1eeff88F0A6876Dc9153Fb128a81F",
-        icon: laddersDotVision.src,
-      },
+  // {
+  //   name: "ATX DAO - Reputation & Roles",
+  //   description: "A complete implementation of the Reputation & Roles Starter Kit for ATX DAO.",
+  //   img: atxDaoRepAndRolesIcon,
+  //   url: "https://app.hatsprotocol.xyz/trees/10/105",
+  //   links: [
+  //     {
+  //       url: "https://optimistic.etherscan.io/address/0xFEe6635F43E1eeff88F0A6876Dc9153Fb128a81F",
+  //       icon: EtherscanLogo,
+  //     },
+  //     { url: "https://app.buidlguidl.com/build/hAIIsrHf8dnOBcu6UUZn", icon: BuidlGuidlLogo },
+  //     { url: "https://opensea.io/collection/unidentified-contract-7c2a4c1a-3ced-47a3-8c48-1f2d", icon: OpenSeaLogo },
+  //     {
+  //       url: "https://www.ladders.vision/collections/optimism/0xFEe6635F43E1eeff88F0A6876Dc9153Fb128a81F",
+  //       icon: laddersDotVision.src,
+  //     },
 
-      {
-        url: "https://app.hatsprotocol.xyz/trees/10/105",
-        icon: hatsLogo.src,
-      },
-    ],
-  },
+  //     {
+  //       url: "https://app.hatsprotocol.xyz/trees/10/105",
+  //       icon: hatsLogo.src,
+  //     },
+  //   ],
+  // },
   {
     name: "Pizza People",
     description: "A Nounish NFT collection celebrating Pizza!",
