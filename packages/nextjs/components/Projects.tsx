@@ -6,7 +6,14 @@ import { ItemCard } from "~~/components/ItemCard";
 export function Projects({ title, description, data }: { title: string; description?: string; data: ProjectData[] }) {
   const components = data.map((game, index) => {
     return (
-      <ItemCard name={game.name} key={index} description={game.description} imgSrc={game.imgSrc} link={game.link} />
+      <ItemCard
+        name={game.name}
+        key={index}
+        description={game.description}
+        imgSrc={game.imgSrc}
+        link={game.link}
+        links={game.links || []}
+      />
     );
   });
 
