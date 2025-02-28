@@ -53,4 +53,20 @@ export const data: Array<ProjectData> = [
     //   },
     // ],
   },
+
+  {
+    name: "Bill Murray 1000",
+    description:
+      "A great NFT collection tells a great story. And there’s no better story than a Bill Murray story.The Bill Murray 1000 is a unique biographical NFT project telling the story of iconic actor, comedian, and writer, Bill Murray – and a life very well-lived. The collection offers 100 story NFTs containing anecdotes, observations, advice, memories, Murray-isms, and more.Each of the 100 story NFTs features a unique design inspired by the story, and each original story/design combination is available in nine additional colorways. The result of all this (we did the math) is 1000 unique story/design/colorway combinations with something special for every Bill Murray collector.",
+    imgSrc: "/nftCollections/bill.webp",
+    link: "https://opensea.io/collection/billmurray1000",
+  },
+
+  {
+    name: "Bill Murray 1000: Open Edition",
+    description:
+      "A great NFT collection tells a great story. And there’s no better story than a Bill Murray story.The Bill Murray 1000 is a unique biographical NFT project telling the story of iconic actor, comedian, and writer, Bill Murray – and a life very well-lived. The collection offers two membership tiers:Original Bill (118 NFTS)Bill Murray Destinations (882 NFTs) Original Bill NFTs are the anecdotes, observations, advice, memories, and Murray-isms that are the foundation of the Bill Murray 1000 collection. Original Bill NFT owners will receive a VIP ticket to every Bill Murray event that they can use, trade, or sell.Bill Murray Destinations NFTs are nine distinct sets of NFTs that each share a common story and offer visually distinct themes reflecting destinations that are near and dear to Bill Murray. Bill Murray Destinations NFT owners will receive limited invites to events with Bill Murray that they can use, trade, or sell.",
+    imgSrc: "/nftCollections/bill-2.avif",
+    link: "https://opensea.io/collection/billmurray1000",
+  },
 ];

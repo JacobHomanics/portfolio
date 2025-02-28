@@ -9,7 +9,7 @@ export function ItemCard({
   link,
 }: {
   name: string;
-  description: string;
+  description?: string;
   imgSrc: string;
   link: string;
 }) {

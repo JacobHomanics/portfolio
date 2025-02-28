@@ -24,31 +24,30 @@ export const menuLinks: HeaderMenuLink[] = [
     href: "/",
   },
   {
-    label: "Video Games",
-    href: "/video-games",
-  },
-
-  {
     label: "Websites",
     href: "/websites",
   },
-
   {
-    label: "NFT Collections",
-    href: "/nft-collections",
+    label: "Video Games",
+    href: "/video-games",
+  },
+  {
+    href: "/dao-tooling",
+    label: "DAO Tooling",
   },
   {
     href: "/unity-tooling",
     label: "Unity Tooling",
   },
   {
+    label: "NFTs",
+    href: "/nft-collections",
+  },
+  {
     href: "/organizations",
     label: "Organizations",
   },
-  {
-    href: "/dao-tooling",
-    label: "DAO Tooling",
-  },
+
   // {
   //   label: "Debug Contracts",
   //   href: "/debug",

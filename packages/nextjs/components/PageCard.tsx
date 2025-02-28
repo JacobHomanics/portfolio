@@ -28,23 +28,6 @@ const classes: { [key: number]: string } = {
 export function PageCard({ name, title, data }: { name: string; title: string; data: ProjectData[] }) {
   const [componentsArray, setComponentsArray] = useState<any[]>([]);
 
-  const getTextSizeClass = () => {
-    if (title.length > 12 && size.width <= 767) {
-      return "text-xl";
-    }
-    if (size.width > 767) {
-      return "text-2xl";
-    }
-    //  else if (name.length < 50) {
-    //   return "text-4xl";
-    // } else if (name.length < 100) {
-    //   return "text-2xl";
-    // }
-    else {
-      return "text-base";
-    }
-  };
-
   useEffect(() => {
     setComponentsArray(shuffleArray(data).slice(0, 5));
   }, [data]);
@@ -63,8 +46,25 @@ export function PageCard({ name, title, data }: { name: string; title: string; d
 
   const [selectedTitleClass, setSelectedTitleClass] = useState("");
   useEffect(() => {
+    const getTextSizeClass = () => {
+      if (title.length > 12 && size.width <= 767) {
+        return "text-xl";
+      }
+      if (size.width > 767) {
+        return "text-2xl";
+      }
+      //  else if (name.length < 50) {
+      //   return "text-4xl";
+      // } else if (name.length < 100) {
+      //   return "text-2xl";
+      // }
+      else {
+        return "text-base";
+      }
+    };
+
     setSelectedTitleClass(getTextSizeClass());
-  }, [size, getTextSizeClass]);
+  }, [size, title.length]);
   return (
     <div className="flex flex-col items-center justify-center p-2 md:p-4 border border-secondary bg-secondary rounded-xl gap-3 md:gap-4">
       <p className={`text-2xl font-bold text-center ${selectedTitleClass}`}>{title}</p>

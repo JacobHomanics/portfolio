@@ -10,6 +10,7 @@ import type { NextPage } from "next";
 import { PageCard } from "~~/components/PageCard";
 import { data as daoToolingData } from "~~/components/configs/dao-tooling.config";
 import { data as nftCollectionsData } from "~~/components/configs/nftCollections.config";
+import { data as organizationsData } from "~~/components/configs/organizations.config";
 import { data as unityToolingData } from "~~/components/configs/unity-tooling.config";
 import { data as gamesData } from "~~/components/configs/video-games.config";
 import { data as websitesData } from "~~/components/configs/websites.config";
@@ -89,7 +90,7 @@ const Home: NextPage = () => {
     {
       name: "/organizations",
       title: "Organizations",
-      data: [],
+      data: organizationsData,
     },
   ];
 
