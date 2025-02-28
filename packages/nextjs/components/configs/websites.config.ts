@@ -4,7 +4,7 @@ export const data: Array<ProjectData> = [
   {
     name: "OP Atlas",
     description:
-      "Created the Application process for Optimism's Season 7 & 8 Missions: Dev Tooling & Onchain Builders. Worked closely with Agora and Optimism to match design requirements. Utilized tools/frameworks like Prisma and React Hook Forms. Suggested contributions which evolved into standalone Pull Requests to improve the overall codebase.",
+      "Created the Application process for Optimism's Season 7 & 8 Missions: Dev Tooling & Onchain Builders by working closely with Agora and Optimism to match design requirements. Utilized tools/frameworks like Prisma and React Hook Forms. Suggested contributions which evolved into standalone Pull Requests to improve the overall codebase.",
     imgSrc: "/websites/atlas.webp",
     link: "https://atlas.optimism.io/",
   },
@@ -15,6 +15,14 @@ export const data: Array<ProjectData> = [
     imgSrc: "/websites/engagementdotvision.png",
     link: "https://engagement.vision",
   },
+  {
+    name: "Members Portal",
+    description:
+      "The home for ATX DAO's tools and the neccesary info you need to get involved in events, projects, and governance.",
+    imgSrc: "/organizations/atx-dao.png",
+    link: "https://members.atxdao.com/",
+  },
+
   {
     name: "Pizza People",
     description: "A Nounish NFT collection celebrating Pizza!",

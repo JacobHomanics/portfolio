@@ -18,7 +18,7 @@ export const data: Array<ProjectData> = [
   {
     name: "Optimism Fractal Hats Tree",
     description:
-      "A Hats tree that allows participants of the Respect Game to claim authorities/responsibilities based on their number of Respect tokens.",
+      "Allows participants of the Respect Game to claim authorities/responsibilities based on their number of Respect tokens.",
     imgSrc: "/dao-tooling/of.jpg",
     link: "https://app.hatsprotocol.xyz/trees/10/175",
     // links: [{ url: "https://app.hatsprotocol.xyz/trees/10/175", icon: hatsLogo.src }],
@@ -26,7 +26,7 @@ export const data: Array<ProjectData> = [
   {
     name: "DAO Coalition Hats Tree",
     description:
-      "A Hats tree which utilizes the Gitcoin Passport and Signer Agreement Modules, which hooks into an Unlock checkout experience which unlocks a Voter Hat to be used in Snapshot.",
+      "Uses the Gitcoin Passport and Signer Agreement Modules, which hooks into an Unlock checkout experience which unlocks a Voter Hat to be used in Snapshot.",
     imgSrc: "/dao-tooling/coa.png",
     link: "https://app.hatsprotocol.xyz/trees/10/167",
     // links: [
