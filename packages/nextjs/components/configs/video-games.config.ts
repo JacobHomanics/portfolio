@@ -31,4 +31,10 @@ export const data: Array<ProjectData> = [
     imgSrc: "/games/new-beginnings.png",
     link: "https://jacobhomanics.itch.io/new-beginnings",
   },
+  {
+    name: "Cookie Clicker Web3",
+    description: "",
+    imgSrc: "",
+    link: "https://cookie-clicker-web3-nextjs.vercel.app/",
+  },
 ];
