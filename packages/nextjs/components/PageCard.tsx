@@ -18,21 +18,21 @@ function shuffleArray<T>(array: T[]): T[] {
 }
 
 const classes: { [key: number]: string } = {
-  0: "absolute rounded-md top-0 bottom-0 left-0 right-0 m-auto z-40 h-16 w-16 md:h-24 md:w-24",
-  1: "rounded-md absolute inset-0 m-auto z-30 w-12 h-12 transform -translate-x-9 md:h-20 md:w-20 md:-translate-x-16", //16
-  2: "rounded-md absolute inset-0 m-auto z-30 w-12 h-12 transform translate-x-9 md:h-20 md:w-20 md:translate-x-16", //16
-  3: "rounded-md absolute top-1/2 transform -translate-y-1/2 left-12 md:left-24 m-auto w-8 h-8 z-20 md:h-14 md:w-14 md:-translate-x-12", //12
-  4: "rounded-md absolute top-1/2 transform -translate-y-1/2 right-12 md:right-24 m-auto w-8 h-8 z-20 md:w-14 md:h-14 md:translate-x-12", //12
+  0: "absolute rounded-md top-0 bottom-0 left-0 right-0 m-auto h-16 w-16 md:h-24 md:w-24 z-20",
+  1: "rounded-md absolute inset-0 m-auto w-12 h-12 transform -translate-x-9 md:h-20 md:w-20 md:-translate-x-16 z-10", //16
+  2: "rounded-md absolute inset-0 m-auto  w-12 h-12 transform translate-x-9 md:h-20 md:w-20 md:translate-x-16 z-10", //16
+  3: "rounded-md absolute top-1/2 transform -translate-y-1/2 left-12 md:left-24 m-auto w-8 h-8 md:h-14 md:w-14 md:-translate-x-12 z-0", //12
+  4: "rounded-md absolute top-1/2 transform -translate-y-1/2 right-12 md:right-24 m-auto w-8 h-8 md:w-14 md:h-14 md:translate-x-12 z-0", //12
 };
 
 export function PageCard({ name, title, data }: { name: string; title: string; data: ProjectData[] }) {
   const [componentsArray, setComponentsArray] = useState<any[]>([]);
 
   const getTextSizeClass = () => {
-    if (title.length < 12 && size.width <= 767) {
+    if (title.length > 12 && size.width <= 767) {
       return "text-xl";
     }
-    if (title.length < 12 && size.width > 767) {
+    if (size.width > 767) {
       return "text-2xl";
     }
     //  else if (name.length < 50) {
@@ -80,7 +80,7 @@ export function PageCard({ name, title, data }: { name: string; title: string; d
               src={item.imgSrc || ""}
               width={1080}
               height={1080}
-              className={classes[index]}
+              className={"bg-white " + classes[index]}
             />
           );
         })}

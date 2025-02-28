@@ -37,7 +37,18 @@ export const menuLinks: HeaderMenuLink[] = [
     label: "NFT Collections",
     href: "/nft-collections",
   },
-
+  {
+    href: "/unity-tooling",
+    label: "Unity Tooling",
+  },
+  {
+    href: "/organizations",
+    label: "Organizations",
+  },
+  {
+    href: "/dao-tooling",
+    label: "DAO Tooling",
+  },
   // {
   //   label: "Debug Contracts",
   //   href: "/debug",
@@ -101,7 +112,7 @@ export const Header = () => {
   // }, [personConfig, personConfig?.name, isWeb3]);
 
   return (
-    <div className="sticky lg:static top-0 navbar bg-base-100 min-h-0 flex-shrink-0 justify-between z-20 shadow-md shadow-secondary px-0 sm:px-2">
+    <div className="sticky lg:static top-0 navbar bg-base-100 min-h-0 flex-shrink-0 justify-between z-50 shadow-md shadow-secondary px-0 sm:px-2">
       <div className="navbar-start w-auto lg:w-1/2">
         <div className="lg:hidden dropdown" ref={burgerMenuRef}>
           <label

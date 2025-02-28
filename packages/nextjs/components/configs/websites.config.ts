@@ -16,22 +16,6 @@ export const data: Array<ProjectData> = [
     link: "https://engagement.vision",
   },
   {
-    name: "Wild Water Bottle Cap Token",
-    description: "A tokenized Real World Asset where the proof of reserve is in bottle caps!",
-    imgSrc: "/websites/worldwidebottlecaptoken.png",
-    link: "https://bottlecaptoken.com",
-  },
-  {
-    name: "Ladders.Vision",
-    description: "View any NFT on any blockchain using the most decentralized methods!",
-    imgSrc: "/websites/ladders.webp",
-    link: "https://ladders.vision",
-    // links: [
-    //   { url: "https://github.com/jacobhomanics/ladders.vision", icon: GithubLogo },
-    //   { url: "https://app.buidlguidl.com/build/VKVHbZcjnrtUbUSwE1e5", icon: BuidlGuidlLogo },
-    // ],
-  },
-  {
     name: "Pizza People",
     description: "A Nounish NFT collection celebrating Pizza!",
     imgSrc: "/nftCollections/pizzapeople.webp",
@@ -47,6 +31,23 @@ export const data: Array<ProjectData> = [
     //   },
     // ],
   },
+  {
+    name: "Wild Water Bottle Cap Token",
+    description: "A tokenized Real World Asset where the proof of reserve is in bottle caps!",
+    imgSrc: "/websites/worldwidebottlecaptoken.png",
+    link: "https://bottlecaptoken.com",
+  },
+  {
+    name: "Ladders.Vision",
+    description: "View any NFT on any blockchain using the most decentralized methods!",
+    imgSrc: "/websites/ladders.webp",
+    link: "https://ladders.vision",
+    // links: [
+    //   { url: "https://github.com/jacobhomanics/ladders.vision", icon: GithubLogo },
+    //   { url: "https://app.buidlguidl.com/build/VKVHbZcjnrtUbUSwE1e5", icon: BuidlGuidlLogo },
+    // ],
+  },
+
   {
     name: "Weedies",
     description: "A Nounish NFT collection celebrating marijuana!",

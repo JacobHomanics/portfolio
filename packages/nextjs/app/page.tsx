@@ -8,7 +8,9 @@ import Image from "next/image";
 import type { NextPage } from "next";
 // import { ItemCard } from "~~/components/ItemCard";
 import { PageCard } from "~~/components/PageCard";
+import { data as daoToolingData } from "~~/components/configs/dao-tooling.config";
 import { data as nftCollectionsData } from "~~/components/configs/nftCollections.config";
+import { data as unityToolingData } from "~~/components/configs/unity-tooling.config";
 import { data as gamesData } from "~~/components/configs/video-games.config";
 import { data as websitesData } from "~~/components/configs/websites.config";
 import { Address } from "~~/components/scaffold-eth";
@@ -72,6 +74,21 @@ const Home: NextPage = () => {
       title: "NFTs",
       data: nftCollectionsData,
     },
+    {
+      name: "/unity-tooling",
+      title: "Unity Tooling",
+      data: unityToolingData,
+    },
+    {
+      name: "/organizations",
+      title: "Organizations",
+      data: [],
+    },
+    {
+      name: "/dao-tooling",
+      title: "DAO Tooling",
+      data: daoToolingData,
+    },
   ];
 
   const pageCardComponents = pageCards.map((page, index) => {
@@ -103,7 +120,7 @@ const Home: NextPage = () => {
           </div>
         </div>
 
-        <div className="flex flex-col items-center justify-center">
+        <div className="flex flex-col items-center justify-center mb-4">
           <p className="text-center">
             <span className="font-bold">Creator</span> of <span className="font-bold">tools</span>,{" "}
             <span className="font-bold">websites</span>, <span className="font-bold">video games</span>, and{" "}
