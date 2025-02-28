@@ -70,24 +70,26 @@ const Home: NextPage = () => {
       data: gamesData,
     },
     {
-      name: "/nft-collections",
-      title: "NFTs",
-      data: nftCollectionsData,
+      name: "/dao-tooling",
+      title: "DAO Tooling",
+      data: daoToolingData,
     },
     {
       name: "/unity-tooling",
       title: "Unity Tooling",
       data: unityToolingData,
     },
+
+    {
+      name: "/nft-collections",
+      title: "NFTs",
+      data: nftCollectionsData,
+    },
+
     {
       name: "/organizations",
       title: "Organizations",
       data: [],
-    },
-    {
-      name: "/dao-tooling",
-      title: "DAO Tooling",
-      data: daoToolingData,
     },
   ];
 
