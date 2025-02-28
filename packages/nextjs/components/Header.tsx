@@ -19,10 +19,25 @@ type HeaderMenuLink = {
 };
 
 export const menuLinks: HeaderMenuLink[] = [
-  // {
-  //   label: "Home",
-  //   href: "/",
-  // },
+  {
+    label: "Home",
+    href: "/",
+  },
+  {
+    label: "Video Games",
+    href: "/video-games",
+  },
+
+  {
+    label: "Websites",
+    href: "/websites",
+  },
+
+  {
+    label: "NFT Collections",
+    href: "/nft-collections",
+  },
+
   // {
   //   label: "Debug Contracts",
   //   href: "/debug",
