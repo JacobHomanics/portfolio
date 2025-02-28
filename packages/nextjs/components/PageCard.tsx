@@ -19,20 +19,20 @@ function shuffleArray<T>(array: T[]): T[] {
 
 const classes: { [key: number]: string } = {
   0: "absolute rounded-md top-0 bottom-0 left-0 right-0 m-auto z-40 h-16 w-16 md:h-24 md:w-24",
-  1: "rounded-md absolute inset-0 m-auto z-30 w-10 h-10 transform -translate-x-10 md:h-16 md:w-16 md:-translate-x-16", //16
-  2: "rounded-md absolute inset-0 m-auto z-30 w-10 h-10 transform translate-x-10 md:h-16 md:w-16 md:translate-x-16", //16
-  3: "rounded-md absolute top-1/2 transform -translate-y-1/2 left-12 md:left-24 m-auto w-8 h-8 z-20 md:h-12 md:w-12 md:-translate-x-12", //12
-  4: "rounded-md absolute top-1/2 transform -translate-y-1/2 right-12 md:right-24 m-auto w-8 h-8 z-20 md:w-12 md:h-12 md:translate-x-12", //12
+  1: "rounded-md absolute inset-0 m-auto z-30 w-12 h-12 transform -translate-x-9 md:h-20 md:w-20 md:-translate-x-16", //16
+  2: "rounded-md absolute inset-0 m-auto z-30 w-12 h-12 transform translate-x-9 md:h-20 md:w-20 md:translate-x-16", //16
+  3: "rounded-md absolute top-1/2 transform -translate-y-1/2 left-12 md:left-24 m-auto w-8 h-8 z-20 md:h-14 md:w-14 md:-translate-x-12", //12
+  4: "rounded-md absolute top-1/2 transform -translate-y-1/2 right-12 md:right-24 m-auto w-8 h-8 z-20 md:w-14 md:h-14 md:translate-x-12", //12
 };
 
 export function PageCard({ name, title, data }: { name: string; title: string; data: ProjectData[] }) {
   const [componentsArray, setComponentsArray] = useState<any[]>([]);
 
   const getTextSizeClass = () => {
-    if (name.length < 20 && size.width <= 767) {
+    if (title.length < 12 && size.width <= 767) {
       return "text-xl";
     }
-    if (name.length < 20 && size.width > 767) {
+    if (title.length < 12 && size.width > 767) {
       return "text-2xl";
     }
     //  else if (name.length < 50) {
@@ -61,9 +61,13 @@ export function PageCard({ name, title, data }: { name: string; title: string; d
     }
   }, [size]);
 
+  const [selectedTitleClass, setSelectedTitleClass] = useState("");
+  useEffect(() => {
+    setSelectedTitleClass(getTextSizeClass());
+  }, [size]);
   return (
     <div className="flex flex-col items-center justify-center p-2 md:p-4 border border-secondary bg-secondary rounded-xl gap-3 md:gap-4">
-      <p className={`text-2xl font-bold text-center ${getTextSizeClass()}`}>{title}</p>
+      <p className={`text-2xl font-bold text-center ${selectedTitleClass}`}>{title}</p>
 
       <div className="relative flex justify-center items-center w-full h-12 md:h-20">
         {componentsArray?.map((item, index) => {
