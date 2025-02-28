@@ -60,7 +60,7 @@ export const Footer = () => {
   return (
     <div className="min-h-0 py-5 px-1 mb-11 lg:mb-0">
       <div>
-        <div className="fixed flex justify-between items-end w-full z-10 p-4 bottom-0 left-0 pointer-events-none gap-4">
+        <div className="fixed flex justify-between items-end w-full z-50 p-4 bottom-0 left-0 pointer-events-none gap-4">
           <div className="flex flex-col gap-4">
             <div className="flex flex-col md:flex-row gap-2 pointer-events-auto">
               <button className="btn btn-primary btn-sm" onClick={sendETH} type="button">
