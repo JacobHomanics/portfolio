@@ -22,6 +22,16 @@ export const data: Array<ProjectData> = [
     link: "https://bottlecaptoken.com",
   },
   {
+    name: "Ladders.Vision",
+    description: "View any NFT on any blockchain using the most decentralized methods!",
+    imgSrc: "/websites/ladders.webp",
+    link: "https://ladders.vision",
+    // links: [
+    //   { url: "https://github.com/jacobhomanics/ladders.vision", icon: GithubLogo },
+    //   { url: "https://app.buidlguidl.com/build/VKVHbZcjnrtUbUSwE1e5", icon: BuidlGuidlLogo },
+    // ],
+  },
+  {
     name: "Pizza People",
     description: "A Nounish NFT collection celebrating Pizza!",
     imgSrc: "/nftCollections/pizzapeople.webp",

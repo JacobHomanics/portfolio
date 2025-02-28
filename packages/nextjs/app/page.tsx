@@ -4,6 +4,7 @@
 // import { useEffect, useState } from "react";
 // import Image from "next/image";
 // import Link from "next/link";
+import Image from "next/image";
 import type { NextPage } from "next";
 // import { ItemCard } from "~~/components/ItemCard";
 import { PageCard } from "~~/components/PageCard";
@@ -68,14 +69,14 @@ const Home: NextPage = () => {
     },
     {
       name: "/nft-collections",
-      title: "NFT Collections",
+      title: "NFTs",
       data: nftCollectionsData,
     },
   ];
 
   const pageCardComponents = pageCards.map((page, index) => {
     return (
-      <div className="w-[400px]" key={index}>
+      <div className="w-[150px] md:w-[400px]" key={index}>
         <PageCard title={page.title} name={page.name} data={page.data} />
       </div>
     );
@@ -88,7 +89,13 @@ const Home: NextPage = () => {
       <div className="flex flex-col gap-4">
         <div className="flex gap-4 items-center justify-center">
           <div>
-            <img className="rounded-full w-20 h-20 md:w-32 md:h-32" src={"/jake3.gif"} alt="Jake's Profile Icon" />
+            <Image
+              className="rounded-full w-20 h-20 md:w-32 md:h-32"
+              width={1080}
+              height={1080}
+              src={"/jake3.gif"}
+              alt="Jake's Profile Icon"
+            />
           </div>
           <div className="flex flex-col justify-center items-center">
             <p className="font-bold text-2xl md:text-4xl">Jacob Homanics</p>
@@ -105,7 +112,7 @@ const Home: NextPage = () => {
         </div>
       </div>
 
-      <div className="flex flex-wrap w-4/5 md:w-3/5 items-center justify-center gap-4">{pageCardComponents}</div>
+      <div className="flex flex-wrap md:w-4/5 items-center justify-center gap-4">{pageCardComponents}</div>
 
       {/* <Link href="/video-games">
         <div className="rounded-lg bg-primary p-2 gap-4 flex flex-col hover:scale-110 transition-transform duration-300">
