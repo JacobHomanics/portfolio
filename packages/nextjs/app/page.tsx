@@ -109,8 +109,6 @@ const Home: NextPage = () => {
 
   return (
     <div className="flex flex-col items-center bg-gradient-to-t p-4">
-      {/* <div className="bg-primary w-full"> */}
-
       <div className="flex flex-col gap-4">
         <div className="flex gap-4 items-center justify-center">
           <div>

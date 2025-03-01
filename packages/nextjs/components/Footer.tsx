@@ -1,4 +1,5 @@
 import React from "react";
+import { ConnectButton } from "@rainbow-me/rainbowkit";
 // import { SocialLinks } from "./jacobhomanics/SocialLinks";
 // import { socialLinks2 } from "./jacobhomanics/SocialLinksObject";
 // import Link from "next/link";
@@ -38,7 +39,11 @@ export const Footer = () => {
 
   const { address: user } = useAccount();
 
+  const account = useAccount();
+
   const sendETH = async () => {
+    if (!account) {
+    }
     try {
       await sendTransaction({
         to: personAddress,
@@ -63,9 +68,26 @@ export const Footer = () => {
         <div className="fixed flex justify-between items-end w-full z-50 p-4 bottom-0 left-0 pointer-events-none gap-4">
           <div className="flex flex-col gap-4">
             <div className="flex flex-col md:flex-row gap-2 pointer-events-auto">
-              <button className="btn btn-primary btn-sm" onClick={sendETH} type="button">
-                Buy me a coffee
-              </button>
+              <ConnectButton.Custom>
+                {({ account, chain, openConnectModal, mounted }) => {
+                  const connected = mounted && account && chain;
+                  if (!connected) {
+                    return (
+                      <button className="btn btn-primary btn-sm" onClick={openConnectModal} type="button">
+                        Buy me a coffee
+                      </button>
+                    );
+                  } else {
+                    return (
+                      <button className="btn btn-primary btn-sm" onClick={sendETH} type="button">
+                        Buy me a coffee
+                      </button>
+                    );
+                  }
+
+                  return <></>;
+                }}
+              </ConnectButton.Custom>
 
               {/* {nativeCurrencyPrice > 0 && (
                 <div>
