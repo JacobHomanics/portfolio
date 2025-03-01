@@ -1,7 +1,7 @@
 "use client";
 
 import { ProjectData } from "../../configs/types";
-import { ProjectCard } from "~~/components/cards/ProjectCard";
+import { ProjectCard } from "~~/components/portfolio/ProjectCard";
 
 export function Projects({ title, description, data }: { title: string; description?: string; data: ProjectData[] }) {
   const components = data.map((game, index) => {

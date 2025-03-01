@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import type { NextPage } from "next";
-import { ProjectsOverviewCard } from "~~/components/cards/ProjectsOverviewCard";
+import { ProjectsOverviewCard } from "~~/components/portfolio/ProjectsOverviewCard";
 import { Address } from "~~/components/scaffold-eth";
 import { data as daoToolingData } from "~~/configs/dao-tooling.config";
 import { data as nftCollectionsData } from "~~/configs/nftCollections.config";

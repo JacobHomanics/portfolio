@@ -65,7 +65,7 @@ export const data: Array<ProjectData> = [
       { url: "https://github.com/jacobhomanics/pizza-people", imagePath: github },
       {
         url: "https://basescan.org/address/0xF2137f6E039Cc0d2a19709a259CCCe13168cCD33",
-        imagePath: "/linkIcons/etherscan.svg",
+        imagePath: etherscan,
       },
       { url: "https://opensea.io/collection/pizza-people-1", imagePath: opensea },
       {
