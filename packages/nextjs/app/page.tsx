@@ -115,6 +115,7 @@ const Home: NextPage = () => {
               height={1080}
               src={"/jake3.gif"}
               alt="Jake's Profile Icon"
+              priority
             />
           </div>
           <div className="flex flex-col justify-center items-center">
