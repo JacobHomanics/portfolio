@@ -40,8 +40,8 @@ export function ItemCard({
         <a href={link} target="#" className="flex-none w-16 h-16 md:w-40 md:h-40">
           <Image
             className="rounded-lg w-full h-full object-fit"
-            width={1080}
-            height={1080}
+            width={256}
+            height={256}
             src={imgSrc}
             alt="Project Image"
           />

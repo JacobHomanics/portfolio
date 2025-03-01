@@ -78,8 +78,8 @@ export function PageCard({ name, title, data }: { name: string; title: string; d
               key={index}
               alt={item.name}
               src={item.imgSrc || ""}
-              width={1080}
-              height={1080}
+              width={256}
+              height={256}
               className={"bg-white " + classes[index]}
             />
           );
