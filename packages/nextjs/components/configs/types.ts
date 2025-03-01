@@ -3,12 +3,12 @@ import { StaticImageData } from "next/image";
 export type ProjectData = {
   name: string;
   description?: string;
-  imgSrc: StaticImageData;
+  imgSrc: StaticImageData | string;
   link: string;
   links?: Array<Link>;
 };
 
 export type Link = {
   url: string;
-  imagePath: string;
+  imagePath: string | StaticImageData;
 };

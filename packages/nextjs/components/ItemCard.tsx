@@ -13,7 +13,7 @@ export function ItemCard({
   description?: string;
   imgSrc: string | StaticImageData;
   link: string;
-  links: { url: string; imagePath: string }[];
+  links: { url: string; imagePath: string | StaticImageData }[];
 }) {
   const [isLineClamped, setIsLineClamped] = useState(true);
   const [isClamped, setIsClamped] = useState(false);
