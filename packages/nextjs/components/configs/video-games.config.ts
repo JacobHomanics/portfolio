@@ -33,8 +33,9 @@ export const data: Array<ProjectData> = [
   },
   {
     name: "Cookie Clicker Web3",
-    description: "",
-    imgSrc: "",
+    description:
+      "A cookie clicker prototype where you kill enemies for gold and increase your party's strength! Implements Web3 Technology in order to save the player game data using their wallet.",
+    imgSrc: "/games/cookie.png",
     link: "https://cookie-clicker-web3-nextjs.vercel.app/",
   },
 ];

@@ -40,7 +40,7 @@ export function PageCard({ name, title, data }: { name: string; title: string; d
     if (size.width <= 767) {
       setMaxCarouselSize(3);
     } else {
-      setMaxCarouselSize(5);
+      setMaxCarouselSize(3);
     }
   }, [size]);
 
