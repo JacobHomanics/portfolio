@@ -15,6 +15,7 @@ import { data as unityToolingData } from "~~/components/configs/unity-tooling.co
 import { data as gamesData } from "~~/components/configs/video-games.config";
 import { data as websitesData } from "~~/components/configs/websites.config";
 import { Address } from "~~/components/scaffold-eth";
+import jakeGif from "~~/public/jake3.gif";
 
 // function shuffleArray<T>(array: T[]): T[] {
 //   for (let i = array.length - 1; i > 0; i--) {
@@ -113,7 +114,7 @@ const Home: NextPage = () => {
               className="rounded-full w-20 h-20 md:w-32 md:h-32"
               width={1080}
               height={1080}
-              src={"/jake3.gif"}
+              src={jakeGif}
               alt="Jake's Profile Icon"
               priority
             />
@@ -134,93 +135,6 @@ const Home: NextPage = () => {
       </div>
 
       <div className="flex flex-wrap md:w-4/5 items-center justify-center gap-4">{pageCardComponents}</div>
-
-      {/* <Link href="/video-games">
-        <div className="rounded-lg bg-primary p-2 gap-4 flex flex-col hover:scale-110 transition-transform duration-300">
-          <p className="text-2xl font-bold text-center">Video Games</p>
-          <div className="flex flex-wrap items-center justify-center gap-4">{gameComponents}</div>
-        </div>
-      </Link>
-
-      <Link href="/websites">
-        <div className="rounded-lg bg-primary p-2 gap-4 flex flex-col hover:scale-110 transition-transform duration-300">
-          <p className="text-2xl font-bold text-center">Websites</p>
-          <div className="flex flex-wrap items-center justify-center gap-4">{websiteComponents}</div>
-        </div>
-      </Link>
-
-      <Link href="/nft-collections">
-        <div className="rounded-lg bg-primary p-2 gap-4 flex flex-col hover:scale-110 transition-transform duration-300">
-          <p className="text-2xl font-bold text-center">NFT Collections</p>
-          <div className="flex flex-wrap items-center justify-center gap-4">{nftCollectionsComponents}</div>
-        </div>
-      </Link> */}
-
-      {/* <Profile /> */}
-      {/* <div className="flex items-start justify-center gap-4">
-          <div className="w-[250px]">
-            <EFPCard
-              address="jacobhomanics.eth"
-              efpFollowers={efpData?.followers_count}
-              efpFollowing={efpData?.following_count}
-            />
-          </div>
-          <div className="w-[250px]">
-            <BuilderScoreCard talentScore={passport?.score} />
-          </div>
-        </div> */}
-      {/* <SwitchWeb /> */}
-      {/* </div> */}
-      {/* <div className="m-4" />
-      <Organizations />
-      <div className="p-4 rounded-lg w-full flex flex-wrap justify-center gap-4">
-        <Projects cardName="Web3 Projects" projects={projectsData} />
-
-        <Projects
-          cardName="Unity Tools"
-          projects={[
-            {
-              name: "Raycast Controller",
-              description:
-                "Flexible raycasting configuration for distance, layers, and runtime control. Event-based callbacks (`OnEnter`, `OnStay`, `OnExit`) for interaction logic. Debugging tools to visualize raycasts and hit points in the Scene view.",
-              img: "unity-assets/icon.png",
-              url: "https://assetstore.unity.com/packages/tools/utilities/raycast-controller-305913",
-              links: [{ icon: GithubLogo, url: "https://github.com/JacobHomanics/raycast-controller" }],
-            },
-            {
-              name: "Overlap Shape",
-              description:
-                "simplifies the process of detecting and responding to colliders in Unity using geometrical shapes.",
-              img: "unity-assets/overlap-shapes.png",
-              url: "https://assetstore.unity.com/packages/tools/utilities/overlap-shapes-305907",
-              links: [{ icon: GithubLogo, url: "https://github.com/JacobHomanics/overlap-shape" }],
-            },
-            {
-              name: "Callbacks",
-              description: "Provides a unified way to handle MonoBehaviour lifecycle events through UnityEvents.",
-              img: "unity-assets/callbacks.png",
-              url: "https://assetstore.unity.com/packages/tools/utilities/callbacks-305914",
-              links: [{ icon: GithubLogo, url: "https://github.com/JacobHomanics/callbacks" }],
-            },
-            {
-              name: "Event Driven Pool Management System",
-              description:
-                "Utilizes UnityEvents to make development an ease when dealing with GameObjects that need managed in a pool. What/How things are pooled is up to the developer. The system allows for the developer to define what it means for a pooled object to be spawned or despawned.",
-              img: "unity-assets/pms.webp",
-              url: "https://assetstore.unity.com/packages/tools/integration/event-driven-pool-management-system-176853",
-              links: [{ icon: GithubLogo, url: "https://github.com/JacobHomanics/pool-management-system" }],
-            },
-            {
-              name: "Supercharged Vector2",
-              description:
-                "Enhances Vector2s with events, helper methods, and components for health and timer management.",
-              img: "unity-assets/supercharged-vector2.png",
-              url: "https://assetstore.unity.com/packages/tools/utilities/supercharged-vector2-305553",
-              links: [{ icon: GithubLogo, url: "https://github.com/JacobHomanics/pool-management-system" }],
-            },
-          ]}
-        />
-      </div> */}
     </div>
   );
 };
