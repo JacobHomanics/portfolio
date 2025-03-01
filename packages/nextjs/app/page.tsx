@@ -112,8 +112,8 @@ const Home: NextPage = () => {
           <div>
             <Image
               className="rounded-full w-20 h-20 md:w-32 md:h-32"
-              width={1080}
-              height={1080}
+              width={128}
+              height={128}
               src={jakeGif}
               alt="Jake's Profile Icon"
               priority
