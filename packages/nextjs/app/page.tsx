@@ -109,6 +109,10 @@ const Home: NextPage = () => {
           )}
 
           <p className="text-center mb-4">
+            Creating Web3 Technologies that bring the world together and Video Games that create pure enjoyment.
+          </p>
+
+          <p className="text-center mb-4">
             <span className="font-bold">Creator</span> of <span className="font-bold">tools</span>,{" "}
             <span className="font-bold">websites</span>, <span className="font-bold">video games</span>, and{" "}
             <span className="font-bold">smart contracts</span>.
