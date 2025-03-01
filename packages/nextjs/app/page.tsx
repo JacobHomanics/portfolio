@@ -137,10 +137,10 @@ const Home: NextPage = () => {
           </div>
         </div>
 
-        <div className="flex flex-col items-center justify-center mb-4">
-          <div className="flex flex-wrap gap-4 items-center justify-center p-2 mb-2 md:mb-4">
-            {showSocials &&
-              IconsLinksData.map((link, index) => {
+        <div className="flex flex-col items-center justify-center">
+          {showSocials && (
+            <div className="flex flex-wrap gap-4 items-center justify-center p-2 mb-2 md:mb-4">
+              {IconsLinksData.map((link, index) => {
                 return (
                   <a href={link.url} target="#" key={index}>
                     <Image
@@ -154,9 +154,10 @@ const Home: NextPage = () => {
                   </a>
                 );
               })}
-          </div>
+            </div>
+          )}
 
-          <p className="text-center">
+          <p className="text-center mb-4">
             <span className="font-bold">Creator</span> of <span className="font-bold">tools</span>,{" "}
             <span className="font-bold">websites</span>, <span className="font-bold">video games</span>, and{" "}
             <span className="font-bold">smart contracts</span>.
