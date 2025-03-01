@@ -6,4 +6,6 @@ The project contains code that supports presenting users with with details of th
 
 Feel free to fork/clone this repository and use it for whatever your hear desires <3.
 
+You can view my live portfolio at: [https://jacobhomanics.com](https://jacobhomanics.com)
+
 Cheers.
