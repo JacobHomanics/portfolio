@@ -8,11 +8,12 @@ import {
   ladders,
   opensea,
   pizza,
+  portfolio,
   trash,
   warpcastIcon,
   weedies,
   x,
-} from "./icons";
+} from "./images";
 import { ProjectData } from "./types";
 
 export const data: Array<ProjectData> = [
@@ -73,6 +74,14 @@ export const data: Array<ProjectData> = [
         imagePath: ladders,
       },
     ],
+  },
+  {
+    name: "Portfolio",
+    description:
+      "This is the website you are currently viewing. It is completely open source so feel free to fork/clone it for whatever you find it useful for!",
+    imgSrc: portfolio,
+    link: "https://jacobhomanics.com",
+    links: [{ url: "https://github.com/jacobhomanics/portfolio", imagePath: github }],
   },
   {
     name: "Wild Water Bottle Cap Token",

@@ -10,7 +10,7 @@ import {
   warpcastIcon,
   x,
   youtubeLogo,
-} from "./icons";
+} from "./images";
 
 export const IconsLinksData = [
   { url: "https://x.com/jacobhomanics", icon: x },

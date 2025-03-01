@@ -1,4 +1,4 @@
-import { coa, github, hats, of, scroll, snapshot, starter, unlock } from "./icons";
+import { coa, github, hats, of, scroll, snapshot, starter, unlock } from "./images";
 import { ProjectData } from "./types";
 
 export const data: Array<ProjectData> = [

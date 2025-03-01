@@ -15,6 +15,7 @@ import nounspace from "~~/public/images/nounspace.svg";
 import of from "~~/public/images/of.jpg";
 import opensea from "~~/public/images/opensea.png";
 import pizza from "~~/public/images/pizzapeople.webp";
+import portfolio from "~~/public/images/portfolio.png";
 import scroll from "~~/public/images/scroll.svg";
 import snapshot from "~~/public/images/snapshot.png";
 import starter from "~~/public/images/starterKit.png";
@@ -54,4 +55,5 @@ export {
   unlock,
   bill1,
   bill2,
+  portfolio,
 };

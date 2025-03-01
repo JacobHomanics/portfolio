@@ -1,4 +1,4 @@
-import { github } from "./icons";
+import { github } from "./images";
 import { ProjectData } from "./types";
 import callbacks from "~~/public/images/callbacks.png";
 import overlap from "~~/public/images/overlap-shapes.png";

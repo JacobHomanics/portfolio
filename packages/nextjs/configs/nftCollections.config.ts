@@ -1,4 +1,4 @@
-import { bill1, bill2, etherscan, github, ladders, opensea, pizza, trash, warpcastIcon, weedies, x } from "./icons";
+import { bill1, bill2, etherscan, github, ladders, opensea, pizza, trash, warpcastIcon, weedies, x } from "./images";
 import { ProjectData } from "./types";
 
 export const data: Array<ProjectData> = [
