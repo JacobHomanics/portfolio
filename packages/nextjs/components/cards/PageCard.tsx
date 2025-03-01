@@ -1,6 +1,5 @@
 "use client";
 
-// import { useEffect, useState } from "react";
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
@@ -52,13 +51,7 @@ export function PageCard({ name, title, data }: { name: string; title: string; d
       }
       if (size.width > 767) {
         return "text-2xl";
-      }
-      //  else if (name.length < 50) {
-      //   return "text-4xl";
-      // } else if (name.length < 100) {
-      //   return "text-2xl";
-      // }
-      else {
+      } else {
         return "text-base";
       }
     };

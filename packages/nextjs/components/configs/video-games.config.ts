@@ -1,10 +1,10 @@
 import { ProjectData } from "./types";
-import cookie from "~~/public/games/cookie.png";
-import faith from "~~/public/games/faith.png";
-import gorglok from "~~/public/games/gorglok.png";
-import newBeginnings from "~~/public/games/new-beginnings.png";
-import onslaught from "~~/public/games/onslaught.png";
-import pandemic from "~~/public/games/pandemic.png";
+import cookie from "~~/public/images/cookie.png";
+import faith from "~~/public/images/faith.png";
+import gorglok from "~~/public/images/gorglok.png";
+import newBeginnings from "~~/public/images/new-beginnings.png";
+import onslaught from "~~/public/images/onslaught.png";
+import pandemic from "~~/public/images/pandemic.png";
 
 export const data: Array<ProjectData> = [
   {

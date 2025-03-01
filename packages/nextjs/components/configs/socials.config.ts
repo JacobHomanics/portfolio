@@ -1,15 +1,16 @@
 import { StaticImageData } from "next/image";
-// import { EmailLogo } from "../logos/EmailLogo";
-import TelegramLogo from "~~/public/linkIcons/Logo.png";
-import email from "~~/public/linkIcons/email.svg";
-import etherscan from "~~/public/linkIcons/etherscan.svg";
-import github from "~~/public/linkIcons/github.svg";
-import linkedinIcon from "~~/public/linkIcons/linkedin.png";
-import nounspace from "~~/public/linkIcons/nounspace.svg";
-import opensea from "~~/public/linkIcons/opensea.png";
-import warpcastIcon from "~~/public/linkIcons/warpcast-icon.png";
-import x from "~~/public/linkIcons/x.svg";
-import youtubeLogo from "~~/public/linkIcons/youtube_social_circle_red.png";
+import {
+  TelegramLogo,
+  email,
+  etherscan,
+  github,
+  linkedinIcon,
+  nounspace,
+  opensea,
+  warpcastIcon,
+  x,
+  youtubeLogo,
+} from "./icons";
 
 export const IconsLinksData = [
   { url: "https://x.com/jacobhomanics", icon: x },

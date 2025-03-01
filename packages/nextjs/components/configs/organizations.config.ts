@@ -1,16 +1,14 @@
 import { ProjectData } from "./types";
-import atxDaoLogo from "~~/public/organizations/atx-dao.png";
-// import baseLogo from "~~/public/organizations/base-logo-in-blue.png";
-import bstwLogo from "~~/public/organizations/bstw.png";
-import buidlguidlLogo from "~~/public/organizations/buidlguidllogo.jpg";
-// import curios from "~~/public/organizations/curios.jpg";
-import daoCoalition from "~~/public/organizations/dao-coalition.png";
-import developerDaoLogo from "~~/public/organizations/dd.png";
-import hatsProtocolLogo from "~~/public/organizations/hats.jpg";
-import optimismLogo from "~~/public/organizations/optimism-ethereum-op-logo.png";
-import optimismFractalLogo from "~~/public/organizations/optimism-fractal.jpg";
-import raidGuildLogo from "~~/public/organizations/rg-icon.png";
-import solidityGuildLogo from "~~/public/organizations/solidity-guild.png";
+import atxDaoLogo from "~~/public/images/atx-dao.png";
+import bstwLogo from "~~/public/images/bstw.png";
+import buidlguidlLogo from "~~/public/images/buidlguidllogo.jpg";
+import daoCoalition from "~~/public/images/dao-coalition.png";
+import developerDaoLogo from "~~/public/images/dd.png";
+import hatsProtocolLogo from "~~/public/images/hats.jpg";
+import optimismLogo from "~~/public/images/optimism-ethereum-op-logo.png";
+import optimismFractalLogo from "~~/public/images/optimism-fractal.jpg";
+import raidGuildLogo from "~~/public/images/rg-icon.png";
+import solidityGuildLogo from "~~/public/images/solidity-guild.png";
 
 export const data: Array<ProjectData> = [
   {

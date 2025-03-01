@@ -1,9 +1,5 @@
+import { bill1, bill2, etherscan, github, ladders, opensea, pizza, trash, warpcastIcon, weedies, x } from "./icons";
 import { ProjectData } from "./types";
-import bill2 from "~~/public/nftCollections/bill-2.webp";
-import bill1 from "~~/public/nftCollections/bill.webp";
-import pizza from "~~/public/nftCollections/pizzapeople.webp";
-import trash from "~~/public/nftCollections/trash.png";
-import weedies from "~~/public/nftCollections/weedies.webp";
 
 export const data: Array<ProjectData> = [
   {
@@ -12,15 +8,15 @@ export const data: Array<ProjectData> = [
     imgSrc: pizza,
     link: "https://pizzapeople.wtf",
     links: [
-      { url: "https://github.com/jacobhomanics/pizza-people", imagePath: "/linkIcons/github.svg" },
+      { url: "https://github.com/jacobhomanics/pizza-people", imagePath: github },
       {
         url: "https://basescan.org/address/0xF2137f6E039Cc0d2a19709a259CCCe13168cCD33",
-        imagePath: "/linkIcons/etherscan.svg",
+        imagePath: etherscan,
       },
-      { url: "https://opensea.io/collection/pizza-people-1", imagePath: "/linkIcons/os.svg" },
+      { url: "https://opensea.io/collection/pizza-people-1", imagePath: opensea },
       {
         url: "https://www.ladders.vision/collections/base/0xF2137f6E039Cc0d2a19709a259CCCe13168cCD33",
-        imagePath: "/linkIcons/ladders.webp",
+        imagePath: ladders,
       },
     ],
   },
@@ -31,15 +27,15 @@ export const data: Array<ProjectData> = [
     imgSrc: weedies,
     link: "https://weedies.wtf",
     links: [
-      { url: "https://github.com/jacobhomanics/weedies", imagePath: "/linkIcons/github.svg" },
+      { url: "https://github.com/jacobhomanics/weedies", imagePath: github },
       {
         url: "https://basescan.org/address/0x1c8264Cee472ef10758DFe8AE05156A1E52E6e40",
-        imagePath: "/linkIcons/etherscan.svg",
+        imagePath: etherscan,
       },
-      { url: "https://opensea.io/collection/weedies-3", imagePath: "/linkIcons/os.svg" },
+      { url: "https://opensea.io/collection/weedies-3", imagePath: opensea },
       {
         url: "https://www.ladders.vision/collections/base/0x1c8264Cee472ef10758DFe8AE05156A1E52E6e40",
-        imagePath: "/linkIcons/ladders.webp",
+        imagePath: ladders,
       },
     ],
   },
@@ -50,17 +46,17 @@ export const data: Array<ProjectData> = [
     imgSrc: trash,
     link: "https://trashnfts.com",
     links: [
-      { url: "https://github.com/TrashNFTs/Dumpster-Divers", imagePath: "/linkIcons/github.svg" },
-      { url: "https://x.com/trashnfts404", imagePath: "/linkIcons/x.svg" },
-      { url: "https://warpcast.com/trashnfts", imagePath: "/linkIcons/warpcast-icon.png" },
+      { url: "https://github.com/TrashNFTs/Dumpster-Divers", imagePath: github },
+      { url: "https://x.com/trashnfts404", imagePath: x },
+      { url: "https://warpcast.com/trashnfts", imagePath: warpcastIcon },
       {
         url: "https://basescan.org/address/0xdf00fde26a6819507649904ca52fe5062ef75ba7",
-        imagePath: "/linkIcons/etherscan.svg",
+        imagePath: etherscan,
       },
-      { url: "https://opensea.io/collection/dumpster-divers", imagePath: "/linkIcons/os.svg" },
+      { url: "https://opensea.io/collection/dumpster-divers", imagePath: opensea },
       {
         url: "https://www.ladders.vision/collections/base/0xdf00fdE26A6819507649904Ca52FE5062eF75Ba7",
-        imagePath: "/linkIcons/ladders.webp",
+        imagePath: ladders,
       },
     ],
   },

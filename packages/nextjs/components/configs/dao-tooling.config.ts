@@ -1,12 +1,5 @@
+import { coa, github, hats, of, scroll, snapshot, starter, unlock } from "./icons";
 import { ProjectData } from "./types";
-import coa from "~~/public/dao-tooling/coa.png";
-import of from "~~/public/dao-tooling/of.jpg";
-import starter from "~~/public/dao-tooling/starterKit.png";
-import githubLogo from "~~/public/linkIcons/github.svg";
-import scroll from "~~/public/linkIcons/scroll.svg";
-import snapshot from "~~/public/linkIcons/snapshot.png";
-import unlock from "~~/public/linkIcons/unlock.png";
-import hats from "~~/public/organizations/hats.jpg";
 
 export const data: Array<ProjectData> = [
   {
@@ -16,7 +9,7 @@ export const data: Array<ProjectData> = [
     imgSrc: starter,
     link: "https://github.com/ATXDAO/rep-and-roles-starter-kit",
     links: [
-      { url: "https://github.com/ATXDAO/rep-and-roles-starter-kit", imagePath: githubLogo },
+      { url: "https://github.com/ATXDAO/rep-and-roles-starter-kit", imagePath: github },
       {
         url: "https://jacobhomanics.github.io/rep-and-roles-docs/starter-kit/overview.html",
         imagePath: scroll,
