@@ -22,7 +22,7 @@ export const IconsLinksData = [
   { url: "https://x.com/jacobhomanics", icon: x },
   { url: "https://warpcast.com/jacobhomanics.eth", icon: warpcastIcon },
   { url: "https://linkedin.com/in/jacobhomanics", icon: linkedinIcon },
-  { url: "t.me/jacobhomanics", icon: TelegramLogo },
+  { url: "https://t.me/jacobhomanics", icon: TelegramLogo },
   { url: "mailto:homanicsjake@gmail.com", icon: email },
   { url: "https://github.com/jacobhomanics", icon: github },
   { url: "https://etherscan.io/name-lookup-search?id=jacobhomanics.eth", icon: etherscan },
