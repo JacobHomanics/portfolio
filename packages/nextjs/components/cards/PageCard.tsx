@@ -4,7 +4,7 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { ProjectData } from "./configs/types";
+import { ProjectData } from "../configs/types";
 import { useWindowSize } from "usehooks-ts";
 
 function shuffleArray<T>(array: T[]): T[] {

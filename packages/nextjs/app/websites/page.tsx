@@ -1,7 +1,7 @@
 "use client";
 
 import type { NextPage } from "next";
-import { Projects } from "~~/components/Projects";
+import { Projects } from "~~/components/cards/Projects";
 import { data } from "~~/components/configs/websites.config";
 
 const WebsitesPage: NextPage = () => {
