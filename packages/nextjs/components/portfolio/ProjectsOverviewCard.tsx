@@ -39,7 +39,7 @@ export function ProjectsOverviewCard({ name, title, data }: { name: string; titl
     if (size.width <= 767) {
       setMaxCarouselSize(3);
     } else {
-      setMaxCarouselSize(3);
+      setMaxCarouselSize(5);
     }
   }, [size]);
 
