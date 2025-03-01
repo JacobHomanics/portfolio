@@ -81,6 +81,7 @@ export function PageCard({ name, title, data }: { name: string; title: string; d
               width={96}
               height={96}
               className={"bg-white " + classes[index]}
+              loading="lazy"
             />
           );
         })}
