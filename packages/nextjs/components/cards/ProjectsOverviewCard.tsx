@@ -24,7 +24,7 @@ const classes: { [key: number]: string } = {
   4: "rounded-md absolute top-1/2 transform -translate-y-1/2 right-12 md:right-24 m-auto w-8 h-8 md:w-14 md:h-14 md:translate-x-12 z-0", //12
 };
 
-export function PageCard({ name, title, data }: { name: string; title: string; data: ProjectData[] }) {
+export function ProjectsOverviewCard({ name, title, data }: { name: string; title: string; data: ProjectData[] }) {
   const [componentsArray, setComponentsArray] = useState<any[]>([]);
 
   useEffect(() => {
