@@ -17,7 +17,7 @@ import { data as unityToolingData } from "~~/components/configs/unity-tooling.co
 import { data as gamesData } from "~~/components/configs/video-games.config";
 import { data as websitesData } from "~~/components/configs/websites.config";
 import { Address } from "~~/components/scaffold-eth";
-import jakeGif from "~~/public/jake.webp";
+import jakeGif from "~~/public/images/jake.webp";
 
 // function shuffleArray<T>(array: T[]): T[] {
 //   for (let i = array.length - 1; i > 0; i--) {
