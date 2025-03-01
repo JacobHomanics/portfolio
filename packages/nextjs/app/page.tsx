@@ -1,106 +1,59 @@
 "use client";
 
-// import { useEffect, useState } from "react";
-// import { useEffect, useState } from "react";
-// import Image from "next/image";
-// import Link from "next/link";
 import { useState } from "react";
 import Image from "next/image";
 import type { NextPage } from "next";
-// import { ItemCard } from "~~/components/ItemCard";
-import { PageCard } from "~~/components/PageCard";
-import { data as daoToolingData } from "~~/components/configs/dao-tooling.config";
-import { data as nftCollectionsData } from "~~/components/configs/nftCollections.config";
-import { data as organizationsData } from "~~/components/configs/organizations.config";
-import { data as unityToolingData } from "~~/components/configs/unity-tooling.config";
-import { data as gamesData } from "~~/components/configs/video-games.config";
-import { data as websitesData } from "~~/components/configs/websites.config";
-import { IconsLinksData } from "~~/components/portfolio/config/socials.config";
+import { ProjectsOverviewCard } from "~~/components/portfolio/ProjectsOverviewCard";
 import { Address } from "~~/components/scaffold-eth";
-import jakeGif from "~~/public/jake.webp";
+import { data as daoToolingData } from "~~/configs/dao-tooling.config";
+import { data as nftCollectionsData } from "~~/configs/nftCollections.config";
+import { data as organizationsData } from "~~/configs/organizations.config";
+import { IconsLinksData } from "~~/configs/socials.config";
+import { data as unityToolingData } from "~~/configs/unity-tooling.config";
+import { data as gamesData } from "~~/configs/video-games.config";
+import { data as websitesData } from "~~/configs/websites.config";
+import jakeGif from "~~/public/images/jake.webp";
 
-// function shuffleArray<T>(array: T[]): T[] {
-//   for (let i = array.length - 1; i > 0; i--) {
-//     const j = Math.floor(Math.random() * (i + 1));
-//     [array[i], array[j]] = [array[j], array[i]]; // Swap elements
-//   }
-//   return array;
-// }
+const pageCards = [
+  {
+    name: "/websites",
+    title: "Websites",
+    data: websitesData,
+  },
+  {
+    name: "/video-games",
+    title: "Video Games",
+    data: gamesData,
+  },
+  {
+    name: "/dao-tooling",
+    title: "DAO Tooling",
+    data: daoToolingData,
+  },
+  {
+    name: "/unity-tooling",
+    title: "Unity Tooling",
+    data: unityToolingData,
+  },
 
-// import { BuilderScoreCard } from "~~/components/BuilderScoreCard";
-// import { EFPCard } from "~~/components/EFPCard";
-// import { Organizations } from "~~/components/portfolio/Organizations";
-// import { Profile } from "~~/components/portfolio/Profile";
-// import { SwitchWeb } from "~~/components/portfolio/SwitchWeb";
-// import { projectsData } from "~~/components/portfolio/config/projects.config";
-// import { GithubLogo } from "~~/components/portfolio/logos/GithubLogo";
-// import { Project } from "~~/components/portfolio/projects/Project";
-// import { Projects } from "~~/components/portfolio/projects/Projects";
+  {
+    name: "/nft-collections",
+    title: "NFTs",
+    data: nftCollectionsData,
+  },
+
+  {
+    name: "/organizations",
+    title: "Organizations",
+    data: organizationsData,
+  },
+];
 
 const Home: NextPage = () => {
-  // console.log("bleh");
-
-  // const [efpData, setEfpData] = useState<any>();
-  // const [passport, setPassport] = useState<any>();
-
-  // useEffect(() => {
-  //   async function get() {
-  //     const result = await fetch("https://api.ethfollow.xyz/api/v1/users/jacobhomanics.eth/stats");
-  //     const data = await result.json();
-  //     console.log(data);
-
-  //     setEfpData(data);
-
-  //     try {
-  //       const response = await fetch(`/api/talent-protocol/passport/0xc689c800a7121b186208ea3b182fAb2671B337E7`);
-  //       const data2 = await response.json();
-  //       setPassport(data2.passport);
-  //     } catch (err) {
-  //       console.log(err);
-  //     }
-  //   }
-  //   get();
-  // }, []);
-
-  const pageCards = [
-    {
-      name: "/websites",
-      title: "Websites",
-      data: websitesData,
-    },
-    {
-      name: "/video-games",
-      title: "Video Games",
-      data: gamesData,
-    },
-    {
-      name: "/dao-tooling",
-      title: "DAO Tooling",
-      data: daoToolingData,
-    },
-    {
-      name: "/unity-tooling",
-      title: "Unity Tooling",
-      data: unityToolingData,
-    },
-
-    {
-      name: "/nft-collections",
-      title: "NFTs",
-      data: nftCollectionsData,
-    },
-
-    {
-      name: "/organizations",
-      title: "Organizations",
-      data: organizationsData,
-    },
-  ];
-
   const pageCardComponents = pageCards.map((page, index) => {
     return (
       <div className="w-[150px] md:w-[400px]" key={index}>
-        <PageCard title={page.title} name={page.name} data={page.data} />
+        <ProjectsOverviewCard title={page.title} name={page.name} data={page.data} />
       </div>
     );
   });

@@ -1,8 +1,8 @@
 "use client";
 
 import type { NextPage } from "next";
-import { Projects } from "~~/components/Projects";
-import { data } from "~~/components/configs/organizations.config";
+import { Projects } from "~~/components/portfolio/Projects";
+import { data } from "~~/configs/organizations.config";
 
 const OrganizationsPage: NextPage = () => {
   return (
