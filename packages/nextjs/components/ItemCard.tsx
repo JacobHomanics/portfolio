@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 import { useWindowSize } from "usehooks-ts";
 
 export function ItemCard({
@@ -11,7 +11,7 @@ export function ItemCard({
 }: {
   name: string;
   description?: string;
-  imgSrc: string;
+  imgSrc: string | StaticImageData;
   link: string;
   links: { url: string; imagePath: string }[];
 }) {

@@ -1,11 +1,14 @@
 import { ProjectData } from "./types";
+import coa from "~~/public/dao-tooling/coa.png";
+import of from "~~/public/dao-tooling/of.jpg";
+import starter from "~~/public/dao-tooling/starterKit.png";
 
 export const data: Array<ProjectData> = [
   {
     name: "Reputation & Roles Starter Kit",
     description:
       "Toolkit to deploy trust tracking onchain and grant authorities/permissions in decentralized and permissionless ways!",
-    imgSrc: "/dao-tooling/starterKit.png",
+    imgSrc: starter,
     link: "https://github.com/ATXDAO/rep-and-roles-starter-kit",
     // links: [
     //   { url: "https://github.com/ATXDAO/rep-and-roles-starter-kit", icon: GithubLogo },
@@ -19,7 +22,7 @@ export const data: Array<ProjectData> = [
     name: "Optimism Fractal Hats Tree",
     description:
       "Allows participants of the Respect Game to claim authorities/responsibilities based on their number of Respect tokens.",
-    imgSrc: "/dao-tooling/of.jpg",
+    imgSrc: of,
     link: "https://app.hatsprotocol.xyz/trees/10/175",
     // links: [{ url: "https://app.hatsprotocol.xyz/trees/10/175", icon: hatsLogo.src }],
   },
@@ -27,7 +30,7 @@ export const data: Array<ProjectData> = [
     name: "DAO Coalition Hats Tree",
     description:
       "Uses the Gitcoin Passport and Signer Agreement Modules, which hooks into an Unlock checkout experience which unlocks a Voter Hat to be used in Snapshot.",
-    imgSrc: "/dao-tooling/coa.png",
+    imgSrc: coa,
     link: "https://app.hatsprotocol.xyz/trees/10/167",
     // links: [
     //   { url: "https://app.hatsprotocol.xyz/trees/10/167", icon: hatsLogo.src },
