@@ -2,7 +2,7 @@
 
 import type { NextPage } from "next";
 import { Projects } from "~~/components/cards/Projects";
-import { data } from "~~/components/configs/dao-tooling.config";
+import { data } from "~~/configs/dao-tooling.config";
 
 const DaoToolingPage: NextPage = () => {
   return <Projects title="DAO Tooling" data={data} />;

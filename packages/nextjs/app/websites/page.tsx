@@ -2,7 +2,7 @@
 
 import type { NextPage } from "next";
 import { Projects } from "~~/components/cards/Projects";
-import { data } from "~~/components/configs/websites.config";
+import { data } from "~~/configs/websites.config";
 
 const WebsitesPage: NextPage = () => {
   return <Projects title="Websites" data={data} />;

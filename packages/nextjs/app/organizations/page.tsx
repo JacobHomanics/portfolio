@@ -2,7 +2,7 @@
 
 import type { NextPage } from "next";
 import { Projects } from "~~/components/cards/Projects";
-import { data } from "~~/components/configs/organizations.config";
+import { data } from "~~/configs/organizations.config";
 
 const OrganizationsPage: NextPage = () => {
   return (

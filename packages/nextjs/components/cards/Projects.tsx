@@ -1,6 +1,6 @@
 "use client";
 
-import { ProjectData } from "../configs/types";
+import { ProjectData } from "../../configs/types";
 import { ItemCard } from "~~/components/cards/ItemCard";
 
 export function Projects({ title, description, data }: { title: string; description?: string; data: ProjectData[] }) {

@@ -9,14 +9,14 @@ import Image from "next/image";
 import type { NextPage } from "next";
 // import { ItemCard } from "~~/components/ItemCard";
 import { PageCard } from "~~/components/cards/PageCard";
-import { data as daoToolingData } from "~~/components/configs/dao-tooling.config";
-import { data as nftCollectionsData } from "~~/components/configs/nftCollections.config";
-import { data as organizationsData } from "~~/components/configs/organizations.config";
-import { IconsLinksData } from "~~/components/configs/socials.config";
-import { data as unityToolingData } from "~~/components/configs/unity-tooling.config";
-import { data as gamesData } from "~~/components/configs/video-games.config";
-import { data as websitesData } from "~~/components/configs/websites.config";
 import { Address } from "~~/components/scaffold-eth";
+import { data as daoToolingData } from "~~/configs/dao-tooling.config";
+import { data as nftCollectionsData } from "~~/configs/nftCollections.config";
+import { data as organizationsData } from "~~/configs/organizations.config";
+import { IconsLinksData } from "~~/configs/socials.config";
+import { data as unityToolingData } from "~~/configs/unity-tooling.config";
+import { data as gamesData } from "~~/configs/video-games.config";
+import { data as websitesData } from "~~/configs/websites.config";
 import jakeGif from "~~/public/images/jake.webp";
 
 // function shuffleArray<T>(array: T[]): T[] {

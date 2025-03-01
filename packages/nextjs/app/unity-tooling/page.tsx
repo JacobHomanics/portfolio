@@ -2,7 +2,7 @@
 
 import type { NextPage } from "next";
 import { Projects } from "~~/components/cards/Projects";
-import { data } from "~~/components/configs/unity-tooling.config";
+import { data } from "~~/configs/unity-tooling.config";
 
 const UnityToolingPage: NextPage = () => {
   return <Projects title="Unity Tooling" data={data} />;
