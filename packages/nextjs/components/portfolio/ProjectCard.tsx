@@ -11,8 +11,8 @@ export function ProjectCard({
 }: {
   name: string;
   description?: string;
-  imgSrc: string | StaticImageData;
-  link: string;
+  imgSrc?: string | StaticImageData;
+  link?: string;
   links: { url: string; imagePath: string | StaticImageData }[];
 }) {
   const [isLineClamped, setIsLineClamped] = useState(true);
@@ -42,7 +42,7 @@ export function ProjectCard({
             className="rounded-lg w-full h-full object-fit"
             width={160}
             height={160}
-            src={imgSrc}
+            src={imgSrc || "/images/organization.png"}
             alt="Project Image"
           />
         </a>
@@ -72,9 +72,13 @@ export function ProjectCard({
       <div className="flex flex-col items-start gap-4">
         <div>
           <div className="flex gap-4 items-center">
-            <a href={link} target="#">
-              <p className="font-bold text-xl md:text-2xl text-blue-700 dark:text-blue-400 hover:underline">{name}</p>
-            </a>{" "}
+            {link && (
+              <a href={link} target="#">
+                <p className="font-bold text-xl md:text-2xl text-blue-700 dark:text-blue-400 hover:underline">{name}</p>
+              </a>
+            )}
+            {!link && <p className="font-bold text-xl md:text-2xl">{name}</p>}
+
             {!isMobile && (
               <div className={`flex flex-wrap gap-2 bg-secondary rounded-lg ${links.length > 0 && "p-1"}`}>
                 {links.map((link, index) => {

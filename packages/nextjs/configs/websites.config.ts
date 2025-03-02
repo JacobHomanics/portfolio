@@ -33,7 +33,7 @@ export const data: Array<ProjectData> = [
   {
     name: "Engagement.Vision",
     description:
-      "Generate a user engagement score within specific communities or blockchains through a variety of different metrics from different data sources like blockchains, KarmaGAP, Talent Protocol, Ethereum Follow Protocol, and more!",
+      "Generate a user engagement score within specific communities or blockchains through a variety of different metrics from different data sources like blockchains, KarmaGAP, Talent Protocol, Ethereum Follow Protocol, and more! 805 Page views and 194 unique visitors. Received $54.04 from 63 unique donations through Gitcoin Grants.",
     imgSrc: engagement,
     link: "https://engagement.vision",
     links: [

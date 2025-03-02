@@ -81,4 +81,9 @@ export const data: Array<ProjectData> = [
     name: "Bigshot Toyworks",
     description: "Brought Web2 people onchain by releasing several NFT collections that piqued their interest.",
   },
+  {
+    name: "ZeroProxy",
+    description:
+      "Technical Writing and Technical Product Management for a distributed ledger-based, enterprise compliance & risk management platform. Prototyped a programmable escrow onchain to handle proxy assets with an accompanying frontend UI for an easier UX. Participated in Crypto Summer Labs incubator, sponsored by Polychain Capital and Lightspeed Venture Partners, to accelerate the growth of our systems architecture.",
+  },
 ];

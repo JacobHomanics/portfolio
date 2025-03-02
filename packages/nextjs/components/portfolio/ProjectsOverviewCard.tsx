@@ -70,7 +70,7 @@ export function ProjectsOverviewCard({ name, title, data }: { name: string; titl
             <Image
               key={index}
               alt={item.name}
-              src={item.imgSrc || ""}
+              src={item.imgSrc || "/images/organization.png"}
               width={96}
               height={96}
               className={"bg-white " + classes[index]}
