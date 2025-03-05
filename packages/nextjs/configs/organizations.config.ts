@@ -38,7 +38,7 @@ export const data: Array<ProjectData> = [
     imgSrc: raidGuildLogo,
     name: "Raid Guild",
     description:
-      "Participated in the Cohort VII. Built the CohortViewer application that was showcased at the end of orientation.",
+      "Participated as a member of Cohort VII. Collaborated and brainstormed with other members. Built a web application that encapsulated the cohort's achievements during the end of orientation.",
   },
   {
     link: "https://solidityguild.com/",
