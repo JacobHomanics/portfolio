@@ -8,6 +8,7 @@ import { Address } from "~~/components/scaffold-eth";
 import { data as daoToolingData } from "~~/configs/dao-tooling.config";
 import { data as nftCollectionsData } from "~~/configs/nftCollections.config";
 import { data as organizationsData } from "~~/configs/organizations.config";
+import { data as presentationsData } from "~~/configs/presentations.config";
 import { IconsLinksData } from "~~/configs/socials.config";
 import { data as unityToolingData } from "~~/configs/unity-tooling.config";
 import { data as gamesData } from "~~/configs/video-games.config";
@@ -46,6 +47,11 @@ const pageCards = [
     name: "/organizations",
     title: "Organizations",
     data: organizationsData,
+  },
+  {
+    name: "/presentations",
+    title: "Presentations",
+    data: presentationsData,
   },
 ];
 
