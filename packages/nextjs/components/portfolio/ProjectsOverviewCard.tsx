@@ -65,7 +65,7 @@ export function ProjectsOverviewCard({ name, title, data }: { name: string; titl
 
       //hover:scale-90 transition-transform duration-300"
     >
-      <p className={`text-2xl font-bold text-center ${selectedTitleClass}`}>{title}</p>
+      <p className={`text-2xl font-bold text-center mb-2 md:mb-4 ${selectedTitleClass}`}>{title}</p>
 
       <div className="relative flex justify-center items-center w-full h-12 md:h-20">
         {componentsArray?.map((item, index) => {
