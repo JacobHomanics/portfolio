@@ -60,10 +60,10 @@ const pageCards = [
 const showcaseProjects = [
   presentationsData[0],
   aiData[0],
-  nftCollectionsData[0],
-  gamesData[0],
   websitesData[0],
+  nftCollectionsData[0],
   daoToolingData[0],
+  gamesData[0],
 ];
 
 const Home: NextPage = () => {
