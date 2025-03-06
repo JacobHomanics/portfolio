@@ -69,7 +69,7 @@ const Home: NextPage = () => {
 
   return (
     <div className="flex flex-col items-center bg-gradient-to-t p-4 gap-10">
-      <div>
+      <div className="flex flex-col gap-4">
         <div className="flex flex-col gap-4">
           <div className="flex gap-4 items-center justify-center">
             <div>
@@ -145,7 +145,8 @@ const Home: NextPage = () => {
         </div> */}
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4 place-items-center">
+        <div className="flex flex-wrap items-center justify-center gap-2 md:gap-4">
+          {/* <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 place-items-center gap-4"> */}
           <ProjectCard2
             name={presentationsData[0].name}
             description={presentationsData[0].shortDescription}

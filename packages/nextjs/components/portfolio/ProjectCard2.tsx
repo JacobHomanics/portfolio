@@ -24,7 +24,7 @@ export function ProjectCard2({
   }, [result.width]);
 
   return (
-    <a href={link} target="#" className="bg-slate-900 rounded-lg p-2 h-32 w-44 md:h-44 md:w-72 lg:h-56 lg:w-80">
+    <a href={link} target="#" className="bg-slate-900 rounded-lg p-2 h-32 w-40 md:h-44 md:w-72 lg:h-56 lg:w-80">
       <div
         className={`bg-cover bg-center h-full w-full rounded-lg flex items-end`}
         style={{ backgroundImage: `url(${typeof imgSrc === "string" ? imgSrc : imgSrc?.src})` }}
