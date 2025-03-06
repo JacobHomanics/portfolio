@@ -5,6 +5,7 @@ import bill2 from "~~/public/images/bill-2.webp";
 import bill1 from "~~/public/images/bill.webp";
 import buidlguidlDemoDay from "~~/public/images/buidlguidlDemoDay.png";
 import coa from "~~/public/images/coa.png";
+import elizaBanner from "~~/public/images/eliza_banner.jpg";
 import email from "~~/public/images/email.svg";
 import engagement from "~~/public/images/engagementdotvision.png";
 import etherscan from "~~/public/images/etherscan.svg";
@@ -13,6 +14,7 @@ import github from "~~/public/images/github.svg";
 import hats from "~~/public/images/hats.jpg";
 import ladders from "~~/public/images/ladders.webp";
 import linkedinIcon from "~~/public/images/linkedin.png";
+import filecoinTalkBannerSrc from "~~/public/images/maxresdefault4.png";
 import nounspace from "~~/public/images/nounspace.svg";
 import of from "~~/public/images/of.jpg";
 import opensea from "~~/public/images/opensea.png";
@@ -31,7 +33,9 @@ import x from "~~/public/images/x.svg";
 import youtubeLogo from "~~/public/images/youtube_social_circle_red.png";
 
 export {
+  filecoinTalkBannerSrc,
   TelegramLogo,
+  elizaBanner,
   email,
   supercahinDemoDay,
   buidlguidlDemoDay,

@@ -1,12 +1,14 @@
-import { buidlguidlDemoDay, filecoinTalk, supercahinDemoDay } from "./images";
+import { buidlguidlDemoDay, filecoinTalk, filecoinTalkBannerSrc, supercahinDemoDay } from "./images";
 import { ProjectData } from "./types";
 
 export const data: Array<ProjectData> = [
   {
-    name: "Bringing Web2 Games to Web3",
-    description: "Filecoin - FIL Network Base Austin 23",
+    name: "Web2 Games to Web3",
+    shortDescription: "Discussed implementing decentralized storage techniques into web2 gaming.",
+    description: "Discussed the value proposition of introducing web2 games to web3 technologies.",
     imgSrc: filecoinTalk,
     link: "https://www.youtube.com/watch?v=jpsT6qCkTJs&list=PLp3zrT1ewY0kwXj2NgQU6ZrbLlb_Uwmc0",
+    bannerSrc: filecoinTalkBannerSrc,
   },
   {
     name: "Superchain Demo Day",

@@ -3,8 +3,9 @@
 import { useState } from "react";
 import Image from "next/image";
 import type { NextPage } from "next";
+import { ProjectCard2 } from "~~/components/portfolio/ProjectCard2";
 import { ProjectsOverviewCard } from "~~/components/portfolio/ProjectsOverviewCard";
-import { Address } from "~~/components/scaffold-eth";
+import { data as aiData } from "~~/configs/ai.config";
 import { data as daoToolingData } from "~~/configs/dao-tooling.config";
 import { data as nftCollectionsData } from "~~/configs/nftCollections.config";
 import { data as organizationsData } from "~~/configs/organizations.config";
@@ -26,16 +27,6 @@ const pageCards = [
     title: "Video Games",
     data: gamesData,
   },
-  {
-    name: "/dao-tooling",
-    title: "DAO Tooling",
-    data: daoToolingData,
-  },
-  {
-    name: "/unity-tooling",
-    title: "Unity Tooling",
-    data: unityToolingData,
-  },
 
   {
     name: "/nft-collections",
@@ -48,6 +39,17 @@ const pageCards = [
     title: "Organizations",
     data: organizationsData,
   },
+  {
+    name: "/dao-tooling",
+    title: "DAO Tooling",
+    data: daoToolingData,
+  },
+  {
+    name: "/unity-tooling",
+    title: "Unity Tooling",
+    data: unityToolingData,
+  },
+
   {
     name: "/presentations",
     title: "Presentations",
@@ -72,7 +74,7 @@ const Home: NextPage = () => {
         <div className="flex gap-4 items-center justify-center">
           <div>
             <Image
-              className="rounded-full w-20 h-20 md:w-32 md:h-32"
+              className="rounded-full min-w-20 w-20 h-20 md:w-32 md:h-32"
               width={128}
               height={128}
               src={jakeGif}
@@ -82,7 +84,8 @@ const Home: NextPage = () => {
           </div>
           <div className="flex flex-col justify-center items-center">
             <p className="font-bold text-2xl md:text-4xl">Jacob Homanics</p>
-            <Address address="0xc689c800a7121b186208ea3b182fAb2671B337E7" size="base" showIcon={false} />
+            <p className="text-center">Software Engineer disciplined in a variety of specialties.</p>
+            {/* <Address address="0xc689c800a7121b186208ea3b182fAb2671B337E7" size="base" showIcon={false} /> */}
             <button
               className="btn btn-sm btn-primary mt-1"
               onClick={() => {
@@ -114,7 +117,7 @@ const Home: NextPage = () => {
             </div>
           )}
 
-          <p className="text-center mb-4">
+          {/* <p className="text-center mb-4">
             Creating Web3 Technologies that bring the world together and Video Games that create pure enjoyment.
           </p>
 
@@ -122,8 +125,52 @@ const Home: NextPage = () => {
             <span className="font-bold">Creator</span> of <span className="font-bold">tools</span>,{" "}
             <span className="font-bold">websites</span>, <span className="font-bold">video games</span>, and{" "}
             <span className="font-bold">smart contracts</span>.
-          </p>
+          </p> */}
         </div>
+      </div>
+
+      <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4 place-items-center">
+        <ProjectCard2
+          name={presentationsData[0].name}
+          description={presentationsData[0].shortDescription}
+          imgSrc={presentationsData[0].bannerSrc}
+          link={presentationsData[0].link}
+        />
+
+        <ProjectCard2
+          name={nftCollectionsData[0].name}
+          description={nftCollectionsData[0].shortDescription}
+          imgSrc={nftCollectionsData[0].imgSrc}
+          link={nftCollectionsData[0].link}
+        />
+
+        <ProjectCard2
+          name={gamesData[0].name}
+          description={gamesData[0].shortDescription}
+          imgSrc={gamesData[0].imgSrc}
+          link={gamesData[0].link}
+        />
+
+        <ProjectCard2
+          name={websitesData[0].name}
+          description={websitesData[0].shortDescription}
+          imgSrc={websitesData[0].imgSrc}
+          link={websitesData[0].link}
+        />
+
+        <ProjectCard2
+          name={aiData[0].name}
+          description={aiData[0].shortDescription}
+          imgSrc={aiData[0].imgSrc}
+          link={aiData[0].link}
+        />
+
+        <ProjectCard2
+          name={daoToolingData[0].name}
+          description={daoToolingData[0].shortDescription}
+          imgSrc={daoToolingData[0].imgSrc}
+          link={daoToolingData[0].link}
+        />
       </div>
 
       <div className="flex flex-wrap md:w-4/5 items-center justify-center gap-4">{pageCardComponents}</div>

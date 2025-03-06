@@ -9,7 +9,8 @@ import pandemic from "~~/public/images/pandemic.png";
 export const data: Array<ProjectData> = [
   {
     name: "Faith",
-    description: "A role-playing game exploring narrative, character progression, and unqiue abilities.",
+    shortDescription: "Role-playing game exploring narrative, progression, and unique abilities.",
+    description: "A role-playing game exploring narrative, character progression, and unique abilities.",
     imgSrc: faith,
     link: "https://jacobhomanics.itch.io/faith",
   },
