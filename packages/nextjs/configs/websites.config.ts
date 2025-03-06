@@ -10,8 +10,7 @@ import {
   pizza,
   portfolio,
   trash,
-  warpcastIcon,
-  weedies,
+  warpcastIcon, // weedies,
   x,
 } from "./images";
 import { ProjectData } from "./types";
@@ -99,24 +98,24 @@ export const data: Array<ProjectData> = [
     links: [{ url: "https://github.com/jacobhomanics/ladders.vision", imagePath: github }],
   },
 
-  {
-    name: "Weedies",
-    description: "A Nounish NFT collection celebrating marijuana!",
-    imgSrc: weedies,
-    link: "https://weedies.wtf",
-    links: [
-      { url: "https://github.com/jacobhomanics/weedies", imagePath: github },
-      {
-        url: "https://basescan.org/address/0x1c8264Cee472ef10758DFe8AE05156A1E52E6e40",
-        imagePath: etherscan,
-      },
-      { url: "https://opensea.io/collection/weedies-3", imagePath: opensea },
-      {
-        url: "https://www.ladders.vision/collections/base/0x1c8264Cee472ef10758DFe8AE05156A1E52E6e40",
-        imagePath: ladders,
-      },
-    ],
-  },
+  // {
+  //   name: "Weedies",
+  //   description: "A Nounish NFT collection celebrating marijuana!",
+  //   imgSrc: weedies,
+  //   link: "https://weedies.wtf",
+  //   links: [
+  //     { url: "https://github.com/jacobhomanics/weedies", imagePath: github },
+  //     {
+  //       url: "https://basescan.org/address/0x1c8264Cee472ef10758DFe8AE05156A1E52E6e40",
+  //       imagePath: etherscan,
+  //     },
+  //     { url: "https://opensea.io/collection/weedies-3", imagePath: opensea },
+  //     {
+  //       url: "https://www.ladders.vision/collections/base/0x1c8264Cee472ef10758DFe8AE05156A1E52E6e40",
+  //       imagePath: ladders,
+  //     },
+  //   ],
+  // },
   {
     name: "Trash NFTs",
     description:

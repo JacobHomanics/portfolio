@@ -8,7 +8,7 @@ export const data: Array<ProjectData> = [
     description:
       "Toolkit to deploy trust tracking onchain and grant authorities/permissions in decentralized and permissionless ways!",
     imgSrc: starter,
-    link: "https://github.com/ATXDAO/rep-and-roles-starter-kit",
+    link: "https://app.charmverse.io/op-grants/page-23303127376120303",
     links: [
       { url: "https://github.com/ATXDAO/rep-and-roles-starter-kit", imagePath: github },
       {
