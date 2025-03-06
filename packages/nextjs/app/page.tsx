@@ -138,6 +138,13 @@ const Home: NextPage = () => {
         />
 
         <ProjectCard2
+          name={aiData[0].name}
+          description={aiData[0].shortDescription}
+          imgSrc={aiData[0].imgSrc}
+          link={aiData[0].link}
+        />
+
+        <ProjectCard2
           name={nftCollectionsData[0].name}
           description={nftCollectionsData[0].shortDescription}
           imgSrc={nftCollectionsData[0].imgSrc}
@@ -156,13 +163,6 @@ const Home: NextPage = () => {
           description={websitesData[0].shortDescription}
           imgSrc={websitesData[0].imgSrc}
           link={websitesData[0].link}
-        />
-
-        <ProjectCard2
-          name={aiData[0].name}
-          description={aiData[0].shortDescription}
-          imgSrc={aiData[0].imgSrc}
-          link={aiData[0].link}
         />
 
         <ProjectCard2
