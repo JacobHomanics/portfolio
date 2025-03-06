@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import type { NextPage } from "next";
+import { DocumentIcon } from "@heroicons/react/24/outline";
 import { ProjectCard2 } from "~~/components/portfolio/ProjectCard2";
 import { ProjectsOverviewCard } from "~~/components/portfolio/ProjectsOverviewCard";
 import { data as aiData } from "~~/configs/ai.config";
@@ -72,19 +73,32 @@ const Home: NextPage = () => {
       <div className="flex flex-col gap-4">
         <div className="flex flex-col gap-4">
           <div className="flex gap-4 items-center justify-center">
-            <div>
-              <Image
+            <div
+              className={`bg-cover bg-center rounded-full flex justify-center items-end w-32 h-32 md:w-32 md:h-32`}
+              style={{ backgroundImage: `url(${jakeGif?.src})` }}
+            >
+              {/* <Image
                 className="rounded-full min-w-20 w-20 h-20 md:w-32 md:h-32"
                 width={128}
                 height={128}
                 src={jakeGif}
                 alt="Jake's Profile Icon"
                 priority
-              />
+              /> */}
+              <a
+                className="btn btn-sm w-full btn-primary"
+                href="/Jacob_Homanics_Resume.pdf"
+                download="Jacob_Homanics_Resume.pdf"
+              >
+                Resume
+                <DocumentIcon className="w-5 h-5" />
+              </a>
             </div>
-            <div className="flex flex-col justify-center items-center">
+            <div className="flex flex-col justify-center items-center max-w-48 md:max-w-96">
               <p className="font-bold text-2xl md:text-4xl">Jacob Homanics</p>
-              <p className="text-center text-sm">Software Engineer disciplined in a variety of specialties.</p>
+              <p className="text-center text-sm md:text-base">
+                Software Engineer disciplined in a variety of specialties.
+              </p>
               <div className="flex flex-wrap gap-4 items-center justify-center p-2">
                 {IconsLinksData.map((link, index) => {
                   return (
@@ -145,7 +159,7 @@ const Home: NextPage = () => {
         </div> */}
         </div>
 
-        <div className="flex flex-wrap items-center justify-center gap-2 md:gap-4">
+        <div className="flex flex-wrap items-center justify-center gap-2 md:gap-4 max-w-7xl">
           {/* <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 place-items-center gap-4"> */}
           <ProjectCard2
             name={presentationsData[0].name}
