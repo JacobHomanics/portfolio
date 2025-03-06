@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { StaticImageData } from "next/image";
 import { useWindowSize } from "usehooks-ts";
 
-export function ProjectCard2({
+export function ProjectShowcaseCard({
   name,
   description,
   imgSrc,

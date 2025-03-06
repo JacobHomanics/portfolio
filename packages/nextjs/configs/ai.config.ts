@@ -7,6 +7,7 @@ export const data: Array<ProjectData> = [
     shortDescription: "Deploy AI agents using an LLM to twitter and discord.",
     description: "Deploy AI agents using an LLM to twitter and discord.",
     imgSrc: elizaBanner,
+    bannerSrc: elizaBanner,
     link: "https://github.com/elizaOS/eliza",
     // links: [
     //   { url: "https://github.com/ATXDAO/rep-and-roles-starter-kit", imagePath: github },

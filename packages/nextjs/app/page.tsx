@@ -3,7 +3,7 @@
 import Image from "next/image";
 import type { NextPage } from "next";
 import { DocumentIcon } from "@heroicons/react/24/outline";
-import { ProjectCard2 } from "~~/components/portfolio/ProjectCard2";
+import { ProjectShowcaseCard } from "~~/components/portfolio/ProjectShowcaseCard";
 import { ProjectsOverviewCard } from "~~/components/portfolio/ProjectsOverviewCard";
 import { data as aiData } from "~~/configs/ai.config";
 import { data as daoToolingData } from "~~/configs/dao-tooling.config";
@@ -57,6 +57,15 @@ const pageCards = [
   },
 ];
 
+const showcaseProjects = [
+  presentationsData[0],
+  aiData[0],
+  nftCollectionsData[0],
+  gamesData[0],
+  websitesData[0],
+  daoToolingData[0],
+];
+
 const Home: NextPage = () => {
   const pageCardComponents = pageCards.map((page, index) => {
     return (
@@ -65,8 +74,6 @@ const Home: NextPage = () => {
       </div>
     );
   });
-
-  // const [showSocials, setShowSocials] = useState(false);
 
   return (
     <div className="flex flex-col items-center bg-gradient-to-t p-4 gap-10">
@@ -77,14 +84,6 @@ const Home: NextPage = () => {
               className={`bg-cover bg-center rounded-full flex justify-center items-end w-32 h-32 md:w-32 md:h-32`}
               style={{ backgroundImage: `url(${jakeGif?.src})` }}
             >
-              {/* <Image
-                className="rounded-full min-w-20 w-20 h-20 md:w-32 md:h-32"
-                width={128}
-                height={128}
-                src={jakeGif}
-                alt="Jake's Profile Icon"
-                priority
-              /> */}
               <a
                 className="btn btn-sm w-full btn-primary"
                 href="/Jacob_Homanics_Resume.pdf"
@@ -115,93 +114,22 @@ const Home: NextPage = () => {
                   );
                 })}
               </div>
-              {/* <Address address="0xc689c800a7121b186208ea3b182fAb2671B337E7" size="base" showIcon={false} /> */}
-              {/* <button
-              className="btn btn-sm btn-primary mt-1"
-              onClick={() => {
-                setShowSocials(!showSocials);
-              }}
-            >
-              {showSocials ? "Hide Socials" : "Contact Me"}
-            </button> */}
             </div>
           </div>
-
-          {/* <div className="flex flex-col items-center justify-center">
-          {showSocials && (
-            <div className="flex flex-wrap gap-4 items-center justify-center p-2 mb-2 md:mb-4">
-              {IconsLinksData.map((link, index) => {
-                return (
-                  <a href={link.url} target="#" key={index}>
-                    <Image
-                      src={link.icon}
-                      width={32}
-                      height={32}
-                      className="w-6 h-6 md:w-10 md:h-10 hover:scale-90 transition-transform duration-300"
-                      alt={"Link " + index}
-                      loading="lazy"
-                    />
-                  </a>
-                );
-              })}
-            </div>
-          )}
-
-          <p className="text-center mb-4">
-            Creating Web3 Technologies that bring the world together and Video Games that create pure enjoyment.
-          </p>
-
-          <p className="text-center mb-4">
-            <span className="font-bold">Creator</span> of <span className="font-bold">tools</span>,{" "}
-            <span className="font-bold">websites</span>, <span className="font-bold">video games</span>, and{" "}
-            <span className="font-bold">smart contracts</span>.
-          </p>
-        </div> */}
         </div>
 
         <div className="flex flex-wrap items-center justify-center gap-2 md:gap-4 max-w-7xl">
-          {/* <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 place-items-center gap-4"> */}
-          <ProjectCard2
-            name={presentationsData[0].name}
-            description={presentationsData[0].shortDescription}
-            imgSrc={presentationsData[0].bannerSrc}
-            link={presentationsData[0].link}
-          />
-
-          <ProjectCard2
-            name={aiData[0].name}
-            description={aiData[0].shortDescription}
-            imgSrc={aiData[0].imgSrc}
-            link={aiData[0].link}
-          />
-
-          <ProjectCard2
-            name={nftCollectionsData[0].name}
-            description={nftCollectionsData[0].shortDescription}
-            imgSrc={nftCollectionsData[0].imgSrc}
-            link={nftCollectionsData[0].link}
-          />
-
-          <ProjectCard2
-            name={gamesData[0].name}
-            description={gamesData[0].shortDescription}
-            imgSrc={gamesData[0].imgSrc}
-            link={gamesData[0].link}
-          />
-
-          <ProjectCard2
-            name={websitesData[0].name}
-            description={websitesData[0].shortDescription}
-            imgSrc={websitesData[0].imgSrc}
-            link={websitesData[0].link}
-          />
-
-          <ProjectCard2
-            name={daoToolingData[0].name}
-            description={daoToolingData[0].shortDescription}
-            imgSrc={daoToolingData[0].imgSrc}
-            link={daoToolingData[0].link}
-          />
+          {showcaseProjects.map((project, index) => {
+            return (
+              <ProjectShowcaseCard
+                key={index}
+                name={project.name}
+                description={project.shortDescription}
+                imgSrc={project.bannerSrc}
+                link={project.link}
+              />
+            );
+          })}
         </div>
       </div>
 

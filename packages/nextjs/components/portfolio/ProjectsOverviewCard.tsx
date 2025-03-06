@@ -62,8 +62,6 @@ export function ProjectsOverviewCard({ name, title, data }: { name: string; titl
     <Link
       href={name}
       className="flex flex-col items-center justify-center p-4 border border-secondary bg-secondary rounded-xl gap-3 md:gap-4 bg-opacity-40 hover:bg-opacity-100"
-
-      //hover:scale-90 transition-transform duration-300"
     >
       <p className={`text-2xl font-bold text-center mb-2 md:mb-4 ${selectedTitleClass}`}>{title}</p>
 

@@ -22,6 +22,7 @@ export const data: Array<ProjectData> = [
     description:
       "Created the Application process for Optimism's Season 7 & 8 Missions: Dev Tooling & Onchain Builders by working closely with Agora and Optimism to match design requirements. Utilized tools/frameworks like Prisma and React Hook Forms. Suggested contributions which evolved into standalone Pull Requests to improve the overall codebase. Improved load times by moving moving fetch requests from server-side over to client-side.",
     imgSrc: atlas,
+    bannerSrc: atlas,
     link: "https://atlas.optimism.io/",
     links: [
       {
