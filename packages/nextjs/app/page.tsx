@@ -18,6 +18,11 @@ import jakeGif from "~~/public/images/jake.webp";
 
 const pageCards = [
   {
+    name: "/ai",
+    title: "AI / LLM",
+    data: aiData,
+  },
+  {
     name: "/websites",
     title: "Websites",
     data: websitesData,
@@ -33,7 +38,16 @@ const pageCards = [
     title: "NFTs",
     data: nftCollectionsData,
   },
-
+  {
+    name: "/presentations",
+    title: "Presentations",
+    data: presentationsData,
+  },
+  {
+    name: "/unity-tooling",
+    title: "Unity Tooling",
+    data: unityToolingData,
+  },
   {
     name: "/organizations",
     title: "Organizations",
@@ -43,17 +57,6 @@ const pageCards = [
     name: "/dao-tooling",
     title: "DAO Tooling",
     data: daoToolingData,
-  },
-  {
-    name: "/unity-tooling",
-    title: "Unity Tooling",
-    data: unityToolingData,
-  },
-
-  {
-    name: "/presentations",
-    title: "Presentations",
-    data: presentationsData,
   },
 ];
 

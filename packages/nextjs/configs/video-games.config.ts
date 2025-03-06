@@ -10,10 +10,16 @@ export const data: Array<ProjectData> = [
   {
     name: "Faith",
     shortDescription: "Role-playing game exploring narrative, progression, and unique abilities.",
-    description: "A role-playing game exploring narrative, character progression, and unique abilities.",
+    description: "Role-playing game exploring narrative, progression, and unique abilities.",
     imgSrc: faith,
     bannerSrc: faith,
     link: "https://jacobhomanics.itch.io/faith",
+  },
+  {
+    name: "Pandemic Simulation",
+    description: "Survive the clock by taking necessary precautions in order to prevent the virus from spreading!",
+    imgSrc: pandemic,
+    link: "https://jacobhomanics.itch.io/prevent-infection",
   },
   {
     name: "Gorglok's Revenge",
@@ -26,12 +32,6 @@ export const data: Array<ProjectData> = [
     description: "An action role-plaiyng game focused on quick combat. How long can you last?",
     imgSrc: onslaught,
     link: "https://jacobhomanics.itch.io/project-evolution-1point0",
-  },
-  {
-    name: "Pandemic Simulation",
-    description: "Survive the clock by taking necessary precautions in order to prevent the virus from spreading!",
-    imgSrc: pandemic,
-    link: "https://jacobhomanics.itch.io/prevent-infection",
   },
   {
     name: "New Beginnings",
