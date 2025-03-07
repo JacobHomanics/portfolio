@@ -87,14 +87,17 @@ const Home: NextPage = () => {
               className={`bg-cover bg-center rounded-full flex justify-center items-end w-32 h-32 md:w-32 md:h-32`}
               style={{ backgroundImage: `url(${jakeGif?.src})` }}
             >
-              <a
+              <button
                 className="btn btn-sm w-full btn-primary"
-                href="/Jacob_Homanics_Resume.pdf"
-                download="Jacob_Homanics_Resume.pdf"
+                onClick={() => {
+                  window.open("/Jacob_Homanics_Resume.pdf");
+                }}
+                // href="/Jacob_Homanics_Resume.pdf"
+                // download="Jacob_Homanics_Resume.pdf"
               >
                 Resume
                 <DocumentIcon className="w-5 h-5" />
-              </a>
+              </button>
             </div>
             <div className="flex flex-col justify-center items-center max-w-48 md:max-w-96">
               <p className="font-bold text-2xl md:text-4xl">Jacob Homanics</p>
