@@ -10,8 +10,7 @@ import {
   pizza,
   portfolio,
   trash,
-  warpcastIcon,
-  weedies,
+  warpcastIcon, // weedies,
   x,
 } from "./images";
 import { ProjectData } from "./types";
@@ -19,9 +18,11 @@ import { ProjectData } from "./types";
 export const data: Array<ProjectData> = [
   {
     name: "OP Atlas",
+    shortDescription: "Website rewarding 250+ developers for their open-source contributions.",
     description:
-      "Created the Application process for Optimism's Season 7 & 8 Missions: Dev Tooling & Onchain Builders by working closely with Agora and Optimism to match design requirements. Utilized tools/frameworks like Prisma and React Hook Forms. Suggested contributions which evolved into standalone Pull Requests to improve the overall codebase. Improved load times by moving moving fetch requests from server-side over to client-side.",
+      "Website rewarding 250+ developers for their open-source contributions.. Created the Application process for Optimism's Season 7 & 8 Missions: Dev Tooling & Onchain Builders by working closely with Agora and Optimism to match design requirements. Utilized tools/frameworks like Prisma and React Hook Forms. Suggested contributions which evolved into standalone Pull Requests to improve the overall codebase. Improved load times by moving moving fetch requests from server-side over to client-side.",
     imgSrc: atlas,
+    bannerSrc: atlas,
     link: "https://atlas.optimism.io/",
     links: [
       {
@@ -59,7 +60,7 @@ export const data: Array<ProjectData> = [
 
   {
     name: "Pizza People",
-    description: "Minting site that was used to interact with the Pizza People NFT smart contract.",
+    description: "10k NFTs celebrating Pizza that sold out and achieved $26k+ profits! ",
     imgSrc: pizza,
     link: "https://pizzapeople.wtf",
     links: [
@@ -98,24 +99,24 @@ export const data: Array<ProjectData> = [
     links: [{ url: "https://github.com/jacobhomanics/ladders.vision", imagePath: github }],
   },
 
-  {
-    name: "Weedies",
-    description: "A Nounish NFT collection celebrating marijuana!",
-    imgSrc: weedies,
-    link: "https://weedies.wtf",
-    links: [
-      { url: "https://github.com/jacobhomanics/weedies", imagePath: github },
-      {
-        url: "https://basescan.org/address/0x1c8264Cee472ef10758DFe8AE05156A1E52E6e40",
-        imagePath: etherscan,
-      },
-      { url: "https://opensea.io/collection/weedies-3", imagePath: opensea },
-      {
-        url: "https://www.ladders.vision/collections/base/0x1c8264Cee472ef10758DFe8AE05156A1E52E6e40",
-        imagePath: ladders,
-      },
-    ],
-  },
+  // {
+  //   name: "Weedies",
+  //   description: "A Nounish NFT collection celebrating marijuana!",
+  //   imgSrc: weedies,
+  //   link: "https://weedies.wtf",
+  //   links: [
+  //     { url: "https://github.com/jacobhomanics/weedies", imagePath: github },
+  //     {
+  //       url: "https://basescan.org/address/0x1c8264Cee472ef10758DFe8AE05156A1E52E6e40",
+  //       imagePath: etherscan,
+  //     },
+  //     { url: "https://opensea.io/collection/weedies-3", imagePath: opensea },
+  //     {
+  //       url: "https://www.ladders.vision/collections/base/0x1c8264Cee472ef10758DFe8AE05156A1E52E6e40",
+  //       imagePath: ladders,
+  //     },
+  //   ],
+  // },
   {
     name: "Trash NFTs",
     description:

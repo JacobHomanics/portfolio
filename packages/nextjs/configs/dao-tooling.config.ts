@@ -4,10 +4,12 @@ import { ProjectData } from "./types";
 export const data: Array<ProjectData> = [
   {
     name: "Reputation & Roles Starter Kit",
+    shortDescription: "Toolkit to track trust onchain funded by receiving a $60k grant.",
     description:
-      "Toolkit to deploy trust tracking onchain and grant authorities/permissions in decentralized and permissionless ways!",
+      "Toolkit to track trust onchain funded by receiving a $60k grant. Deploy trust tracking onchain and grant authorities/permissions in decentralized and permissionless ways!",
     imgSrc: starter,
-    link: "https://github.com/ATXDAO/rep-and-roles-starter-kit",
+    bannerSrc: starter,
+    link: "https://app.charmverse.io/op-grants/page-23303127376120303",
     links: [
       { url: "https://github.com/ATXDAO/rep-and-roles-starter-kit", imagePath: github },
       {

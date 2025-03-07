@@ -4,6 +4,8 @@ export type ProjectData = {
   name: string;
   description?: string;
   imgSrc?: StaticImageData | string;
+  bannerSrc?: StaticImageData | string;
+  shortDescription?: string;
   link?: string;
   links?: Array<Link>;
 };

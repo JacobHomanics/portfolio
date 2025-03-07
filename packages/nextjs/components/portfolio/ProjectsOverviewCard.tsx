@@ -59,15 +59,13 @@ export function ProjectsOverviewCard({ name, title, data }: { name: string; titl
     setSelectedTitleClass(getTextSizeClass());
   }, [size, title.length]);
   return (
-    <div
-      // href={name}
-      className="flex flex-col items-center justify-center p-2 md:p-4 border border-secondary bg-secondary rounded-xl gap-3 md:gap-4"
-
-      //hover:scale-90 transition-transform duration-300"
+    <Link
+      href={name}
+      className="flex flex-col items-center justify-center p-4 border border-secondary bg-secondary rounded-xl gap-3 md:gap-4 bg-opacity-40 hover:bg-opacity-100"
     >
       <p className={`text-2xl font-bold text-center mb-2 md:mb-4 ${selectedTitleClass}`}>{title}</p>
 
-      <div className="relative flex justify-center items-center w-full h-12 md:h-20">
+      <div className="relative flex justify-center items-center w-full h-12 md:h-20 mb-2">
         {componentsArray?.map((item, index) => {
           if (index >= maxCarouselSize) return;
 
@@ -85,9 +83,9 @@ export function ProjectsOverviewCard({ name, title, data }: { name: string; titl
         })}
       </div>
 
-      <Link href={name} className="w-full mt-1">
-        <button className="btn btn-sm md:btn-md btn-primary w-full">View</button>
-      </Link>
-    </div>
+      {/* <Link href={name} className="w-full mt-1"> */}
+      {/* <button className="btn btn-sm md:btn-md btn-primary w-full">View</button> */}
+      {/* </Link> */}
+    </Link>
   );
 }

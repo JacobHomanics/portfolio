@@ -23,6 +23,10 @@ export const menuLinks: HeaderMenuLink[] = [
     label: "Home",
     href: "/",
   },
+  // {
+  //   label: "AI / LLM",
+  //   href: "/ai",
+  // },
   {
     label: "Websites",
     href: "/websites",
@@ -32,22 +36,25 @@ export const menuLinks: HeaderMenuLink[] = [
     href: "/video-games",
   },
   {
-    href: "/dao-tooling",
-    label: "DAO Tooling",
+    label: "NFTs",
+    href: "/nft-collections",
+  },
+  {
+    href: "/presentations",
+    label: "Presentations",
   },
   {
     href: "/unity-tooling",
     label: "Unity Tooling",
   },
   {
-    label: "NFTs",
-    href: "/nft-collections",
+    href: "/dao-tooling",
+    label: "DAO Tooling",
   },
   {
     href: "/organizations",
     label: "Organizations",
   },
-
   // {
   //   label: "Debug Contracts",
   //   href: "/debug",
