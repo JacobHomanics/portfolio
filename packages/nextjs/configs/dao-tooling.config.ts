@@ -6,7 +6,7 @@ export const data: Array<ProjectData> = [
     name: "Reputation & Roles Starter Kit",
     shortDescription: "Toolkit to track trust onchain funded by receiving a $60k grant.",
     description:
-      "Toolkit to deploy trust tracking onchain and grant authorities/permissions in decentralized and permissionless ways!",
+      "Toolkit to track trust onchain funded by receiving a $60k grant. Deploy trust tracking onchain and grant authorities/permissions in decentralized and permissionless ways!",
     imgSrc: starter,
     bannerSrc: starter,
     link: "https://app.charmverse.io/op-grants/page-23303127376120303",

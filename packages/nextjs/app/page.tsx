@@ -136,6 +136,8 @@ const Home: NextPage = () => {
         </div>
       </div>
 
+      <div className="w-full h-2 bg-slate-900" />
+
       <div className="flex flex-wrap md:w-4/5 items-center justify-center gap-4">{pageCardComponents}</div>
     </div>
   );
