@@ -5,7 +5,7 @@ import type { NextPage } from "next";
 import { DocumentIcon } from "@heroicons/react/24/outline";
 import { ProjectShowcaseCard } from "~~/components/portfolio/ProjectShowcaseCard";
 import { ProjectsOverviewCard } from "~~/components/portfolio/ProjectsOverviewCard";
-import { data as aiData } from "~~/configs/ai.config";
+// import { data as aiData } from "~~/configs/ai.config";
 import { data as daoToolingData } from "~~/configs/dao-tooling.config";
 import { data as nftCollectionsData } from "~~/configs/nftCollections.config";
 import { data as organizationsData } from "~~/configs/organizations.config";
@@ -17,11 +17,11 @@ import { data as websitesData } from "~~/configs/websites.config";
 import jakeGif from "~~/public/images/jake.webp";
 
 const pageCards = [
-  {
-    name: "/ai",
-    title: "AI / LLM",
-    data: aiData,
-  },
+  // {
+  //   name: "/ai",
+  //   title: "AI / LLM",
+  //   data: aiData,
+  // },
   {
     name: "/websites",
     title: "Websites",
@@ -62,7 +62,7 @@ const pageCards = [
 
 const showcaseProjects = [
   presentationsData[0],
-  aiData[0],
+  // aiData[0],
   websitesData[0],
   nftCollectionsData[0],
   daoToolingData[0],
