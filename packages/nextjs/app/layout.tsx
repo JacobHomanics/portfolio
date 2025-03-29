@@ -8,8 +8,7 @@ import { getMetadata } from "~~/utils/scaffold-eth/getMetadata";
 
 export const metadata = getMetadata({
   title: "Jacob Homanics",
-  description:
-    "DAO oriented, Public Goods Developer, and an Open Source Advocate striving to make the world a better place.",
+  description: "Software Engineer skilled in a variety of disciplines.",
 });
 
 const ScaffoldEthApp = ({ children }: { children: React.ReactNode }) => {
