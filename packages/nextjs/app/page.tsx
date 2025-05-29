@@ -102,8 +102,7 @@ const Home: NextPage = () => {
             <div className="flex flex-col justify-center items-center max-w-48 md:max-w-96">
               <p className="font-bold text-2xl md:text-4xl">Jacob Homanics</p>
               <p className="text-center text-sm md:text-base">
-                Software Engineer skilled in a variety of disciplines. Expertise in taking ideas from 0 to 1 with speed
-                and precision.
+                AI Empowered Founding Engineer skilled in a variety of disciplines.
               </p>
               <div className="flex flex-wrap gap-4 items-center justify-center p-2">
                 {IconsLinksData.map((link, index) => {
