@@ -104,6 +104,9 @@ const Home: NextPage = () => {
               <p className="text-center text-sm md:text-base">
                 AI Empowered Founding Engineer skilled in a variety of disciplines.
               </p>
+              <p className="text-center text-sm md:text-base">
+                Building Free and Empowering Software by leveraging Web3 Technologies.
+              </p>
               <div className="flex flex-wrap gap-4 items-center justify-center p-2">
                 {IconsLinksData.map((link, index) => {
                   return (
