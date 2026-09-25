@@ -30,9 +30,6 @@ const TalkPage = ({ params }: PageProps) => {
         </div>
       )}
       <p className="text-lg max-w-2xl text-center">{talk.description}</p>
-      <a href={talk.youtubeUrl} target="_blank" rel="noreferrer" className="link link-primary text-lg font-bold">
-        Watch on YouTube
-      </a>
     </div>
   );
 };

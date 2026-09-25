@@ -59,7 +59,7 @@ export const data: Array<ProjectData> = [
 
   {
     name: "Pizza People",
-    description: "10k NFTs celebrating Pizza that sold out and achieved $26k+ profits! ",
+    shortDescription: "NFT collection achieved $26k+ revenue!",
     imgSrc: pizza,
     link: "https://pizzapeople.wtf",
     links: [

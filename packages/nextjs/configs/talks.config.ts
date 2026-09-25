@@ -15,7 +15,7 @@ export type Talk = {
 export const talks: Talk[] = [
   {
     slug: "interoperable-gaming-with-web3",
-    name: "The Open Gaming Ecosystem",
+    name: "Bringing Web2 Games to Web3",
     shortDescription: "Presented interoperable gaming assets using Web3.",
     description: "Presented interoperable gaming assets using Web3.",
     youtubeUrl: "https://www.youtube.com/watch?v=jpsT6qCkTJs&list=PLp3zrT1ewY0kwXj2NgQU6ZrbLlb_Uwmc0",

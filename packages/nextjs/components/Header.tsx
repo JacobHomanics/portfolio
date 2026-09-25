@@ -9,7 +9,6 @@ import { Bars3Icon } from "@heroicons/react/24/outline";
 // import * as PersonData from "~~/components/portfolio/config/person.config";
 import { SocialLinks, useSocialLinksPlacement } from "~~/components/SocialLinks";
 import { SwitchTheme } from "~~/components/SwitchTheme";
-import { FaucetButton } from "~~/components/scaffold-eth";
 import { useOutsideClick } from "~~/hooks/scaffold-eth";
 
 // import { useGlobalState } from "~~/services/store/store";
@@ -163,9 +162,6 @@ export const Header = () => {
 
       <div className="flex items-center gap-2">
         <SwitchTheme />
-        <div className="hidden lg:block">
-          <FaucetButton />
-        </div>
       </div>
     </header>
   );

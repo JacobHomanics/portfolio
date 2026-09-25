@@ -15,7 +15,7 @@ import { ProjectData } from "./types";
 export const data: Array<ProjectData> = [
   {
     name: "Pizza People",
-    shortDescription: "10k NFTs celebrating Pizza that sold out and achieved $26k+ profits!",
+    shortDescription: "NFT collection achieved $26k+ revenue!",
     description: "An NFT collection celebrating Pizza!",
     imgSrc: pizza,
     bannerSrc: pizza,

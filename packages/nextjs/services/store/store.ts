@@ -27,7 +27,7 @@ type GlobalState = {
 export const useGlobalState = create<GlobalState>(set => ({
   nativeCurrency: {
     price: 0,
-    isFetching: true,
+    isFetching: false,
   },
   setNativeCurrencyPrice: (newValue: number): void =>
     set(state => ({ nativeCurrency: { ...state.nativeCurrency, price: newValue } })),

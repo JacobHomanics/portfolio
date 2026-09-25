@@ -11,12 +11,9 @@ import { Header } from "~~/components/Header";
 import { SocialLinksProvider } from "~~/components/SocialLinks";
 import { BlockieAvatar } from "~~/components/scaffold-eth";
 import { ProgressBar } from "~~/components/scaffold-eth/ProgressBar";
-import { useInitializeNativeCurrencyPrice } from "~~/hooks/scaffold-eth";
 import { wagmiConfig } from "~~/services/web3/wagmiConfig";
 
 const ScaffoldEthApp = ({ children }: { children: React.ReactNode }) => {
-  useInitializeNativeCurrencyPrice();
-
   return (
     <>
       <SocialLinksProvider>
