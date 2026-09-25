@@ -2,11 +2,14 @@ import { withDetailPage } from "./detail-page";
 import {
   atlas,
   atxdao,
+  bluebell,
   bottle,
+  carstarz,
   engagement,
   etherscan,
   github,
   ladders,
+  linkedinIcon,
   opensea,
   pizza,
   portfolio,
@@ -17,6 +20,24 @@ import {
 import { ProjectData } from "./types";
 
 const projects: Array<ProjectData & { slug: string }> = [
+  {
+    slug: "bluebell-stock-exchange",
+    name: "Bluebell Stock Exchange",
+    description: "Trade tokenized stocks on Base.",
+    imgSrc: bluebell,
+    link: "https://bluebell-stock-exchange-vert.vercel.app/",
+  },
+  {
+    slug: "carstarz",
+    name: "CarStarz",
+    shortDescription: "Owner-controlled vehicle profiles for showcasing builds and earning rewards.",
+    description:
+      "Specialty vehicle registry with tools to showcase your ride, connect owners, builders, and shops, and earn rewards.",
+    imgSrc: carstarz,
+    bannerSrc: carstarz,
+    link: "https://carstarz.io",
+    links: [{ url: "https://www.linkedin.com/company/carstarz", imagePath: linkedinIcon }],
+  },
   {
     slug: "op-atlas",
     name: "OP Atlas",

@@ -3,7 +3,9 @@ import atlas from "~~/public/images/atlas.webp";
 import atxdao from "~~/public/images/atx-dao.png";
 import bill2 from "~~/public/images/bill-2.webp";
 import bill1 from "~~/public/images/bill.webp";
+import bluebell from "~~/public/images/bluebell.svg";
 import buidlguidlDemoDay from "~~/public/images/buidlguidlDemoDay.png";
+import carstarz from "~~/public/images/carstarz.png";
 import coa from "~~/public/images/coa.png";
 import elizaBanner from "~~/public/images/eliza_banner.jpg";
 import email from "~~/public/images/email.svg";
@@ -57,7 +59,9 @@ export {
   pizza,
   trash,
   weedies,
+  bluebell,
   bottle,
+  carstarz,
   coa,
   hats,
   of,

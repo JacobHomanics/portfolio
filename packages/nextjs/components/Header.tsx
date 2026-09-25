@@ -37,7 +37,7 @@ export const menuLinks: HeaderMenuLink[] = [
     href: "/video-games",
   },
   {
-    label: "NFTs",
+    label: "NFT Collections",
     href: "/nft-collections",
   },
   {
@@ -51,10 +51,6 @@ export const menuLinks: HeaderMenuLink[] = [
   {
     href: "/dao-tooling",
     label: "DAO Tooling",
-  },
-  {
-    href: "/organizations",
-    label: "Organizations",
   },
   // {
   //   label: "Debug Contracts",

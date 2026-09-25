@@ -9,7 +9,6 @@ import { ProjectsOverviewCard } from "~~/components/portfolio/ProjectsOverviewCa
 // import { data as aiData } from "~~/configs/ai.config";
 import { data as daoToolingData } from "~~/configs/dao-tooling.config";
 import { data as nftCollectionsData } from "~~/configs/nftCollections.config";
-import { data as organizationsData } from "~~/configs/organizations.config";
 import { talkProjects } from "~~/configs/talks.config";
 import { data as unityToolingData } from "~~/configs/unity-tooling.config";
 import { data as gamesData } from "~~/configs/video-games.config";
@@ -36,7 +35,7 @@ const pageCards = [
 
   {
     name: "/nft-collections",
-    title: "NFTs",
+    title: "NFT Collections",
     data: nftCollectionsData,
   },
   {
@@ -48,11 +47,6 @@ const pageCards = [
     name: "/unity-tooling",
     title: "Unity Tooling",
     data: unityToolingData,
-  },
-  {
-    name: "/organizations",
-    title: "Organizations",
-    data: organizationsData,
   },
   {
     name: "/dao-tooling",
