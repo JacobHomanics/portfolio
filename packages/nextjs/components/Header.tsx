@@ -46,6 +46,10 @@ export const menuLinks: HeaderMenuLink[] = [
     label: "Presentations",
   },
   {
+    href: "/talks",
+    label: "Talks",
+  },
+  {
     href: "/unity-tooling",
     label: "Unity Tooling",
   },

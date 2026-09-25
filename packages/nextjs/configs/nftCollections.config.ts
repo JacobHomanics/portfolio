@@ -76,9 +76,11 @@ export const data: Array<ProjectData> = [
 
   {
     name: "Bill Murray 1000",
+    shortDescription: "NFT Collection generated >$240k in revenue.",
     description:
       "A great NFT collection tells a great story. And there’s no better story than a Bill Murray story.The Bill Murray 1000 is a unique biographical NFT project telling the story of iconic actor, comedian, and writer, Bill Murray – and a life very well-lived. The collection offers 100 story NFTs containing anecdotes, observations, advice, memories, Murray-isms, and more.Each of the 100 story NFTs features a unique design inspired by the story, and each original story/design combination is available in nine additional colorways. The result of all this (we did the math) is 1000 unique story/design/colorway combinations with something special for every Bill Murray collector.",
     imgSrc: bill1,
+    bannerSrc: bill1,
     link: "https://opensea.io/collection/billmurray1000",
   },
 

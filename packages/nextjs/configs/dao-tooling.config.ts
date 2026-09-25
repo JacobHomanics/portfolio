@@ -4,7 +4,7 @@ import { ProjectData } from "./types";
 export const data: Array<ProjectData> = [
   {
     name: "Reputation & Roles Starter Kit",
-    shortDescription: "Toolkit to track trust onchain funded by receiving a $60k grant.",
+    shortDescription: "Onchain trust toolkit backed by a $60K grant.",
     description:
       "Toolkit to track trust onchain funded by receiving a $60k grant. Deploy trust tracking onchain and grant authorities/permissions in decentralized and permissionless ways!",
     imgSrc: starter,

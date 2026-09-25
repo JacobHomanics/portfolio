@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { StaticImageData } from "next/image";
+import Link from "next/link";
 import { ArrowLeftIcon, ArrowRightIcon, ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/24/solid";
 
 const SCROLL_MS_PER_SLIDE = 8000;
@@ -209,12 +210,13 @@ export function MobileShowcaseCarousel({
             const isActive = stepped
               ? slideIndex % count === active && Math.floor(slideIndex / count) === Math.floor(offset / count)
               : slideIndex === Math.round(offset);
+            const isInternal = slide.link?.startsWith("/");
+            const Tag = isInternal ? Link : "a";
             return (
-              <a
+              <Tag
                 key={`${slide.title}-${slideIndex}`}
-                href={slide.link}
-                target="_blank"
-                rel="noreferrer"
+                href={slide.link || "#"}
+                {...(isInternal ? {} : { target: "_blank", rel: "noreferrer" })}
                 className={`shrink-0 overflow-hidden rounded-xl ${isActive ? "" : "opacity-90"}`}
                 style={{ width: `${SLIDE_PERCENT}%` }}
                 aria-hidden={!isActive}
@@ -241,7 +243,7 @@ export function MobileShowcaseCarousel({
                   <p className="text-center text-base font-bold leading-tight">{slide.title}</p>
                   {slide.description && <p className="mt-1 text-center text-xs">{slide.description}</p>}
                 </div>
-              </a>
+              </Tag>
             );
           })}
         </div>

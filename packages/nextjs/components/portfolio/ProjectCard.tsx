@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import Image, { StaticImageData } from "next/image";
+import Link from "next/link";
 import { useWindowSize } from "usehooks-ts";
 
 export function ProjectCard({
@@ -37,7 +38,11 @@ export function ProjectCard({
   return (
     <div className="bg-primary rounded-lg flex items-start p-4 gap-4">
       <div className="flex flex-col gap-2">
-        <a href={link} target="#" className="flex-none w-16 h-16 md:w-40 md:h-40">
+        <a
+          href={link}
+          {...(link?.startsWith("/") ? {} : { target: "#" })}
+          className="flex-none w-16 h-16 md:w-40 md:h-40"
+        >
           <Image
             className="rounded-lg w-full h-full object-fit"
             width={160}
@@ -72,11 +77,20 @@ export function ProjectCard({
       <div className="flex flex-col items-start gap-4">
         <div>
           <div className="flex gap-4 items-center">
-            {link && (
-              <a href={link} target="#">
-                <p className="font-bold text-xl md:text-2xl text-blue-700 dark:text-blue-400 hover:underline">{name}</p>
-              </a>
-            )}
+            {link &&
+              (link.startsWith("/") ? (
+                <Link href={link}>
+                  <p className="font-bold text-xl md:text-2xl text-blue-700 dark:text-blue-400 hover:underline">
+                    {name}
+                  </p>
+                </Link>
+              ) : (
+                <a href={link} target="#">
+                  <p className="font-bold text-xl md:text-2xl text-blue-700 dark:text-blue-400 hover:underline">
+                    {name}
+                  </p>
+                </a>
+              ))}
             {!link && <p className="font-bold text-xl md:text-2xl">{name}</p>}
 
             {!isMobile && (

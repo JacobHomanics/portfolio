@@ -1,25 +1,11 @@
-import { buidlguidlDemoDay, filecoinTalk, filecoinTalkBannerSrc, supercahinDemoDay } from "./images";
+import { talks } from "./talks.config";
 import { ProjectData } from "./types";
 
-export const data: Array<ProjectData> = [
-  {
-    name: "Interoperable Gaming with Web3",
-    shortDescription: "Presented interoperable gaming assets using Web3.",
-    description: "Presented interoperable gaming assets using Web3.",
-    imgSrc: filecoinTalk,
-    link: "https://www.youtube.com/watch?v=jpsT6qCkTJs&list=PLp3zrT1ewY0kwXj2NgQU6ZrbLlb_Uwmc0",
-    bannerSrc: filecoinTalkBannerSrc,
-  },
-  {
-    name: "Superchain Demo Day",
-    description: "Optimism - Reputation & Roles Starter Kit Demo",
-    link: "https://www.youtube.com/watch?v=WZMwNuQgtBE&t=1165s",
-    imgSrc: supercahinDemoDay,
-  },
-  {
-    name: "Reputation Starter Kit",
-    description: "Buidl Guidl - Reputation & Roles Starter Kit Demo",
-    link: "https://www.youtube.com/watch?v=1p0KQlVTFow&t=1s",
-    imgSrc: buidlguidlDemoDay,
-  },
-];
+export const data: Array<ProjectData> = talks.map(talk => ({
+  name: talk.name,
+  shortDescription: talk.shortDescription,
+  description: talk.description,
+  imgSrc: talk.imgSrc,
+  bannerSrc: talk.bannerSrc,
+  link: talk.youtubeUrl,
+}));

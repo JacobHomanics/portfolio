@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { StaticImageData } from "next/image";
+import Link from "next/link";
 import { useWindowSize } from "usehooks-ts";
 
 export function ProjectShowcaseCard({
@@ -23,8 +24,12 @@ export function ProjectShowcaseCard({
     setIsMobile(result.width <= 767);
   }, [result.width]);
 
+  const className = "bg-primary rounded-lg p-2 h-32 w-40 md:h-44 md:w-72 lg:h-56 lg:w-80";
+  const isInternal = link?.startsWith("/");
+  const Tag = isInternal ? Link : "a";
+
   return (
-    <a href={link} target="#" className="bg-primary rounded-lg p-2 h-32 w-40 md:h-44 md:w-72 lg:h-56 lg:w-80">
+    <Tag href={link || "#"} {...(isInternal ? {} : { target: "#" })} className={className}>
       <div
         className={`bg-cover bg-center h-full w-full rounded-lg flex items-end`}
         style={{ backgroundImage: `url(${typeof imgSrc === "string" ? imgSrc : imgSrc?.src})` }}
@@ -36,6 +41,6 @@ export function ProjectShowcaseCard({
           </div>
         </div>
       </div>
-    </a>
+    </Tag>
   );
 }

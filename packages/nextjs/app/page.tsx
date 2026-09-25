@@ -11,9 +11,11 @@ import { data as daoToolingData } from "~~/configs/dao-tooling.config";
 import { data as nftCollectionsData } from "~~/configs/nftCollections.config";
 import { data as organizationsData } from "~~/configs/organizations.config";
 import { data as presentationsData } from "~~/configs/presentations.config";
+import { talkProjects } from "~~/configs/talks.config";
 import { data as unityToolingData } from "~~/configs/unity-tooling.config";
 import { data as gamesData } from "~~/configs/video-games.config";
 import { data as websitesData } from "~~/configs/websites.config";
+import disgo from "~~/public/images/disgo.webp";
 import jakeGif from "~~/public/images/jake.webp";
 
 const pageCards = [
@@ -44,6 +46,11 @@ const pageCards = [
     data: presentationsData,
   },
   {
+    name: "/talks",
+    title: "Talks",
+    data: talkProjects,
+  },
+  {
     name: "/unity-tooling",
     title: "Unity Tooling",
     data: unityToolingData,
@@ -61,10 +68,17 @@ const pageCards = [
 ];
 
 const showcaseProjects = [
-  presentationsData[0],
+  {
+    name: "Disgo",
+    shortDescription: "Three B2B2C apps with 800+ users and 5 design partners generating repeating revenue.",
+    bannerSrc: disgo,
+    link: "https://www.disgoapp.io/",
+  },
+  { ...presentationsData[0], link: "/talks/interoperable-gaming-with-web3" },
   // aiData[0],
   websitesData[0],
   nftCollectionsData[0],
+  nftCollectionsData[2],
   daoToolingData[0],
   gamesData[0],
 ];
