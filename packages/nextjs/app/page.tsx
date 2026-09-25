@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import type { NextPage } from "next";
 import { DocumentIcon } from "@heroicons/react/24/outline";
 import { ProjectShowcaseCard } from "~~/components/portfolio/ProjectShowcaseCard";
@@ -82,9 +81,9 @@ const Home: NextPage = () => {
     <div className="flex flex-col items-center bg-gradient-to-t p-4 gap-10">
       <div className="flex flex-col gap-4">
         <div className="flex flex-col gap-4">
-          <div className="flex gap-4 items-center justify-center">
+          <div className="flex flex-col md:flex-row gap-4 items-center justify-center">
             <div
-              className={`bg-cover bg-center rounded-full flex justify-center items-end w-32 h-32 md:w-32 md:h-32`}
+              className={`bg-cover bg-center rounded-full flex justify-center items-end shrink-0 w-32 h-32`}
               style={{ backgroundImage: `url(${jakeGif?.src})` }}
             >
               <button
@@ -99,26 +98,18 @@ const Home: NextPage = () => {
                 <DocumentIcon className="w-5 h-5" />
               </button>
             </div>
-            <div className="flex flex-col justify-center items-center max-w-48 md:max-w-96">
+            <div className="flex flex-col justify-center items-center max-w-md md:max-w-2xl">
               <p className="font-bold text-2xl md:text-4xl">Jacob Homanics</p>
               <p className="text-center text-sm md:text-base">
-                AI Empowered Founding Engineer skilled in a variety of disciplines.
-              </p>
-              <p className="text-center text-sm md:text-base">
-                Building Free and Empowering Software by leveraging Web3 Technologies.
+                Product-Focused Software Engineer & Founder skilled in building and taking products from 0 to 1. Rich
+                history in building websites, native apps, video games, VR/AR experiences, and smart contracts.
               </p>
               <div className="flex flex-wrap gap-4 items-center justify-center p-2">
-                {IconsLinksData.map((link, index) => {
+                {IconsLinksData.map(link => {
+                  const Icon = link.icon;
                   return (
-                    <a href={link.url} target="#" key={index}>
-                      <Image
-                        src={link.icon}
-                        width={32}
-                        height={32}
-                        className="w-6 h-6 md:w-10 md:h-10"
-                        alt={"Link " + index}
-                        loading="lazy"
-                      />
+                    <a href={link.url} target="#" key={link.url} aria-label={link.label}>
+                      <Icon className="w-6 h-6 md:w-10 md:h-10" alt={link.label} />
                     </a>
                   );
                 })}

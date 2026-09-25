@@ -7,7 +7,7 @@ import { usePathname } from "next/navigation";
 // import { useAccount } from "wagmi";
 import { Bars3Icon } from "@heroicons/react/24/outline";
 // import * as PersonData from "~~/components/portfolio/config/person.config";
-import { FaucetButton, RainbowKitCustomConnectButton } from "~~/components/scaffold-eth";
+import { FaucetButton } from "~~/components/scaffold-eth";
 import { useOutsideClick } from "~~/hooks/scaffold-eth";
 
 // import { useGlobalState } from "~~/services/store/store";
@@ -163,7 +163,6 @@ export const Header = () => {
         </ul>
       </div>
       <div className="navbar-end flex-grow mr-4 space-x-4">
-        <RainbowKitCustomConnectButton />
         <FaucetButton />
       </div>
     </div>
