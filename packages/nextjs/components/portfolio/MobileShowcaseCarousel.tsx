@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { type MouseEvent, type PointerEvent, useEffect, useLayoutEffect, useRef, useState } from "react";
 import { StaticImageData } from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -10,7 +10,7 @@ import { pushProjectOrigin } from "~~/utils/projectNavStack";
 const SCROLL_MS_PER_SLIDE = 8000;
 const SLIDE_MS = 4000;
 const PAUSE_AFTER_ARROW_MS = 1500;
-const SWIPE_THRESHOLD = 40;
+const DRAG_THRESHOLD = 8;
 const SLIDE_PERCENT = 58;
 const GAP_PX = 8;
 
@@ -56,13 +56,23 @@ export function MobileShowcaseCarousel({
   const count = slides.length;
   const [offset, setOffset] = useState(count);
   const [animate, setAnimate] = useState(true);
+  const [dragging, setDragging] = useState(false);
+  const [releaseSnap, setReleaseSnap] = useState(false);
   const [paused, setPaused] = useState(false);
   const resumeTimer = useRef<number | null>(null);
   const heldRef = useRef(false);
   const [carouselMode, setCarouselMode] = useState<CarouselMode>(mode);
-  const touchStartX = useRef<number | null>(null);
   const trackRef = useRef<HTMLDivElement>(null);
+  const sectionRef = useRef<HTMLElement>(null);
   const offsetRef = useRef(offset);
+  const dragRef = useRef<{
+    pointerId: number;
+    startX: number;
+    startY: number;
+    startOffset: number;
+    locked: boolean;
+  } | null>(null);
+  const suppressClick = useRef(false);
 
   const paint = (next: number) => {
     offsetRef.current = next;
@@ -72,7 +82,13 @@ export function MobileShowcaseCarousel({
   const active = count === 0 ? 0 : ((Math.round(offset) % count) + count) % count;
   const loop = count > 1 ? [...slides, ...slides, ...slides] : slides;
   const stepped = carouselMode === "step";
-  if (stepped) offsetRef.current = offset;
+  if (stepped && !dragRef.current?.locked) offsetRef.current = offset;
+
+  const slideStride = () => {
+    const slide = trackRef.current?.firstElementChild;
+    if (!(slide instanceof HTMLElement)) return 1;
+    return slide.getBoundingClientRect().width + GAP_PX;
+  };
 
   useEffect(() => {
     const loopId = ++scrollLoop;
@@ -109,10 +125,16 @@ export function MobileShowcaseCarousel({
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
     const id = window.setInterval(() => {
+      if (heldRef.current) return;
       setOffset(current => current + 1);
     }, SLIDE_MS);
     return () => window.clearInterval(id);
   }, [stepped, paused, count, active]);
+
+  useLayoutEffect(() => {
+    if (dragRef.current?.locked) return;
+    paint(offset);
+  }, [offset]);
 
   useEffect(() => {
     if (animate) return;
@@ -164,7 +186,8 @@ export function MobileShowcaseCarousel({
   };
 
   const settle = () => {
-    if (!stepped || count <= 1) return;
+    setReleaseSnap(false);
+    if (count <= 1) return;
     const current = offsetRef.current;
     const normalized = (((current % count) + count) % count) + count;
     if (normalized === current) return;
@@ -172,37 +195,92 @@ export function MobileShowcaseCarousel({
     setOffset(normalized);
   };
 
+  const onPointerDown = (event: PointerEvent<HTMLElement>) => {
+    if (event.button !== 0 || count <= 1) return;
+    if (event.target instanceof Element && event.target.closest("button")) return;
+    dragRef.current = {
+      pointerId: event.pointerId,
+      startX: event.clientX,
+      startY: event.clientY,
+      startOffset: offsetRef.current,
+      locked: false,
+    };
+  };
+
+  const onPointerMove = (event: PointerEvent<HTMLElement>) => {
+    const drag = dragRef.current;
+    if (!drag || drag.pointerId !== event.pointerId) return;
+    const dx = event.clientX - drag.startX;
+    const dy = event.clientY - drag.startY;
+    if (!drag.locked) {
+      if (Math.abs(dx) < DRAG_THRESHOLD && Math.abs(dy) < DRAG_THRESHOLD) return;
+      if (Math.abs(dy) > Math.abs(dx)) {
+        dragRef.current = null;
+        return;
+      }
+      drag.locked = true;
+      heldRef.current = true;
+      suppressClick.current = true;
+      setDragging(true);
+      sectionRef.current?.setPointerCapture(event.pointerId);
+    }
+    paint(wrapOffset(drag.startOffset - dx / slideStride(), count));
+  };
+
+  const finishDrag = (event: PointerEvent<HTMLElement>) => {
+    const drag = dragRef.current;
+    if (!drag || drag.pointerId !== event.pointerId) return;
+    dragRef.current = null;
+    if (!drag.locked) return;
+    const rounded = Math.round(offsetRef.current);
+    const wrapped = wrapOffset(rounded, count);
+    setDragging(false);
+    if (wrapped !== rounded) {
+      setAnimate(false);
+      setReleaseSnap(false);
+    } else if (!stepped) {
+      setReleaseSnap(true);
+    }
+    setOffset(wrapped);
+    if (stepped) heldRef.current = false;
+    else holdAfterArrow();
+    window.setTimeout(() => {
+      suppressClick.current = false;
+    }, 0);
+  };
+
+  const onClickCapture = (event: MouseEvent) => {
+    if (!suppressClick.current) return;
+    suppressClick.current = false;
+    event.preventDefault();
+    event.stopPropagation();
+  };
+
   if (count === 0) return null;
 
   return (
     <section
-      className="-mx-4 w-[calc(100%+2rem)] md:hidden"
+      ref={sectionRef}
+      className="-mx-4 w-[calc(100%+2rem)] touch-pan-y md:hidden"
       aria-roledescription="carousel"
       aria-label="Featured projects"
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
-      onTouchStart={event => {
-        touchStartX.current = event.touches[0]?.clientX ?? null;
-        setPaused(true);
-      }}
-      onTouchEnd={event => {
-        const start = touchStartX.current;
-        const end = event.changedTouches[0]?.clientX;
-        touchStartX.current = null;
-        setPaused(false);
-        if (start == null || end == null) return;
-        const delta = end - start;
-        if (delta <= -SWIPE_THRESHOLD) step(1);
-        if (delta >= SWIPE_THRESHOLD) step(-1);
-      }}
+      onPointerDown={onPointerDown}
+      onPointerMove={onPointerMove}
+      onPointerUp={finishDrag}
+      onPointerCancel={finishDrag}
+      onClickCapture={onClickCapture}
     >
       <div className="overflow-hidden">
         <div
           ref={trackRef}
           className={`flex w-full items-stretch ${
-            stepped && animate ? "transition-transform duration-500 ease-out motion-reduce:transition-none" : ""
+            !dragging && (stepped ? animate : releaseSnap)
+              ? "transition-transform duration-500 ease-out motion-reduce:transition-none"
+              : ""
           }`}
-          style={{ gap: GAP_PX, transform: trackTransform(stepped ? offset : offsetRef.current) }}
+          style={{ gap: GAP_PX, transform: trackTransform(offsetRef.current) }}
           onTransitionEnd={event => {
             if (event.propertyName !== "transform") return;
             settle();
@@ -220,6 +298,8 @@ export function MobileShowcaseCarousel({
                 key={`${slide.title}-${slideIndex}`}
                 href={slide.link || "#"}
                 {...(isInternal ? {} : { target: "_blank", rel: "noreferrer" })}
+                draggable={false}
+                onDragStart={event => event.preventDefault()}
                 className={`flex h-full shrink-0 flex-col overflow-hidden rounded-xl ${isActive ? "" : "opacity-90"}`}
                 style={{ width: `${SLIDE_PERCENT}%` }}
                 aria-hidden={!isActive}
