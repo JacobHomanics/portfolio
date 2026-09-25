@@ -43,27 +43,12 @@ export function ProjectsOverviewCard({ name, title, data }: { name: string; titl
     }
   }, [size]);
 
-  const [selectedTitleClass, setSelectedTitleClass] = useState("");
-  useEffect(() => {
-    const getTextSizeClass = () => {
-      if (title.length > 12 && size.width <= 767) {
-        return "text-xl";
-      }
-      if (size.width > 767) {
-        return "text-2xl";
-      } else {
-        return "text-base";
-      }
-    };
-
-    setSelectedTitleClass(getTextSizeClass());
-  }, [size, title.length]);
   return (
     <Link
       href={name}
       className="flex flex-col items-center justify-center p-4 border border-secondary bg-secondary rounded-xl gap-3 md:gap-4 bg-opacity-40 hover:bg-opacity-100"
     >
-      <p className={`text-2xl font-bold text-center mb-2 md:mb-4 ${selectedTitleClass}`}>{title}</p>
+      <p className="whitespace-nowrap text-center text-sm font-bold leading-none mb-2 md:mb-4 md:text-2xl">{title}</p>
 
       <div className="relative flex justify-center items-center w-full h-12 md:h-20 mb-2">
         {componentsArray?.map((item, index) => {

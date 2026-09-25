@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { GameEmbed } from "~~/components/GameEmbed";
 import { DetailProject } from "~~/configs/detail-page";
 
 function linkLabel(url: string) {
@@ -13,8 +14,21 @@ export function ProjectDetail({ project }: { project: DetailProject }) {
   return (
     <div className="flex flex-col items-center bg-gradient-to-t p-4 md:p-8 gap-6">
       <h1 className="font-bold text-2xl md:text-4xl text-center">{project.name}</h1>
-      {project.imgSrc && (
-        <Image src={project.imgSrc} alt={project.name} className="h-auto max-h-[32rem] w-auto max-w-full rounded-lg" />
+      {project.embed ? (
+        <GameEmbed
+          src={project.embed.url}
+          title={project.name}
+          width={project.embed.width}
+          height={project.embed.height}
+        />
+      ) : (
+        project.imgSrc && (
+          <Image
+            src={project.imgSrc}
+            alt={project.name}
+            className="h-auto max-h-[32rem] w-auto max-w-full rounded-lg"
+          />
+        )
       )}
       {project.description && <p className="text-lg max-w-2xl text-center">{project.description}</p>}
       {!!project.links?.length && (

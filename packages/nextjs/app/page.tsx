@@ -63,12 +63,13 @@ const showcaseProjects = [
     link: "https://www.disgoapp.io/",
   },
   talkProjects[0],
-  nftCollectionsData[2],
+  nftCollectionsData[3],
   daoToolingData[0],
 
   nftCollectionsData[0],
   // aiData[0],
-  websitesData[0],
+  websitesData.find(project => project.slug !== "bluebell-stock-exchange" && project.slug !== "carstarz") ??
+    websitesData[0],
   gamesData[0],
 ];
 
