@@ -21,6 +21,10 @@ const projects: Array<ProjectData & { slug: string }> = [
       width: 1280,
       height: 720,
     },
+    recommendedPlatform: {
+      name: "Desktop browser",
+      note: "Also available for Windows, macOS, and Linux.",
+    },
   },
   {
     slug: "pandemic-simulation",
@@ -33,6 +37,7 @@ const projects: Array<ProjectData & { slug: string }> = [
       width: 980,
       height: 668,
     },
+    recommendedPlatform: { name: "Desktop browser" },
   },
   {
     slug: "gorgloks-revenge",
@@ -45,6 +50,7 @@ const projects: Array<ProjectData & { slug: string }> = [
       width: 980,
       height: 668,
     },
+    recommendedPlatform: { name: "Desktop browser" },
   },
   {
     slug: "onslaught",
@@ -56,6 +62,10 @@ const projects: Array<ProjectData & { slug: string }> = [
       url: "https://itch.io/embed-upload/6249326",
       width: 960,
       height: 540,
+    },
+    recommendedPlatform: {
+      name: "Desktop browser",
+      note: "Also available for Windows, macOS, and Linux.",
     },
   },
   {
@@ -69,6 +79,7 @@ const projects: Array<ProjectData & { slug: string }> = [
       width: 1280,
       height: 720,
     },
+    recommendedPlatform: { name: "Desktop browser" },
   },
   {
     slug: "cookie-clicker-web3",
@@ -82,6 +93,7 @@ const projects: Array<ProjectData & { slug: string }> = [
       width: 1280,
       height: 800,
     },
+    recommendedPlatform: { name: "Desktop browser" },
   },
 ];
 

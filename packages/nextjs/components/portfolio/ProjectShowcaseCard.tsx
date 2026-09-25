@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
 import { StaticImageData } from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useWindowSize } from "usehooks-ts";
+import { pushProjectOrigin } from "~~/utils/projectNavStack";
 
 export function ProjectShowcaseCard({
   name,
@@ -16,6 +18,7 @@ export function ProjectShowcaseCard({
   link?: string;
   // links?: { url: string; imagePath: string | StaticImageData }[];
 }) {
+  const pathname = usePathname();
   const result = useWindowSize();
 
   const [isMobile, setIsMobile] = useState(false);
@@ -29,7 +32,14 @@ export function ProjectShowcaseCard({
   const Tag = isInternal ? Link : "a";
 
   return (
-    <Tag href={link || "#"} {...(isInternal ? {} : { target: "#" })} className={className}>
+    <Tag
+      href={link || "#"}
+      {...(isInternal ? {} : { target: "#" })}
+      className={className}
+      onClick={() => {
+        if (isInternal) pushProjectOrigin(pathname);
+      }}
+    >
       <div
         className={`bg-cover bg-center h-full w-full rounded-lg flex items-end`}
         style={{ backgroundImage: `url(${typeof imgSrc === "string" ? imgSrc : imgSrc?.src})` }}

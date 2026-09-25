@@ -1,12 +1,18 @@
 import TelegramLogo from "~~/public/images/Logo.png";
+import agora from "~~/public/images/agora.svg";
+import android from "~~/public/images/android.svg";
+import apple from "~~/public/images/apple.svg";
 import atlas from "~~/public/images/atlas.webp";
 import atxdao from "~~/public/images/atx-dao.png";
+import bartynder from "~~/public/images/bartynder.svg";
 import bill2 from "~~/public/images/bill-2.webp";
 import bill1 from "~~/public/images/bill.webp";
 import bluebell from "~~/public/images/bluebell.svg";
+import bigshotToyworks from "~~/public/images/bstw.png";
 import buidlguidlDemoDay from "~~/public/images/buidlguidlDemoDay.png";
 import carstarz from "~~/public/images/carstarz.png";
 import coa from "~~/public/images/coa.png";
+import disgo from "~~/public/images/disgo.webp";
 import elizaBanner from "~~/public/images/eliza_banner.jpg";
 import email from "~~/public/images/email.svg";
 import engagement from "~~/public/images/engagementdotvision.png";
@@ -23,17 +29,20 @@ import of from "~~/public/images/of.jpg";
 import opensea from "~~/public/images/opensea.png";
 import pizza from "~~/public/images/pizzapeople.webp";
 import portfolio from "~~/public/images/portfolio.png";
+import projectVenkman from "~~/public/images/project-venkman.png";
 import scroll from "~~/public/images/scroll.svg";
 import snapshot from "~~/public/images/snapshot.png";
 import starter from "~~/public/images/starterKit.png";
 import supercahinDemoDay from "~~/public/images/superchain-demo-day.png";
 import trash from "~~/public/images/trash.png";
 import unlock from "~~/public/images/unlock.png";
+import venueManager from "~~/public/images/venue-manager.svg";
 import warpcastIcon from "~~/public/images/warpcast-icon.png";
 import weedies from "~~/public/images/weedies.webp";
 import bottle from "~~/public/images/worldwidebottlecaptoken.png";
 import x from "~~/public/images/x.svg";
 import youtubeLogo from "~~/public/images/youtube_social_circle_red.png";
+import ziti from "~~/public/images/ziti.svg";
 
 export {
   filecoinTalkBannerSrc,
@@ -51,20 +60,27 @@ export {
   x,
   filecoinTalk,
   youtubeLogo,
+  android,
+  apple,
   atlas,
   atxdao,
   engagement,
   ladders,
   linkIcon,
   pizza,
+  projectVenkman,
   trash,
   weedies,
+  bartynder,
+  bigshotToyworks,
   bluebell,
   bottle,
+  disgo,
   carstarz,
   coa,
   hats,
   of,
+  agora,
   scroll,
   snapshot,
   starter,
@@ -72,4 +88,6 @@ export {
   bill1,
   bill2,
   portfolio,
+  venueManager,
+  ziti,
 };

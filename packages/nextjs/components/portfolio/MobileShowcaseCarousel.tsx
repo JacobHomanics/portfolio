@@ -3,7 +3,9 @@
 import { useEffect, useRef, useState } from "react";
 import { StaticImageData } from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { ArrowLeftIcon, ArrowRightIcon, ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/24/solid";
+import { pushProjectOrigin } from "~~/utils/projectNavStack";
 
 const SCROLL_MS_PER_SLIDE = 8000;
 const SLIDE_MS = 4000;
@@ -50,6 +52,7 @@ export function MobileShowcaseCarousel({
   slides: CarouselSlide[];
   mode?: CarouselMode;
 }) {
+  const pathname = usePathname();
   const count = slides.length;
   const [offset, setOffset] = useState(count);
   const [animate, setAnimate] = useState(true);
@@ -222,7 +225,10 @@ export function MobileShowcaseCarousel({
                 aria-hidden={!isActive}
                 tabIndex={isActive ? 0 : -1}
                 onClick={event => {
-                  if (isActive) return;
+                  if (isActive) {
+                    if (isInternal) pushProjectOrigin(pathname);
+                    return;
+                  }
                   event.preventDefault();
                   const delta = (slideIndex % count) - active;
                   const wrapped = delta > count / 2 ? delta - count : delta < -count / 2 ? delta + count : delta;

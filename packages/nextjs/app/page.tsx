@@ -7,21 +7,21 @@ import { MobileShowcaseCarousel } from "~~/components/portfolio/MobileShowcaseCa
 import { ProjectShowcaseCard } from "~~/components/portfolio/ProjectShowcaseCard";
 import { ProjectsOverviewCard } from "~~/components/portfolio/ProjectsOverviewCard";
 // import { data as aiData } from "~~/configs/ai.config";
+import { data as companiesData } from "~~/configs/companies.config";
 import { data as daoToolingData } from "~~/configs/dao-tooling.config";
 import { data as nftCollectionsData } from "~~/configs/nftCollections.config";
 import { talkProjects } from "~~/configs/talks.config";
 import { data as unityToolingData } from "~~/configs/unity-tooling.config";
 import { data as gamesData } from "~~/configs/video-games.config";
 import { data as websitesData } from "~~/configs/websites.config";
-import disgo from "~~/public/images/disgo.webp";
 import jakeGif from "~~/public/images/jake.webp";
 
 const pageCards = [
-  // {
-  //   name: "/ai",
-  //   title: "AI / LLM",
-  //   data: aiData,
-  // },
+  {
+    name: "/companies",
+    title: "Companies",
+    data: companiesData,
+  },
   {
     name: "/websites",
     title: "Websites",
@@ -56,20 +56,22 @@ const pageCards = [
 ];
 
 const showcaseProjects = [
-  {
-    name: "Disgo",
-    shortDescription: "Three B2B2C apps with 800+ users and 5 design partners generating repeating revenue.",
-    bannerSrc: disgo,
-    link: "https://www.disgoapp.io/",
-  },
+  companiesData[0],
   talkProjects[0],
   nftCollectionsData[3],
   daoToolingData[0],
 
   nftCollectionsData[0],
   // aiData[0],
-  websitesData.find(project => project.slug !== "bluebell-stock-exchange" && project.slug !== "carstarz") ??
-    websitesData[0],
+  websitesData.find(
+    project =>
+      project.slug !== "bluebell-stock-exchange" &&
+      project.slug !== "carstarz" &&
+      project.slug !== "ziti-cash" &&
+      project.slug !== "disgo" &&
+      project.slug !== "bartynder" &&
+      project.slug !== "venue-manager",
+  ) ?? websitesData[0],
   gamesData[0],
 ];
 

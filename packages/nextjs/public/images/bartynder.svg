@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512" fill="none">
+  <rect width="512" height="512" rx="96" fill="#2A1C16"/>
+  <text x="256" y="250" text-anchor="middle" fill="#F7F1E8" font-family="Georgia, serif" font-size="72" font-weight="600">Bartynder</text>
+  <path d="M48 360c28-28 56-28 84 0s56 28 84 0 56-28 84 0 56 28 84 0 56-28 80 0v104H48V360Z" fill="#E0A040"/>
+  <path d="M48 392c28-18 56-18 84 0s56 18 84 0 56-18 84 0 56 18 84 0 56-18 80 0v72H48V392Z" fill="#C4842A"/>
+</svg>

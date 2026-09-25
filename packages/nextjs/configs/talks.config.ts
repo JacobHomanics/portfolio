@@ -61,7 +61,8 @@ export function youtubeEmbedUrl(url: string) {
   return embed.toString();
 }
 
-export const talkProjects: ProjectData[] = talks.map(talk => ({
+export const talkProjects: Array<ProjectData & { slug: string }> = talks.map(talk => ({
+  slug: talk.slug,
   name: talk.name,
   shortDescription: talk.shortDescription,
   description: talk.description,

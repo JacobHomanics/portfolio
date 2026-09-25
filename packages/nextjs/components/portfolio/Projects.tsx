@@ -3,10 +3,27 @@
 import { ProjectData } from "../../configs/types";
 import { ProjectCard } from "~~/components/portfolio/ProjectCard";
 
-export function Projects({ title, description, data }: { title: string; description?: string; data: ProjectData[] }) {
+export function Projects({
+  title,
+  description,
+  data,
+  imageClassName,
+}: {
+  title: string;
+  description?: string;
+  data: ProjectData[];
+  imageClassName?: string;
+}) {
   const components = data.map((game, index) => {
     return (
-      <ProjectCard name={game.name} key={index} description={game.description} imgSrc={game.imgSrc} link={game.link} />
+      <ProjectCard
+        name={game.name}
+        key={index}
+        description={game.description}
+        imgSrc={game.imgSrc}
+        link={game.link}
+        imageClassName={imageClassName}
+      />
     );
   });
 

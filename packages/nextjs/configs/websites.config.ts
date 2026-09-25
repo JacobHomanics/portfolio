@@ -1,25 +1,71 @@
 import { withDetailPage } from "./detail-page";
 import {
+  android,
+  apple,
   atlas,
   atxdao,
+  bartynder,
   bluebell,
   bottle,
   carstarz,
+  disgo,
   engagement,
   etherscan,
   github,
   ladders,
+  linkIcon,
   linkedinIcon,
   opensea,
   pizza,
   portfolio,
   trash,
+  venueManager,
   warpcastIcon, // weedies,
   x,
+  ziti,
 } from "./images";
 import { ProjectData } from "./types";
 
 const projects: Array<ProjectData & { slug: string }> = [
+  {
+    slug: "disgo",
+    name: "Disgo",
+    description: "Personalized recommendations for bars and restaurants.",
+    imgSrc: disgo,
+    bannerSrc: disgo,
+    links: [
+      { url: "https://app.disgoapp.io", imagePath: linkIcon },
+      { url: "https://apps.apple.com/us/app/disgoapp/id6480529083", imagePath: apple, label: "iOS" },
+      {
+        url: "https://play.google.com/store/apps/details?id=com.disgoapp.disgo",
+        imagePath: android,
+        label: "Android",
+      },
+    ],
+  },
+  {
+    slug: "bartynder",
+    name: "Bartynder",
+    description: "On-demand staffing that matches bars with bartenders.",
+    imgSrc: bartynder,
+    bannerSrc: bartynder,
+    link: "https://www.disgoapp.io/bartynder",
+    links: [{ url: "https://bartynder.com", imagePath: linkIcon }],
+  },
+  {
+    slug: "venue-manager",
+    name: "Venue Manager",
+    description: "Operator tools for venues. Coming soon.",
+    imgSrc: venueManager,
+    bannerSrc: venueManager,
+  },
+  {
+    slug: "ziti-cash",
+    name: "ZitiCashbox",
+    description: "Send, receive, and request payments.",
+    imgSrc: ziti,
+    link: "https://ziti.cash",
+  },
   {
     slug: "bluebell-stock-exchange",
     name: "Bluebell Stock Exchange",
