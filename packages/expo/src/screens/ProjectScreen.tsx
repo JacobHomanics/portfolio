@@ -14,6 +14,7 @@ import { useAppTheme } from "@/hooks/useAppTheme";
 import { useDocumentTitle } from "@/hooks/useDocumentTitle";
 import type { SiteStackParamList } from "@/navigation/types";
 
+
 export function ProjectScreen({ route }: { route: RouteProp<SiteStackParamList, "project"> }) {
   const { category: categorySlug, slug } = route.params;
   const { colors } = useAppTheme();
