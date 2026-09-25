@@ -189,21 +189,18 @@ const Home: NextPage = () => {
             </button>
           </div>
           <div className="flex min-w-0 flex-1 flex-col items-start gap-4 md:max-w-2xl md:items-center">
-            <div className="md:hidden">
-              <p className="font-bold text-2xl leading-tight">Jacob Homanics</p>
-              <p className="text-sm">Software Engineer & Founder</p>
+            <div>
+              <p className="font-bold text-2xl leading-tight md:text-4xl">Jacob Homanics</p>
+              <p className="text-sm md:text-xl">Software Engineer & Founder</p>
             </div>
-            <p className="hidden font-bold md:block md:text-4xl">Jacob Homanics</p>
             <div className="w-full md:hidden">
               <p className="text-xs">
-                Skilled in taking products from 0 to 1. Rich history in building websites, native apps, video games,
-                VR/AR experiences, and smart contracts.
+                Skilled in 0→1 product building. Experienced across web, native, games, VR/AR, and blockchains.
               </p>
             </div>
             <div className="hidden w-full md:block">
               <ExpandableDescription>
-                Software Engineer & Founder skilled in taking products from 0 to 1. Rich history in building websites,
-                native apps, video games, VR/AR experiences, and smart contracts.
+                Skilled in 0→1 product building. Experienced across web, native, games, VR/AR, and blockchains.
               </ExpandableDescription>
             </div>
             <div className="hidden lg:flex flex-wrap gap-4 items-center justify-center p-2">
