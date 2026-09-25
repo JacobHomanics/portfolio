@@ -1,24 +1,22 @@
 import React from "react";
-import { hardhat } from "viem/chains";
 import { HeartIcon } from "@heroicons/react/24/outline";
-import { SwitchTheme } from "~~/components/SwitchTheme";
-import { useTargetNetwork } from "~~/hooks/scaffold-eth/useTargetNetwork";
+import { IconsLinksData } from "~~/configs/socials.config";
 
 /**
  * Site footer
  */
 export const Footer = () => {
-  const { targetNetwork } = useTargetNetwork();
-  const isLocalNetwork = targetNetwork.id === hardhat.id;
-
   return (
-    <div className="min-h-0 py-5 px-1 mb-11 lg:mb-0">
-      <div>
-        <div className="hidden lg:flex fixed justify-end items-end w-full z-50 p-4 bottom-0 left-0 pointer-events-none gap-4">
-          <div className="flex flex-col mr-6">
-            <SwitchTheme className={`pointer-events-auto ${isLocalNetwork ? "self-end md:self-auto" : ""}`} />
-          </div>
-        </div>
+    <div className="min-h-0 px-1 py-5 pb-16 lg:mb-0 lg:pb-5">
+      <div className="fixed inset-x-0 bottom-0 z-40 flex items-center justify-center gap-4 bg-base-100 px-2 py-3 shadow-[0_-4px_12px_rgba(0,0,0,0.12)] lg:hidden">
+        {IconsLinksData.map(link => {
+          const Icon = link.icon;
+          return (
+            <a href={link.url} target="#" key={link.url} aria-label={link.label}>
+              <Icon className="h-6 w-6" alt={link.label} />
+            </a>
+          );
+        })}
       </div>
       <div className="w-full">
         <ul className="menu menu-horizontal w-full">

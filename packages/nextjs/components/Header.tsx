@@ -119,17 +119,15 @@ export const Header = () => {
   // }, [personConfig, personConfig?.name, isWeb3]);
 
   return (
-    <>
-      <div className="lg:hidden fixed top-3 right-3 z-50">
-        <SwitchTheme />
-      </div>
-
-      <div className="lg:hidden fixed top-3 left-3 z-50" ref={burgerMenuRef}>
+    <header className="sticky top-0 z-50 flex min-h-0 items-center justify-between bg-base-100 px-3 py-2 shadow-md shadow-secondary">
+      <div className="lg:hidden" ref={burgerMenuRef}>
         <button
           type="button"
           aria-label="Open menu"
           aria-expanded={isDrawerOpen}
-          className={`btn btn-ghost btn-sm px-2 ${isDrawerOpen ? "bg-secondary" : ""}`}
+          className={`btn btn-sm btn-circle border-0 text-primary-content ${
+            isDrawerOpen ? "bg-secondary" : "bg-primary hover:bg-secondary"
+          }`}
           onClick={() => {
             setIsDrawerOpen(prevIsOpenState => !prevIsOpenState);
           }}
@@ -139,7 +137,7 @@ export const Header = () => {
 
         {isDrawerOpen && (
           <ul
-            className="menu menu-compact absolute left-0 top-full mt-2 p-2 shadow bg-base-100 rounded-box w-52"
+            className="menu menu-compact absolute left-3 top-full mt-2 p-2 shadow bg-base-100 rounded-box w-52"
             onClick={() => {
               setIsDrawerOpen(false);
             }}
@@ -149,16 +147,16 @@ export const Header = () => {
         )}
       </div>
 
-      <div className="hidden lg:flex navbar bg-base-100 min-h-0 flex-shrink-0 justify-between z-50 shadow-md shadow-secondary px-0 sm:px-2">
-        <div className="navbar-start w-auto lg:w-1/2">
-          <ul className="flex flex-nowrap menu menu-horizontal px-1 gap-2">
-            <HeaderMenuLinks />
-          </ul>
-        </div>
-        <div className="navbar-end flex-grow mr-4 space-x-4">
+      <ul className="hidden lg:flex flex-nowrap menu menu-horizontal px-1 gap-2">
+        <HeaderMenuLinks />
+      </ul>
+
+      <div className="flex items-center gap-2">
+        <SwitchTheme />
+        <div className="hidden lg:block">
           <FaucetButton />
         </div>
       </div>
-    </>
+    </header>
   );
 };

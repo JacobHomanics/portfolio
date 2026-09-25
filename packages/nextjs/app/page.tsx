@@ -140,9 +140,9 @@ function ExpandableDescription({ children }: { children: string }) {
   return (
     <div ref={containerRef} className="relative w-full">
       <div className="pointer-events-none absolute h-0 w-full overflow-hidden" aria-hidden>
-        <p ref={measureRef} className="text-center text-sm md:text-base" />
+        <p ref={measureRef} className="text-left text-xs md:text-center md:text-base" />
       </div>
-      <p className="text-center text-sm md:text-base">
+      <p className="text-left text-xs md:text-center md:text-base">
         {isClamped ? `${truncated}… ` : `${text} `}
         {truncated !== null && (
           <button
@@ -170,41 +170,51 @@ const Home: NextPage = () => {
 
   return (
     <div className="flex flex-col items-center bg-gradient-to-t p-4 gap-10">
-      <div className="flex flex-col gap-4">
-        <div className="flex flex-col gap-4">
-          <div className="flex flex-col md:flex-row gap-4 items-center justify-center">
-            <div
-              className={`bg-cover bg-center rounded-full flex justify-center items-end shrink-0 w-32 h-32`}
-              style={{ backgroundImage: `url(${jakeGif?.src})` }}
+      <div className="flex w-full flex-col items-center gap-4">
+        <div className="flex w-full items-center gap-3 md:w-auto md:gap-4">
+          <div
+            className={`bg-cover bg-center rounded-full flex justify-center items-end shrink-0 w-32 h-32`}
+            style={{ backgroundImage: `url(${jakeGif?.src})` }}
+          >
+            <button
+              className="btn btn-sm w-full btn-primary"
+              onClick={() => {
+                window.open("/Jacob_Homanics_Resume.pdf");
+              }}
+              // href="/Jacob_Homanics_Resume.pdf"
+              // download="Jacob_Homanics_Resume.pdf"
             >
-              <button
-                className="btn btn-sm w-full btn-primary"
-                onClick={() => {
-                  window.open("/Jacob_Homanics_Resume.pdf");
-                }}
-                // href="/Jacob_Homanics_Resume.pdf"
-                // download="Jacob_Homanics_Resume.pdf"
-              >
-                Resume
-                <DocumentIcon className="w-5 h-5" />
-              </button>
+              Resume
+              <DocumentIcon className="w-5 h-5" />
+            </button>
+          </div>
+          <div className="flex min-w-0 flex-1 flex-col items-start gap-4 md:max-w-2xl md:items-center">
+            <div className="md:hidden">
+              <p className="font-bold text-2xl leading-tight">Jacob Homanics</p>
+              <p className="text-sm">Software Engineer & Founder</p>
             </div>
-            <div className="flex flex-col justify-center items-center max-w-md md:max-w-2xl">
-              <p className="font-bold text-2xl md:text-4xl">Jacob Homanics</p>
+            <p className="hidden font-bold md:block md:text-4xl">Jacob Homanics</p>
+            <div className="w-full md:hidden">
+              <p className="text-xs">
+                Skilled in taking products from 0 to 1. Rich history in building websites, native apps, video games,
+                VR/AR experiences, and smart contracts.
+              </p>
+            </div>
+            <div className="hidden w-full md:block">
               <ExpandableDescription>
-                Product-Focused Software Engineer & Founder skilled in building and taking products from 0 to 1. Rich
-                history in building websites, native apps, video games, VR/AR experiences, and smart contracts.
+                Software Engineer & Founder skilled in taking products from 0 to 1. Rich history in building websites,
+                native apps, video games, VR/AR experiences, and smart contracts.
               </ExpandableDescription>
-              <div className="flex flex-wrap gap-4 items-center justify-center p-2">
-                {IconsLinksData.map(link => {
-                  const Icon = link.icon;
-                  return (
-                    <a href={link.url} target="#" key={link.url} aria-label={link.label}>
-                      <Icon className="w-6 h-6 md:w-10 md:h-10" alt={link.label} />
-                    </a>
-                  );
-                })}
-              </div>
+            </div>
+            <div className="hidden lg:flex flex-wrap gap-4 items-center justify-center p-2">
+              {IconsLinksData.map(link => {
+                const Icon = link.icon;
+                return (
+                  <a href={link.url} target="#" key={link.url} aria-label={link.label}>
+                    <Icon className="w-6 h-6 md:w-10 md:h-10" alt={link.label} />
+                  </a>
+                );
+              })}
             </div>
           </div>
         </div>

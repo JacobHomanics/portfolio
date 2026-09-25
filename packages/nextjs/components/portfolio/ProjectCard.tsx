@@ -98,7 +98,7 @@ export function ProjectCard({
             )}
           </div>
 
-          <p ref={descriptionRef} className={`${isLineClamped && "line-clamp-2 md:line-clamp-2 break-words"}`}>
+          <p ref={descriptionRef} className={`${isLineClamped ? "line-clamp-2 md:line-clamp-none" : ""} break-words`}>
             {description}
           </p>
         </div>

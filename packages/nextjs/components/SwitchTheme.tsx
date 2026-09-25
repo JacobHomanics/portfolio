@@ -2,14 +2,13 @@
 
 import { useEffect, useState } from "react";
 import { useTheme } from "next-themes";
-import { ComputerDesktopIcon, MoonIcon, SunIcon } from "@heroicons/react/24/outline";
+import { ComputerDesktopIcon, DevicePhoneMobileIcon, MoonIcon, SunIcon } from "@heroicons/react/24/outline";
 
 const themes = ["system", "light", "dark"] as const;
 
 type ThemeChoice = (typeof themes)[number];
 
-const themeOptions: Record<ThemeChoice, { label: string; Icon: typeof SunIcon }> = {
-  system: { label: "Device theme", Icon: ComputerDesktopIcon },
+const themeOptions: Record<Exclude<ThemeChoice, "system">, { label: string; Icon: typeof SunIcon }> = {
   light: { label: "Light mode", Icon: SunIcon },
   dark: { label: "Dark mode", Icon: MoonIcon },
 };
@@ -25,7 +24,8 @@ export const SwitchTheme = ({ className }: { className?: string }) => {
   }, []);
 
   const currentTheme: ThemeChoice = isThemeChoice(theme) ? theme : "system";
-  const { label, Icon } = themeOptions[currentTheme];
+  const label = currentTheme === "system" ? "Device theme" : themeOptions[currentTheme].label;
+  const Icon = currentTheme === "system" ? null : themeOptions[currentTheme].Icon;
 
   const handleToggle = () => {
     const nextTheme = themes[(themes.indexOf(currentTheme) + 1) % themes.length];
@@ -35,13 +35,20 @@ export const SwitchTheme = ({ className }: { className?: string }) => {
   return (
     <button
       type="button"
-      className={`btn btn-ghost btn-sm px-2 ${className ?? ""}`}
+      className={`btn btn-sm btn-circle bg-primary text-primary-content hover:bg-secondary border-0 ${className ?? ""}`}
       aria-label={`${label}. Switch theme`}
       title={label}
       onClick={handleToggle}
       disabled={!mounted}
     >
-      {mounted ? <Icon className="h-6 w-6" /> : <span className="h-6 w-6" />}
+      {mounted && Icon ? <Icon className="h-6 w-6" /> : null}
+      {mounted && !Icon ? (
+        <>
+          <DevicePhoneMobileIcon className="h-6 w-6 lg:hidden" />
+          <ComputerDesktopIcon className="hidden h-6 w-6 lg:block" />
+        </>
+      ) : null}
+      {mounted ? null : <span className="h-6 w-6" />}
     </button>
   );
 };
