@@ -4,8 +4,8 @@ import { ProjectData } from "./types";
 export const data: Array<ProjectData> = [
   {
     name: "Web2 Games to Web3",
-    shortDescription: "Discussed implementing decentralized storage techniques into web2 gaming.",
-    description: "Discussed implementing decentralized storage techniques into web2 gaming.",
+    shortDescription: "Presented interoperable gaming assets using Web3.",
+    description: "Presented interoperable gaming assets using Web3.",
     imgSrc: filecoinTalk,
     link: "https://www.youtube.com/watch?v=jpsT6qCkTJs&list=PLp3zrT1ewY0kwXj2NgQU6ZrbLlb_Uwmc0",
     bannerSrc: filecoinTalkBannerSrc,
