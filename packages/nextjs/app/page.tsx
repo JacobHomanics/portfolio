@@ -3,6 +3,7 @@
 import { useLayoutEffect, useRef, useState } from "react";
 import type { NextPage } from "next";
 import { DocumentIcon } from "@heroicons/react/24/outline";
+import { MobileShowcaseCarousel } from "~~/components/portfolio/MobileShowcaseCarousel";
 import { ProjectShowcaseCard } from "~~/components/portfolio/ProjectShowcaseCard";
 import { ProjectsOverviewCard } from "~~/components/portfolio/ProjectsOverviewCard";
 // import { data as aiData } from "~~/configs/ai.config";
@@ -216,7 +217,16 @@ const Home: NextPage = () => {
           </div>
         </div>
 
-        <div className="flex flex-wrap items-center justify-center gap-2 md:gap-4 max-w-7xl">
+        <MobileShowcaseCarousel
+          slides={showcaseProjects.map(project => ({
+            title: project.name,
+            description: project.shortDescription,
+            imgSrc: project.bannerSrc,
+            link: project.link,
+          }))}
+        />
+
+        <div className="hidden flex-wrap items-center justify-center gap-2 md:flex md:gap-4 max-w-7xl">
           {showcaseProjects.map((project, index) => {
             return (
               <ProjectShowcaseCard
