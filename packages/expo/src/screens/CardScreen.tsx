@@ -62,11 +62,14 @@ export function CardScreen() {
               onPress={() => {
                 if (parsed) navigation.navigate("project", parsed);
               }}
-              style={[styles.tile, { backgroundColor: colors.surfaceMuted, width: wide ? "23%" : "48%" }]}
+              style={[
+                styles.tile,
+                { backgroundColor: colors.surfaceMuted, width: wide ? "23%" : "48%", flexGrow: 1 },
+              ]}
             >
               <PortfolioImage
                 imageKey={project.bannerSrc ?? project.imgSrc}
-                style={{ width: "100%", aspectRatio: 16 / 10 }}
+                style={{ width: "100%", aspectRatio: 2 }}
               />
               <View style={styles.caption}>
                 <Text numberOfLines={2} style={[styles.tileTitle, { color: colors.text }]}>
@@ -153,8 +156,8 @@ const styles = StyleSheet.create({
   },
   caption: {
     paddingHorizontal: 12,
-    paddingTop: 8,
-    paddingBottom: 10,
+    paddingTop: 6,
+    paddingBottom: 8,
     gap: 2,
   },
   tileTitle: {
@@ -170,6 +173,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     gap: 20,
+    marginTop: -12,
   },
   share: {
     alignItems: "center",
