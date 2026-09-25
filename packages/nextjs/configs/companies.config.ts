@@ -7,7 +7,7 @@ const companies: Array<ProjectData & { slug: string; projectRefs: ProjectRef[] }
   {
     slug: "disgo",
     name: "Disgo",
-    shortDescription: "Three B2B2C apps with 800+ users and 5 design partners generating repeating revenue.",
+    shortDescription: "3 Apps with 800+ users and 5 design partners.",
     description:
       "Software for bars and restaurants: personalized recommendations for guests, on-demand bartender staffing, and operator tools for venues.",
     imgSrc: disgo,

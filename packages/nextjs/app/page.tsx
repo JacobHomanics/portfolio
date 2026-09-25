@@ -10,11 +10,11 @@ import { ProjectsOverviewCard } from "~~/components/portfolio/ProjectsOverviewCa
 import { data as companiesData } from "~~/configs/companies.config";
 import { data as daoToolingData } from "~~/configs/dao-tooling.config";
 import { data as nftCollectionsData } from "~~/configs/nftCollections.config";
+import { highlightProjects, profile } from "~~/configs/profile.config";
 import { talkProjects } from "~~/configs/talks.config";
 import { data as unityToolingData } from "~~/configs/unity-tooling.config";
 import { data as gamesData } from "~~/configs/video-games.config";
 import { data as websitesData } from "~~/configs/websites.config";
-import jakeGif from "~~/public/images/jake.webp";
 
 const pageCards = [
   {
@@ -53,26 +53,6 @@ const pageCards = [
     title: "DAO Tooling",
     data: daoToolingData,
   },
-];
-
-const showcaseProjects = [
-  companiesData[0],
-  talkProjects[0],
-  nftCollectionsData[3],
-  daoToolingData[0],
-
-  nftCollectionsData[0],
-  // aiData[0],
-  websitesData.find(
-    project =>
-      project.slug !== "bluebell-stock-exchange" &&
-      project.slug !== "carstarz" &&
-      project.slug !== "ziti-cash" &&
-      project.slug !== "disgo" &&
-      project.slug !== "bartynder" &&
-      project.slug !== "venue-manager",
-  ) ?? websitesData[0],
-  gamesData[0],
 ];
 
 function ExpandableDescription({ children }: { children: string }) {
@@ -180,7 +160,7 @@ const Home: NextPage = () => {
         <div className="flex w-full items-center gap-3 md:w-auto md:gap-4">
           <div
             className={`bg-cover bg-center rounded-full flex justify-center items-end shrink-0 w-32 h-32`}
-            style={{ backgroundImage: `url(${jakeGif?.src})` }}
+            style={{ backgroundImage: `url(${profile.photo.src})` }}
           >
             <button
               className="btn btn-sm w-full btn-primary"
@@ -196,25 +176,21 @@ const Home: NextPage = () => {
           </div>
           <div className="flex min-w-0 flex-1 flex-col items-start gap-4 md:max-w-2xl md:items-center">
             <div>
-              <p className="font-bold text-2xl leading-tight md:text-4xl">Jacob Homanics</p>
-              <p className="text-sm md:text-xl">Software Engineer & Founder</p>
+              <p className="font-bold text-2xl leading-tight md:text-4xl">{profile.name}</p>
+              <p className="text-sm md:text-xl">{profile.title}</p>
             </div>
             <div className="w-full md:hidden">
-              <p className="text-xs">
-                Skilled in 0→1 product building. Adept in web, native, games, VR/AR, tooling, and blockchains.
-              </p>
+              <p className="text-xs">{profile.description}</p>
             </div>
             <div className="hidden w-full md:block">
-              <ExpandableDescription>
-                Skilled in 0→1 product building. Adept in web, native, games, VR/AR, tooling, and blockchains.
-              </ExpandableDescription>
+              <ExpandableDescription>{profile.description}</ExpandableDescription>
             </div>
           </div>
         </div>
 
         <MobileShowcaseCarousel
           mode="continuous"
-          slides={showcaseProjects.map(project => ({
+          slides={highlightProjects.map(project => ({
             title: project.name,
             description: project.shortDescription,
             imgSrc: project.bannerSrc,
@@ -223,7 +199,7 @@ const Home: NextPage = () => {
         />
 
         <div className="hidden flex-wrap items-center justify-center gap-2 md:flex md:gap-4 max-w-7xl">
-          {showcaseProjects.map((project, index) => {
+          {highlightProjects.map((project, index) => {
             return (
               <ProjectShowcaseCard
                 key={index}

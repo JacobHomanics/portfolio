@@ -10,7 +10,7 @@ import pandemic from "~~/public/images/pandemic.png";
 const projects: Array<ProjectData & { slug: string }> = [
   {
     slug: "faith",
-    name: "Faith",
+    name: "Thra'gar Fortress",
     shortDescription: "Role-playing game exploring narrative, progression, and unique abilities.",
     description: "Role-playing game exploring narrative, progression, and unique abilities.",
     imgSrc: faith,

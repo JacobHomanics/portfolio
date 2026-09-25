@@ -54,12 +54,20 @@ export const useSocialLinksPlacement = () => {
   return context;
 };
 
-export const SocialLinks = ({ iconClassName = "h-6 w-6" }: { iconClassName?: string }) => {
+export const SocialLinks = ({
+  iconClassName = "h-6 w-6",
+  className = "gap-3",
+  showPlacementToggle = true,
+}: {
+  iconClassName?: string;
+  className?: string;
+  showPlacementToggle?: boolean;
+}) => {
   const { placement, togglePlacement } = useSocialLinksPlacement();
   const inHeader = placement === "header";
 
   return (
-    <div className="flex items-center gap-3">
+    <div className={`flex items-center ${className}`}>
       {IconsLinksData.map(link => {
         const Icon = link.icon;
         return (
@@ -68,19 +76,21 @@ export const SocialLinks = ({ iconClassName = "h-6 w-6" }: { iconClassName?: str
           </a>
         );
       })}
-      <button
-        type="button"
-        role="switch"
-        aria-checked={inHeader}
-        aria-label={inHeader ? "Move social links to the footer" : "Move social links to the header"}
-        className="flex h-6 w-6 items-center justify-center rounded-full bg-primary text-primary-content"
-        onClick={togglePlacement}
-      >
-        <span className="flex flex-col" aria-hidden>
-          <ArrowUpIcon className="h-2.5 w-2.5" />
-          <ArrowDownIcon className="-mt-1 h-2.5 w-2.5" />
-        </span>
-      </button>
+      {showPlacementToggle && (
+        <button
+          type="button"
+          role="switch"
+          aria-checked={inHeader}
+          aria-label={inHeader ? "Move social links to the footer" : "Move social links to the header"}
+          className="flex h-6 w-6 items-center justify-center rounded-full bg-primary text-primary-content"
+          onClick={togglePlacement}
+        >
+          <span className="flex flex-col" aria-hidden>
+            <ArrowUpIcon className="h-2.5 w-2.5" />
+            <ArrowDownIcon className="-mt-1 h-2.5 w-2.5" />
+          </span>
+        </button>
+      )}
     </div>
   );
 };

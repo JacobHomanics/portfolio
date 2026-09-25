@@ -1,4 +1,5 @@
 import React from "react";
+import { usePathname } from "next/navigation";
 import { HeartIcon } from "@heroicons/react/24/outline";
 import { SocialLinks, useSocialLinksPlacement } from "~~/components/SocialLinks";
 
@@ -6,7 +7,10 @@ import { SocialLinks, useSocialLinksPlacement } from "~~/components/SocialLinks"
  * Site footer
  */
 export const Footer = () => {
+  const pathname = usePathname();
   const { placement, mounted } = useSocialLinksPlacement();
+  if (pathname === "/card") return null;
+
   const inFooter = !mounted || placement === "footer";
 
   return (

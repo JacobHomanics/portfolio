@@ -25,6 +25,10 @@ export const menuLinks: HeaderMenuLink[] = [
     href: "/",
   },
   {
+    label: "Card",
+    href: "/card",
+  },
+  {
     label: "Companies",
     href: "/companies",
   },
@@ -93,6 +97,7 @@ export const HeaderMenuLinks = () => {
  * Site header
  */
 export const Header = () => {
+  const pathname = usePathname();
   const { placement, mounted } = useSocialLinksPlacement();
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const burgerMenuRef = useRef<HTMLDivElement>(null);
@@ -152,7 +157,11 @@ export const Header = () => {
         <HeaderMenuLinks />
       </ul>
 
-      <div className={mounted ? (placement === "header" ? "flex" : "hidden") : "hidden lg:flex"}>
+      <div
+        className={
+          pathname === "/card" ? "hidden" : mounted ? (placement === "header" ? "flex" : "hidden") : "hidden lg:flex"
+        }
+      >
         <SocialLinks />
       </div>
 
