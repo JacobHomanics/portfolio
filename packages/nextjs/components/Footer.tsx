@@ -1,22 +1,22 @@
 import React from "react";
 import { HeartIcon } from "@heroicons/react/24/outline";
-import { IconsLinksData } from "~~/configs/socials.config";
+import { SocialLinks, useSocialLinksPlacement } from "~~/components/SocialLinks";
 
 /**
  * Site footer
  */
 export const Footer = () => {
+  const { placement, mounted } = useSocialLinksPlacement();
+  const inFooter = !mounted || placement === "footer";
+
   return (
-    <div className="min-h-0 px-1 py-5 pb-16 lg:mb-0 lg:pb-5">
-      <div className="fixed inset-x-0 bottom-0 z-40 flex items-center justify-center gap-4 bg-base-100 px-2 py-3 shadow-[0_-4px_12px_rgba(0,0,0,0.12)] lg:hidden">
-        {IconsLinksData.map(link => {
-          const Icon = link.icon;
-          return (
-            <a href={link.url} target="#" key={link.url} aria-label={link.label}>
-              <Icon className="h-6 w-6" alt={link.label} />
-            </a>
-          );
-        })}
+    <div className={`min-h-0 px-1 py-5 ${inFooter ? "pb-16" : "pb-5"} ${!mounted ? "lg:pb-5" : ""}`}>
+      <div
+        className={`fixed inset-x-0 bottom-0 z-40 items-center justify-center bg-base-100 px-2 py-3 shadow-[0_-4px_12px_rgba(0,0,0,0.12)] ${
+          !mounted ? "flex lg:hidden" : placement === "footer" ? "flex" : "hidden"
+        }`}
+      >
+        <SocialLinks />
       </div>
       <div className="w-full">
         <ul className="menu menu-horizontal w-full">

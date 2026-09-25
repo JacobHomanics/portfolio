@@ -11,7 +11,6 @@ import { data as daoToolingData } from "~~/configs/dao-tooling.config";
 import { data as nftCollectionsData } from "~~/configs/nftCollections.config";
 import { data as organizationsData } from "~~/configs/organizations.config";
 import { data as presentationsData } from "~~/configs/presentations.config";
-import { IconsLinksData } from "~~/configs/socials.config";
 import { data as unityToolingData } from "~~/configs/unity-tooling.config";
 import { data as gamesData } from "~~/configs/video-games.config";
 import { data as websitesData } from "~~/configs/websites.config";
@@ -196,28 +195,19 @@ const Home: NextPage = () => {
             </div>
             <div className="w-full md:hidden">
               <p className="text-xs">
-                Skilled in 0→1 product building. Experienced across web, native, games, VR/AR, and blockchains.
+                Skilled in 0→1 product building. Adept in web, native, games, VR/AR, tooling, and blockchains.
               </p>
             </div>
             <div className="hidden w-full md:block">
               <ExpandableDescription>
-                Skilled in 0→1 product building. Experienced across web, native, games, VR/AR, and blockchains.
+                Skilled in 0→1 product building. Adept in web, native, games, VR/AR, tooling, and blockchains.
               </ExpandableDescription>
-            </div>
-            <div className="hidden lg:flex flex-wrap gap-4 items-center justify-center p-2">
-              {IconsLinksData.map(link => {
-                const Icon = link.icon;
-                return (
-                  <a href={link.url} target="#" key={link.url} aria-label={link.label}>
-                    <Icon className="w-6 h-6 md:w-10 md:h-10" alt={link.label} />
-                  </a>
-                );
-              })}
             </div>
           </div>
         </div>
 
         <MobileShowcaseCarousel
+          mode="continuous"
           slides={showcaseProjects.map(project => ({
             title: project.name,
             description: project.shortDescription,

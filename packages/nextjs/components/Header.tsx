@@ -7,6 +7,7 @@ import { usePathname } from "next/navigation";
 // import { useAccount } from "wagmi";
 import { Bars3Icon } from "@heroicons/react/24/outline";
 // import * as PersonData from "~~/components/portfolio/config/person.config";
+import { SocialLinks, useSocialLinksPlacement } from "~~/components/SocialLinks";
 import { SwitchTheme } from "~~/components/SwitchTheme";
 import { FaucetButton } from "~~/components/scaffold-eth";
 import { useOutsideClick } from "~~/hooks/scaffold-eth";
@@ -93,6 +94,7 @@ export const HeaderMenuLinks = () => {
  * Site header
  */
 export const Header = () => {
+  const { placement, mounted } = useSocialLinksPlacement();
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const burgerMenuRef = useRef<HTMLDivElement>(null);
   useOutsideClick(
@@ -150,6 +152,10 @@ export const Header = () => {
       <ul className="hidden lg:flex flex-nowrap menu menu-horizontal px-1 gap-2">
         <HeaderMenuLinks />
       </ul>
+
+      <div className={mounted ? (placement === "header" ? "flex" : "hidden") : "hidden lg:flex"}>
+        <SocialLinks />
+      </div>
 
       <div className="flex items-center gap-2">
         <SwitchTheme />
