@@ -1,5 +1,6 @@
 "use client";
 
+import { useLayoutEffect, useRef, useState } from "react";
 import type { NextPage } from "next";
 import { DocumentIcon } from "@heroicons/react/24/outline";
 import { ProjectShowcaseCard } from "~~/components/portfolio/ProjectShowcaseCard";
@@ -68,6 +69,96 @@ const showcaseProjects = [
   gamesData[0],
 ];
 
+function ExpandableDescription({ children }: { children: string }) {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const measureRef = useRef<HTMLParagraphElement>(null);
+  const [expanded, setExpanded] = useState(false);
+  const [truncated, setTruncated] = useState<string | null>(null);
+  const text = children.replace(/\s+/g, " ").trim();
+
+  useLayoutEffect(() => {
+    const container = containerRef.current;
+    const measure = measureRef.current;
+    if (!container || !measure) return;
+
+    const fitsInTwoLines = () => {
+      const lineHeight = parseFloat(getComputedStyle(measure).lineHeight);
+      if (!lineHeight) return true;
+      return measure.getBoundingClientRect().height <= lineHeight * 2 + 1;
+    };
+
+    const fillMeasure = (content: string, withToggle: boolean) => {
+      measure.replaceChildren(document.createTextNode(content));
+      if (!withToggle) return;
+      const label = document.createElement("span");
+      label.textContent = "Show more";
+      label.style.whiteSpace = "nowrap";
+      label.style.textDecoration = "underline";
+      measure.append(label);
+    };
+
+    const measureFit = () => {
+      const width = container.clientWidth;
+      if (!width) return;
+
+      measure.style.width = `${width}px`;
+      fillMeasure(text, false);
+      if (fitsInTwoLines()) {
+        setTruncated(current => (current === null ? current : null));
+        return;
+      }
+
+      let low = 0;
+      let high = text.length;
+      let best = 0;
+      while (low <= high) {
+        const mid = Math.floor((low + high) / 2);
+        const slice = text.slice(0, mid).trimEnd();
+        fillMeasure(`${slice}… `, true);
+        if (fitsInTwoLines()) {
+          best = mid;
+          low = mid + 1;
+        } else {
+          high = mid - 1;
+        }
+      }
+
+      let slice = text.slice(0, best).trimEnd();
+      const lastSpace = slice.lastIndexOf(" ");
+      if (lastSpace > 0) slice = slice.slice(0, lastSpace);
+      setTruncated(current => (current === slice ? current : slice));
+    };
+
+    measureFit();
+    const observer = new ResizeObserver(measureFit);
+    observer.observe(container);
+    return () => observer.disconnect();
+  }, [text]);
+
+  const isClamped = truncated !== null && !expanded;
+
+  return (
+    <div ref={containerRef} className="relative w-full">
+      <div className="pointer-events-none absolute h-0 w-full overflow-hidden" aria-hidden>
+        <p ref={measureRef} className="text-center text-sm md:text-base" />
+      </div>
+      <p className="text-center text-sm md:text-base">
+        {isClamped ? `${truncated}… ` : `${text} `}
+        {truncated !== null && (
+          <button
+            type="button"
+            className="inline whitespace-nowrap border-0 bg-transparent p-0 font-[inherit] text-inherit underline"
+            aria-expanded={expanded}
+            onClick={() => setExpanded(current => !current)}
+          >
+            {expanded ? "Show less" : "Show more"}
+          </button>
+        )}
+      </p>
+    </div>
+  );
+}
+
 const Home: NextPage = () => {
   const pageCardComponents = pageCards.map((page, index) => {
     return (
@@ -100,10 +191,10 @@ const Home: NextPage = () => {
             </div>
             <div className="flex flex-col justify-center items-center max-w-md md:max-w-2xl">
               <p className="font-bold text-2xl md:text-4xl">Jacob Homanics</p>
-              <p className="text-center text-sm md:text-base">
+              <ExpandableDescription>
                 Product-Focused Software Engineer & Founder skilled in building and taking products from 0 to 1. Rich
                 history in building websites, native apps, video games, VR/AR experiences, and smart contracts.
-              </p>
+              </ExpandableDescription>
               <div className="flex flex-wrap gap-4 items-center justify-center p-2">
                 {IconsLinksData.map(link => {
                   const Icon = link.icon;

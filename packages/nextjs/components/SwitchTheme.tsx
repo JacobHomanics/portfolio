@@ -2,41 +2,46 @@
 
 import { useEffect, useState } from "react";
 import { useTheme } from "next-themes";
-import { MoonIcon, SunIcon } from "@heroicons/react/24/outline";
+import { ComputerDesktopIcon, MoonIcon, SunIcon } from "@heroicons/react/24/outline";
+
+const themes = ["system", "light", "dark"] as const;
+
+type ThemeChoice = (typeof themes)[number];
+
+const themeOptions: Record<ThemeChoice, { label: string; Icon: typeof SunIcon }> = {
+  system: { label: "Device theme", Icon: ComputerDesktopIcon },
+  light: { label: "Light mode", Icon: SunIcon },
+  dark: { label: "Dark mode", Icon: MoonIcon },
+};
+
+const isThemeChoice = (value: string | undefined): value is ThemeChoice => themes.includes(value as ThemeChoice);
 
 export const SwitchTheme = ({ className }: { className?: string }) => {
-  const { setTheme, resolvedTheme } = useTheme();
+  const { setTheme, theme } = useTheme();
   const [mounted, setMounted] = useState(false);
-
-  const isDarkMode = resolvedTheme === "dark";
-
-  const handleToggle = () => {
-    if (isDarkMode) {
-      setTheme("light");
-      return;
-    }
-    setTheme("dark");
-  };
 
   useEffect(() => {
     setMounted(true);
   }, []);
 
-  if (!mounted) return null;
+  const currentTheme: ThemeChoice = isThemeChoice(theme) ? theme : "system";
+  const { label, Icon } = themeOptions[currentTheme];
+
+  const handleToggle = () => {
+    const nextTheme = themes[(themes.indexOf(currentTheme) + 1) % themes.length];
+    setTheme(nextTheme);
+  };
 
   return (
-    <div className={`flex space-x-2 h-8 items-center justify-center text-sm ${className}`}>
-      <input
-        id="theme-toggle"
-        type="checkbox"
-        className="toggle toggle-primary bg-primary hover:bg-primary border-primary"
-        onChange={handleToggle}
-        checked={isDarkMode}
-      />
-      <label htmlFor="theme-toggle" className={`swap swap-rotate ${!isDarkMode ? "swap-active" : ""}`}>
-        <SunIcon className="swap-on h-5 w-5" />
-        <MoonIcon className="swap-off h-5 w-5" />
-      </label>
-    </div>
+    <button
+      type="button"
+      className={`btn btn-ghost btn-sm px-2 ${className ?? ""}`}
+      aria-label={`${label}. Switch theme`}
+      title={label}
+      onClick={handleToggle}
+      disabled={!mounted}
+    >
+      {mounted ? <Icon className="h-6 w-6" /> : <span className="h-6 w-6" />}
+    </button>
   );
 };

@@ -14,7 +14,7 @@ export const Footer = () => {
   return (
     <div className="min-h-0 py-5 px-1 mb-11 lg:mb-0">
       <div>
-        <div className="fixed flex justify-end items-end w-full z-50 p-4 bottom-0 left-0 pointer-events-none gap-4">
+        <div className="hidden lg:flex fixed justify-end items-end w-full z-50 p-4 bottom-0 left-0 pointer-events-none gap-4">
           <div className="flex flex-col mr-6">
             <SwitchTheme className={`pointer-events-auto ${isLocalNetwork ? "self-end md:self-auto" : ""}`} />
           </div>

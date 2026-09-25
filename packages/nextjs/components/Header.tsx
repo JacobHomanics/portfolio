@@ -7,6 +7,7 @@ import { usePathname } from "next/navigation";
 // import { useAccount } from "wagmi";
 import { Bars3Icon } from "@heroicons/react/24/outline";
 // import * as PersonData from "~~/components/portfolio/config/person.config";
+import { SwitchTheme } from "~~/components/SwitchTheme";
 import { FaucetButton } from "~~/components/scaffold-eth";
 import { useOutsideClick } from "~~/hooks/scaffold-eth";
 
@@ -118,53 +119,46 @@ export const Header = () => {
   // }, [personConfig, personConfig?.name, isWeb3]);
 
   return (
-    <div className="sticky lg:static top-0 navbar bg-base-100 min-h-0 flex-shrink-0 justify-between z-50 shadow-md shadow-secondary px-0 sm:px-2">
-      <div className="navbar-start w-auto lg:w-1/2">
-        <div className="lg:hidden dropdown" ref={burgerMenuRef}>
-          <label
-            tabIndex={0}
-            className={`ml-1 btn btn-ghost ${isDrawerOpen ? "hover:bg-secondary" : "hover:bg-transparent"}`}
+    <>
+      <div className="lg:hidden fixed top-3 right-3 z-50">
+        <SwitchTheme />
+      </div>
+
+      <div className="lg:hidden fixed top-3 left-3 z-50" ref={burgerMenuRef}>
+        <button
+          type="button"
+          aria-label="Open menu"
+          aria-expanded={isDrawerOpen}
+          className={`btn btn-ghost btn-sm px-2 ${isDrawerOpen ? "bg-secondary" : ""}`}
+          onClick={() => {
+            setIsDrawerOpen(prevIsOpenState => !prevIsOpenState);
+          }}
+        >
+          <Bars3Icon className="h-6 w-6" />
+        </button>
+
+        {isDrawerOpen && (
+          <ul
+            className="menu menu-compact absolute left-0 top-full mt-2 p-2 shadow bg-base-100 rounded-box w-52"
             onClick={() => {
-              setIsDrawerOpen(prevIsOpenState => !prevIsOpenState);
+              setIsDrawerOpen(false);
             }}
           >
-            <Bars3Icon className="h-1/2" />
-          </label>
+            <HeaderMenuLinks />
+          </ul>
+        )}
+      </div>
 
-          {isDrawerOpen && (
-            <ul
-              tabIndex={0}
-              className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
-              onClick={() => {
-                setIsDrawerOpen(false);
-              }}
-            >
-              <HeaderMenuLinks />
-            </ul>
-          )}
+      <div className="hidden lg:flex navbar bg-base-100 min-h-0 flex-shrink-0 justify-between z-50 shadow-md shadow-secondary px-0 sm:px-2">
+        <div className="navbar-start w-auto lg:w-1/2">
+          <ul className="flex flex-nowrap menu menu-horizontal px-1 gap-2">
+            <HeaderMenuLinks />
+          </ul>
         </div>
-        {/* <Link href="/" passHref className="hidden lg:flex items-center gap-2 ml-4 mr-6 shrink-0">
-          <div className="flex relative w-10 h-10">
-            <Image alt="SE2 logo" className="cursor-pointer" fill src="/logo.svg" />
-          </div>
-          <div className="flex flex-col">
-            <span className="font-bold leading-tight">Scaffold-ETH</span>
-            <span className="text-xs">Ethereum dev stack</span>
-          </div>
-        </Link> */}
-
-        {/* <button onClick={sendETH} className="btn btn-primary w-3/5 md:w-2/5 lg:w-1/5 justify-center flex p-1">
-          <div className="text-xs">Buy me a coffee</div>
-          <div className="text-xs">(With Crypto!)</div>
-        </button> */}
-
-        <ul className="hidden lg:flex lg:flex-nowrap menu menu-horizontal px-1 gap-2">
-          <HeaderMenuLinks />
-        </ul>
+        <div className="navbar-end flex-grow mr-4 space-x-4">
+          <FaucetButton />
+        </div>
       </div>
-      <div className="navbar-end flex-grow mr-4 space-x-4">
-        <FaucetButton />
-      </div>
-    </div>
+    </>
   );
 };
