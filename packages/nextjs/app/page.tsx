@@ -75,11 +75,12 @@ const showcaseProjects = [
     link: "https://www.disgoapp.io/",
   },
   { ...presentationsData[0], link: "/talks/interoperable-gaming-with-web3" },
-  // aiData[0],
-  websitesData[0],
-  nftCollectionsData[0],
   nftCollectionsData[2],
   daoToolingData[0],
+
+  nftCollectionsData[0],
+  // aiData[0],
+  websitesData[0],
   gamesData[0],
 ];
 
