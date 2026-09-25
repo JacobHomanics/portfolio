@@ -196,7 +196,7 @@ export function MobileShowcaseCarousel({
       <div className="overflow-hidden">
         <div
           ref={trackRef}
-          className={`flex w-full ${
+          className={`flex w-full items-stretch ${
             stepped && animate ? "transition-transform duration-500 ease-out motion-reduce:transition-none" : ""
           }`}
           style={{ gap: GAP_PX, transform: trackTransform(stepped ? offset : offsetRef.current) }}
@@ -217,7 +217,7 @@ export function MobileShowcaseCarousel({
                 key={`${slide.title}-${slideIndex}`}
                 href={slide.link || "#"}
                 {...(isInternal ? {} : { target: "_blank", rel: "noreferrer" })}
-                className={`shrink-0 overflow-hidden rounded-xl ${isActive ? "" : "opacity-90"}`}
+                className={`flex h-full shrink-0 flex-col overflow-hidden rounded-xl ${isActive ? "" : "opacity-90"}`}
                 style={{ width: `${SLIDE_PERCENT}%` }}
                 aria-hidden={!isActive}
                 tabIndex={isActive ? 0 : -1}
@@ -230,7 +230,7 @@ export function MobileShowcaseCarousel({
                 }}
               >
                 <div
-                  className="flex aspect-[16/10] w-full items-end bg-primary bg-cover bg-center"
+                  className="flex aspect-[16/10] w-full shrink-0 items-end bg-primary bg-cover bg-center"
                   style={src ? { backgroundImage: `url(${src})` } : undefined}
                 >
                   {!src && (
@@ -239,9 +239,11 @@ export function MobileShowcaseCarousel({
                     </div>
                   )}
                 </div>
-                <div className="bg-secondary bg-opacity-85 px-3 py-3">
-                  <p className="text-center text-base font-bold leading-tight">{slide.title}</p>
-                  {slide.description && <p className="mt-1 text-center text-xs">{slide.description}</p>}
+                <div className="flex h-28 flex-col bg-secondary bg-opacity-85 px-3 py-3">
+                  <p className="line-clamp-2 text-center text-base font-bold leading-tight">{slide.title}</p>
+                  {slide.description && (
+                    <p className="mt-1 line-clamp-3 text-center text-xs leading-snug">{slide.description}</p>
+                  )}
                 </div>
               </Tag>
             );
