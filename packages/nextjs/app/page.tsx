@@ -10,7 +10,6 @@ import { ProjectsOverviewCard } from "~~/components/portfolio/ProjectsOverviewCa
 import { data as daoToolingData } from "~~/configs/dao-tooling.config";
 import { data as nftCollectionsData } from "~~/configs/nftCollections.config";
 import { data as organizationsData } from "~~/configs/organizations.config";
-import { data as presentationsData } from "~~/configs/presentations.config";
 import { talkProjects } from "~~/configs/talks.config";
 import { data as unityToolingData } from "~~/configs/unity-tooling.config";
 import { data as gamesData } from "~~/configs/video-games.config";
@@ -43,11 +42,6 @@ const pageCards = [
   {
     name: "/presentations",
     title: "Presentations",
-    data: presentationsData,
-  },
-  {
-    name: "/talks",
-    title: "Talks",
     data: talkProjects,
   },
   {
@@ -74,7 +68,7 @@ const showcaseProjects = [
     bannerSrc: disgo,
     link: "https://www.disgoapp.io/",
   },
-  { ...presentationsData[0], link: "/talks/interoperable-gaming-with-web3" },
+  talkProjects[0],
   nftCollectionsData[2],
   daoToolingData[0],
 

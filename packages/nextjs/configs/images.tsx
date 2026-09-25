@@ -13,6 +13,7 @@ import filecoinTalk from "~~/public/images/filecoin-talk.png";
 import github from "~~/public/images/github.svg";
 import hats from "~~/public/images/hats.jpg";
 import ladders from "~~/public/images/ladders.webp";
+import linkIcon from "~~/public/images/link.svg";
 import linkedinIcon from "~~/public/images/linkedin.png";
 import filecoinTalkBannerSrc from "~~/public/images/maxresdefault4.png";
 import nounspace from "~~/public/images/nounspace.svg";
@@ -52,6 +53,7 @@ export {
   atxdao,
   engagement,
   ladders,
+  linkIcon,
   pizza,
   trash,
   weedies,

@@ -2,10 +2,10 @@
 
 import type { NextPage } from "next";
 import { Projects } from "~~/components/portfolio/Projects";
-import { data } from "~~/configs/presentations.config";
+import { talkProjects } from "~~/configs/talks.config";
 
 const PresentationsPage: NextPage = () => {
-  return <Projects title="Presentations" data={data} />;
+  return <Projects title="Presentations" data={talkProjects} />;
 };
 
 export default PresentationsPage;

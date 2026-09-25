@@ -16,8 +16,8 @@ export const talks: Talk[] = [
   {
     slug: "interoperable-gaming-with-web3",
     name: "Bringing Web2 Games to Web3",
-    shortDescription: "Presented interoperable gaming assets using Web3.",
-    description: "Presented interoperable gaming assets using Web3.",
+    shortDescription: "Presented interoperable gaming assets using decentralized storage.",
+    description: "Presented interoperable gaming assets using decentralized storage.",
     youtubeUrl: "https://www.youtube.com/watch?v=jpsT6qCkTJs&list=PLp3zrT1ewY0kwXj2NgQU6ZrbLlb_Uwmc0",
     imgSrc: filecoinTalk,
     bannerSrc: filecoinTalkBannerSrc,
@@ -67,6 +67,6 @@ export const talkProjects: ProjectData[] = talks.map(talk => ({
   description: talk.description,
   imgSrc: talk.imgSrc,
   bannerSrc: talk.bannerSrc,
-  link: `/talks/${talk.slug}`,
+  link: `/presentations/${talk.slug}`,
   links: [{ url: talk.youtubeUrl, imagePath: youtubeLogo }],
 }));

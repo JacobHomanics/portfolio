@@ -1,8 +1,10 @@
+import { withDetailPage } from "./detail-page";
 import { coa, github, hats, of, scroll, snapshot, starter, unlock } from "./images";
 import { ProjectData } from "./types";
 
-export const data: Array<ProjectData> = [
+const projects: Array<ProjectData & { slug: string }> = [
   {
+    slug: "reputation-and-roles-starter-kit",
     name: "Reputation & Roles Starter Kit",
     shortDescription: "Onchain trust toolkit backed by a $60K grant.",
     description:
@@ -19,6 +21,7 @@ export const data: Array<ProjectData> = [
     ],
   },
   {
+    slug: "optimism-fractal-hats-tree",
     name: "Optimism Fractal Hats Tree",
     description:
       "Allows participants of the Respect Game to claim authorities/responsibilities based on their number of Respect tokens.",
@@ -27,6 +30,7 @@ export const data: Array<ProjectData> = [
     links: [{ url: "https://app.hatsprotocol.xyz/trees/10/175", imagePath: hats }],
   },
   {
+    slug: "dao-coalition-hats-tree",
     name: "DAO Coalition Hats Tree",
     description:
       "Uses the Gitcoin Passport and Signer Agreement Modules, which hooks into an Unlock checkout experience which unlocks a Voter Hat to be used in Snapshot.",
@@ -39,3 +43,5 @@ export const data: Array<ProjectData> = [
     ],
   },
 ];
+
+export const data = withDetailPage("/dao-tooling", projects);
