@@ -3,7 +3,7 @@ import { ProjectData } from "./types";
 
 export const data: Array<ProjectData> = [
   {
-    name: "Web2 Games to Web3",
+    name: "Interoperable Gaming with Web3",
     shortDescription: "Presented interoperable gaming assets using Web3.",
     description: "Presented interoperable gaming assets using Web3.",
     imgSrc: filecoinTalk,
