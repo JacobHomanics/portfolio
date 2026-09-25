@@ -34,7 +34,14 @@ export function ThemeToggle() {
       accessibilityRole="button"
       accessibilityLabel={label(colorSchemePreference)}
       onPress={toggleColorScheme}
-      style={{ width: 40, height: 40, alignItems: "center", justifyContent: "center" }}
+      style={{
+        width: 40,
+        height: 40,
+        borderRadius: 20,
+        alignItems: "center",
+        justifyContent: "center",
+        backgroundColor: colors.secondary,
+      }}
     >
       <Ionicons name={iconName(colorSchemePreference)} size={22} color={colors.text} />
     </Pressable>

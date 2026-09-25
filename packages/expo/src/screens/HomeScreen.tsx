@@ -46,12 +46,14 @@ export function HomeScreen() {
     <Screen>
       <View style={styles.profileRow}>
         <View style={styles.photoWrap}>
-          <PortfolioImage
-            imageKey={profile.photo}
-            accessibilityLabel={profile.name}
-            contentFit="cover"
-            style={styles.photo}
-          />
+          <View style={styles.photoClip}>
+            <PortfolioImage
+              imageKey={profile.photo}
+              accessibilityLabel={profile.name}
+              contentFit="cover"
+              style={styles.photo}
+            />
+          </View>
           <Pressable
             accessibilityLabel="Resume"
             onPress={() => void openResume()}
@@ -62,8 +64,10 @@ export function HomeScreen() {
           </Pressable>
         </View>
         <View style={styles.identity}>
-          <Text style={[styles.name, { color: colors.text }]}>{profile.name}</Text>
-          <Text style={[styles.role, { color: colors.text }]}>{profile.title}</Text>
+          <View style={styles.heading}>
+            <Text style={[styles.name, { color: colors.text }]}>{profile.name}</Text>
+            <Text style={{ color: colors.text, fontSize: width >= 1024 ? 20 : 14 }}>{profile.title}</Text>
+          </View>
           {wideCards ? (
             <ExpandableDescription text={profile.description} color={colors.text} />
           ) : (
@@ -163,37 +167,39 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   photoWrap: {
-    width: 128,
-    height: 128,
-    borderRadius: 64,
-    overflow: "hidden",
+    width: 104,
+    height: 104,
     justifyContent: "flex-end",
   },
+  photoClip: {
+    ...StyleSheet.absoluteFill,
+    borderRadius: 52,
+    overflow: "hidden",
+  },
   photo: {
-    position: "absolute",
-    top: 0,
-    right: 0,
-    bottom: 0,
-    left: 0,
+    width: "100%",
+    height: "100%",
   },
   resume: {
+    zIndex: 1,
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "center",
     gap: 4,
     paddingVertical: 6,
+    borderRadius: 8,
   },
   identity: {
     flex: 1,
     gap: 8,
     minWidth: 0,
   },
-  name: {
-    fontSize: 32,
-    fontWeight: "800",
+  heading: {
+    gap: 4,
   },
-  role: {
-    fontSize: 18,
+  name: {
+    fontSize: 22,
+    fontWeight: "800",
   },
   showcaseWrap: {
     width: "100%",

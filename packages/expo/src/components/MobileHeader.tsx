@@ -1,21 +1,23 @@
 import { Ionicons } from "@expo/vector-icons";
+import type { NavigationProp, ParamListBase } from "@react-navigation/native";
 import { Pressable, StyleSheet, Text, View } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 
+import { ThemeToggle } from "@/components/ThemeToggle";
 import { useAppTheme } from "@/hooks/useAppTheme";
 import { useBrowse } from "@/navigation/BrowseContext";
-import { ThemeToggle } from "@/components/ThemeToggle";
 
 type MobileHeaderProps = {
-  navigation: { canGoBack: () => boolean; goBack: () => void };
   options: { title?: string };
+  routeName: string;
+  navigation: NavigationProp<ParamListBase>;
 };
 
-export function MobileHeader({ navigation, options }: MobileHeaderProps) {
+export function MobileHeader({ options, routeName, navigation }: MobileHeaderProps) {
   const insets = useSafeAreaInsets();
   const { colors } = useAppTheme();
   const { setOpen } = useBrowse();
-  const canGoBack = navigation.canGoBack();
+  const isCard = routeName === "card";
 
   return (
     <View
@@ -29,20 +31,24 @@ export function MobileHeader({ navigation, options }: MobileHeaderProps) {
       ]}
     >
       <View style={styles.row}>
-        {canGoBack ? (
-          <Pressable accessibilityLabel="Back" onPress={() => navigation.goBack()} style={styles.iconButton}>
-            <Ionicons name="chevron-back" size={24} color={colors.text} />
-          </Pressable>
-        ) : (
-          <View style={styles.iconButton} />
-        )}
+        <Pressable
+          accessibilityRole="button"
+          accessibilityLabel={isCard ? "Home" : "Browse"}
+          onPress={() => {
+            if (isCard) {
+              navigation.navigate("home");
+              return;
+            }
+            setOpen(true);
+          }}
+          style={[styles.iconButton, styles.filledButton, { backgroundColor: colors.secondary }]}
+        >
+          <Ionicons name={isCard ? "home-outline" : "menu"} size={24} color={colors.text} />
+        </Pressable>
         <Text numberOfLines={1} style={[styles.title, { color: colors.text }]}>
-          {options.title ?? ""}
+          {isCard ? "" : (options.title ?? "")}
         </Text>
         <ThemeToggle />
-        <Pressable accessibilityLabel="Browse" onPress={() => setOpen(true)} style={styles.iconButton}>
-          <Ionicons name="menu" size={24} color={colors.text} />
-        </Pressable>
       </View>
     </View>
   );
@@ -70,5 +76,8 @@ const styles = StyleSheet.create({
     height: 40,
     alignItems: "center",
     justifyContent: "center",
+  },
+  filledButton: {
+    borderRadius: 20,
   },
 });

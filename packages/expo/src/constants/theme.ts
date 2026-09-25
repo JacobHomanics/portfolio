@@ -56,7 +56,7 @@ const LIGHT_THEME: AppThemeColors = {
 };
 
 const DARK_THEME: AppThemeColors = {
-  background: "#0E2954",
+  background: "#84A7A1",
   surface: "#2E8A99",
   surfaceMuted: "rgba(31, 110, 140, 0.55)",
   border: "#1F6E8C",

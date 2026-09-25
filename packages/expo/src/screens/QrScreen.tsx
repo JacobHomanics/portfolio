@@ -11,7 +11,7 @@ export function QrScreen() {
   const { colors } = useAppTheme();
 
   return (
-    <Overlay placement="center">
+    <Overlay placement="center" showClose>
       <View style={{ alignItems: "center", gap: 12 }}>
         <PortfolioImage
           imageKey={profile.photo}

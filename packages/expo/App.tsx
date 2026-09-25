@@ -1,3 +1,4 @@
+import { BottomSheetModalProvider } from "@gorhom/bottom-sheet";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 
@@ -22,7 +23,9 @@ function AppContent() {
   return (
     <GestureHandlerRootView style={{ flex: 1, backgroundColor: colors.background }}>
       <SafeAreaProvider>
-        <RootNavigator />
+        <BottomSheetModalProvider>
+          <RootNavigator />
+        </BottomSheetModalProvider>
       </SafeAreaProvider>
     </GestureHandlerRootView>
   );

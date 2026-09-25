@@ -8,9 +8,11 @@ import { siteNav } from "@/navigation/navItems";
 import type { RootStackParamList } from "@/navigation/types";
 import { SocialIcons } from "@/components/SocialIcons";
 import { ThemeToggle } from "@/components/ThemeToggle";
+import { useSiteRouteName } from "@/navigation/SiteRouteContext";
 
 export function Sidebar() {
   const { colors } = useAppTheme();
+  const routeName = useSiteRouteName();
   const navigation = useNavigation<NavigationProp<RootStackParamList>>();
   const current = useNavigationState(state => {
     const site = state.routes[state.index ?? 0];
@@ -56,7 +58,7 @@ export function Sidebar() {
         })}
       </ScrollView>
       <View style={styles.footer}>
-        <SocialIcons />
+        {routeName !== "card" ? <SocialIcons /> : null}
         <Pressable onPress={() => void openExternal("https://github.com/jacobhomanics/jacobhomanics-website")}>
           <Text style={{ color: colors.text, textDecorationLine: "underline" }}>Fork me</Text>
         </Pressable>

@@ -1,8 +1,9 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
+import { MobileHeader } from "@/components/MobileHeader";
 import { getCategory } from "@/content/categories";
 import { useAppTheme } from "@/hooks/useAppTheme";
-import { MobileHeader } from "@/components/MobileHeader";
+import { SiteLayout } from "@/navigation/SiteLayout";
 import { siteStackScreens } from "@/navigation/screens";
 import type { SiteStackParamList } from "@/navigation/types";
 
@@ -14,14 +15,23 @@ export function SiteStack() {
   return (
     <NativeStack.Navigator
       initialRouteName="home"
+      layout={({ children, state }) => (
+        <SiteLayout routeName={state.routes[state.index]?.name ?? "home"}>{children}</SiteLayout>
+      )}
       screenOptions={{
-        header: props => <MobileHeader navigation={props.navigation} options={props.options} />,
+        header: props => (
+          <MobileHeader
+            options={props.options}
+            routeName={props.route.name}
+            navigation={props.navigation}
+          />
+        ),
         contentStyle: { backgroundColor: colors.background },
         animation: "slide_from_right",
       }}
     >
       <NativeStack.Screen name="home" component={siteStackScreens.home} options={{ title: "Home" }} />
-      <NativeStack.Screen name="card" component={siteStackScreens.card} options={{ title: "Card" }} />
+      <NativeStack.Screen name="card" component={siteStackScreens.card} options={{ title: "Jacob Homanics" }} />
       <NativeStack.Screen
         name="category"
         component={siteStackScreens.category}

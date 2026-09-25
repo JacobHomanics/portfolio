@@ -1,18 +1,46 @@
+import { Ionicons } from "@expo/vector-icons";
 import type { ReactNode } from "react";
 import { useEffect } from "react";
 import { Platform, Pressable, StyleSheet, View } from "react-native";
 import { useNavigation } from "@react-navigation/native";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 import { useAppTheme } from "@/hooks/useAppTheme";
 import { useIsDesktopWeb } from "@/hooks/useIsDesktopWeb";
 
-export function Overlay({ children, placement }: { children: ReactNode; placement: "center" | "sheet" }) {
+export function Overlay({
+  children,
+  placement,
+  showClose = false,
+}: {
+  children: ReactNode;
+  placement: "center" | "sheet";
+  showClose?: boolean;
+}) {
   const navigation = useNavigation();
   const desktop = useIsDesktopWeb();
   const { colors } = useAppTheme();
+  const insets = useSafeAreaInsets();
   const dismiss = () => {
     if (navigation.canGoBack()) navigation.goBack();
   };
+
+  const closeButton = showClose ? (
+    <Pressable
+      accessibilityRole="button"
+      accessibilityLabel="Close"
+      onPress={dismiss}
+      style={[
+        styles.close,
+        {
+          top: Platform.OS === "web" ? 12 : Math.max(insets.top, 12),
+          backgroundColor: colors.secondary,
+        },
+      ]}
+    >
+      <Ionicons name="close" size={22} color={colors.text} />
+    </Pressable>
+  ) : null;
 
   useEffect(() => {
     if (Platform.OS !== "web" || typeof window === "undefined") return;
@@ -24,7 +52,12 @@ export function Overlay({ children, placement }: { children: ReactNode; placemen
   }, [navigation]);
 
   if (Platform.OS !== "web") {
-    return <View style={[styles.native, { backgroundColor: colors.surface }]}>{children}</View>;
+    return (
+      <View style={[styles.native, { backgroundColor: colors.surface }]}>
+        {closeButton}
+        {children}
+      </View>
+    );
   }
 
   const anchoredBottom = placement === "sheet" && !desktop;
@@ -38,6 +71,7 @@ export function Overlay({ children, placement }: { children: ReactNode; placemen
           { backgroundColor: colors.surface },
         ]}
       >
+        {closeButton}
         {children}
       </View>
     </View>
@@ -75,5 +109,15 @@ const styles = StyleSheet.create({
     padding: 24,
     gap: 16,
     zIndex: 1,
+  },
+  close: {
+    position: "absolute",
+    right: 12,
+    zIndex: 2,
+    width: 36,
+    height: 36,
+    borderRadius: 18,
+    alignItems: "center",
+    justifyContent: "center",
   },
 });
