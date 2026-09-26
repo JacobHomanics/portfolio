@@ -2,10 +2,11 @@ import { Ionicons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
 import type { NavigationProp } from "@react-navigation/native";
 import { useState } from "react";
-import { Pressable, ScrollView, StyleSheet, Text, useWindowDimensions, View } from "react-native";
+import { Pressable, StyleSheet, Text, useWindowDimensions, View } from "react-native";
 
 import { PortfolioImage } from "@/components/PortfolioImage";
 import { Screen } from "@/components/Screen";
+import { ShowcaseCarousel } from "@/components/ShowcaseCarousel";
 import { data as companiesData } from "@/content/companies.config";
 import { data as daoToolingData } from "@/content/dao-tooling.config";
 import { data as nftCollectionsData } from "@/content/nftCollections.config";
@@ -96,26 +97,14 @@ export function HomeScreen() {
           ))}
         </View>
       ) : (
-        <ScrollView
-          horizontal
-          showsHorizontalScrollIndicator={false}
-          style={styles.carousel}
-          contentContainerStyle={styles.carouselContent}
-        >
-          {highlightProjects.map(project => (
-            <Pressable
-              key={project.name}
-              accessibilityLabel={project.name}
-              onPress={() => openProject(project.link)}
-              style={styles.carouselCard}
-            >
-              <PortfolioImage imageKey={project.bannerSrc ?? project.imgSrc} style={StyleSheet.absoluteFill} />
-              <View style={[styles.showcaseCaption, { backgroundColor: colors.secondary }]}>
-                <Text style={{ color: colors.onSecondary, fontWeight: "700", textAlign: "center" }}>{project.name}</Text>
-              </View>
-            </Pressable>
-          ))}
-        </ScrollView>
+        <ShowcaseCarousel
+          slides={highlightProjects.map(project => ({
+            title: project.name,
+            description: project.shortDescription,
+            imageKey: project.bannerSrc ?? project.imgSrc,
+            link: project.link,
+          }))}
+        />
       )}
 
       <View style={[styles.divider, { backgroundColor: colors.text }]} />
@@ -211,20 +200,6 @@ const styles = StyleSheet.create({
   showcase: {
     width: 280,
     height: 180,
-    borderRadius: 12,
-    overflow: "hidden",
-    justifyContent: "flex-end",
-  },
-  carousel: {
-    width: "100%",
-    alignSelf: "stretch",
-  },
-  carouselContent: {
-    gap: 12,
-  },
-  carouselCard: {
-    width: 220,
-    height: 140,
     borderRadius: 12,
     overflow: "hidden",
     justifyContent: "flex-end",
