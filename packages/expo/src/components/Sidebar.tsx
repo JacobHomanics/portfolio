@@ -58,7 +58,7 @@ export function Sidebar() {
         })}
       </ScrollView>
       <View style={styles.footer}>
-        {routeName !== "card" ? <SocialIcons /> : null}
+        {routeName !== "card" ? <SocialIcons size={18} gap={4} /> : null}
         <Pressable onPress={() => void openExternal("https://github.com/jacobhomanics/jacobhomanics-website")}>
           <Text style={{ color: colors.text, textDecorationLine: "underline" }}>Fork me</Text>
         </Pressable>

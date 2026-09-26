@@ -6,6 +6,8 @@ export const socialLinks = [
   },
   { url: "https://x.com/jacobhomanics", icon: "logo-x", label: "X" },
   { url: "mailto:homanicsjake@gmail.com", icon: "mail", label: "Email" },
+  { url: "sms:+17245180234", icon: "chatbubble-ellipses", label: "Text" },
+  { url: "https://wa.me/17245180234", icon: "logo-whatsapp", label: "WhatsApp" },
   { url: "https://t.me/jacobhomanics", icon: "paper-plane", label: "Telegram" },
   { url: "https://github.com/jacobhomanics", icon: "logo-github", label: "GitHub" },
 ] as const;

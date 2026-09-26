@@ -87,7 +87,7 @@ export function CardScreen() {
       </View>
 
       <View style={styles.actions}>
-        <SocialIcons size={wide ? 36 : 28} gap={wide ? 20 : 12} />
+        <SocialIcons size={wide ? 36 : 24} gap={wide ? 20 : 8} />
         <Pressable
           accessibilityLabel="Share"
           onPress={() => setShareOpen(true)}

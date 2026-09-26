@@ -14,7 +14,7 @@ export function parseProjectLink(link?: string): { category: string; slug: strin
 }
 
 export async function openExternal(url: string) {
-  if (url.startsWith("mailto:")) {
+  if (url.startsWith("mailto:") || url.startsWith("sms:") || url.startsWith("https://wa.me/")) {
     await Linking.openURL(url);
     return;
   }
