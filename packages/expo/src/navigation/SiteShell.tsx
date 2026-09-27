@@ -6,6 +6,7 @@ import { Sidebar } from "@/components/Sidebar";
 import { useAppTheme } from "@/hooks/useAppTheme";
 import { useIsDesktopWeb } from "@/hooks/useIsDesktopWeb";
 import { BrowseContext } from "@/navigation/BrowseContext";
+import { ShakeAccessProvider } from "@/navigation/ShakeAccessContext";
 import { SiteRouteProvider } from "@/navigation/SiteRouteContext";
 import { SiteStack } from "@/navigation/SiteStack";
 
@@ -17,13 +18,15 @@ export function SiteShell() {
   return (
     <BrowseContext.Provider value={{ open: browseOpen, setOpen: setBrowseOpen }}>
       <SiteRouteProvider>
-        <View style={{ flex: 1, flexDirection: desktop ? "row" : "column", backgroundColor: colors.background }}>
-          {desktop ? <Sidebar /> : null}
-          <View style={{ flex: 1, minWidth: 0 }}>
-            <SiteStack />
+        <ShakeAccessProvider>
+          <View style={{ flex: 1, flexDirection: desktop ? "row" : "column", backgroundColor: colors.background }}>
+            {desktop ? <Sidebar /> : null}
+            <View style={{ flex: 1, minWidth: 0 }}>
+              <SiteStack />
+            </View>
           </View>
-        </View>
-        {!desktop ? <BrowseSheet /> : null}
+          {!desktop ? <BrowseSheet /> : null}
+        </ShakeAccessProvider>
       </SiteRouteProvider>
     </BrowseContext.Provider>
   );

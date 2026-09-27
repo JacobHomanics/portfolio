@@ -7,6 +7,7 @@ import { openExternal } from "@/lib/links";
 import { siteNav } from "@/navigation/navItems";
 import type { RootStackParamList } from "@/navigation/types";
 import { SocialIcons } from "@/components/SocialIcons";
+import { ShakeAccessButton } from "@/components/ShakeAccessButton";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { useSiteRouteName } from "@/navigation/SiteRouteContext";
 
@@ -29,7 +30,10 @@ export function Sidebar() {
     <View style={[styles.sidebar, { backgroundColor: colors.surface, borderRightColor: colors.border }]}>
       <View style={styles.brandRow}>
         <Text style={[styles.brand, { color: colors.text }]}>Jacob Homanics</Text>
-        <ThemeToggle />
+        <View style={styles.controls}>
+          <ShakeAccessButton />
+          <ThemeToggle />
+        </View>
       </View>
       <ScrollView contentContainerStyle={styles.links}>
         {siteNav.map(item => {
@@ -85,6 +89,11 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: "800",
     flex: 1,
+  },
+  controls: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 4,
   },
   links: {
     paddingHorizontal: 12,

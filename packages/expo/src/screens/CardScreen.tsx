@@ -13,6 +13,7 @@ import { useDocumentTitle } from "@/hooks/useDocumentTitle";
 import { useShake } from "@/hooks/useShake";
 import { openResume, parseProjectLink } from "@/lib/links";
 import { shareCard } from "@/lib/share";
+import { usePublishShakeAccess } from "@/navigation/ShakeAccessContext";
 import type { RootStackParamList, SiteStackParamList } from "@/navigation/types";
 
 export function CardScreen() {
@@ -27,6 +28,7 @@ export function CardScreen() {
   const { access: shakeAccess, requestAccess: requestShakeAccess } = useShake(() => {
     navigation.getParent<NavigationProp<RootStackParamList>>()?.navigate("qr");
   }, focused);
+  usePublishShakeAccess(shakeAccess, requestShakeAccess);
 
   return (
     <Screen footerInset={false}>
@@ -116,18 +118,6 @@ export function CardScreen() {
         </View>
       </View>
       {shareMessage ? <Text style={{ color: colors.text, marginTop: -12 }}>{shareMessage}</Text> : null}
-      {shakeAccess === "prompt" ? (
-        <Pressable accessibilityRole="button" accessibilityLabel="Allow shake to show QR code" onPress={requestShakeAccess}>
-          <Text style={{ color: colors.brand, fontWeight: "700", textAlign: "center" }}>Tap to allow shake for QR</Text>
-        </Pressable>
-      ) : null}
-      {shakeAccess === "denied" ? (
-        <Pressable accessibilityRole="button" accessibilityLabel="Try shake access again" onPress={requestShakeAccess}>
-          <Text style={{ color: colors.text, textAlign: "center" }}>
-            Turn on Motion & Orientation Access in Safari settings, then tap here.
-          </Text>
-        </Pressable>
-      ) : null}
     </Screen>
   );
 }

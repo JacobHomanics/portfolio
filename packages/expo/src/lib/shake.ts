@@ -45,3 +45,14 @@ export function isIosWeb(nav: { userAgent: string; platform: string; maxTouchPoi
   if (/iPad|iPhone|iPod/.test(nav.userAgent)) return true;
   return nav.platform === "MacIntel" && nav.maxTouchPoints > 1;
 }
+
+/** iOS only delivers motion after a gesture on each page load. A saved grant should resume quietly. */
+export function webShakePermissionPlan(input: {
+  sawForce: boolean;
+  storedGrant: boolean;
+  activatedThisDocument: boolean;
+}): "listen" | "prompt" | "resume-on-gesture" {
+  if (input.sawForce || input.activatedThisDocument) return "listen";
+  if (input.storedGrant) return "resume-on-gesture";
+  return "prompt";
+}

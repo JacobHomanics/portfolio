@@ -6,10 +6,43 @@ import {
   createShakeTracker,
   gForceFromMetersPerSecondSquared,
   isIosWeb,
+  webShakePermissionPlan,
 } from "@/lib/shake";
 
 const UPDATE_INTERVAL_MS = 100;
 const PERMISSION_WAIT_MS = 600;
+const MOTION_GRANT_KEY = "jacobhomanics.motion-granted";
+
+let activatedThisDocument = false;
+
+function readStoredGrant(): boolean {
+  if (typeof localStorage === "undefined") return false;
+  try {
+    return localStorage.getItem(MOTION_GRANT_KEY) === "1";
+  } catch {
+    return false;
+  }
+}
+
+function storeGrant() {
+  activatedThisDocument = true;
+  if (typeof localStorage === "undefined") return;
+  try {
+    localStorage.setItem(MOTION_GRANT_KEY, "1");
+  } catch {
+    // Private browsing can block storage. The in-memory flag still covers this page.
+  }
+}
+
+function clearGrant() {
+  activatedThisDocument = false;
+  if (typeof localStorage === "undefined") return;
+  try {
+    localStorage.removeItem(MOTION_GRANT_KEY);
+  } catch {
+    // Ignore storage failures and fall back to asking again.
+  }
+}
 
 export type ShakeAccess = "hidden" | "prompt" | "denied";
 
@@ -22,8 +55,14 @@ function motionPermissionRequest(): MotionPermissionRequest | null {
   return () => request.call(DeviceMotionEvent);
 }
 
-function listenForWebShake(onShake: () => void, onNeedsPermission: () => void, onGranted: () => void) {
+function listenForWebShake(
+  onShake: () => void,
+  onNeedsPermission: () => void,
+  onGranted: () => void,
+  onDenied: () => void,
+) {
   let sawForce = false;
+  let resume: (() => void) | null = null;
   const track = createShakeTracker(onShake);
 
   const onMotion = (event: DeviceMotionEvent) => {
@@ -31,19 +70,55 @@ function listenForWebShake(onShake: () => void, onNeedsPermission: () => void, o
     if (force == null) return;
     if (!sawForce) {
       sawForce = true;
+      stopResume();
       onGranted();
     }
     track(force);
   };
 
+  const stopResume = () => {
+    if (!resume) return;
+    window.removeEventListener("touchend", resume, true);
+    window.removeEventListener("click", resume, true);
+    resume = null;
+  };
+
+  const armResume = () => {
+    resume = () => {
+      stopResume();
+      const request = motionPermissionRequest();
+      if (!request) {
+        onDenied();
+        return;
+      }
+      void request().then(
+        status => {
+          if (status === "granted") onGranted();
+          else onDenied();
+        },
+        () => onDenied(),
+      );
+    };
+    window.addEventListener("touchend", resume, true);
+    window.addEventListener("click", resume, true);
+  };
+
   window.addEventListener("devicemotion", onMotion);
   const timeout = window.setTimeout(() => {
-    if (!sawForce && motionPermissionRequest()) onNeedsPermission();
+    if (sawForce || !motionPermissionRequest()) return;
+    const plan = webShakePermissionPlan({
+      sawForce,
+      storedGrant: readStoredGrant(),
+      activatedThisDocument,
+    });
+    if (plan === "resume-on-gesture") armResume();
+    else if (plan === "prompt") onNeedsPermission();
   }, PERMISSION_WAIT_MS);
 
   return () => {
     window.removeEventListener("devicemotion", onMotion);
     window.clearTimeout(timeout);
+    stopResume();
   };
 }
 
@@ -68,8 +143,14 @@ export function useShake(onShake: () => void, enabled: boolean) {
           if (!settledRef.current) setAccess("prompt");
         },
         () => {
+          storeGrant();
           settledRef.current = true;
           setAccess("hidden");
+        },
+        () => {
+          clearGrant();
+          settledRef.current = true;
+          setAccess("denied");
         },
       );
     }
@@ -106,10 +187,17 @@ export function useShake(onShake: () => void, enabled: boolean) {
     void request().then(
       status => {
         settledRef.current = true;
-        setAccess(status === "granted" ? "hidden" : "denied");
+        if (status === "granted") {
+          storeGrant();
+          setAccess("hidden");
+          return;
+        }
+        clearGrant();
+        setAccess("denied");
       },
       () => {
         settledRef.current = true;
+        clearGrant();
         setAccess("denied");
       },
     );
