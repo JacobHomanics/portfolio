@@ -18,7 +18,6 @@ export const rootLinking: LinkingOptions<RootStackParamList> = {
           project: ":category/:slug",
         },
       },
-      share: "share",
       qr: "qr",
     },
   },

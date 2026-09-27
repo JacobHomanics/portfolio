@@ -1,26 +1,32 @@
 import { Ionicons } from "@expo/vector-icons";
-import { useNavigation } from "@react-navigation/native";
+import { useIsFocused, useNavigation } from "@react-navigation/native";
 import type { NavigationProp } from "@react-navigation/native";
 import { useState } from "react";
 import { Pressable, StyleSheet, Text, View, useWindowDimensions } from "react-native";
 
 import { PortfolioImage } from "@/components/PortfolioImage";
 import { Screen } from "@/components/Screen";
-import { ShareSheet } from "@/components/ShareSheet";
 import { SocialIcons } from "@/components/SocialIcons";
 import { cardHighlightProjects, profile } from "@/content/profile.config";
 import { useAppTheme } from "@/hooks/useAppTheme";
 import { useDocumentTitle } from "@/hooks/useDocumentTitle";
+import { useShake } from "@/hooks/useShake";
 import { openResume, parseProjectLink } from "@/lib/links";
-import type { SiteStackParamList } from "@/navigation/types";
+import { shareCard } from "@/lib/share";
+import type { RootStackParamList, SiteStackParamList } from "@/navigation/types";
 
 export function CardScreen() {
   const { colors } = useAppTheme();
   const { width } = useWindowDimensions();
   const navigation = useNavigation<NavigationProp<SiteStackParamList>>();
-  const [shareOpen, setShareOpen] = useState(false);
+  const focused = useIsFocused();
+  const [shareMessage, setShareMessage] = useState<string | null>(null);
   const wide = width >= 1024;
   useDocumentTitle(profile.name);
+
+  const { access: shakeAccess, requestAccess: requestShakeAccess } = useShake(() => {
+    navigation.getParent<NavigationProp<RootStackParamList>>()?.navigate("qr");
+  }, focused);
 
   return (
     <Screen footerInset={false}>
@@ -86,17 +92,42 @@ export function CardScreen() {
         })}
       </View>
 
-      <View style={styles.actions}>
-        <SocialIcons size={wide ? 36 : 24} gap={wide ? 20 : 8} />
-        <Pressable
-          accessibilityLabel="Share"
-          onPress={() => setShareOpen(true)}
-          style={[styles.share, { backgroundColor: colors.brand }]}
-        >
-          <Ionicons name="share-outline" size={wide ? 28 : 22} color={colors.onBrand} />
-        </Pressable>
+      <View style={styles.footer}>
+        <SocialIcons size={wide ? 44 : 32} gap={wide ? 16 : 10} includeQr={false} />
+        <View style={styles.actions}>
+          <Pressable
+            accessibilityRole="button"
+            accessibilityLabel="QR code"
+            onPress={() => navigation.getParent<NavigationProp<RootStackParamList>>()?.navigate("qr")}
+            style={[styles.share, { backgroundColor: colors.brand }]}
+          >
+            <Ionicons name="qr-code" size={wide ? 18 : 16} color={colors.onBrand} />
+          </Pressable>
+          <Pressable
+            accessibilityRole="button"
+            accessibilityLabel="Share"
+            onPress={() => {
+              void shareCard().then(setShareMessage);
+            }}
+            style={[styles.share, { backgroundColor: colors.brand }]}
+          >
+            <Ionicons name="share-outline" size={wide ? 18 : 16} color={colors.onBrand} />
+          </Pressable>
+        </View>
       </View>
-      <ShareSheet open={shareOpen} onClose={() => setShareOpen(false)} />
+      {shareMessage ? <Text style={{ color: colors.text, marginTop: -12 }}>{shareMessage}</Text> : null}
+      {shakeAccess === "prompt" ? (
+        <Pressable accessibilityRole="button" accessibilityLabel="Allow shake to show QR code" onPress={requestShakeAccess}>
+          <Text style={{ color: colors.brand, fontWeight: "700", textAlign: "center" }}>Tap to allow shake for QR</Text>
+        </Pressable>
+      ) : null}
+      {shakeAccess === "denied" ? (
+        <Pressable accessibilityRole="button" accessibilityLabel="Try shake access again" onPress={requestShakeAccess}>
+          <Text style={{ color: colors.text, textAlign: "center" }}>
+            Turn on Motion & Orientation Access in Safari settings, then tap here.
+          </Text>
+        </Pressable>
+      ) : null}
     </Screen>
   );
 }
@@ -161,24 +192,28 @@ const styles = StyleSheet.create({
     gap: 2,
   },
   tileTitle: {
-    fontSize: 14,
+    fontSize: 12,
     fontWeight: "700",
-    lineHeight: 18,
+    lineHeight: 15,
   },
   tileDescription: {
-    fontSize: 14,
-    lineHeight: 20,
+    fontSize: 11,
+    lineHeight: 14,
+  },
+  footer: {
+    alignItems: "center",
+    gap: 16,
+    marginTop: -12,
   },
   actions: {
     flexDirection: "row",
     alignItems: "center",
-    gap: 20,
-    marginTop: -12,
+    gap: 16,
   },
   share: {
     alignItems: "center",
     justifyContent: "center",
     borderRadius: 999,
-    padding: 8,
+    padding: 6,
   },
 });

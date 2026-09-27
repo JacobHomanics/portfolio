@@ -21,17 +21,6 @@ export function RootStack() {
     >
       <NativeStack.Screen name="site" component={rootStackScreens.site} />
       <NativeStack.Screen
-        name="share"
-        component={rootStackScreens.share}
-        options={{
-          presentation: "formSheet",
-          sheetAllowedDetents: [0.42],
-          sheetGrabberVisible: true,
-          headerShown: false,
-          contentStyle: { backgroundColor: colors.surface },
-        }}
-      />
-      <NativeStack.Screen
         name="qr"
         component={rootStackScreens.qr}
         options={{

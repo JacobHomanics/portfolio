@@ -28,6 +28,12 @@
       "favicon": "./assets/images/favicon.png"
     },
     "plugins": [
+      [
+        "expo-sensors",
+        {
+          "motionPermission": "Allow Jacob Homanics to detect a shake so it can show your card QR code."
+        }
+      ],
       "expo-web-browser",
       [
         "expo-splash-screen",

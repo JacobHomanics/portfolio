@@ -9,6 +9,5 @@ export type SiteStackParamList = {
 
 export type RootStackParamList = {
   site: NavigatorScreenParams<SiteStackParamList> | undefined;
-  share: undefined;
   qr: undefined;
 };

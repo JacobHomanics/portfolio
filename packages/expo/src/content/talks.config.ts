@@ -14,7 +14,7 @@ export const talks: Talk[] = [
   {
     slug: "interoperable-gaming-with-web3",
     name: "Bringing Web2 Games to Web3",
-    shortDescription: "Game assets on decentralized storage.",
+    shortDescription: "Presentation on gaming with Web3 technologies.",
     description: "Presented interoperable gaming assets using decentralized storage.",
     youtubeUrl: "https://www.youtube.com/watch?v=jpsT6qCkTJs&list=PLp3zrT1ewY0kwXj2NgQU6ZrbLlb_Uwmc0",
     imgSrc: "filecoin-talk.png",

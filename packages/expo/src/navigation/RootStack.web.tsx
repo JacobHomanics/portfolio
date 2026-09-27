@@ -26,17 +26,6 @@ export function RootStack() {
     >
       <WebStack.Screen name="site" component={rootStackScreens.site} />
       <WebStack.Screen
-        name="share"
-        component={rootStackScreens.share}
-        options={{
-          presentation: "transparentModal",
-          headerShown: false,
-          animation: "fade",
-          cardStyle: { backgroundColor: "transparent" },
-          cardOverlayEnabled: false,
-        }}
-      />
-      <WebStack.Screen
         name="qr"
         component={rootStackScreens.qr}
         options={{
