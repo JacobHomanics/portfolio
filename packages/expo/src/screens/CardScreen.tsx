@@ -2,7 +2,7 @@ import { Ionicons } from "@expo/vector-icons";
 import { useIsFocused, useNavigation } from "@react-navigation/native";
 import type { NavigationProp } from "@react-navigation/native";
 import { useState } from "react";
-import { Pressable, StyleSheet, Text, View, useWindowDimensions } from "react-native";
+import { Platform, Pressable, StyleSheet, Text, View, useWindowDimensions, type ViewStyle } from "react-native";
 
 import { PortfolioImage } from "@/components/PortfolioImage";
 import { Screen } from "@/components/Screen";
@@ -23,6 +23,9 @@ export function CardScreen() {
   const focused = useIsFocused();
   const [shareMessage, setShareMessage] = useState<string | null>(null);
   const wide = width >= 1024;
+  const socialSize = wide ? 56 : 40;
+  const actionSize = socialSize;
+  const actionIconSize = Math.round(socialSize * 0.58);
   useDocumentTitle(profile.name);
 
   const { access: shakeAccess, requestAccess: requestShakeAccess } = useShake(() => {
@@ -79,31 +82,28 @@ export function CardScreen() {
                 imageKey={project.bannerSrc ?? project.imgSrc}
                 style={{ width: "100%", aspectRatio: 2 }}
               />
-              <View style={styles.caption}>
-                <Text numberOfLines={2} style={[styles.tileTitle, { color: colors.text }]}>
-                  {project.name}
-                </Text>
-                {project.shortDescription ? (
+              {project.shortDescription ? (
+                <View style={styles.caption}>
                   <Text numberOfLines={3} style={[styles.tileDescription, { color: colors.text }]}>
                     {project.shortDescription}
                   </Text>
-                ) : null}
-              </View>
+                </View>
+              ) : null}
             </Pressable>
           );
         })}
       </View>
 
       <View style={styles.footer}>
-        <SocialIcons size={wide ? 44 : 32} gap={wide ? 16 : 10} includeQr={false} />
+        <SocialIcons size={socialSize} gap={wide ? 16 : 6} inset={0} includeQr={false} />
         <View style={styles.actions}>
           <Pressable
             accessibilityRole="button"
             accessibilityLabel="QR code"
             onPress={() => navigation.getParent<NavigationProp<RootStackParamList>>()?.navigate("qr")}
-            style={[styles.share, { backgroundColor: colors.brand }]}
+            style={[styles.share, actionButtonStyle(actionSize, colors.brand)]}
           >
-            <Ionicons name="qr-code" size={wide ? 18 : 16} color={colors.onBrand} />
+            <Ionicons name="qr-code" size={actionIconSize} color={colors.onBrand} />
           </Pressable>
           <Pressable
             accessibilityRole="button"
@@ -111,9 +111,9 @@ export function CardScreen() {
             onPress={() => {
               void shareCard().then(setShareMessage);
             }}
-            style={[styles.share, { backgroundColor: colors.brand }]}
+            style={[styles.share, actionButtonStyle(actionSize, colors.brand)]}
           >
-            <Ionicons name="share-outline" size={wide ? 18 : 16} color={colors.onBrand} />
+            <Ionicons name="share-outline" size={actionIconSize} color={colors.onBrand} />
           </Pressable>
         </View>
       </View>
@@ -181,11 +181,6 @@ const styles = StyleSheet.create({
     paddingBottom: 8,
     gap: 2,
   },
-  tileTitle: {
-    fontSize: 12,
-    fontWeight: "700",
-    lineHeight: 15,
-  },
   tileDescription: {
     fontSize: 11,
     lineHeight: 14,
@@ -193,17 +188,27 @@ const styles = StyleSheet.create({
   footer: {
     alignItems: "center",
     gap: 16,
-    marginTop: -12,
+    marginTop: 44,
   },
   actions: {
     flexDirection: "row",
     alignItems: "center",
-    gap: 16,
+    gap: 20,
   },
   share: {
     alignItems: "center",
     justifyContent: "center",
-    borderRadius: 999,
-    padding: 6,
+    overflow: "hidden",
   },
 });
+
+function actionButtonStyle(size: number, backgroundColor: string): ViewStyle {
+  return {
+    width: size,
+    height: size,
+    borderRadius: size / 2,
+    backgroundColor,
+    // Native <button> chrome ignores border-radius unless appearance is reset.
+    ...(Platform.OS === "web" ? ({ appearance: "none" } as ViewStyle) : null),
+  };
+}

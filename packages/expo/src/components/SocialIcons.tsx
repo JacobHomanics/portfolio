@@ -12,10 +12,12 @@ export function SocialIcons({
   size = 24,
   gap = 12,
   includeQr = true,
+  inset = 4,
 }: {
   size?: number;
   gap?: number;
   includeQr?: boolean;
+  inset?: number;
 }) {
   const { colors } = useAppTheme();
   const navigation = useNavigation<NavigationProp<RootStackParamList>>();
@@ -34,7 +36,7 @@ export function SocialIcons({
             }
             navigation.navigate("qr");
           }}
-          style={{ width: size + 8, height: size + 8, alignItems: "center", justifyContent: "center" }}
+          style={{ width: size + inset * 2, height: size + inset * 2, alignItems: "center", justifyContent: "center" }}
         >
           <Ionicons name={link.icon} size={size} color={"color" in link ? link.color : colors.text} />
         </Pressable>
