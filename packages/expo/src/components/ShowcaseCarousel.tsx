@@ -14,7 +14,7 @@ const SCROLL_MS_PER_SLIDE = 8000;
 const SLIDE_MS = 4000;
 const PAUSE_AFTER_ARROW_MS = 1500;
 const DRAG_THRESHOLD = 8;
-const SLIDE_PERCENT = 0.44;
+const SLIDE_PERCENT = 0.62;
 const GAP_PX = 8;
 const EASE_OUT = Easing.bezier(0, 0, 0.2, 1);
 
@@ -307,16 +307,16 @@ export function ShowcaseCarousel({ slides }: { slides: ShowcaseSlide[] }) {
   const hoverHandlers =
     Platform.OS === "web"
       ? {
-          onPointerEnter: (event: { nativeEvent: { pointerType: string } }) => {
-            if (event.nativeEvent.pointerType === "touch" || suppressHover.current) return;
-            setPaused(true);
-          },
-          onPointerLeave: (event: { nativeEvent: { pointerType: string } }) => {
-            if (event.nativeEvent.pointerType === "touch") return;
-            suppressHover.current = false;
-            setPaused(false);
-          },
-        }
+        onPointerEnter: (event: { nativeEvent: { pointerType: string } }) => {
+          if (event.nativeEvent.pointerType === "touch" || suppressHover.current) return;
+          setPaused(true);
+        },
+        onPointerLeave: (event: { nativeEvent: { pointerType: string } }) => {
+          if (event.nativeEvent.pointerType === "touch") return;
+          suppressHover.current = false;
+          setPaused(false);
+        },
+      }
       : {};
 
   return (

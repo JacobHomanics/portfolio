@@ -5,8 +5,8 @@ const projects: Array<ProjectData & { slug: string }> = [
   {
     slug: "faith",
     name: "Thra'gar Fortress",
-    shortDescription: "Role-playing game exploring narrative, progression, and unique abilities.",
-    description: "Role-playing game exploring narrative, progression, and unique abilities.",
+    shortDescription: "Role-playing game exploring narrative, progression, and abilities.",
+    description: "Role-playing game exploring narrative, progression, and abilities.",
     imgSrc: "faith.png",
     bannerSrc: "faith.png",
     link: "https://jacobhomanics.itch.io/faith",
