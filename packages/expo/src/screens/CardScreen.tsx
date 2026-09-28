@@ -1,7 +1,7 @@
 import { Ionicons } from "@expo/vector-icons";
 import { useIsFocused, useNavigation } from "@react-navigation/native";
 import type { NavigationProp } from "@react-navigation/native";
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import { Platform, Pressable, StyleSheet, Text, View, useWindowDimensions, type ViewStyle } from "react-native";
 
 import { PortfolioImage } from "@/components/PortfolioImage";
@@ -14,6 +14,7 @@ import { useShake } from "@/hooks/useShake";
 import { openResume, parseProjectLink } from "@/lib/links";
 import { shareCard } from "@/lib/share";
 import { usePublishShakeAccess } from "@/navigation/ShakeAccessContext";
+import { usePublishSocialPlacement } from "@/navigation/SocialPlacementContext";
 import type { RootStackParamList, SiteStackParamList } from "@/navigation/types";
 
 export function CardScreen() {
@@ -22,6 +23,10 @@ export function CardScreen() {
   const navigation = useNavigation<NavigationProp<SiteStackParamList>>();
   const focused = useIsFocused();
   const [shareMessage, setShareMessage] = useState<string | null>(null);
+  const [socialsBelow, setSocialsBelow] = useState(false);
+  const toggleSocialsBelow = useCallback(() => {
+    setSocialsBelow(value => !value);
+  }, []);
   const wide = width >= 1024;
   const socialSize = wide ? 56 : 40;
   const actionSize = socialSize;
@@ -32,6 +37,36 @@ export function CardScreen() {
     navigation.getParent<NavigationProp<RootStackParamList>>()?.navigate("qr");
   }, focused);
   usePublishShakeAccess(shakeAccess, requestShakeAccess);
+  usePublishSocialPlacement(focused, socialsBelow, toggleSocialsBelow);
+
+  const socials = (
+    <>
+      <View style={styles.footer}>
+        <SocialIcons size={socialSize} gap={wide ? 16 : 6} inset={0} includeQr={false} />
+        <View style={styles.actions}>
+          <Pressable
+            accessibilityRole="button"
+            accessibilityLabel="QR code"
+            onPress={() => navigation.getParent<NavigationProp<RootStackParamList>>()?.navigate("qr")}
+            style={[styles.share, actionButtonStyle(actionSize, colors.brand)]}
+          >
+            <Ionicons name="qr-code" size={actionIconSize} color={colors.onBrand} />
+          </Pressable>
+          <Pressable
+            accessibilityRole="button"
+            accessibilityLabel="Share"
+            onPress={() => {
+              void shareCard().then(setShareMessage);
+            }}
+            style={[styles.share, actionButtonStyle(actionSize, colors.brand)]}
+          >
+            <Ionicons name="share-outline" size={actionIconSize} color={colors.onBrand} />
+          </Pressable>
+        </View>
+      </View>
+      {shareMessage ? <Text style={{ color: colors.text, marginTop: -12 }}>{shareMessage}</Text> : null}
+    </>
+  );
 
   return (
     <Screen footerInset={false}>
@@ -63,6 +98,8 @@ export function CardScreen() {
         </View>
       </View>
 
+      {socialsBelow ? null : socials}
+
       <View style={styles.grid}>
         {cardHighlightProjects.map(project => {
           const parsed = parseProjectLink(project.link);
@@ -93,31 +130,7 @@ export function CardScreen() {
           );
         })}
       </View>
-
-      <View style={styles.footer}>
-        <SocialIcons size={socialSize} gap={wide ? 16 : 6} inset={0} includeQr={false} />
-        <View style={styles.actions}>
-          <Pressable
-            accessibilityRole="button"
-            accessibilityLabel="QR code"
-            onPress={() => navigation.getParent<NavigationProp<RootStackParamList>>()?.navigate("qr")}
-            style={[styles.share, actionButtonStyle(actionSize, colors.brand)]}
-          >
-            <Ionicons name="qr-code" size={actionIconSize} color={colors.onBrand} />
-          </Pressable>
-          <Pressable
-            accessibilityRole="button"
-            accessibilityLabel="Share"
-            onPress={() => {
-              void shareCard().then(setShareMessage);
-            }}
-            style={[styles.share, actionButtonStyle(actionSize, colors.brand)]}
-          >
-            <Ionicons name="share-outline" size={actionIconSize} color={colors.onBrand} />
-          </Pressable>
-        </View>
-      </View>
-      {shareMessage ? <Text style={{ color: colors.text, marginTop: -12 }}>{shareMessage}</Text> : null}
+      {socialsBelow ? socials : null}
     </Screen>
   );
 }
@@ -188,7 +201,6 @@ const styles = StyleSheet.create({
   footer: {
     alignItems: "center",
     gap: 16,
-    marginTop: 44,
   },
   actions: {
     flexDirection: "row",

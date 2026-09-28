@@ -8,6 +8,7 @@ import { siteNav } from "@/navigation/navItems";
 import type { RootStackParamList } from "@/navigation/types";
 import { SocialIcons } from "@/components/SocialIcons";
 import { ShakeAccessButton } from "@/components/ShakeAccessButton";
+import { SocialPlacementToggle } from "@/components/SocialPlacementToggle";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { useSiteRouteName } from "@/navigation/SiteRouteContext";
 
@@ -29,8 +30,11 @@ export function Sidebar() {
   return (
     <View style={[styles.sidebar, { backgroundColor: colors.surface, borderRightColor: colors.border }]}>
       <View style={styles.brandRow}>
-        <Text style={[styles.brand, { color: colors.text }]}>Jacob Homanics</Text>
+        <Text numberOfLines={1} style={[styles.brand, { color: colors.text }]}>
+          Jacob Homanics
+        </Text>
         <View style={styles.controls}>
+          <SocialPlacementToggle />
           <ShakeAccessButton />
           <ThemeToggle />
         </View>

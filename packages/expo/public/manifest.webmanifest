@@ -1,0 +1,17 @@
+{
+  "id": "/",
+  "name": "Jacob Homanics",
+  "short_name": "Jacob Homanics",
+  "start_url": "/card",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#CAF0F8",
+  "theme_color": "#CAF0F8",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "48x48",
+      "type": "image/x-icon"
+    }
+  ]
+}

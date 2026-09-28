@@ -4,6 +4,7 @@ import { Pressable, StyleSheet, Text, View } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 import { ShakeAccessButton } from "@/components/ShakeAccessButton";
+import { SocialPlacementToggle } from "@/components/SocialPlacementToggle";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { useAppTheme } from "@/hooks/useAppTheme";
 import { useBrowse } from "@/navigation/BrowseContext";
@@ -49,6 +50,7 @@ export function MobileHeader({ options, routeName, navigation }: MobileHeaderPro
         <Text numberOfLines={1} style={[styles.title, { color: colors.text }]}>
           {isCard ? "" : (options.title ?? "")}
         </Text>
+        <SocialPlacementToggle />
         <ShakeAccessButton />
         <ThemeToggle />
       </View>
