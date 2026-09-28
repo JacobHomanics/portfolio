@@ -14,7 +14,7 @@ const SCROLL_MS_PER_SLIDE = 8000;
 const SLIDE_MS = 4000;
 const PAUSE_AFTER_ARROW_MS = 1500;
 const DRAG_THRESHOLD = 8;
-const SLIDE_PERCENT = 0.58;
+const SLIDE_PERCENT = 0.44;
 const GAP_PX = 8;
 const EASE_OUT = Easing.bezier(0, 0, 0.2, 1);
 
@@ -366,7 +366,7 @@ export function ShowcaseCarousel({ slides }: { slides: ShowcaseSlide[] }) {
                       {slide.title}
                     </Text>
                     {slide.description ? (
-                      <Text numberOfLines={3} style={[styles.description, { color: colors.onSecondary }]}>
+                      <Text numberOfLines={2} style={[styles.description, { color: colors.onSecondary }]}>
                         {slide.description}
                       </Text>
                     ) : null}
@@ -472,15 +472,15 @@ const styles = StyleSheet.create({
     aspectRatio: 16 / 10,
   },
   caption: {
-    height: 112,
-    paddingHorizontal: 12,
-    paddingVertical: 12,
-    gap: 4,
+    height: 88,
+    paddingHorizontal: 10,
+    paddingVertical: 8,
+    gap: 2,
   },
   title: {
-    fontSize: 16,
+    fontSize: 14,
     fontWeight: "700",
-    lineHeight: 20,
+    lineHeight: 18,
     textAlign: "center",
   },
   description: {

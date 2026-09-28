@@ -5,6 +5,7 @@ import { useState } from "react";
 import { Pressable, StyleSheet, Text, useWindowDimensions, View } from "react-native";
 
 import { PortfolioImage } from "@/components/PortfolioImage";
+import { ProjectsOverviewCard } from "@/components/ProjectsOverviewCard";
 import { Screen } from "@/components/Screen";
 import { ShowcaseCarousel } from "@/components/ShowcaseCarousel";
 import { data as companiesData } from "@/content/companies.config";
@@ -36,6 +37,11 @@ export function HomeScreen() {
   const { width } = useWindowDimensions();
   const navigation = useNavigation<NavigationProp<SiteStackParamList>>();
   const wideCards = width >= 768;
+  const sidebar = width >= 1024 ? 240 : 0;
+  const contentWidth = Math.min(960, Math.max(0, width - sidebar - 32));
+  const overviewCardWidth = Math.min(contentWidth / 2, 416) - 16;
+  const overviewWide = overviewCardWidth >= 220;
+  const overviewSpread = overviewCardWidth >= 360;
   useDocumentTitle("Jacob Homanics");
 
   const openProject = (link?: string) => {
@@ -111,24 +117,15 @@ export function HomeScreen() {
 
       <View style={styles.overview}>
         {pageCards.map(card => (
-          <Pressable
-            key={card.category}
-            accessibilityRole="link"
-            onPress={() => navigation.navigate("category", { category: card.category })}
-            style={[styles.overviewCard, { backgroundColor: colors.surfaceMuted, borderColor: colors.border }]}
-          >
-            <Text style={[styles.overviewTitle, { color: colors.text }]}>{card.title}</Text>
-            <View style={styles.thumbs}>
-              {card.data.slice(0, wideCards ? 5 : 3).map(project => (
-                <PortfolioImage
-                  key={project.name}
-                  imageKey={project.imgSrc}
-                  contentFit="contain"
-                  style={[styles.thumb, { backgroundColor: colors.surface }]}
-                />
-              ))}
-            </View>
-          </Pressable>
+          <View key={card.category} style={styles.overviewSlot}>
+            <ProjectsOverviewCard
+              title={card.title}
+              data={card.data}
+              wide={overviewWide}
+              spread={overviewSpread}
+              onPress={() => navigation.navigate("category", { category: card.category })}
+            />
+          </View>
         ))}
       </View>
     </Screen>
@@ -222,28 +219,11 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     flexWrap: "wrap",
     justifyContent: "center",
-    gap: 16,
   },
-  overviewCard: {
-    width: 280,
-    borderWidth: 1,
-    borderRadius: 16,
-    padding: 16,
-    gap: 12,
-    alignItems: "center",
-  },
-  overviewTitle: {
-    fontWeight: "800",
-    fontSize: 18,
-  },
-  thumbs: {
-    flexDirection: "row",
-    justifyContent: "center",
-    gap: 8,
-  },
-  thumb: {
-    width: 48,
-    height: 48,
-    borderRadius: 8,
+  overviewSlot: {
+    width: "50%",
+    maxWidth: 416,
+    paddingHorizontal: 8,
+    paddingBottom: 16,
   },
 });
