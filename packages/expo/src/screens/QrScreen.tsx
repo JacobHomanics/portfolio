@@ -5,7 +5,7 @@ import { Overlay } from "@/components/Overlay";
 import { PortfolioImage } from "@/components/PortfolioImage";
 import { profile } from "@/content/profile.config";
 import { useAppTheme } from "@/hooks/useAppTheme";
-import { CARD_URL } from "@/lib/links";
+import { CARD_CONNECT_URL } from "@/lib/links";
 
 export function QrScreen() {
   const { colors } = useAppTheme();
@@ -21,7 +21,7 @@ export function QrScreen() {
         <Text style={{ color: colors.text, fontSize: 24, fontWeight: "800" }}>{profile.name}</Text>
         <Text style={{ color: colors.text }}>{profile.title}</Text>
         <View style={{ backgroundColor: "#ffffff", padding: 12, borderRadius: 16 }}>
-          <QRCode value={CARD_URL} size={220} />
+          <QRCode value={CARD_CONNECT_URL} size={220} />
         </View>
       </View>
     </Overlay>

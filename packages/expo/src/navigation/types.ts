@@ -2,7 +2,7 @@ import type { NavigatorScreenParams } from "@react-navigation/native";
 
 export type SiteStackParamList = {
   home: undefined;
-  card: undefined;
+  card: { connect?: string } | undefined;
   category: { category: string };
   project: { category: string; slug: string };
 };

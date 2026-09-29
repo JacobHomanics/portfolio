@@ -1,9 +1,10 @@
 import { Ionicons } from "@expo/vector-icons";
-import { useIsFocused, useNavigation } from "@react-navigation/native";
-import type { NavigationProp } from "@react-navigation/native";
-import { useCallback, useState } from "react";
+import { useIsFocused, useNavigation, useRoute } from "@react-navigation/native";
+import type { NavigationProp, RouteProp } from "@react-navigation/native";
+import { useCallback, useEffect, useState } from "react";
 import { Platform, Pressable, StyleSheet, Text, View, useWindowDimensions, type ViewStyle } from "react-native";
 
+import { ConnectPrompt } from "@/components/ConnectPrompt";
 import { PortfolioImage } from "@/components/PortfolioImage";
 import { Screen } from "@/components/Screen";
 import { SocialIcons } from "@/components/SocialIcons";
@@ -21,7 +22,10 @@ export function CardScreen() {
   const { colors } = useAppTheme();
   const { width } = useWindowDimensions();
   const navigation = useNavigation<NavigationProp<SiteStackParamList>>();
+  const route = useRoute<RouteProp<SiteStackParamList, "card">>();
   const focused = useIsFocused();
+  const connectRequested = route.params?.connect === "1";
+  const [connectOpen, setConnectOpen] = useState(connectRequested);
   const [shareMessage, setShareMessage] = useState<string | null>(null);
   const [socialsBelow, setSocialsBelow] = useState(false);
   const toggleSocialsBelow = useCallback(() => {
@@ -32,6 +36,15 @@ export function CardScreen() {
   const actionSize = socialSize;
   const actionIconSize = Math.round(socialSize * 0.58);
   useAnswerEngine("card");
+
+  useEffect(() => {
+    if (connectRequested) setConnectOpen(true);
+  }, [connectRequested]);
+
+  const dismissConnect = useCallback(() => {
+    setConnectOpen(false);
+    navigation.setParams({ connect: undefined });
+  }, [navigation]);
 
   const { access: shakeAccess, requestAccess: requestShakeAccess } = useShake(() => {
     navigation.getParent<NavigationProp<RootStackParamList>>()?.navigate("qr");
@@ -70,6 +83,7 @@ export function CardScreen() {
 
   return (
     <Screen footerInset={false}>
+      <ConnectPrompt visible={connectOpen} onDismiss={dismissConnect} />
       <View style={styles.profileRow}>
         <View style={styles.photoWrap}>
           <View style={styles.photoClip}>
