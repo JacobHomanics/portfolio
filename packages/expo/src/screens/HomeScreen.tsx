@@ -18,7 +18,7 @@ import { data as unityToolingData } from "@/content/unity-tooling.config";
 import { data as gamesData } from "@/content/video-games.config";
 import { data as websitesData } from "@/content/websites.config";
 import { useAppTheme } from "@/hooks/useAppTheme";
-import { useDocumentTitle } from "@/hooks/useDocumentTitle";
+import { useAnswerEngine } from "@/hooks/useAnswerEngine";
 import { openResume, parseProjectLink } from "@/lib/links";
 import type { SiteStackParamList } from "@/navigation/types";
 
@@ -42,8 +42,7 @@ export function HomeScreen() {
   const overviewCardWidth = Math.min(contentWidth / 2, 416) - 16;
   const overviewWide = overviewCardWidth >= 220;
   const overviewSpread = overviewCardWidth >= 360;
-  useDocumentTitle("Jacob Homanics");
-
+  useAnswerEngine("home");
   const openProject = (link?: string) => {
     const parsed = parseProjectLink(link);
     if (parsed) navigation.navigate("project", parsed);

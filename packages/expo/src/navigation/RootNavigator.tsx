@@ -7,6 +7,7 @@ import {
 import { useMemo } from "react";
 import { StatusBar } from "expo-status-bar";
 
+import { answerEngine } from "@/content/aeo";
 import { useAppTheme } from "@/hooks/useAppTheme";
 import { rootLinking } from "@/navigation/linking";
 import { RootStack } from "@/navigation/RootStack";
@@ -34,7 +35,18 @@ export function RootNavigator() {
   }, [colors, isDark]);
 
   return (
-    <NavigationContainer ref={navigationRef} linking={rootLinking} theme={navigationTheme}>
+    <NavigationContainer
+      ref={navigationRef}
+      linking={rootLinking}
+      theme={navigationTheme}
+      documentTitle={{
+        formatter: (options, route) => {
+          if (route?.name === "home") return answerEngine.home.title;
+          if (route?.name === "card") return answerEngine.card.title;
+          return options?.title ?? route?.name ?? "Jacob Homanics";
+        },
+      }}
+    >
       <RootStack />
       <StatusBar style={colors.statusBarStyle} />
     </NavigationContainer>

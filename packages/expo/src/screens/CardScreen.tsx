@@ -9,7 +9,7 @@ import { Screen } from "@/components/Screen";
 import { SocialIcons } from "@/components/SocialIcons";
 import { cardHighlightProjects, profile } from "@/content/profile.config";
 import { useAppTheme } from "@/hooks/useAppTheme";
-import { useDocumentTitle } from "@/hooks/useDocumentTitle";
+import { useAnswerEngine } from "@/hooks/useAnswerEngine";
 import { useShake } from "@/hooks/useShake";
 import { openResume, parseProjectLink } from "@/lib/links";
 import { shareCard } from "@/lib/share";
@@ -31,7 +31,7 @@ export function CardScreen() {
   const socialSize = wide ? 56 : 40;
   const actionSize = socialSize;
   const actionIconSize = Math.round(socialSize * 0.58);
-  useDocumentTitle(profile.name);
+  useAnswerEngine("card");
 
   const { access: shakeAccess, requestAccess: requestShakeAccess } = useShake(() => {
     navigation.getParent<NavigationProp<RootStackParamList>>()?.navigate("qr");
