@@ -52,10 +52,17 @@ export function useAnswerEngine(page: AnswerEnginePage) {
     document.title = content.title;
     const nodes = [
       upsertMeta("name", "description", content.description),
+      upsertMeta("name", "author", "Jacob Homanics"),
+      upsertMeta("name", "robots", "index, follow, max-image-preview:large, max-snippet:-1"),
+      upsertMeta("property", "og:site_name", "Jacob Homanics"),
+      upsertMeta("property", "og:locale", "en_US"),
       upsertMeta("property", "og:title", content.title),
       upsertMeta("property", "og:description", content.description),
       upsertMeta("property", "og:url", content.url),
       upsertMeta("property", "og:type", content.openGraphType),
+      upsertMeta("name", "twitter:card", "summary"),
+      upsertMeta("name", "twitter:title", content.title),
+      upsertMeta("name", "twitter:description", content.description),
       upsertCanonical(content.url),
       upsertJsonLd(answerEngineJsonLd(page)),
     ];
