@@ -9,7 +9,8 @@ import { data as websitesData } from "./websites.config";
 export const profile = {
   name: "Jacob Homanics",
   title: "Software Engineer & Founder",
-  description: "Skilled in 0→1 product building. Adept in web, native, games, VR/AR, tooling, and blockchains.",
+  description:
+    "I take products from zero to one for early-stage startups — consulting, contracting, and freelance. Adept in web, native, video games, VR/AR, developer tooling, and smart contracts. I use AI to build personalized, secure, and impactful products with real taste.",
   photo: "jake.webp",
 };
 

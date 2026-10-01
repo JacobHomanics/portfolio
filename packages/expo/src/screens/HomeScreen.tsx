@@ -1,7 +1,6 @@
 import { Ionicons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
 import type { NavigationProp } from "@react-navigation/native";
-import { useState } from "react";
 import { Pressable, StyleSheet, Text, useWindowDimensions, View } from "react-native";
 
 import { PortfolioImage } from "@/components/PortfolioImage";
@@ -50,36 +49,34 @@ export function HomeScreen() {
 
   return (
     <Screen>
-      <View style={styles.profileRow}>
-        <View style={styles.photoWrap}>
-          <View style={styles.photoClip}>
-            <PortfolioImage
-              imageKey={profile.photo}
-              accessibilityLabel={profile.name}
-              contentFit="cover"
-              style={styles.photo}
-            />
+      <View style={styles.intro}>
+        <View style={styles.profileRow}>
+          <View style={styles.photoWrap}>
+            <View style={styles.photoClip}>
+              <PortfolioImage
+                imageKey={profile.photo}
+                accessibilityLabel={profile.name}
+                contentFit="cover"
+                style={styles.photo}
+              />
+            </View>
+            <Pressable
+              accessibilityLabel="Resume"
+              onPress={() => void openResume()}
+              style={[styles.resume, { backgroundColor: colors.brand }]}
+            >
+              <Text style={{ color: colors.onBrand, fontWeight: "700" }}>Resume</Text>
+              <Ionicons name="document-text-outline" size={18} color={colors.onBrand} />
+            </Pressable>
           </View>
-          <Pressable
-            accessibilityLabel="Resume"
-            onPress={() => void openResume()}
-            style={[styles.resume, { backgroundColor: colors.brand }]}
-          >
-            <Text style={{ color: colors.onBrand, fontWeight: "700" }}>Resume</Text>
-            <Ionicons name="document-text-outline" size={18} color={colors.onBrand} />
-          </Pressable>
-        </View>
-        <View style={styles.identity}>
-          <View style={styles.heading}>
-            <Text style={[styles.name, { color: colors.text }]}>{profile.name}</Text>
-            <Text style={{ color: colors.text, fontSize: width >= 1024 ? 20 : 14 }}>{profile.title}</Text>
+          <View style={styles.identity}>
+            <View style={styles.heading}>
+              <Text style={[styles.name, { color: colors.text }]}>{profile.name}</Text>
+              <Text style={{ color: colors.text, fontSize: width >= 1024 ? 20 : 14 }}>{profile.title}</Text>
+            </View>
           </View>
-          {wideCards ? (
-            <ExpandableDescription text={profile.description} color={colors.text} />
-          ) : (
-            <Text style={{ color: colors.text }}>{profile.description}</Text>
-          )}
         </View>
+        <Text style={[styles.bio, { color: colors.text }]}>{profile.description}</Text>
       </View>
 
       {wideCards ? (
@@ -131,20 +128,15 @@ export function HomeScreen() {
   );
 }
 
-function ExpandableDescription({ text, color }: { text: string; color: string }) {
-  const [expanded, setExpanded] = useState(false);
-
-  return (
-    <Text style={{ color, textAlign: "center" }}>
-      <Text numberOfLines={expanded ? undefined : 2}>{text} </Text>
-      <Text accessibilityRole="button" onPress={() => setExpanded(current => !current)} style={{ textDecorationLine: "underline" }}>
-        {expanded ? "Show less" : "Show more"}
-      </Text>
-    </Text>
-  );
-}
-
 const styles = StyleSheet.create({
+  intro: {
+    width: "100%",
+    gap: 12,
+  },
+  bio: {
+    fontSize: 16,
+    lineHeight: 24,
+  },
   profileRow: {
     width: "100%",
     flexDirection: "row",

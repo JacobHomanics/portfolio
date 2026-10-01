@@ -84,32 +84,34 @@ export function CardScreen() {
   return (
     <Screen footerInset={false}>
       <ConnectPrompt visible={connectOpen} onDismiss={dismissConnect} />
-      <View style={styles.profileRow}>
-        <View style={styles.photoWrap}>
-          <View style={styles.photoClip}>
-            <PortfolioImage
-              imageKey={profile.photo}
-              accessibilityLabel={profile.name}
-              contentFit="cover"
-              style={styles.photo}
-            />
+      <View style={styles.intro}>
+        <View style={styles.profileRow}>
+          <View style={styles.photoWrap}>
+            <View style={styles.photoClip}>
+              <PortfolioImage
+                imageKey={profile.photo}
+                accessibilityLabel={profile.name}
+                contentFit="cover"
+                style={styles.photo}
+              />
+            </View>
+            <Pressable
+              accessibilityLabel="Resume"
+              onPress={() => void openResume()}
+              style={[styles.resume, { backgroundColor: colors.brand }]}
+            >
+              <Text style={{ color: colors.onBrand, fontWeight: "700" }}>Resume</Text>
+              <Ionicons name="document-text-outline" size={18} color={colors.onBrand} />
+            </Pressable>
           </View>
-          <Pressable
-            accessibilityLabel="Resume"
-            onPress={() => void openResume()}
-            style={[styles.resume, { backgroundColor: colors.brand }]}
-          >
-            <Text style={{ color: colors.onBrand, fontWeight: "700" }}>Resume</Text>
-            <Ionicons name="document-text-outline" size={18} color={colors.onBrand} />
-          </Pressable>
-        </View>
-        <View style={styles.identity}>
-          <View style={styles.heading}>
-            <Text style={[styles.name, { color: colors.text }]}>{profile.name}</Text>
-            <Text style={{ color: colors.text, fontSize: wide ? 20 : 14 }}>{profile.title}</Text>
+          <View style={styles.identity}>
+            <View style={styles.heading}>
+              <Text style={[styles.name, { color: colors.text }]}>{profile.name}</Text>
+              <Text style={{ color: colors.text, fontSize: wide ? 20 : 14 }}>{profile.title}</Text>
+            </View>
           </View>
-          <Text style={{ color: colors.text, textAlign: wide ? "center" : "left" }}>{profile.description}</Text>
         </View>
+        <Text style={[styles.bio, { color: colors.text }]}>{profile.description}</Text>
       </View>
 
       {socialsBelow ? null : socials}
@@ -150,6 +152,14 @@ export function CardScreen() {
 }
 
 const styles = StyleSheet.create({
+  intro: {
+    width: "100%",
+    gap: 12,
+  },
+  bio: {
+    fontSize: 16,
+    lineHeight: 24,
+  },
   profileRow: {
     width: "100%",
     flexDirection: "row",

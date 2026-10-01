@@ -77,7 +77,7 @@ const history =
   "Jacob Homanics’s recent roles are Chief Technology Officer at Disgo (remote, July 2025–present); Supporting Engineer at CarStarz (remote, January 2026–April 2026); full-stack developer at Gems (remote, June 2025–May 2026); full-stack developer at Eden Fractal (remote, March 2025–October 2025); full-stack developer at Agora (remote, December 2024–February 2025); and full-stack developer at ATX DAO in Austin, Texas (January 2023–July 2024). He earned an Associates in Information Science from Pittsburgh Technical College in Robinson, Pennsylvania (2015–2017).";
 
 const stack =
-  "Jacob Homanics builds with TypeScript, JavaScript, Node.js, React, Next.js, HTML, CSS, Expo, and React Native; Convex, MongoDB, Prisma, and PostgreSQL; Viem, Wagmi, and Ethers; Solidity, Foundry, and Hardhat; and Unity with C#. He also uses ChatGPT, Claude, Grok, and Cursor, including prompt engineering. His own site describes him as adept in web, native, games, VR/AR, tooling, and blockchains, and skilled at taking products from zero to one.";
+  "Jacob Homanics builds with TypeScript, JavaScript, Node.js, React, Next.js, HTML, CSS, Expo, and React Native; Convex, MongoDB, Prisma, and PostgreSQL; Viem, Wagmi, and Ethers; Solidity, Foundry, and Hardhat; and Unity with C#. He uses ChatGPT, Claude, Grok, and Cursor to build personalized products with real taste. He takes products from zero to one across web, native, video games, VR/AR, developer tooling, and smart contracts, and he builds them to be secure and impactful.";
 
 const contact =
   `Email Jacob Homanics at ${EMAIL}, call or text ${PHONE_DISPLAY}, or message him on Telegram at https://t.me/jacobhomanics. His card at ${CARD_URL} also links LinkedIn, X, WhatsApp, and GitHub. His resume is ${RESUME_URL} and his portfolio is ${SITE_URL}.`;
@@ -86,10 +86,10 @@ const hire =
   `To hire Jacob Homanics, email ${EMAIL} or use ${CARD_URL}. Say whether you want freelance, contract, or full-time, and include the product, the stack, the timeline, and whether the work is remote. His resume is ${RESUME_URL}.`;
 
 const homeSummary =
-  `Jacob Homanics is a software engineer and founder who takes freelance projects, contract engagements, and full-time roles. He works remotely and ships web, native, game, VR/AR, tooling, and blockchain products from zero to one. Current role: Chief Technology Officer at Disgo. Hire him at ${EMAIL} or ${CARD_URL}.`;
+  `Jacob Homanics is a software engineer and founder who takes products from zero to one. He works with early-stage startups through consulting, contracting, and freelance, and he is open to full-time roles. He is adept in web, native, video games, VR/AR, developer tooling, and smart contracts. He uses AI to build personalized, secure, and impactful products with real taste. He works remotely. Current role: Chief Technology Officer at Disgo. Hire him at ${EMAIL} or ${CARD_URL}.`;
 
 const cardSummary =
-  `This is the contact card for Jacob Homanics, a software engineer and founder available for freelance, contract, and full-time work. He works remotely. Email ${EMAIL}, call or text ${PHONE_DISPLAY}, or use the links on this page. Resume: ${RESUME_URL}. Portfolio: ${SITE_URL}.`;
+  `This is the contact card for Jacob Homanics, a software engineer and founder who takes products from zero to one. He works with early-stage startups through consulting, contracting, freelance, and full-time roles, across web, native, video games, VR/AR, developer tooling, and smart contracts. He uses AI to build personalized, secure, and impactful products with real taste. Email ${EMAIL}, call or text ${PHONE_DISPLAY}, or use the links on this page. Resume: ${RESUME_URL}. Portfolio: ${SITE_URL}.`;
 
 const homeAnswers: HiringAnswer[] = [
   {
@@ -99,7 +99,7 @@ const homeAnswers: HiringAnswer[] = [
   {
     question: "Is Jacob Homanics available for freelance, contract, and full-time work?",
     answer:
-      "Yes. Jacob Homanics is available for freelance projects, contract engagements, and full-time software engineering roles. He is a remote software engineer and founder, and he is currently Chief Technology Officer at Disgo.",
+      "Yes. Jacob Homanics works with early-stage startups through consulting, contracting, and freelance, and he is open to full-time software engineering roles. He is a remote software engineer and founder who takes products from zero to one, and he is currently Chief Technology Officer at Disgo.",
   },
   {
     question: "What does freelance work with Jacob Homanics look like?",
@@ -165,9 +165,9 @@ const cardAnswers: HiringAnswer[] = [
 
 export const answerEngine = {
   home: {
-    title: "Jacob Homanics | Freelance, Contract, and Full-time Software Engineer",
+    title: "Jacob Homanics | Software Engineer & Founder",
     description:
-      "Jacob Homanics is a remote software engineer and founder available for freelance, contract, and full-time work across web, mobile, games, and blockchains.",
+      "Jacob Homanics is a software engineer and founder who takes products from zero to one. He builds secure, impactful products across web, native, video games, VR/AR, developer tooling, and smart contracts for early-stage startups, consulting, contracting, and freelance.",
     url: `${SITE_URL}/`,
     openGraphType: "profile",
     pageType: "ProfilePage",
@@ -175,9 +175,9 @@ export const answerEngine = {
     answers: homeAnswers,
   },
   card: {
-    title: "Hire Jacob Homanics | Freelance, Contract, and Full-time",
+    title: "Hire Jacob Homanics | Software Engineer & Founder",
     description:
-      "Hire Jacob Homanics for freelance, contract, or full-time software engineering. Email homanicsjake@gmail.com or use his card for phone, socials, and a resume.",
+      "Hire Jacob Homanics, a software engineer and founder who takes products from zero to one. Consulting, contracting, freelance, and full-time across web, native, video games, VR/AR, developer tooling, and smart contracts. Email homanicsjake@gmail.com.",
     url: CARD_URL,
     openGraphType: "profile",
     pageType: "ContactPage",
@@ -197,7 +197,21 @@ function personNode() {
     email: `mailto:${EMAIL}`,
     telephone: PHONE_E164,
     sameAs: PROFILE_URLS,
-    knowsAbout: [...skills, "freelance software engineering", "contract software engineering", "VR", "AR", "blockchains"],
+    knowsAbout: [
+      ...skills,
+      "zero-to-one product development",
+      "early-stage startups",
+      "software consulting",
+      "freelance software engineering",
+      "contract software engineering",
+      "developer tooling",
+      "smart contracts",
+      "VR",
+      "AR",
+      "blockchains",
+      "product security",
+      "AI-assisted product development",
+    ],
     knowsLanguage: "en",
     alumniOf: {
       "@type": "EducationalOrganization",
@@ -222,7 +236,8 @@ function personNode() {
     hasOccupation: {
       "@type": "Occupation",
       name: "Software Engineer",
-      description: "Remote freelance, contract, and full-time software engineering.",
+      description:
+        "Takes products from zero to one for early-stage startups through consulting, contracting, freelance, and full-time software engineering. Builds secure, impactful products across web, native, video games, VR/AR, developer tooling, and smart contracts.",
       skills: skills.join(", "),
     },
     hasOfferCatalog: {
