@@ -1,6 +1,8 @@
+import { LINKEDIN_PROFILE_URL } from "@/lib/links";
+
 export const socialLinks = [
   {
-    url: "https://linkedin.com/in/jacobhomanics",
+    url: LINKEDIN_PROFILE_URL,
     icon: "logo-linkedin",
     label: "LinkedIn",
     color: "#0A66C2",

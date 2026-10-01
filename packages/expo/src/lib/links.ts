@@ -5,6 +5,7 @@ import type { SiteStackParamList } from "@/navigation/types";
 
 export const CARD_URL = "https://jacobhomanics.com/card";
 export const CARD_CONNECT_URL = `${CARD_URL}?connect=1`;
+export const LINKEDIN_PROFILE_URL = "https://www.linkedin.com/in/jacobhomanics";
 export const RESUME_PATH = "/Jacob_Homanics_Resume.pdf";
 
 export function parseProjectLink(link?: string): { category: string; slug: string } | null {
