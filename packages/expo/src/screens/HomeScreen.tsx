@@ -60,6 +60,12 @@ export function HomeScreen() {
                 style={styles.photo}
               />
             </View>
+          </View>
+          <View style={styles.identity}>
+            <View style={styles.heading}>
+              <Text style={[styles.name, { color: colors.text }]}>{profile.name}</Text>
+              <Text style={{ color: colors.text, fontSize: width >= 1024 ? 20 : 14 }}>{profile.title}</Text>
+            </View>
             <Pressable
               accessibilityLabel="Resume"
               onPress={() => void openResume()}
@@ -68,12 +74,6 @@ export function HomeScreen() {
               <Text style={{ color: colors.onBrand, fontWeight: "700" }}>Resume</Text>
               <Ionicons name="document-text-outline" size={18} color={colors.onBrand} />
             </Pressable>
-          </View>
-          <View style={styles.identity}>
-            <View style={styles.heading}>
-              <Text style={[styles.name, { color: colors.text }]}>{profile.name}</Text>
-              <Text style={{ color: colors.text, fontSize: width >= 1024 ? 20 : 14 }}>{profile.title}</Text>
-            </View>
           </View>
         </View>
         <Text style={[styles.bio, { color: colors.text }]}>{profile.description}</Text>
@@ -146,7 +146,6 @@ const styles = StyleSheet.create({
   photoWrap: {
     width: 104,
     height: 104,
-    justifyContent: "flex-end",
   },
   photoClip: {
     ...StyleSheet.absoluteFill,
@@ -158,12 +157,13 @@ const styles = StyleSheet.create({
     height: "100%",
   },
   resume: {
-    zIndex: 1,
+    alignSelf: "flex-start",
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "center",
     gap: 4,
     paddingVertical: 6,
+    paddingHorizontal: 10,
     borderRadius: 8,
   },
   identity: {
