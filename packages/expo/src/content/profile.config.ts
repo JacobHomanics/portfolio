@@ -10,7 +10,7 @@ export const profile = {
   name: "Jacob Homanics",
   title: "Software Engineer & Founder",
   description:
-    "I take products from zero to one for early-stage startups — consulting, contracting, and freelance. Adept in web, native, video games, VR/AR, developer tooling, and smart contracts. I use AI to build personalized, secure, and impactful products with real taste.",
+    "I take products from zero to one for early-stage startups - consulting, contracting, and freelance. Adept in web, native, video games, VR/AR, developer tooling, and smart contracts. I use AI to build personalized, secure, and impactful products with real taste.",
   photo: "jake.webp",
 };
 
