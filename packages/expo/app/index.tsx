@@ -2,6 +2,7 @@ import { Link } from "expo-router";
 import { Image, ScrollView, StyleSheet, Text, useWindowDimensions, View } from "react-native";
 
 import { profile } from "../src/content/profile";
+import { colors } from "../src/theme/colors";
 
 const DESKTOP_BREAKPOINT = 900;
 
@@ -44,7 +45,7 @@ export default function HomePage() {
 const styles = StyleSheet.create({
   container: {
     flexGrow: 1,
-    backgroundColor: "#fff",
+    backgroundColor: colors.background,
     alignItems: "center",
     justifyContent: "center",
     paddingHorizontal: 24,
@@ -72,6 +73,8 @@ const styles = StyleSheet.create({
     height: 384,
     borderRadius: 16,
     marginBottom: 24,
+    borderWidth: 1,
+    borderColor: colors.border,
   },
   photoDesktop: {
     marginBottom: 0,
@@ -80,13 +83,14 @@ const styles = StyleSheet.create({
     fontSize: 32,
     fontWeight: "600",
     textAlign: "center",
+    color: colors.heading,
   },
   title: {
     marginTop: 10,
     maxWidth: 560,
     fontSize: 16,
     lineHeight: 24,
-    color: "#444",
+    color: colors.textMuted,
     textAlign: "center",
   },
   about: {
@@ -94,7 +98,7 @@ const styles = StyleSheet.create({
     maxWidth: 640,
     fontSize: 16,
     lineHeight: 26,
-    color: "#222",
+    color: colors.text,
     textAlign: "center",
   },
   textLeft: {
@@ -103,6 +107,6 @@ const styles = StyleSheet.create({
   link: {
     marginTop: 16,
     fontSize: 18,
-    color: "#0b57d0",
+    color: colors.link,
   },
 });

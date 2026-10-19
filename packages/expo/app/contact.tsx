@@ -3,6 +3,7 @@ import { Link } from "expo-router";
 import { ScrollView, StyleSheet, Text } from "react-native";
 
 import { contactLinks } from "../src/content/contactLinks";
+import { colors } from "../src/theme/colors";
 
 export default function ContactPage() {
   return (
@@ -30,7 +31,7 @@ export default function ContactPage() {
 const styles = StyleSheet.create({
   container: {
     flexGrow: 1,
-    backgroundColor: "#fff",
+    backgroundColor: colors.background,
     alignItems: "center",
     justifyContent: "center",
     paddingHorizontal: 24,
@@ -41,6 +42,7 @@ const styles = StyleSheet.create({
     fontWeight: "600",
     textAlign: "center",
     marginBottom: 8,
+    color: colors.heading,
   },
   link: {
     marginTop: 16,
@@ -50,6 +52,6 @@ const styles = StyleSheet.create({
   label: {
     marginLeft: 10,
     fontSize: 18,
-    color: "#0b57d0",
+    color: colors.link,
   },
 });

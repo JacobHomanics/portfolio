@@ -5,6 +5,7 @@ import QRCode from "react-native-qrcode-svg";
 
 import { contactLinks } from "../src/content/contactLinks";
 import { profile } from "../src/content/profile";
+import { colors } from "../src/theme/colors";
 
 const contactPageUrl =
   Platform.OS === "web" && typeof window !== "undefined"
@@ -29,7 +30,7 @@ export default function ContactCardPage() {
             accessibilityLabel={`QR code for ${qrValue}`}
             style={styles.code}
           >
-            <QRCode key={qrValue} value={qrValue} size={200} backgroundColor="#ffffff" />
+            <QRCode key={qrValue} value={qrValue} size={200} backgroundColor={colors.surface} color={colors.heading} />
           </View>
         </View>
         <View accessibilityRole="tablist" style={styles.list}>
@@ -60,11 +61,11 @@ const pressable: ViewStyle | null = Platform.OS === "web" ? ({ cursor: "pointer"
 const styles = StyleSheet.create({
   scroll: {
     flex: 1,
-    backgroundColor: "#fff",
+    backgroundColor: colors.background,
   },
   container: {
     flexGrow: 1,
-    backgroundColor: "#fff",
+    backgroundColor: colors.background,
     alignItems: "center",
     justifyContent: "center",
     paddingHorizontal: 24,
@@ -81,17 +82,20 @@ const styles = StyleSheet.create({
     height: 168,
     borderRadius: 12,
     marginBottom: 12,
+    borderWidth: 1,
+    borderColor: colors.border,
   },
   name: {
     fontSize: 24,
     fontWeight: "600",
     textAlign: "center",
+    color: colors.heading,
   },
   headline: {
     marginTop: 6,
     fontSize: 14,
     lineHeight: 20,
-    color: "#444",
+    color: colors.textMuted,
     textAlign: "center",
   },
   body: {
@@ -116,16 +120,16 @@ const styles = StyleSheet.create({
     borderRadius: 10,
   },
   linkActive: {
-    backgroundColor: "#f2f2f2",
+    backgroundColor: colors.surfaceMuted,
   },
   qrColumn: {
     alignItems: "center",
   },
   code: {
-    backgroundColor: "#ffffff",
+    backgroundColor: colors.surface,
     padding: 12,
     borderRadius: 16,
     borderWidth: 1,
-    borderColor: "#e6e6e6",
+    borderColor: colors.border,
   },
 });
