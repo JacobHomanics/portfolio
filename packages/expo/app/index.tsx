@@ -1,4 +1,3 @@
-import { Link } from "expo-router";
 import { Image, ScrollView, StyleSheet, Text, useWindowDimensions, View } from "react-native";
 
 import { profile } from "../src/content/profile";
@@ -32,9 +31,6 @@ export default function HomePage() {
             contributed to a platform that rewarded 250+ open-source developers. Looking for product development?
             Let's connect!
           </Text>
-          <Link href="/contact" style={styles.link}>
-            Contact
-          </Link>
         </View>
         {isDesktop ? photo : null}
       </View>
@@ -103,10 +99,5 @@ const styles = StyleSheet.create({
   },
   textLeft: {
     textAlign: "left",
-  },
-  link: {
-    marginTop: 16,
-    fontSize: 18,
-    color: colors.link,
   },
 });
