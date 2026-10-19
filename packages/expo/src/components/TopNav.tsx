@@ -1,3 +1,4 @@
+import { Ionicons } from "@expo/vector-icons";
 import { Link, usePathname } from "expo-router";
 import { Platform, StyleSheet, Text, View, type ViewStyle } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
@@ -8,6 +9,7 @@ import { colors } from "../theme/colors";
 export function TopNav() {
   const pathname = usePathname();
   const insets = useSafeAreaInsets();
+  const onContactCard = pathname === "/contact-card";
   const onContact = pathname === "/contact";
 
   return (
@@ -16,13 +18,20 @@ export function TopNav() {
         <Link href="/" style={[styles.brand, pointer]}>
           <Text style={styles.brandText}>{profile.name}</Text>
         </Link>
-        <Link
-          href="/contact"
-          accessibilityState={{ selected: onContact }}
-          style={[styles.contact, onContact && styles.contactActive, pointer]}
-        >
-          <Text style={[styles.contactText, onContact && styles.contactTextActive]}>Contact</Text>
-        </Link>
+        <View style={styles.actions}>
+          <Link
+            href="/contact"
+            accessibilityState={{ selected: onContact }}
+            style={[styles.contact, onContact && styles.contactActive, pointer]}
+          >
+            <Text style={[styles.contactText, onContact && styles.contactTextActive]}>Contact</Text>
+          </Link>
+          {onContactCard ? (
+            <Link href="/" accessibilityLabel="Home" style={[styles.home, pointer]}>
+              <Ionicons name="home" size={18} color={colors.heading} />
+            </Link>
+          ) : null}
+        </View>
       </View>
     </View>
   );
@@ -43,6 +52,20 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     paddingHorizontal: 24,
     gap: 16,
+  },
+  actions: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 8,
+  },
+  home: {
+    width: 36,
+    height: 36,
+    borderRadius: 999,
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: colors.surfaceMuted,
+    ...(Platform.OS === "web" ? { display: "flex" as const } : null),
   },
   brand: {
     flexShrink: 1,
