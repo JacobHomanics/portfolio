@@ -1,11 +1,9 @@
-import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View } from "react-native";
 
-export default function App() {
+export default function ContactPage() {
   return (
     <View style={styles.container}>
-      <Text style={styles.message}>Hello This is my World!</Text>
-      <StatusBar style="auto" />
+      <Text style={styles.message}>This is my contact page.</Text>
     </View>
   );
 }
