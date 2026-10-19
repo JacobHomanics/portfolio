@@ -1,32 +1,26 @@
-import { BottomSheetModalProvider } from "@gorhom/bottom-sheet";
-import { GestureHandlerRootView } from "react-native-gesture-handler";
-import { SafeAreaProvider } from "react-native-safe-area-context";
-
-import { useAppTheme } from "@/hooks/useAppTheme";
-import { useWebViewportHeightFix } from "@/hooks/useWebViewportHeightFix";
-import { RootNavigator } from "@/navigation/RootNavigator";
-import { ColorSchemeProvider } from "@/providers/ColorSchemeProvider";
+import { StatusBar } from "expo-status-bar";
+import { StyleSheet, Text, View } from "react-native";
 
 export default function App() {
-  useWebViewportHeightFix();
-
   return (
-    <ColorSchemeProvider>
-      <AppContent />
-    </ColorSchemeProvider>
+    <View style={styles.container}>
+      <Text style={styles.message}>Hello This is my World!</Text>
+      <StatusBar style="auto" />
+    </View>
   );
 }
 
-function AppContent() {
-  const { colors } = useAppTheme();
-
-  return (
-    <GestureHandlerRootView style={{ flex: 1, backgroundColor: colors.background }}>
-      <SafeAreaProvider>
-        <BottomSheetModalProvider>
-          <RootNavigator />
-        </BottomSheetModalProvider>
-      </SafeAreaProvider>
-    </GestureHandlerRootView>
-  );
-}
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: "#fff",
+    alignItems: "center",
+    justifyContent: "center",
+    paddingHorizontal: 24,
+  },
+  message: {
+    fontSize: 32,
+    fontWeight: "600",
+    textAlign: "center",
+  },
+});
