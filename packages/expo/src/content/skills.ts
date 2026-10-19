@@ -52,6 +52,7 @@ export const skillSections: { title: string; badges: Badge[] }[] = [
     title: "Backend",
     badges: [
       { label: "Convex", highlighted: true, icon: "convex" },
+      { label: "Supabase", highlighted: true, icon: "supabase" },
       { label: "Prisma", highlighted: true, icon: "prisma" },
     ],
   },
@@ -59,8 +60,16 @@ export const skillSections: { title: string; badges: Badge[] }[] = [
     title: "Databases",
     badges: [
       { label: "Convex", highlighted: true, icon: "convex" },
+      { label: "Supabase", highlighted: true, icon: "supabase" },
       { label: "MongoDB", highlighted: true, icon: "mongodb" },
       { label: "PostgreSQL", highlighted: true, icon: "postgresql" },
+    ],
+  },
+  {
+    title: "Hosting",
+    badges: [
+      { label: "Vercel", highlighted: true, icon: "vercel" },
+      { label: "Cloudflare", highlighted: true, icon: "cloudflare" },
     ],
   },
   {
