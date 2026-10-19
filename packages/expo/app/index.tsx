@@ -1,29 +1,104 @@
 import { Link } from "expo-router";
-import { StyleSheet, Text, View } from "react-native";
+import { Image, ScrollView, StyleSheet, Text, useWindowDimensions, View } from "react-native";
+
+import { profile } from "../src/content/profile";
+
+const DESKTOP_BREAKPOINT = 900;
 
 export default function HomePage() {
+  const { width } = useWindowDimensions();
+  const isDesktop = width >= DESKTOP_BREAKPOINT;
+
+  const photo = (
+    <Image
+      source={profile.photo}
+      style={[styles.photo, isDesktop && styles.photoDesktop]}
+      accessibilityLabel={profile.name}
+    />
+  );
+
   return (
-    <View style={styles.container}>
-      <Text style={styles.message}>Hello This is my World!</Text>
-      <Link href="/contact" style={styles.link}>
-        Contact
-      </Link>
-    </View>
+    <ScrollView contentContainerStyle={styles.container}>
+      <View style={[styles.hero, isDesktop && styles.heroDesktop]}>
+        {isDesktop ? null : photo}
+        <View style={[styles.copy, isDesktop && styles.copyDesktop]}>
+          <Text style={[styles.message, isDesktop && styles.textLeft]}>{profile.name}</Text>
+          <Text style={[styles.title, isDesktop && styles.textLeft]}>{profile.headline}</Text>
+          <Text style={[styles.about, isDesktop && styles.textLeft]}>
+            Software Engineer with 10+ years of experience maintaining an app serving 800+ users and 5 design
+            partners, launching products generating $300k+ in revenue, building an open-source framework funded
+            by a $60k grant, creating interactive experiences showcased at pharmaceutical conferences, and
+            contributed to a platform that rewarded 250+ open-source developers. Looking for product development?
+            Let's connect!
+          </Text>
+          <Link href="/contact" style={styles.link}>
+            Contact
+          </Link>
+        </View>
+        {isDesktop ? photo : null}
+      </View>
+    </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    flexGrow: 1,
     backgroundColor: "#fff",
     alignItems: "center",
     justifyContent: "center",
     paddingHorizontal: 24,
+    paddingVertical: 32,
+  },
+  hero: {
+    width: "100%",
+    maxWidth: 960,
+    alignItems: "center",
+  },
+  heroDesktop: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 48,
+  },
+  copy: {
+    alignItems: "center",
+  },
+  copyDesktop: {
+    flex: 1,
+    alignItems: "flex-start",
+  },
+  photo: {
+    width: 320,
+    height: 384,
+    borderRadius: 16,
+    marginBottom: 24,
+  },
+  photoDesktop: {
+    marginBottom: 0,
   },
   message: {
     fontSize: 32,
     fontWeight: "600",
     textAlign: "center",
+  },
+  title: {
+    marginTop: 10,
+    maxWidth: 560,
+    fontSize: 16,
+    lineHeight: 24,
+    color: "#444",
+    textAlign: "center",
+  },
+  about: {
+    marginTop: 20,
+    maxWidth: 640,
+    fontSize: 16,
+    lineHeight: 26,
+    color: "#222",
+    textAlign: "center",
+  },
+  textLeft: {
+    textAlign: "left",
   },
   link: {
     marginTop: 16,
