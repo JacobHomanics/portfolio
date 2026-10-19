@@ -2,6 +2,7 @@ import { Stack } from "expo-router";
 import { StatusBar } from "expo-status-bar";
 import { StyleSheet, View } from "react-native";
 
+import { BottomBanner } from "../src/components/BottomBanner";
 import { TopNav } from "../src/components/TopNav";
 import { colors } from "../src/theme/colors";
 
@@ -18,6 +19,7 @@ export default function RootLayout() {
           }}
         />
       </View>
+      <BottomBanner />
     </View>
   );
 }

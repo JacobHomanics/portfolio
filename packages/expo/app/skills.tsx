@@ -1,5 +1,6 @@
 import { ScrollView, StyleSheet, Text, View } from "react-native";
 
+import { BrandIcon } from "../src/components/BrandIcon";
 import { skillSections } from "../src/content/skills";
 import { colors } from "../src/theme/colors";
 
@@ -13,6 +14,11 @@ export default function SkillsPage() {
             <View style={styles.badges}>
               {section.badges.map((badge) => (
                 <View key={badge.label} style={[styles.badge, badge.highlighted && styles.badgeHighlighted]}>
+                  {badge.icon ? (
+                    <View style={styles.badgeIcon}>
+                      <BrandIcon name={badge.icon} size={14} />
+                    </View>
+                  ) : null}
                   <Text style={[styles.badgeText, badge.highlighted && styles.badgeTextHighlighted]}>
                     {badge.label}
                   </Text>
@@ -52,12 +58,27 @@ const styles = StyleSheet.create({
     gap: 10,
   },
   badge: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 8,
     paddingHorizontal: 14,
     paddingVertical: 8,
     borderRadius: 999,
     borderWidth: 1,
     borderColor: colors.border,
     backgroundColor: colors.surface,
+  },
+  // A white disc keeps black and colored marks readable on the navy highlight.
+  badgeIcon: {
+    width: 22,
+    height: 22,
+    marginLeft: -6,
+    borderRadius: 999,
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: "#FFFFFF",
+    borderWidth: StyleSheet.hairlineWidth,
+    borderColor: colors.border,
   },
   badgeHighlighted: {
     borderColor: colors.link,
