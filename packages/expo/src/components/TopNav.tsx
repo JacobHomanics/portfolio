@@ -1,10 +1,11 @@
 import { Ionicons } from "@expo/vector-icons";
 import { Link, usePathname } from "expo-router";
-import { Platform, StyleSheet, Text, View, type ViewStyle } from "react-native";
+import { Platform, Pressable, StyleSheet, Text, View, type ViewStyle } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 import { profile } from "../content/profile";
 import { colors } from "../theme/colors";
+import { Logo } from "./Logo";
 
 export function TopNav() {
   const pathname = usePathname();
@@ -15,8 +16,13 @@ export function TopNav() {
   return (
     <View accessibilityLabel="Primary" role="navigation" style={[styles.bar, { paddingTop: insets.top }]}>
       <View style={styles.row}>
-        <Link href="/" style={[styles.brand, pointer]}>
-          <Text style={styles.brandText}>{profile.name}</Text>
+        <Link href="/" asChild>
+          <Pressable style={StyleSheet.flatten([styles.brand, pointer])}>
+            <Logo size={28} />
+            <Text numberOfLines={1} style={styles.brandText}>
+              {profile.name}
+            </Text>
+          </Pressable>
         </Link>
         <View style={styles.actions}>
           <Link
@@ -68,9 +74,14 @@ const styles = StyleSheet.create({
     ...(Platform.OS === "web" ? { display: "flex" as const } : null),
   },
   brand: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 10,
     flexShrink: 1,
+    minWidth: 0,
   },
   brandText: {
+    flexShrink: 1,
     fontSize: 17,
     fontWeight: "600",
     color: colors.heading,
