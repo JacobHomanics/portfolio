@@ -21,24 +21,22 @@ export default function ContactPage() {
         <Text accessibilityRole="header" style={[styles.headline, isDesktop && styles.headlineDesktop]}>
           Let's create something exceptional together.
         </Text>
-        <View style={[styles.card, isDesktop && styles.cardDesktop]}>
-          <View style={styles.socials}>
-            {contactLinks.map(link => {
-              const external = opensInNewTab(link.url);
-              return (
-                <Link
-                  key={link.label}
-                  href={link.url}
-                  rel={external ? "noopener noreferrer" : undefined}
-                  target={external ? "_blank" : undefined}
-                  style={[styles.social, pointer]}
-                >
-                  <Ionicons name={link.icon} size={16} color={link.color} />
-                  <Text style={styles.socialLabel}>{link.label}</Text>
-                </Link>
-              );
-            })}
-          </View>
+        <View style={[styles.socials, isDesktop && styles.socialsDesktop]}>
+          {contactLinks.map(link => {
+            const external = opensInNewTab(link.url);
+            return (
+              <Link
+                key={link.label}
+                href={link.url}
+                rel={external ? "noopener noreferrer" : undefined}
+                target={external ? "_blank" : undefined}
+                style={[styles.social, isDesktop && styles.socialDesktop, pointer]}
+              >
+                <Ionicons name={link.icon} size={22} color={link.color} />
+                <Text style={styles.socialLabel}>{link.label}</Text>
+              </Link>
+            );
+          })}
         </View>
       </View>
     </ScrollView>
@@ -64,8 +62,7 @@ const styles = StyleSheet.create({
   panelDesktop: {
     flexDirection: "row",
     alignItems: "center",
-    justifyContent: "space-between",
-    gap: 64,
+    gap: 96,
   },
   headline: {
     flexShrink: 1,
@@ -83,37 +80,31 @@ const styles = StyleSheet.create({
   socials: {
     flexDirection: "row",
     flexWrap: "wrap",
-    gap: 8,
+    gap: 12,
+  },
+  socialsDesktop: {
+    flexDirection: "column",
+    alignItems: "stretch",
+    flexShrink: 0,
+  },
+  socialDesktop: {
+    alignSelf: "stretch",
   },
   social: {
     flexDirection: "row",
     alignItems: "center",
-    gap: 6,
+    gap: 8,
     ...(Platform.OS === "web" ? { display: "flex" as const } : null),
-    paddingHorizontal: 12,
-    paddingVertical: 9,
-    borderRadius: 6,
+    paddingHorizontal: 16,
+    paddingVertical: 12,
+    borderRadius: 8,
     borderWidth: 1,
     borderColor: colors.border,
     backgroundColor: colors.surface,
   },
   socialLabel: {
-    fontSize: 14,
+    fontSize: 16,
     fontWeight: "500",
     color: colors.heading,
-  },
-  card: {
-    width: "100%",
-    maxWidth: 440,
-    backgroundColor: colors.surface,
-    borderWidth: 1,
-    borderColor: colors.border,
-    borderRadius: 12,
-    paddingHorizontal: 28,
-    paddingVertical: 32,
-    gap: 8,
-  },
-  cardDesktop: {
-    width: 420,
   },
 });

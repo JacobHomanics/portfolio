@@ -12,6 +12,7 @@ export function TopNav() {
   const insets = useSafeAreaInsets();
   const onContactCard = pathname === "/contact-card";
   const onContact = pathname === "/contact";
+  const onSkills = pathname === "/skills";
 
   return (
     <View accessibilityLabel="Primary" role="navigation" style={[styles.bar, { paddingTop: insets.top }]}>
@@ -25,6 +26,13 @@ export function TopNav() {
           </Pressable>
         </Link>
         <View style={styles.actions}>
+          <Link
+            href="/skills"
+            accessibilityState={{ selected: onSkills }}
+            style={[styles.navLink, onSkills && styles.navLinkActive, pointer]}
+          >
+            <Text style={styles.navLinkText}>Skills</Text>
+          </Link>
           <Link
             href="/contact"
             accessibilityState={{ selected: onContact }}
@@ -83,6 +91,19 @@ const styles = StyleSheet.create({
   brandText: {
     flexShrink: 1,
     fontSize: 17,
+    fontWeight: "600",
+    color: colors.heading,
+  },
+  navLink: {
+    paddingHorizontal: 14,
+    paddingVertical: 8,
+    borderRadius: 999,
+  },
+  navLinkActive: {
+    backgroundColor: colors.surfaceMuted,
+  },
+  navLinkText: {
+    fontSize: 16,
     fontWeight: "600",
     color: colors.heading,
   },

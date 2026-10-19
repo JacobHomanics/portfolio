@@ -25,11 +25,7 @@ export default function HomePage() {
           <Text style={[styles.message, isDesktop && styles.textLeft]}>{profile.name}</Text>
           <Text style={[styles.title, isDesktop && styles.textLeft]}>{profile.headline}</Text>
           <Text style={[styles.about, isDesktop && styles.textLeft]}>
-            Software Engineer with 10+ years of experience maintaining an app serving 800+ users and 5 design
-            partners, launching products generating $300k+ in revenue, building an open-source framework funded
-            by a $60k grant, creating interactive experiences showcased at pharmaceutical conferences, and
-            contributed to a platform that rewarded 250+ open-source developers. Looking for product development?
-            Let's connect!
+            AI-Empowered Software Engineer with 10+ years of experience taking products from 0 to 1. Skilled at working with fast-moving startups and small teams, making product decisions, and adapting to evolving business needs. Stay at the forefront of emerging technologies, including AI, to build innovative, scalable solutions.
           </Text>
         </View>
         {isDesktop ? photo : null}
@@ -65,14 +61,16 @@ const styles = StyleSheet.create({
     alignItems: "flex-start",
   },
   photo: {
-    width: 320,
-    height: 384,
+    width: 166,
+    height: 200,
     borderRadius: 16,
     marginBottom: 24,
     borderWidth: 1,
     borderColor: colors.border,
   },
   photoDesktop: {
+    width: 320,
+    height: 384,
     marginBottom: 0,
   },
   message: {
