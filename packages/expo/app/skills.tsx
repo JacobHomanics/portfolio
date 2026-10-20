@@ -1,8 +1,10 @@
-import { ScrollView, StyleSheet, Text, View } from "react-native";
+import { Platform, ScrollView, StyleSheet, Text, View, type ViewStyle } from "react-native";
 
 import { BrandIcon } from "../src/components/BrandIcon";
 import { skillSections } from "../src/content/skills";
 import { colors } from "../src/theme/colors";
+
+const LOGO_SIZE = 44;
 
 export default function SkillsPage() {
   return (
@@ -11,16 +13,20 @@ export default function SkillsPage() {
         {skillSections.map((section) => (
           <View key={section.title}>
             <Text style={styles.heading}>{section.title}</Text>
-            <View style={styles.badges}>
-              {section.badges.map((badge) => (
-                <View key={badge.label} style={[styles.badge, badge.highlighted && styles.badgeHighlighted]}>
-                  {badge.icon ? (
-                    <View style={styles.badgeIcon}>
-                      <BrandIcon name={badge.icon} size={14} />
-                    </View>
-                  ) : null}
-                  <Text style={[styles.badgeText, badge.highlighted && styles.badgeTextHighlighted]}>
-                    {badge.label}
+            <View style={styles.grid}>
+              {section.badges.map((skill) => (
+                <View key={skill.label} style={[styles.tile, skill.highlighted && styles.tileHighlighted]}>
+                  <View style={[styles.logo, !skill.highlighted && muted]}>
+                    {skill.icon ? (
+                      <BrandIcon name={skill.icon} size={LOGO_SIZE} />
+                    ) : (
+                      <View style={styles.monogram}>
+                        <Text style={styles.monogramText}>{skill.label.charAt(0)}</Text>
+                      </View>
+                    )}
+                  </View>
+                  <Text numberOfLines={2} style={[styles.caption, skill.highlighted && styles.captionHighlighted]}>
+                    {skill.label}
                   </Text>
                 </View>
               ))}
@@ -31,6 +37,12 @@ export default function SkillsPage() {
     </ScrollView>
   );
 }
+
+// Skills that aren't highlighted keep their logo but fade it back; on web it also drops to gray.
+const muted: ViewStyle = {
+  opacity: 0.45,
+  ...(Platform.OS === "web" ? ({ filter: "grayscale(1)" } as ViewStyle) : null),
+};
 
 const styles = StyleSheet.create({
   container: {
@@ -44,52 +56,62 @@ const styles = StyleSheet.create({
     maxWidth: 1040,
     alignSelf: "center",
     flexGrow: 1,
-    gap: 32,
+    gap: 36,
   },
   heading: {
     fontSize: 24,
     fontWeight: "600",
     color: colors.heading,
   },
-  badges: {
+  grid: {
     marginTop: 16,
     flexDirection: "row",
     flexWrap: "wrap",
-    gap: 10,
+    gap: 12,
   },
-  badge: {
-    flexDirection: "row",
+  // Three tiles fit across a 375px phone with the page gutters.
+  tile: {
+    width: 100,
     alignItems: "center",
-    gap: 8,
-    paddingHorizontal: 14,
-    paddingVertical: 8,
-    borderRadius: 999,
+    gap: 10,
+    paddingTop: 18,
+    paddingBottom: 14,
+    paddingHorizontal: 8,
+    borderRadius: 16,
     borderWidth: 1,
-    borderColor: colors.border,
-    backgroundColor: colors.surface,
+    borderColor: "transparent",
   },
-  // A white disc keeps black and colored marks readable on the navy highlight.
-  badgeIcon: {
-    width: 22,
-    height: 22,
-    marginLeft: -6,
-    borderRadius: 999,
+  tileHighlighted: {
+    backgroundColor: colors.surface,
+    borderColor: colors.border,
+  },
+  logo: {
+    width: LOGO_SIZE,
+    height: LOGO_SIZE,
     alignItems: "center",
     justifyContent: "center",
-    backgroundColor: "#FFFFFF",
-    borderWidth: StyleSheet.hairlineWidth,
-    borderColor: colors.border,
   },
-  badgeHighlighted: {
-    borderColor: colors.link,
-    backgroundColor: colors.link,
+  monogram: {
+    width: LOGO_SIZE,
+    height: LOGO_SIZE,
+    borderRadius: 12,
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: colors.surfaceMuted,
   },
-  badgeText: {
-    fontSize: 15,
+  monogramText: {
+    fontSize: 22,
+    fontWeight: "700",
+    color: colors.heading,
+  },
+  caption: {
+    fontSize: 13,
+    lineHeight: 17,
     fontWeight: "600",
+    textAlign: "center",
     color: colors.textMuted,
   },
-  badgeTextHighlighted: {
-    color: colors.surface,
+  captionHighlighted: {
+    color: colors.heading,
   },
 });
