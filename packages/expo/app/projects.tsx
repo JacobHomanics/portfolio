@@ -1,6 +1,6 @@
 import { Ionicons } from "@expo/vector-icons";
 import { Link } from "expo-router";
-import { Image, Platform, ScrollView, StyleSheet, Text, View, type ViewStyle } from "react-native";
+import { Image, Platform, Pressable, ScrollView, StyleSheet, Text, View, type ViewStyle } from "react-native";
 
 import { BrandIcon } from "../src/components/BrandIcon";
 import { projects } from "../src/content/projects";
@@ -17,17 +17,27 @@ export default function ProjectsPage() {
         <View style={styles.cards}>
           {projects.map((project) => (
             <View key={project.name} style={styles.card}>
-              <View style={styles.imageFrame}>
-                <Image
-                  source={project.image}
-                  resizeMode="cover"
-                  style={styles.image}
-                  accessibilityLabel={project.name}
-                  accessibilityIgnoresInvertColors
-                />
-              </View>
+              {/* With the button gone, the image and title are what open the project. */}
+              <Link href={project.url} asChild>
+                <Pressable style={StyleSheet.flatten([styles.imageFrame, pointer])} {...externalLinkProps}>
+                  <Image
+                    source={project.image}
+                    resizeMode="cover"
+                    style={styles.image}
+                    accessibilityLabel={project.name}
+                    accessibilityIgnoresInvertColors
+                  />
+                </Pressable>
+              </Link>
               <View style={styles.body}>
-                <Text style={styles.cardTitle}>{project.name}</Text>
+                <Link
+                  href={project.url}
+                  rel="noopener noreferrer"
+                  target="_blank"
+                  style={[styles.cardTitle, pointer]}
+                >
+                  {project.name}
+                </Link>
                 <Text style={styles.cardText}>{project.description}</Text>
                 <View style={styles.pills}>
                   {project.tech.length > 0
@@ -59,15 +69,6 @@ export default function ProjectsPage() {
                     ))}
                   </View>
                 ) : null}
-                <Link
-                  href={project.url}
-                  rel="noopener noreferrer"
-                  target="_blank"
-                  style={[styles.button, pointer]}
-                >
-                  <Text style={styles.buttonText}>View project</Text>
-                  <Ionicons name="open-outline" size={16} color={colors.surface} />
-                </Link>
               </View>
             </View>
           ))}
@@ -76,6 +77,10 @@ export default function ProjectsPage() {
     </ScrollView>
   );
 }
+
+// `target` doesn't survive `asChild`, so hand the new-tab attributes to the web anchor directly.
+const externalLinkProps =
+  Platform.OS === "web" ? ({ hrefAttrs: { target: "_blank", rel: "noopener noreferrer" } } as object) : {};
 
 const pointer: ViewStyle | null = Platform.OS === "web" ? ({ cursor: "pointer" } as ViewStyle) : null;
 
@@ -138,7 +143,7 @@ const styles = StyleSheet.create({
     width: "100%",
     height: "100%",
   },
-  // Grows to the row's height so every "View project" button lines up along the bottom.
+  // Grows to the row's height so cards in a row stay the same height.
   body: {
     flexGrow: 1,
     padding: 20,
@@ -156,7 +161,6 @@ const styles = StyleSheet.create({
   },
   pills: {
     marginTop: 14,
-    marginBottom: 20,
     flexDirection: "row",
     flexWrap: "wrap",
     gap: 6,
@@ -178,8 +182,7 @@ const styles = StyleSheet.create({
     color: colors.text,
   },
   links: {
-    marginTop: -6,
-    marginBottom: 20,
+    marginTop: 10,
     flexDirection: "row",
     flexWrap: "wrap",
     gap: 6,
@@ -199,22 +202,5 @@ const styles = StyleSheet.create({
     fontSize: 12,
     fontWeight: "600",
     color: colors.link,
-  },
-  button: {
-    marginTop: "auto",
-    alignSelf: "flex-start",
-    flexDirection: "row",
-    alignItems: "center",
-    gap: 6,
-    paddingHorizontal: 16,
-    paddingVertical: 10,
-    borderRadius: 999,
-    backgroundColor: colors.link,
-    ...(Platform.OS === "web" ? { display: "flex" as const } : null),
-  },
-  buttonText: {
-    fontSize: 14,
-    fontWeight: "600",
-    color: colors.surface,
   },
 });

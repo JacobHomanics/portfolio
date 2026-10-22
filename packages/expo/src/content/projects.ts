@@ -18,6 +18,7 @@ const tech = {
   expo: { label: "Expo", icon: "expo" },
   convex: { label: "Convex", icon: "convex" },
   privy: { label: "Privy" },
+  eas: { label: "Ethereum Attestation Service" },
   stripe: { label: "Stripe", icon: "stripe" },
   hardhat: { label: "Hardhat", icon: "hardhat" },
   ipfs: { label: "IPFS", icon: "ipfs" },
@@ -73,7 +74,7 @@ export const projects: {
     url: "https://www.brandgage.com",
     image: require("../../assets/projects/brandgage.jpg"),
     tags: ["Video games", "Interactive", "VR", "AR"],
-    tech: [],
+    tech: [tech.unity],
     links: [
       { label: "Interactive experiences", url: "https://www.brandgage.com/#!/touch-interactives/interactive-informational-panels" },
       { label: "Arcade games", url: "https://www.brandgage.com/#!/arcade-style-games" },
@@ -92,7 +93,8 @@ export const projects: {
   },
   {
     name: "OP Atlas",
-    description: "Platform rewarding 250+ developers for their open-source contributions to the Optimism ecosystem.",
+    description:
+      "Built the web application submission process for open-source software contributions on OP Atlas, which rewarded 250+ developers.",
     url: "https://atlas.optimism.io/",
     image: require("../../assets/projects/atlas.webp"),
     tags: ["Platform", "Open source"],
@@ -111,6 +113,28 @@ export const projects: {
       { label: "Pizza People on OpenSea", url: "https://opensea.io/collection/pizza-people-1" },
       { label: "Weedies", url: "https://weedies.wtf" },
       { label: "Weedies on OpenSea", url: "https://opensea.io/collection/weedies-4" },
+    ],
+  },
+  {
+    name: "CarStarz",
+    description:
+      "Designed and implemented a Progressive Web App prototype for specialty vehicle owners, with Privy sign-in, server-side wallet transactions, and Ethereum Attestation Service for on-chain verifiability of car records.",
+    url: "https://carstarz.io",
+    image: require("../../assets/projects/carstarz.png"),
+    tags: ["Startup", "Web3"],
+    tech: [tech.privy, tech.eas],
+  },
+  {
+    name: "Independent Games & Unity Tools",
+    description:
+      "Developed 3 arcade-style mobile games for iOS and Android, web-based RPGs, and 5 Unity Asset Store tools.",
+    url: "https://jacobhomanics.itch.io",
+    image: require("../../assets/projects/independent-games.png"),
+    tags: ["Games", "Mobile", "Unity"],
+    tech: [tech.unity, tech.csharp],
+    links: [
+      { label: "Games on itch.io", url: "https://jacobhomanics.itch.io" },
+      { label: "Unity Asset Store tools", url: "https://assetstore.unity.com/publishers/47537" },
     ],
   },
 ];
