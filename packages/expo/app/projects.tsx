@@ -11,9 +11,8 @@ export default function ProjectsPage() {
     <ScrollView contentContainerStyle={styles.container}>
       <View style={styles.panel}>
         <Text accessibilityRole="header" style={styles.heading}>
-          Featured Projects
+          Projects
         </Text>
-        <Text style={styles.intro}>A few products I've helped take from 0 to 1.</Text>
         <View style={styles.cards}>
           {projects.map((project) => (
             <View key={project.name} style={styles.card}>
@@ -103,15 +102,8 @@ const styles = StyleSheet.create({
     textAlign: "center",
     color: colors.heading,
   },
-  intro: {
-    marginTop: 10,
-    fontSize: 16,
-    lineHeight: 24,
-    textAlign: "center",
-    color: colors.textMuted,
-  },
   cards: {
-    marginTop: 36,
+    marginTop: 28,
     flexDirection: "row",
     flexWrap: "wrap",
     justifyContent: "center",

@@ -47,6 +47,17 @@ export default function HomePage() {
           <Text style={[styles.about, isDesktop && styles.textLeft]}>
             AI-Empowered Software Engineer with 10+ years of experience taking products from 0 to 1. Skilled at working with fast-moving startups and small teams, making product decisions, and adapting to evolving business needs. Stay at the forefront of emerging technologies, including AI, to build innovative, scalable solutions.
           </Text>
+          <View style={[styles.actions, isDesktop && styles.actionsDesktop]}>
+            <Link href="/projects" style={[styles.action, styles.actionOutline, pointer]}>
+              <Text style={[styles.actionText, styles.actionOutlineText]}>Projects</Text>
+            </Link>
+            <Link href="/skills" style={[styles.action, styles.actionOutline, pointer]}>
+              <Text style={[styles.actionText, styles.actionOutlineText]}>Skills</Text>
+            </Link>
+            <Link href="/contact" style={[styles.action, pointer]}>
+              <Text style={styles.actionText}>Contact</Text>
+            </Link>
+          </View>
         </View>
         {isDesktop ? photo : null}
       </View>
@@ -147,6 +158,36 @@ const styles = StyleSheet.create({
     lineHeight: 26,
     color: colors.text,
     textAlign: "center",
+  },
+  actions: {
+    marginTop: 28,
+    flexDirection: "row",
+    flexWrap: "wrap",
+    justifyContent: "center",
+    gap: 10,
+  },
+  actionsDesktop: {
+    justifyContent: "flex-start",
+  },
+  action: {
+    paddingHorizontal: 20,
+    paddingVertical: 10,
+    borderRadius: 999,
+    borderWidth: 1,
+    borderColor: colors.link,
+    backgroundColor: colors.link,
+    ...(Platform.OS === "web" ? { display: "flex" as const } : null),
+  },
+  actionOutline: {
+    backgroundColor: "transparent",
+  },
+  actionText: {
+    fontSize: 16,
+    fontWeight: "600",
+    color: colors.surface,
+  },
+  actionOutlineText: {
+    color: colors.link,
   },
   textLeft: {
     textAlign: "left",

@@ -7,6 +7,7 @@ type Tech = { label: string; icon?: BrandIconName };
 const tech = {
   nextjs: { label: "Next.js", icon: "nextjs" },
   react: { label: "React", icon: "react" },
+  vite: { label: "Vite", icon: "vite" },
   typescript: { label: "TypeScript", icon: "typescript" },
   prisma: { label: "Prisma", icon: "prisma" },
   postgresql: { label: "PostgreSQL", icon: "postgresql" },
@@ -107,7 +108,7 @@ export const projects: {
     url: "https://pizzapeople.wtf",
     image: require("../../assets/projects/pizza-people.webp"),
     tags: ["NFT", "Blockchain"],
-    tech: [],
+    tech: [tech.nextjs, tech.react, tech.typescript, tech.solidity, tech.foundry, tech.hardhat, tech.viem, tech.wagmi],
     links: [
       { label: "Pizza People", url: "https://pizzapeople.wtf" },
       { label: "Pizza People on OpenSea", url: "https://opensea.io/collection/pizza-people-1" },
@@ -122,7 +123,7 @@ export const projects: {
     url: "https://carstarz.io",
     image: require("../../assets/projects/carstarz.png"),
     tags: ["Startup", "Web3"],
-    tech: [tech.privy, tech.eas],
+    tech: [tech.react, tech.vite, tech.nextjs, tech.typescript, tech.solidity, tech.viem, tech.wagmi, tech.privy, tech.eas],
   },
   {
     name: "Independent Games & Unity Tools",
