@@ -98,4 +98,19 @@ export const projects: {
     tags: ["Platform", "Open source"],
     tech: [tech.nextjs, tech.react, tech.typescript, tech.prisma, tech.postgresql, tech.viem, tech.wagmi],
   },
+  {
+    name: "BigShot Toyworks",
+    description:
+      "Developed interconnected products, including Pizza People and Weedies, that collectively generated over $60K in revenue, built on shared components and integrations across apps.",
+    url: "https://pizzapeople.wtf",
+    image: require("../../assets/projects/pizza-people.webp"),
+    tags: ["NFT", "Blockchain"],
+    tech: [],
+    links: [
+      { label: "Pizza People", url: "https://pizzapeople.wtf" },
+      { label: "Pizza People on OpenSea", url: "https://opensea.io/collection/pizza-people-1" },
+      { label: "Weedies", url: "https://weedies.wtf" },
+      { label: "Weedies on OpenSea", url: "https://opensea.io/collection/weedies-4" },
+    ],
+  },
 ];
