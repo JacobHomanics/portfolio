@@ -1,11 +1,9 @@
 # Portfolio
 
-Hello, welcome to the codebase for my portfolio website.
+Codebase for [jacobhomanics.com](https://jacobhomanics.com). Being rebuilt from scratch.
 
-The project contains code that supports presenting users with with details of the developer's projects and organizations easily maintained through config files. This project is a fork of Scaffold-ETH 2, thus it also contains a section for smart contracts which may or may not be utilized at some point.
+- `assets/` images and resume PDF carried over from the previous site
+- `content/` copy and data (projects, skills, profile, contact links, palette) from the previous site, kept for reference
+- `.env.example` documents environment variables (copy to `.env.local`, which is git-ignored)
 
-Feel free to fork/clone this repository and use it for whatever your hear desires <3.
-
-You can view my live portfolio at: [https://jacobhomanics.com](https://jacobhomanics.com)
-
-Cheers.
+The previous implementation is in git history (see `bca7326`).

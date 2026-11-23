@@ -1,6 +1,0 @@
-{
-  "installCommand": "pnpm install",
-  "buildCommand": "pnpm build:web",
-  "outputDirectory": "packages/expo/dist",
-  "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]
-}

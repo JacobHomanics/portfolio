@@ -16,3 +16,8 @@ node_modules
 
 # cli
 dist
+# Local env files (never commit)
+.env
+.env*.local
+.DS_Store
+node_modules/
