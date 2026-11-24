@@ -43,6 +43,7 @@ const faqs: { question: string; answer?: string; lines?: Line[]; after?: string 
           { name: "hourly rates", icon: "clock" },
           { name: "task-based pricing", icon: "task" },
           { name: "project-based pricing", icon: "project" },
+          { name: "monthly retainers", icon: "calendar" },
         ],
       },
     ],
