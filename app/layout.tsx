@@ -2,8 +2,11 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Software Engineer Consultant for Businesses | Austin, TX | Hybrid and Remote",
-  description: "Portfolio of Jacob Homanics",
+  // Pattern: what I do | who I serve | city. Keep under 60 characters.
+  title: "Software Engineer Consultant | Businesses | Austin, TX",
+  // Keep under 160 characters.
+  description:
+    "Software engineer consultant in Austin, TX. I build MVPs, turn vibe-coded projects into real products, and modernize or maintain existing ones.",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
