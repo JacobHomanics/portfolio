@@ -12,8 +12,6 @@ const HOLD_MS = 4500;
 const FADE_MS = 1000;
 const RESUME_AFTER_TOUCH_MS = 1500;
 const MAX_SLIDE_WIDTH = 600;
-/** Fixed text area, so the frame keeps one height while different projects fade in and out. */
-const BODY_HEIGHT = 124;
 
 // Colors from the previous site's palette.
 const colors = {
@@ -36,7 +34,6 @@ export default function ProjectShowcase() {
   const touchTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const slideWidth = Math.min(MAX_SLIDE_WIDTH, Math.max(containerWidth - 48, 240));
-  const frameHeight = Math.round((slideWidth * 9) / 16) + BODY_HEIGHT;
   const paused = hovering || touching;
 
   useEffect(() => {
@@ -103,14 +100,15 @@ export default function ProjectShowcase() {
       onTouchCancel={onTouchEnd}
       style={{ width: "100%", display: "flex", flexDirection: "column", alignItems: "center", opacity: containerWidth === 0 ? 0 : 1 }}
     >
-      <div style={{ position: "relative", width: slideWidth, height: frameHeight }}>
+      {/* All cards share one grid cell, so the frame is as tall as the longest description and
+          every description shows in full. */}
+      <div style={{ display: "grid", width: slideWidth }}>
         {projects.map((p, i) => (
           <div
             key={p.name}
             aria-hidden={i !== index}
             style={{
-              position: "absolute",
-              inset: 0,
+              gridArea: "1 / 1",
               opacity: i === index ? 1 : 0,
               pointerEvents: i === index ? "auto" : "none",
               transition: reduceMotion ? "none" : `opacity ${FADE_MS}ms ease`,
@@ -134,7 +132,7 @@ export default function ProjectShowcase() {
                 boxSizing: "border-box",
               }}
             >
-              <div style={{ position: "relative", width: "100%", aspectRatio: "16 / 9", background: colors.surfaceMuted }}>
+              <div style={{ position: "relative", width: "100%", aspectRatio: containerWidth < 500 ? "2.2 / 1" : "16 / 9", background: colors.surfaceMuted }}>
                 <Image
                   src={p.image}
                   alt=""
@@ -144,15 +142,12 @@ export default function ProjectShowcase() {
                   style={{ objectFit: "cover" }}
                 />
               </div>
-              <div style={{ height: BODY_HEIGHT, padding: 16, boxSizing: "border-box", display: "flex", flexDirection: "column", gap: 6 }}>
+              <div style={{ padding: 16, display: "flex", flexDirection: "column", gap: 6 }}>
                 <div
                   style={{
                     fontSize: 18,
                     fontWeight: 700,
                     color: colors.heading,
-                    whiteSpace: "nowrap",
-                    overflow: "hidden",
-                    textOverflow: "ellipsis",
                   }}
                 >
                   {p.name}
@@ -162,10 +157,6 @@ export default function ProjectShowcase() {
                     fontSize: 14,
                     lineHeight: "21px",
                     color: colors.textMuted,
-                    display: "-webkit-box",
-                    WebkitLineClamp: 3,
-                    WebkitBoxOrient: "vertical",
-                    overflow: "hidden",
                   }}
                 >
                   {p.description}
