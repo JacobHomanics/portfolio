@@ -115,6 +115,30 @@ const faqs: { question: string; answer?: string; lines?: Line[]; after?: string 
   },
 ];
 
+/** The same sentence ToolLine shows, as plain text for the structured data. */
+function lineText(line: Line) {
+  const last = line.tools.length - 1;
+  const names = line.tools
+    .map((tool, i) => `${tool.before ?? (i === 0 ? "" : ", ")}${line.and && i === last ? "and " : ""}${tool.name}`)
+    .join("");
+  return `${line.label ? `${line.label}: ` : ""}${line.prefix ?? ""}${names}.`;
+}
+
+function answerText(item: (typeof faqs)[number]) {
+  return [item.answer, ...(item.lines ?? []).map(lineText), item.after].filter(Boolean).join(" ");
+}
+
+// FAQPage structured data. It must match the answers shown on the page.
+const faqStructuredData = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map(item => ({
+    "@type": "Question",
+    name: item.question,
+    acceptedAnswer: { "@type": "Answer", text: answerText(item) },
+  })),
+};
+
 function ToolLine({ line }: { line: Line }) {
   const last = line.tools.length - 1;
   return (
@@ -139,6 +163,7 @@ function ToolLine({ line }: { line: Line }) {
 export default function FAQ() {
   return (
     <main style={{ maxWidth: 680, margin: "0 auto", padding: "32px 16px" }}>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqStructuredData) }} />
       <h1 style={{ margin: "0 0 24px", fontSize: 28, lineHeight: 1.2 }}>
         Frequently asked questions about working with a software engineer consultant
       </h1>
