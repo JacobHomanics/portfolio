@@ -376,3 +376,21 @@ button[role="tab"][aria-selected="true"] {
     height: 44px;
   }
 }
+
+/* Brand icons next to tool names (FAQ). */
+.brand-icon {
+  display: inline-flex;
+  flex: none;
+}
+
+.brand-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.tool {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+}

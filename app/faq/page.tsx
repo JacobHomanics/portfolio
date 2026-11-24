@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import BrandIcon from "../BrandIcon";
+import type { brandIcons } from "../brand-icons";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/faq" },
@@ -8,9 +10,13 @@ export const metadata: Metadata = {
     "Answers to common questions about hiring a software engineer consultant in Austin, TX to build an MVP, modernize legacy products, or maintain existing ones.",
 };
 
+type Tool = { name: string; icon: keyof typeof brandIcons };
+type Line = { label?: string; tools: Tool[]; and?: boolean };
+
 // 4 to 6 FAQs. Each question is an h2 phrased the way a client would ask it, with the answer
-// directly below: the direct answer first, one idea per line, plain language.
-const faqs = [
+// directly below: the direct answer first, one idea per line, plain language. Tool names are
+// always written as text; the icons are decorative.
+const faqs: { question: string; answer?: string; lines?: Line[] }[] = [
   {
     question: "What kind of software do you build?",
     answer:
@@ -23,25 +29,89 @@ const faqs = [
   },
   {
     question: "What AI tools are you most familiar with?",
-    answer: "Claude, ChatGPT, Grok, and Gemini.",
+    lines: [
+      {
+        and: true,
+        tools: [
+          { name: "Claude", icon: "claude" },
+          { name: "ChatGPT", icon: "openai" },
+          { name: "Grok", icon: "grok" },
+          { name: "Gemini", icon: "gemini" },
+        ],
+      },
+    ],
   },
   {
     question: "What languages are you most familiar with?",
-    answer: "TypeScript, JavaScript, Node, C#, Solidity.",
+    lines: [
+      {
+        tools: [
+          { name: "TypeScript", icon: "typescript" },
+          { name: "JavaScript", icon: "javascript" },
+          { name: "Node", icon: "node" },
+          { name: "C#", icon: "csharp" },
+          { name: "Solidity", icon: "solidity" },
+        ],
+      },
+    ],
   },
   {
     question: "What frameworks are you most familiar with?",
-    answer: "React, React Native, Vite, Next.js, Expo.",
+    lines: [
+      {
+        tools: [
+          { name: "React", icon: "react" },
+          { name: "React Native", icon: "react" },
+          { name: "Vite", icon: "vite" },
+          { name: "Next.js", icon: "nextjs" },
+          { name: "Expo", icon: "expo" },
+        ],
+      },
+    ],
   },
   {
     question: "What backend technologies are you familiar with?",
     // One idea per line.
-    answer: [
-      "Backend and databases: Convex, Supabase, Prisma, MongoDB, PostgreSQL.",
-      "Hosting: Vercel, Cloudflare.",
+    lines: [
+      {
+        label: "Backend and databases",
+        tools: [
+          { name: "Convex", icon: "convex" },
+          { name: "Supabase", icon: "supabase" },
+          { name: "Prisma", icon: "prisma" },
+          { name: "MongoDB", icon: "mongodb" },
+          { name: "PostgreSQL", icon: "postgresql" },
+        ],
+      },
+      {
+        label: "Hosting",
+        tools: [
+          { name: "Vercel", icon: "vercel" },
+          { name: "Cloudflare", icon: "cloudflare" },
+        ],
+      },
     ],
   },
 ];
+
+function ToolLine({ line }: { line: Line }) {
+  const last = line.tools.length - 1;
+  return (
+    <p style={{ margin: "0 0 4px", lineHeight: 1.9 }}>
+      {line.label ? `${line.label}: ` : null}
+      {line.tools.map((tool, i) => (
+        <span key={tool.name}>
+          {line.and && i === last ? "and " : null}
+          <span className="tool">
+            <BrandIcon name={tool.icon} />
+            {tool.name}
+          </span>
+          {i === last ? "." : line.and && last === 1 ? " " : ", "}
+        </span>
+      ))}
+    </p>
+  );
+}
 
 export default function FAQ() {
   return (
@@ -52,10 +122,9 @@ export default function FAQ() {
       {faqs.map(item => (
         <section key={item.question} style={{ marginBottom: 20 }}>
           <h2 style={{ margin: "0 0 8px", fontSize: 20 }}>{item.question}</h2>
-          {(Array.isArray(item.answer) ? item.answer : [item.answer]).map(line => (
-            <p key={line} style={{ margin: 0, lineHeight: 1.5 }}>
-              {line}
-            </p>
+          {item.answer ? <p style={{ margin: 0, lineHeight: 1.5 }}>{item.answer}</p> : null}
+          {item.lines?.map((line, i) => (
+            <ToolLine key={i} line={line} />
           ))}
         </section>
       ))}
