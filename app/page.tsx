@@ -17,8 +17,9 @@ export default function Home() {
       }}
     >
       <div style={{ fontWeight: 600 }}>Software Engineer Consultant for Businesses | Austin, TX | Hybrid and Remote</div>
-      <h1 style={{ margin: 0, fontSize: 28, maxWidth: 640 }}>
-        Do you have the mission and vision, but need the product?
+      <h1 style={{ margin: 0, fontSize: 24, lineHeight: 1.25, maxWidth: 720 }}>
+        Software Engineer Consultant for Businesses who want to build an MVP, turn a vibe coded project into a real
+        product, modernize legacy products, or manage and maintain existing products.
       </h1>
       <p style={{ margin: 0, fontWeight: 700, maxWidth: 560 }}>
         I partner with you to shape the product, then build it on reliable infrastructure with a clean user experience.
