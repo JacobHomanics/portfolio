@@ -34,7 +34,8 @@ export default function Home() {
         product, modernize legacy products, or manage and maintain existing products.
       </h1>
       <p style={{ margin: 0, fontWeight: 700, maxWidth: 560 }}>
-        I partner with you to shape the product, then build it on reliable infrastructure with a clean user experience.
+        Websites, Mobile Applications, Video Games, VR/AR applications, tools, smart contracts and blockchain
+        technologies built fast with the latest frameworks and AI tools.
       </p>
       <ProjectShowcase />
       <p style={{ margin: 0, maxWidth: 560 }}>Software built fast with the latest frameworks and AI tools.</p>
