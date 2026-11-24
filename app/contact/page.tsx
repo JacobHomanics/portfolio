@@ -3,12 +3,17 @@ import ContactForm from "./ContactForm";
 import { ContactIcon } from "./icons";
 import { contactLinks } from "./links";
 
-export const metadata: Metadata = { alternates: { canonical: "/contact" } };
+export const metadata: Metadata = {
+  alternates: { canonical: "/contact" },
+  // Keep under 160 characters.
+  description:
+    "Contact Jacob Homanics, a software engineer consultant in Austin, TX. Send a message by email or phone, or reach out on LinkedIn, X, Telegram or text.",
+};
 
 export default function Contact() {
   return (
     <main className="contact">
-      <h1 className="contact-title">Let's create something exceptional together.</h1>
+      <h1 className="contact-title">Contact Jacob Homanics, software engineer consultant in Austin, TX</h1>
       <div className="contact-form">
         <ContactForm />
       </div>
@@ -18,7 +23,7 @@ export default function Contact() {
           <span>or</span>
           <hr />
         </div>
-        <h2 id="reach-me">Reach me directly</h2>
+        <h2 id="reach-me">How else can I reach you?</h2>
         <div className="contact-links">
           {contactLinks.map(link => {
             const external = link.url.startsWith("https://");

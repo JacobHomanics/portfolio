@@ -124,7 +124,7 @@ export default function ContactForm() {
 
   return (
     <form onSubmit={onSubmit} noValidate style={card}>
-      <h2 style={{ margin: 0, fontSize: 18 }}>Send me a message</h2>
+      <h2 style={{ margin: 0, fontSize: 18 }}>How can I send you a message?</h2>
       <Field label="Name">
         <input name="name" autoComplete="name" placeholder="Your name" disabled={sending} style={input} />
       </Field>
