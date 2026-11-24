@@ -41,7 +41,7 @@ export default function Home() {
       </h1>
       <h2 style={{ margin: 0, fontSize: 16, fontWeight: 700, maxWidth: 560 }}>
         Websites, Mobile Applications, Video Games, VR/AR applications, tooling solutions, smart contracts and blockchain
-        technologies built fast and securely that scales, using the latest frameworks, technologies, and AI tools.
+        technologies built fast, secure, and scalable, using the latest frameworks, technologies, and AI tools.
       </h2>
       <script
         type="application/ld+json"
