@@ -33,10 +33,10 @@ export default function Home() {
         Software Engineer Consultant for Businesses who want to build an MVP, turn a vibe coded project into a real
         product, modernize legacy products, or manage and maintain existing products.
       </h1>
-      <p style={{ margin: 0, fontWeight: 700, maxWidth: 560 }}>
+      <h2 style={{ margin: 0, fontSize: 16, fontWeight: 700, maxWidth: 560 }}>
         Websites, Mobile Applications, Video Games, VR/AR applications, tooling solutions, smart contracts and blockchain
         technologies built fast and securely with the latest frameworks and AI tools.
-      </p>
+      </h2>
       <ProjectShowcase />
       <Link
         href="/contact"
