@@ -162,7 +162,7 @@ function ToolLine({ line }: { line: Line }) {
 
 export default function FAQ() {
   return (
-    <main style={{ maxWidth: 680, margin: "0 auto", padding: "32px 16px" }}>
+    <main id="main" style={{ maxWidth: 680, margin: "0 auto", padding: "32px 16px" }}>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqStructuredData) }} />
       <h1 style={{ margin: "0 0 24px", fontSize: 28, lineHeight: 1.2 }}>
         Frequently asked questions about working with a software engineer consultant

@@ -3,6 +3,7 @@ import Link from "next/link";
 export default function NotFound() {
   return (
     <main
+      id="main"
       style={{
         flex: 1,
         display: "flex",

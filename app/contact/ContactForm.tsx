@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, type FormEvent, type ReactNode } from "react";
+import { useRef, useState, type FormEvent, type ReactNode } from "react";
 
 // Styled after the card form on the original site: a bordered card with a title, labeled fields,
 // an error box that offers the direct email as a fallback, and a "sent" card with "Send another".
@@ -45,6 +45,8 @@ export default function ContactForm() {
   const [status, setStatus] = useState<Status>("idle");
   const [method, setMethod] = useState<Method>("email");
   const [problem, setProblem] = useState<string | null>(null);
+  // When the form appeared. Real people take more than a couple of seconds to fill it in.
+  const openedAt = useRef(Date.now());
 
   async function onSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -58,6 +60,11 @@ export default function ContactForm() {
     // Honeypot: real people never fill this in. Act as if it worked, and send nothing.
     if (data.get("botcheck")) {
       setStatus("sent");
+      return;
+    }
+    if (Date.now() - openedAt.current < 2000) {
+      setStatus("error");
+      setProblem("That was quick! Please check your message and send it again.");
       return;
     }
     const invalid = !name
@@ -129,22 +136,22 @@ export default function ContactForm() {
         <input name="name" autoComplete="name" placeholder="Your name" disabled={sending} style={input} />
       </Field>
       <div style={{ display: "grid", gap: 8 }}>
-        <div role="tablist" aria-label="How should I reach you?" style={{ display: "flex", gap: 8 }}>
+        <div role="radiogroup" aria-label="How should I reach you?" style={{ display: "flex", gap: 8 }}>
           {(["email", "phone"] as const).map(m => (
-            <button
-              key={m}
-              type="button"
-              role="tab"
-              aria-selected={method === m}
-              onClick={() => {
-                setMethod(m);
-                setProblem(null);
-                setStatus("idle");
-              }}
-              style={{ padding: "6px 12px", fontSize: 14, fontWeight: 600, borderRadius: 999 }}
-            >
+            <label key={m} className="method-pill">
+              <input
+                type="radio"
+                name="method"
+                value={m}
+                checked={method === m}
+                onChange={() => {
+                  setMethod(m);
+                  setProblem(null);
+                  setStatus("idle");
+                }}
+              />
               {m === "email" ? "Email" : "Phone number"}
-            </button>
+            </label>
           ))}
         </div>
         <Field label={method === "email" ? "Email" : "Phone number"}>

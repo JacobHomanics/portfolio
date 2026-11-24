@@ -47,6 +47,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en">
       <body style={{ margin: 0, fontFamily: "system-ui, sans-serif" }}>
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />
+        <a href="#main" className="skip-link">
+          Skip to content
+        </a>
         <TopNav />
         {children}
       </body>

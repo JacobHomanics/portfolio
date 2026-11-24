@@ -2,7 +2,8 @@
 
 // Ported from the ProjectCarousel on the previous site's newer pages: shows one project at a time
 // and cross-fades to the next on a timer, looping forever. It holds while the pointer is over it
-// or a finger is on it. With reduced motion on, it doesn't change on its own and shows arrows.
+// or a finger is on it, or keyboard focus is inside it, and it has a pause button (WCAG 2.2.2).
+// With reduced motion on, it doesn't change on its own and shows arrows.
 
 import Image from "next/image";
 import { useCallback, useEffect, useRef, useState } from "react";
@@ -43,11 +44,13 @@ export default function ProjectShowcase() {
   const [index, setIndex] = useState(0);
   const [hovering, setHovering] = useState(false);
   const [touching, setTouching] = useState(false);
+  const [focused, setFocused] = useState(false);
+  const [userPaused, setUserPaused] = useState(false);
   const [reduceMotion, setReduceMotion] = useState(false);
   const touchTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const slideWidth = Math.min(MAX_SLIDE_WIDTH, Math.max(containerWidth - 48, 240));
-  const paused = hovering || touching;
+  const paused = hovering || touching || focused || userPaused;
 
   useEffect(() => {
     const query = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -108,6 +111,10 @@ export default function ProjectShowcase() {
       aria-labelledby="projects-heading"
       onMouseEnter={() => setHovering(true)}
       onMouseLeave={() => setHovering(false)}
+      // Keyboard focus on a project link holds the carousel. Focus on the pause button does not, so
+      // pressing "Play" actually plays.
+      onFocus={e => setFocused(!(e.target as HTMLElement).closest(".carousel-toggle"))}
+      onBlur={() => setFocused(false)}
       onTouchStart={onTouchStart}
       onTouchEnd={onTouchEnd}
       onTouchCancel={onTouchEnd}
@@ -118,7 +125,7 @@ export default function ProjectShowcase() {
       <h2 id="projects-heading" className="showcase-heading">
         What have you built?
       </h2>
-      <div style={{ display: "grid", width: slideWidth }}>
+      <div style={{ display: "grid", width: slideWidth, position: "relative" }}>
         {projects.map((p, i) => (
           <div
             key={p.name}
@@ -172,6 +179,25 @@ export default function ProjectShowcase() {
             </a>
           </div>
         ))}
+        {!reduceMotion && (
+          <button
+            type="button"
+            onClick={() => setUserPaused(p => !p)}
+            aria-label={userPaused ? "Play project carousel" : "Pause project carousel"}
+            aria-pressed={userPaused}
+            className="carousel-toggle"
+          >
+            {userPaused ? (
+              <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true">
+                <path d="M7 4l13 8-13 8z" fill="currentColor" />
+              </svg>
+            ) : (
+              <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true">
+                <path d="M6 4h4v16H6zM14 4h4v16h-4z" fill="currentColor" />
+              </svg>
+            )}
+          </button>
+        )}
       </div>
 
       {reduceMotion && (

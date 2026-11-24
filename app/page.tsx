@@ -10,6 +10,7 @@ export const metadata: Metadata = { alternates: { canonical: "/" } };
 export default function Home() {
   return (
     <main
+      id="main"
       className="home"
       style={{
         flex: 1,

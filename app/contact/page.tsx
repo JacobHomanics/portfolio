@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 
 export default function Contact() {
   return (
-    <main className="contact">
+    <main id="main" className="contact">
       <h1 className="contact-title">Contact Jacob Homanics, software engineer consultant in Austin, TX</h1>
       <div className="contact-form">
         <ContactForm />
