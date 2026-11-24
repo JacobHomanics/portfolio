@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Jacob Homanics",
+  title: "Software Engineer Consultant for Businesses | Austin, TX | Hybrid and Remote",
   description: "Portfolio of Jacob Homanics",
 };
 
