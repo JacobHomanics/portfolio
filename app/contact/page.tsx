@@ -5,7 +5,7 @@ import { contactLinks } from "./links";
 export default function Contact() {
   return (
     <main className="contact">
-      <h1 className="contact-title">Reach out to me.</h1>
+      <h1 className="contact-title">Let's create something exceptional together.</h1>
       <div className="contact-form">
         <ContactForm />
       </div>
