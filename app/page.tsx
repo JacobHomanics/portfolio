@@ -16,7 +16,6 @@ export default function Home() {
         textAlign: "center",
       }}
     >
-      <div style={{ fontWeight: 600 }}>Software Engineer Consultant for Businesses | Austin, TX | Hybrid and Remote</div>
       <h1 style={{ margin: 0, fontSize: 24, lineHeight: 1.25, maxWidth: 720 }}>
         Software Engineer Consultant for Businesses who want to build an MVP, turn a vibe coded project into a real
         product, modernize legacy products, or manage and maintain existing products.
