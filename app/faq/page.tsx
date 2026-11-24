@@ -25,6 +25,14 @@ const faqs = [
     question: "What AI tools are you most familiar with?",
     answer: "Claude, ChatGPT, Grok, and Gemini.",
   },
+  {
+    question: "What languages are you most familiar with?",
+    answer: "TypeScript, JavaScript, Node, C#, Solidity.",
+  },
+  {
+    question: "What frameworks are you most familiar with?",
+    answer: "React, React Native, Vite, Next.js, Expo.",
+  },
 ];
 
 export default function FAQ() {
