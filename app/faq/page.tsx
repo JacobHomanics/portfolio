@@ -15,6 +15,11 @@ const faqs = [
     answer:
       "Websites, Mobile Applications, Video Games, VR/AR applications, tooling solutions, smart contracts and blockchain technologies.",
   },
+  {
+    question: "How do you charge for your work?",
+    answer:
+      "I'm open to hourly rates, task-based pricing, and project-based pricing. Tell me about your project and we'll choose the one that fits.",
+  },
 ];
 
 export default function FAQ() {
