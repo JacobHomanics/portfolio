@@ -34,7 +34,7 @@ export default function Home() {
         product, modernize legacy products, or manage and maintain existing products.
       </h1>
       <p style={{ margin: 0, fontWeight: 700, maxWidth: 560 }}>
-        Websites, Mobile Applications, Video Games, VR/AR applications, tools, smart contracts and blockchain
+        Websites, Mobile Applications, Video Games, VR/AR applications, tooling solutions, smart contracts and blockchain
         technologies built fast with the latest frameworks and AI tools.
       </p>
       <ProjectShowcase />
