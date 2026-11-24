@@ -145,17 +145,17 @@ button[role="tab"][aria-selected="true"] {
     grid-template-columns: 1fr 440px;
     grid-template-areas:
       "title form"
-      "direct form";
+      "title direct";
     align-content: center;
-    align-items: center;
+    align-items: start;
     column-gap: 72px;
-    row-gap: 28px;
+    row-gap: 20px;
     padding: 24px;
   }
 
   .contact-title {
     grid-area: title;
-    align-self: end;
+    align-self: center;
     font-size: 48px;
     line-height: 1.1;
   }
@@ -166,7 +166,6 @@ button[role="tab"][aria-selected="true"] {
 
   .contact-direct {
     grid-area: direct;
-    align-self: start;
   }
 
   .contact-direct h2 {
@@ -257,5 +256,48 @@ button[role="tab"][aria-selected="true"] {
 
   .home h1 {
     font-size: 18px !important;
+  }
+}
+
+/* Desktop windows that aren't very tall. */
+@media (min-width: 900px) and (max-height: 800px) {
+  .contact {
+    padding: 12px 24px;
+    row-gap: 12px;
+  }
+
+  .contact-form form,
+  .contact-form > div {
+    padding: 14px !important;
+    gap: 8px !important;
+  }
+
+  .contact-form textarea {
+    min-height: 56px !important;
+  }
+
+  .contact-form input {
+    padding: 7px 10px !important;
+  }
+
+  .contact-form button[type="submit"] {
+    padding: 10px 0 !important;
+  }
+
+  .contact-or {
+    margin-bottom: 4px;
+  }
+
+  .contact-direct h2 {
+    margin-bottom: 8px;
+  }
+
+  .contact-link {
+    padding: 7px 10px;
+    font-size: 14px;
+  }
+
+  .contact-link-wide {
+    flex-basis: auto;
   }
 }
