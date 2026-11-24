@@ -16,10 +16,7 @@ export default function Home() {
         textAlign: "center",
       }}
     >
-      <div>
-        <div style={{ fontWeight: 600 }}>AI-Forward Software Engineer</div>
-        <div style={{ fontSize: 14, opacity: 0.7 }}>Austin, TX · Remote and Hybrid</div>
-      </div>
+      <div style={{ fontWeight: 600 }}>Software Engineer Consultant for Businesses | Austin, TX</div>
       <h1 style={{ margin: 0, fontSize: 28, maxWidth: 640 }}>
         Do you have the mission and vision, but need the product?
       </h1>
