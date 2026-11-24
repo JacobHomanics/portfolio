@@ -11,7 +11,7 @@ const DESCRIPTION =
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
-  title: TITLE,
+  title: "Software Engineer | Build, Fix, Scale & Maintain Your App",
   description: DESCRIPTION,
   // The favicon (app/icon.svg) and Apple touch icon (app/apple-icon.png) are picked up automatically.
   openGraph: {
