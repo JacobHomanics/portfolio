@@ -38,7 +38,6 @@ export default function Home() {
         technologies built fast with the latest frameworks and AI tools.
       </p>
       <ProjectShowcase />
-      <p style={{ margin: 0, maxWidth: 560 }}>Software built fast with the latest frameworks and AI tools.</p>
       <Link
         href="/contact"
         style={{
