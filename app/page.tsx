@@ -8,7 +8,7 @@ export default function Home() {
     <main
       className="home"
       style={{
-        minHeight: "100vh",
+        flex: 1,
         display: "flex",
         flexDirection: "column",
         alignItems: "center",

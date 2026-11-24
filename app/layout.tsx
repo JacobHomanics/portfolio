@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import TopNav from "./TopNav";
 
 export const metadata: Metadata = {
   // Pattern: what I do | who I serve | city. Keep under 60 characters.
@@ -12,7 +13,10 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body style={{ margin: 0, fontFamily: "system-ui, sans-serif" }}>{children}</body>
+      <body style={{ margin: 0, fontFamily: "system-ui, sans-serif" }}>
+        <TopNav />
+        {children}
+      </body>
     </html>
   );
 }
