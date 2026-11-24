@@ -6,14 +6,13 @@ import ProjectShowcase from "./ProjectShowcase";
 export default function Home() {
   return (
     <main
+      className="home"
       style={{
         minHeight: "100vh",
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
         justifyContent: "center",
-        gap: 12,
-        padding: "24px 16px",
         boxSizing: "border-box",
         textAlign: "center",
       }}

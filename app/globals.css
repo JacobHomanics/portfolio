@@ -70,3 +70,192 @@ button[role="tab"][aria-selected="true"] {
   border-color: var(--link);
   color: #fff;
 }
+
+/* Contact page: everything fits one screen. One column on phones, two columns on desktop. */
+.contact {
+  box-sizing: border-box;
+  min-height: 100dvh;
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 16px;
+  display: grid;
+  grid-template-columns: 1fr;
+  align-content: center;
+  gap: 12px;
+}
+
+.contact-title {
+  margin: 0;
+  font-size: 26px;
+  line-height: 1.15;
+}
+
+.contact-direct h2 {
+  margin: 0 0 8px;
+  font-size: 16px;
+}
+
+.contact-or {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 8px;
+  color: var(--text-muted);
+  font-size: 14px;
+}
+
+.contact-or hr {
+  flex: 1;
+  border: 0;
+  border-top: 1px solid var(--border);
+}
+
+.contact-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.contact-link {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 10px;
+  font-size: 14px;
+  color: var(--heading);
+  text-decoration: none;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+
+/* Tighter form card on phones. */
+.contact-form form,
+.contact-form > div {
+  padding: 14px !important;
+  gap: 10px !important;
+}
+
+.contact-form textarea {
+  min-height: 64px !important;
+}
+
+@media (min-width: 900px) {
+  .contact {
+    grid-template-columns: 1fr 440px;
+    grid-template-areas:
+      "title form"
+      "direct form";
+    align-content: center;
+    align-items: center;
+    column-gap: 72px;
+    row-gap: 28px;
+    padding: 24px;
+  }
+
+  .contact-title {
+    grid-area: title;
+    align-self: end;
+    font-size: 48px;
+    line-height: 1.1;
+  }
+
+  .contact-form {
+    grid-area: form;
+  }
+
+  .contact-direct {
+    grid-area: direct;
+    align-self: start;
+  }
+
+  .contact-direct h2 {
+    font-size: 18px;
+    margin-bottom: 12px;
+  }
+
+  .contact-link {
+    padding: 10px 14px;
+    font-size: 16px;
+  }
+
+  .contact-link-wide {
+    flex-basis: 100%;
+  }
+
+  .contact-form form,
+  .contact-form > div {
+    padding: 20px !important;
+    gap: 14px !important;
+  }
+
+  .contact-form textarea {
+    min-height: 110px !important;
+  }
+}
+
+/* Short phones (about 667px tall and under). */
+@media (max-height: 720px) and (max-width: 899px) {
+  .contact {
+    padding: 8px 16px;
+    gap: 8px;
+  }
+
+  .contact-title {
+    font-size: 21px;
+  }
+
+  .contact-form form,
+  .contact-form > div {
+    padding: 10px !important;
+    gap: 6px !important;
+  }
+
+  .contact-form textarea {
+    min-height: 44px !important;
+  }
+
+  .contact-form input {
+    padding: 7px 10px !important;
+  }
+
+  .contact-form button[type="submit"] {
+    padding: 10px 0 !important;
+  }
+
+  .contact-or {
+    margin-bottom: 4px;
+  }
+}
+
+/* Home page: everything fits one screen. */
+.home {
+  gap: 12px;
+  padding: 24px 16px;
+}
+
+@media (max-height: 700px) {
+  .home {
+    gap: 8px;
+    padding: 10px 16px;
+  }
+
+  .home h1 {
+    font-size: 20px !important;
+  }
+}
+
+@media (max-height: 700px) and (max-width: 899px) {
+  .home h2 {
+    font-size: 13px !important;
+  }
+
+  .home > div:first-child img {
+    width: 36px !important;
+    height: 36px !important;
+  }
+
+  .home h1 {
+    font-size: 18px !important;
+  }
+}

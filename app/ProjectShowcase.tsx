@@ -132,7 +132,7 @@ export default function ProjectShowcase() {
                 boxSizing: "border-box",
               }}
             >
-              <div style={{ position: "relative", width: "100%", aspectRatio: containerWidth < 500 ? "2.2 / 1" : "16 / 9", background: colors.surfaceMuted }}>
+              <div style={{ position: "relative", width: "100%", height: `min(${Math.round(slideWidth / (containerWidth < 500 ? 2.2 : 16 / 9))}px, ${containerWidth < 500 ? 20 : 30}dvh)`, background: colors.surfaceMuted }}>
                 <Image
                   src={p.image}
                   alt=""
