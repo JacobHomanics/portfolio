@@ -37,8 +37,8 @@ export default function Home() {
         </div>
       </div>
       <h1 style={{ margin: 0, fontSize: 24, lineHeight: 1.25, maxWidth: 720 }}>
-        Software Engineer Consultant for Businesses who want to build an MVP, turn a vibe coded project into a real
-        product, modernize legacy products, or manage and maintain existing products.
+        Software Engineer Consultant to Build MVPs, Fix and Make Vibe Coded Apps Production Ready, Modernize Legacy
+        Software, and Maintain Products
       </h1>
       <h2 style={{ margin: 0, fontSize: 16, fontWeight: 700, maxWidth: 560 }}>
         Websites, Mobile Applications, Video Games, VR/AR applications, tooling solutions, smart contracts and blockchain
