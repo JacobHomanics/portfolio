@@ -10,22 +10,43 @@ export const metadata: Metadata = {
     "Answers to common questions about hiring a software engineer consultant in Austin, TX to build an MVP, modernize legacy products, or maintain existing ones.",
 };
 
-type Tool = { name: string; icon: keyof typeof brandIcons };
-type Line = { label?: string; tools: Tool[]; and?: boolean };
+type Tool = { name: string; icon: keyof typeof brandIcons; before?: string };
+type Line = { label?: string; prefix?: string; tools: Tool[]; and?: boolean };
 
 // 4 to 6 FAQs. Each question is an h2 phrased the way a client would ask it, with the answer
 // directly below: the direct answer first, one idea per line, plain language. Tool names are
 // always written as text; the icons are decorative.
-const faqs: { question: string; answer?: string; lines?: Line[] }[] = [
+const faqs: { question: string; answer?: string; lines?: Line[]; after?: string }[] = [
   {
     question: "What kind of software do you build?",
-    answer:
-      "Websites, Mobile Applications, Video Games, VR/AR applications, tooling solutions, smart contracts and blockchain technologies.",
+    lines: [
+      {
+        tools: [
+          { name: "Websites", icon: "web" },
+          { name: "Mobile Applications", icon: "mobile" },
+          { name: "Video Games", icon: "gamepad" },
+          { name: "VR/AR applications", icon: "vr" },
+          { name: "tooling solutions", icon: "tooling" },
+          { name: "smart contracts", icon: "contract" },
+          { name: "blockchain technologies", icon: "blockchain", before: " and " },
+        ],
+      },
+    ],
   },
   {
     question: "How do you charge for your work?",
-    answer:
-      "I'm open to hourly rates, task-based pricing, and project-based pricing. Tell me about your project and we'll choose the one that fits.",
+    lines: [
+      {
+        prefix: "I'm open to ",
+        and: true,
+        tools: [
+          { name: "hourly rates", icon: "clock" },
+          { name: "task-based pricing", icon: "task" },
+          { name: "project-based pricing", icon: "project" },
+        ],
+      },
+    ],
+    after: "Tell me about your project and we'll choose the one that fits.",
   },
   {
     question: "What AI tools are you most familiar with?",
@@ -99,16 +120,18 @@ function ToolLine({ line }: { line: Line }) {
   return (
     <p style={{ margin: "0 0 4px", lineHeight: 1.9 }}>
       {line.label ? `${line.label}: ` : null}
+      {line.prefix}
       {line.tools.map((tool, i) => (
         <span key={tool.name}>
+          {tool.before ?? (i === 0 ? "" : ", ")}
           {line.and && i === last ? "and " : null}
           <span className="tool">
             <BrandIcon name={tool.icon} />
             {tool.name}
           </span>
-          {i === last ? "." : line.and && last === 1 ? " " : ", "}
         </span>
       ))}
+      .
     </p>
   );
 }
@@ -126,6 +149,7 @@ export default function FAQ() {
           {item.lines?.map((line, i) => (
             <ToolLine key={i} line={line} />
           ))}
+          {item.after ? <p style={{ margin: 0, lineHeight: 1.5 }}>{item.after}</p> : null}
         </section>
       ))}
     </main>
