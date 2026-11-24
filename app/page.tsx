@@ -26,7 +26,10 @@ export default function Home() {
           priority
           style={{ borderRadius: "50%", objectFit: "cover" }}
         />
-        <span style={{ fontSize: 20, fontWeight: 600 }}>Jacob Homanics</span>
+        <div style={{ textAlign: "left" }}>
+          <div style={{ fontSize: 20, fontWeight: 600, lineHeight: 1.2 }}>Jacob Homanics</div>
+          <div style={{ fontSize: 14, color: "var(--text-muted)" }}>Austin, TX</div>
+        </div>
       </div>
       <h1 style={{ margin: 0, fontSize: 24, lineHeight: 1.25, maxWidth: 720 }}>
         Software Engineer Consultant for Businesses who want to build an MVP, turn a vibe coded project into a real
