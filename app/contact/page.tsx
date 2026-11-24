@@ -9,7 +9,7 @@ const linkStyle = {
   padding: "10px 14px",
   border: "1px solid var(--border)",
   background: "var(--surface)",
-  borderRadius: 6,
+  borderRadius: 8,
   color: "var(--heading)",
   textDecoration: "none",
 } as const;
@@ -17,14 +17,14 @@ const linkStyle = {
 export default function Contact() {
   return (
     <main style={{ maxWidth: 480, margin: "0 auto", padding: "48px 24px" }}>
-      <h1>Contact</h1>
+      <h1 style={{ margin: "0 0 24px", fontSize: 32, lineHeight: 1.15 }}>Let's create something exceptional together.</h1>
       <ContactForm />
       <div style={{ display: "flex", alignItems: "center", gap: 12, margin: "32px 0", color: "var(--text-muted)" }}>
         <hr style={{ flex: 1, border: 0, borderTop: "1px solid var(--border)" }} />
         <span>or</span>
         <hr style={{ flex: 1, border: 0, borderTop: "1px solid var(--border)" }} />
       </div>
-      <h2>Reach me directly</h2>
+      <h2 style={{ margin: "0 0 12px", fontSize: 18 }}>Reach me directly</h2>
       <div style={{ display: "flex", flexWrap: "wrap", gap: 12 }}>
         {contactLinks.map(link => {
           const external = link.url.startsWith("https://");
