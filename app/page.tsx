@@ -59,20 +59,25 @@ export default function Home() {
         }}
       />
       <ProjectShowcase />
-      <Link
-        href="/contact"
-        style={{
-          padding: "10px 20px",
-          background: "#2C3A78",
-          border: "1px solid #2C3A78",
-          borderRadius: 6,
-          color: "#fff",
-          fontWeight: 600,
-          textDecoration: "none",
-        }}
-      >
-        Let's talk
-      </Link>
+      <div style={{ display: "flex", alignItems: "center", gap: 20 }}>
+        <Link
+          href="/contact"
+          style={{
+            padding: "10px 20px",
+            background: "#2C3A78",
+            border: "1px solid #2C3A78",
+            borderRadius: 6,
+            color: "#fff",
+            fontWeight: 600,
+            textDecoration: "none",
+          }}
+        >
+          Let's talk
+        </Link>
+        <Link href="/faq" style={{ fontWeight: 600 }}>
+          Read the FAQ
+        </Link>
+      </div>
     </main>
   );
 }

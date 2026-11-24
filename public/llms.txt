@@ -1,0 +1,31 @@
+# Jacob Homanics
+
+> Software engineer consultant for businesses, based in Austin, TX. Works hybrid and remote. Builds MVPs, turns vibe-coded projects into real products, modernizes legacy products, and manages and maintains existing products.
+
+## What I build
+
+Websites, mobile applications, video games, VR/AR applications, tooling solutions, smart contracts and blockchain technologies, built fast, secure, and scalable using the latest frameworks, technologies, and AI tools.
+
+## Pricing
+
+Open to hourly rates, task-based pricing, and project-based pricing.
+
+## Technologies
+
+- AI tools: Claude, ChatGPT, Grok, Gemini
+- Languages: TypeScript, JavaScript, Node, C#, Solidity
+- Frameworks: React, React Native, Vite, Next.js, Expo
+- Backend and databases: Convex, Supabase, Prisma, MongoDB, PostgreSQL
+- Hosting: Vercel, Cloudflare
+
+## Pages
+
+- [Home](https://jacobhomanics.com): who I am, what I do, and featured projects
+- [FAQ](https://jacobhomanics.com/faq): common questions about working with me
+- [Contact](https://jacobhomanics.com/contact): send a message by email or phone
+
+## Elsewhere
+
+- [LinkedIn](https://www.linkedin.com/in/jacobhomanics)
+- [X](https://x.com/jacobhomanics)
+- [Telegram](https://t.me/jacobhomanics)
