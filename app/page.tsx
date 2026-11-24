@@ -35,7 +35,7 @@ export default function Home() {
       </h1>
       <p style={{ margin: 0, fontWeight: 700, maxWidth: 560 }}>
         Websites, Mobile Applications, Video Games, VR/AR applications, tooling solutions, smart contracts and blockchain
-        technologies built fast with the latest frameworks and AI tools.
+        technologies built fast and securely with the latest frameworks and AI tools.
       </p>
       <ProjectShowcase />
       <Link
