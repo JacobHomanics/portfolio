@@ -33,6 +33,15 @@ const faqs = [
     question: "What frameworks are you most familiar with?",
     answer: "React, React Native, Vite, Next.js, Expo.",
   },
+  {
+    question: "What backend technologies are you familiar with?",
+    // One idea per line.
+    answer: [
+      "Backend: Convex, Supabase, Prisma.",
+      "Databases: Convex, Supabase, MongoDB, PostgreSQL.",
+      "Hosting: Vercel, Cloudflare.",
+    ],
+  },
 ];
 
 export default function FAQ() {
@@ -44,7 +53,11 @@ export default function FAQ() {
       {faqs.map(item => (
         <section key={item.question} style={{ marginBottom: 20 }}>
           <h2 style={{ margin: "0 0 8px", fontSize: 20 }}>{item.question}</h2>
-          <p style={{ margin: 0, lineHeight: 1.5 }}>{item.answer}</p>
+          {(Array.isArray(item.answer) ? item.answer : [item.answer]).map(line => (
+            <p key={line} style={{ margin: 0, lineHeight: 1.5 }}>
+              {line}
+            </p>
+          ))}
         </section>
       ))}
     </main>
