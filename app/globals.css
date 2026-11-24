@@ -99,6 +99,30 @@ button[role="tab"][aria-selected="true"] {
   font-size: 16px;
 }
 
+/* Phones: the quick contact options come first, then "or", then the form. */
+.contact-direct {
+  order: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-direct h2 {
+  order: 1;
+}
+
+.contact-direct .contact-links {
+  order: 2;
+}
+
+.contact-direct .contact-or {
+  order: 3;
+  margin: 12px 0 0;
+}
+
+.contact-form {
+  order: 2;
+}
+
 .contact-or {
   display: flex;
   align-items: center;
