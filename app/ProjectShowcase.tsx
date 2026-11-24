@@ -102,8 +102,7 @@ export default function ProjectShowcase() {
     >
       {/* All cards share one grid cell, so the frame is as tall as the longest description and
           every description shows in full. */}
-      {/* Labels the section for screen readers and search engines without taking up space. */}
-      <h2 id="projects-heading" className="sr-only">
+      <h2 id="projects-heading" className="showcase-heading">
         What have you built?
       </h2>
       <div style={{ display: "grid", width: slideWidth }}>
@@ -136,7 +135,7 @@ export default function ProjectShowcase() {
                 boxSizing: "border-box",
               }}
             >
-              <div style={{ position: "relative", width: "100%", height: `min(${Math.round(slideWidth / (containerWidth < 500 ? 2.2 : 16 / 9))}px, ${containerWidth < 500 ? 15 : 26}dvh)`, background: colors.surfaceMuted }}>
+              <div style={{ position: "relative", width: "100%", height: `min(${Math.round(slideWidth / (containerWidth < 500 ? 2.2 : 16 / 9))}px, ${containerWidth < 500 ? 13 : 24}dvh)`, background: colors.surfaceMuted }}>
                 <Image
                   src={p.image}
                   alt={p.name}
