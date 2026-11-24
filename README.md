@@ -7,3 +7,14 @@ Codebase for [jacobhomanics.com](https://jacobhomanics.com). Being rebuilt from 
 - `.env.example` documents environment variables (copy to `.env.local`, which is git-ignored)
 
 The previous implementation is in git history (see `bca7326`).
+
+## Run locally
+
+Requires Node and pnpm.
+
+```bash
+pnpm install
+pnpm dev
+```
+
+Then open http://localhost:3000.
