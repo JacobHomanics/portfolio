@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/faq" },
   // The title tag is inherited from the root layout, so every page shares it.
   // Keep under 160 characters.
   description:

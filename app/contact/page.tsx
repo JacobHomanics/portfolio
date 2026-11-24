@@ -1,6 +1,9 @@
+import type { Metadata } from "next";
 import ContactForm from "./ContactForm";
 import { ContactIcon } from "./icons";
 import { contactLinks } from "./links";
+
+export const metadata: Metadata = { alternates: { canonical: "/contact" } };
 
 export default function Contact() {
   return (
