@@ -431,8 +431,9 @@ button[role="tab"][aria-selected="true"] {
 
 /* Brand icons next to tool names (FAQ). */
 .brand-icon {
-  display: inline-flex;
-  flex: none;
+  display: inline-block;
+  vertical-align: -0.25em;
+  margin-right: 6px;
 }
 
 .brand-icon svg {
@@ -441,9 +442,6 @@ button[role="tab"][aria-selected="true"] {
 }
 
 .tool {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
   white-space: nowrap;
 }
 
