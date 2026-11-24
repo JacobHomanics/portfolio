@@ -123,7 +123,7 @@ export default function ProjectShowcase() {
       {/* All cards share one grid cell, so the frame is as tall as the longest description and
           every description shows in full. */}
       <h2 id="projects-heading" className="showcase-heading">
-        What have you built?
+        What Has Jacob Built?
       </h2>
       <div style={{ display: "grid", width: slideWidth, position: "relative" }}>
         {projects.map((p, i) => (
