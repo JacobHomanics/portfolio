@@ -1,0 +1,72 @@
+/* Palette from the original site (taken from the profile photo). */
+:root {
+  --background: #f6f3ec;
+  --surface: #fffcf7;
+  --surface-muted: #e8e2d2;
+  --border: #d9d0c0;
+  --heading: #3e1f2c;
+  --text: #3c322e;
+  --text-muted: #5c5648;
+  --link: #2c3a78;
+}
+
+body {
+  background: var(--background);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3 {
+  color: var(--heading);
+  letter-spacing: -0.01em;
+}
+
+a {
+  color: var(--link);
+}
+
+input,
+textarea {
+  font: inherit;
+  color: var(--text);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+
+input:focus,
+textarea:focus,
+button:focus-visible,
+a:focus-visible {
+  outline: 2px solid var(--link);
+  outline-offset: 2px;
+}
+
+button {
+  font: inherit;
+  color: var(--heading);
+  background: var(--surface-muted);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+button[type="submit"] {
+  color: #fff;
+  background: var(--link);
+  border-color: var(--link);
+  font-weight: 600;
+}
+
+button[type="submit"]:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+
+button[role="tab"][aria-selected="true"] {
+  background: var(--link);
+  border-color: var(--link);
+  color: #fff;
+}

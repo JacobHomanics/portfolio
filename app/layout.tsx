@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Software Engineer Consultant for Businesses | Austin, TX | Hybrid and Remote",
