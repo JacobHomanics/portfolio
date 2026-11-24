@@ -24,6 +24,19 @@ const colors = {
 
 const count = projects.length;
 
+/** The project name is the start of its description, with the name itself in bold. */
+function DescriptionWithName({ name, description }: { name: string; description: string }) {
+  const at = description.indexOf(name);
+  if (at === -1) return <>{description}</>;
+  return (
+    <>
+      {description.slice(0, at)}
+      <strong style={{ color: colors.heading }}>{name}</strong>
+      {description.slice(at + name.length)}
+    </>
+  );
+}
+
 export default function ProjectShowcase() {
   const rootRef = useRef<HTMLElement>(null);
   const [containerWidth, setContainerWidth] = useState(0);
@@ -148,21 +161,12 @@ export default function ProjectShowcase() {
               <div style={{ padding: 16, display: "flex", flexDirection: "column", gap: 6 }}>
                 <div
                   style={{
-                    fontSize: 18,
-                    fontWeight: 700,
-                    color: colors.heading,
-                  }}
-                >
-                  {p.name}
-                </div>
-                <div
-                  style={{
                     fontSize: 14,
                     lineHeight: "21px",
                     color: colors.textMuted,
                   }}
                 >
-                  {p.description}
+                  <DescriptionWithName name={p.name} description={p.description} />
                 </div>
               </div>
             </a>
