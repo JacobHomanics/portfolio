@@ -73,7 +73,7 @@ export default function Home() {
             textDecoration: "none",
           }}
         >
-          Let's talk
+          Let&apos;s talk
         </Link>
         <Link href="/faq" style={{ fontWeight: 600 }}>
           Read the FAQ

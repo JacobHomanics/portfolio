@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState, type FormEvent, type ReactNode } from "react";
+import { useEffect, useRef, useState, type FormEvent, type ReactNode } from "react";
 
 // Styled after the card form on the original site: a bordered card with a title, labeled fields,
 // an error box that offers the direct email as a fallback, and a "sent" card with "Send another".
@@ -46,7 +46,10 @@ export default function ContactForm() {
   const [method, setMethod] = useState<Method>("email");
   const [problem, setProblem] = useState<string | null>(null);
   // When the form appeared. Real people take more than a couple of seconds to fill it in.
-  const openedAt = useRef(Date.now());
+  const openedAt = useRef(0);
+  useEffect(() => {
+    openedAt.current = Date.now();
+  }, []);
 
   async function onSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -114,7 +117,7 @@ export default function ContactForm() {
       <div style={card} role="status">
         <h2 style={{ margin: 0, fontSize: 18 }}>Message sent. Thank you!</h2>
         <p style={{ margin: 0, fontSize: 14, lineHeight: 1.5, color: "var(--text-muted)" }}>
-          I'll reply by {method === "email" ? "email" : "phone"} as soon as I can.
+          I&apos;ll reply by {method === "email" ? "email" : "phone"} as soon as I can.
         </p>
         <button
           type="button"
