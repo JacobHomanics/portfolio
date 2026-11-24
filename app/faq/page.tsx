@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  // Pattern: what I do | who I serve | city. Keep under 60 characters.
-  title: "Software Consulting FAQ | Businesses | Austin, TX",
+  // The title tag is inherited from the root layout, so every page shares it.
   // Keep under 160 characters.
   description:
     "Answers to common questions about hiring a software engineer consultant in Austin, TX to build an MVP, modernize legacy products, or maintain existing ones.",
