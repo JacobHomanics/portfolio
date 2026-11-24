@@ -21,6 +21,10 @@ const faqs = [
     answer:
       "I'm open to hourly rates, task-based pricing, and project-based pricing. Tell me about your project and we'll choose the one that fits.",
   },
+  {
+    question: "What AI tools are you most familiar with?",
+    answer: "Claude, ChatGPT, Grok, and Gemini.",
+  },
 ];
 
 export default function FAQ() {
