@@ -124,10 +124,7 @@ export default function ContactForm() {
 
   return (
     <form onSubmit={onSubmit} noValidate style={card}>
-      <h2 className="sr-only">How can I send you a message?</h2>
-      <div aria-hidden="true" style={{ fontSize: 18, fontWeight: 700, color: "var(--heading)" }}>
-        Send me a message
-      </div>
+      <h2 style={{ margin: 0, fontSize: 18 }}>How can I send you a message?</h2>
       <Field label="Name">
         <input name="name" autoComplete="name" placeholder="Your name" disabled={sending} style={input} />
       </Field>
