@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import jake from "../assets/images/jake.jpg";
 import ProjectShowcase from "./ProjectShowcase";
+import { projects } from "./projects-data";
 
 export const metadata: Metadata = { alternates: { canonical: "/" } };
 
@@ -42,6 +43,21 @@ export default function Home() {
         Websites, Mobile Applications, Video Games, VR/AR applications, tooling solutions, smart contracts and blockchain
         technologies built fast and securely with the latest frameworks and AI tools.
       </h2>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "ItemList",
+            name: "Projects by Jacob Homanics",
+            itemListElement: projects.map((project, i) => ({
+              "@type": "ListItem",
+              position: i + 1,
+              item: { "@type": "CreativeWork", name: project.name, description: project.description, url: project.url },
+            })),
+          }),
+        }}
+      />
       <ProjectShowcase />
       <Link
         href="/contact"

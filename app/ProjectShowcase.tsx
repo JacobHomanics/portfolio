@@ -92,7 +92,7 @@ export default function ProjectShowcase() {
   return (
     <section
       ref={rootRef}
-      aria-label="Projects"
+      aria-labelledby="projects-heading"
       onMouseEnter={() => setHovering(true)}
       onMouseLeave={() => setHovering(false)}
       onTouchStart={onTouchStart}
@@ -102,6 +102,10 @@ export default function ProjectShowcase() {
     >
       {/* All cards share one grid cell, so the frame is as tall as the longest description and
           every description shows in full. */}
+      {/* Labels the section for screen readers and search engines without taking up space. */}
+      <h2 id="projects-heading" className="sr-only">
+        What have you built?
+      </h2>
       <div style={{ display: "grid", width: slideWidth }}>
         {projects.map((p, i) => (
           <div
@@ -132,10 +136,10 @@ export default function ProjectShowcase() {
                 boxSizing: "border-box",
               }}
             >
-              <div style={{ position: "relative", width: "100%", height: `min(${Math.round(slideWidth / (containerWidth < 500 ? 2.2 : 16 / 9))}px, ${containerWidth < 500 ? 17 : 26}dvh)`, background: colors.surfaceMuted }}>
+              <div style={{ position: "relative", width: "100%", height: `min(${Math.round(slideWidth / (containerWidth < 500 ? 2.2 : 16 / 9))}px, ${containerWidth < 500 ? 15 : 26}dvh)`, background: colors.surfaceMuted }}>
                 <Image
                   src={p.image}
-                  alt=""
+                  alt={p.name}
                   fill
                   priority={i === 0}
                   sizes="(max-width: 648px) 100vw, 600px"
