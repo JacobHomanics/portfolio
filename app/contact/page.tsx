@@ -13,7 +13,12 @@ export const metadata: Metadata = {
 export default function Contact() {
   return (
     <main className="contact">
-      <h1 className="contact-title">Contact Jacob Homanics, software engineer consultant in Austin, TX</h1>
+      {/* The visible headline keeps the original wording. This heading carries the descriptive version
+          for screen readers and search engines. */}
+      <h1 className="sr-only">Contact Jacob Homanics, software engineer consultant in Austin, TX</h1>
+      <div className="contact-title" aria-hidden="true">
+        Let's create something exceptional together.
+      </div>
       <div className="contact-form">
         <ContactForm />
       </div>
@@ -23,7 +28,12 @@ export default function Contact() {
           <span>or</span>
           <hr />
         </div>
-        <h2 id="reach-me">How else can I reach you?</h2>
+        <h2 id="reach-me" className="sr-only">
+          How else can I reach you?
+        </h2>
+        <div className="contact-heading" aria-hidden="true">
+          Reach me directly
+        </div>
         <div className="contact-links">
           {contactLinks.map(link => {
             const external = link.url.startsWith("https://");

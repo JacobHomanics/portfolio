@@ -92,11 +92,16 @@ button[role="tab"][aria-selected="true"] {
   margin: 0;
   font-size: 26px;
   line-height: 1.15;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--heading);
 }
 
-.contact-direct h2 {
+.contact-direct .contact-heading {
   margin: 0 0 8px;
   font-size: 16px;
+  font-weight: 700;
+  color: var(--heading);
 }
 
 /* Phones: the quick contact options come first, then "or", then the form. */
@@ -106,7 +111,7 @@ button[role="tab"][aria-selected="true"] {
   flex-direction: column;
 }
 
-.contact-direct h2 {
+.contact-direct .contact-heading {
   order: 1;
 }
 
@@ -214,7 +219,7 @@ button[role="tab"][aria-selected="true"] {
     border-left: 1px solid var(--border);
   }
 
-  .contact-direct h2 {
+  .contact-direct .contact-heading {
     grid-column: 2;
   }
 
@@ -224,7 +229,7 @@ button[role="tab"][aria-selected="true"] {
     align-content: start;
   }
 
-  .contact-direct h2 {
+  .contact-direct .contact-heading {
     font-size: 18px;
     margin-bottom: 12px;
   }
@@ -349,7 +354,7 @@ button[role="tab"][aria-selected="true"] {
     margin-bottom: 4px;
   }
 
-  .contact-direct h2 {
+  .contact-direct .contact-heading {
     margin-bottom: 8px;
   }
 
