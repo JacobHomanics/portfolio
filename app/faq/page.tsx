@@ -37,8 +37,7 @@ const faqs = [
     question: "What backend technologies are you familiar with?",
     // One idea per line.
     answer: [
-      "Backend: Convex, Supabase, Prisma.",
-      "Databases: Convex, Supabase, MongoDB, PostgreSQL.",
+      "Backend and databases: Convex, Supabase, Prisma, MongoDB, PostgreSQL.",
       "Hosting: Vercel, Cloudflare.",
     ],
   },
