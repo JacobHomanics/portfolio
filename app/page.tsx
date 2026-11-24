@@ -41,8 +41,12 @@ export default function Home() {
         Software, and Maintain Products
       </h1>
       <h2 style={{ margin: 0, fontSize: 16, fontWeight: 700, maxWidth: 560 }}>
-        Websites, Mobile Applications, Video Games, VR/AR applications, tooling solutions, smart contracts and blockchain
-        technologies built fast, secure, and scalable, using the latest frameworks, technologies, and AI tools.
+        <span style={{ display: "block" }}>
+          I build websites, mobile apps, video games, VR/AR apps, tooling, smart contracts and blockchain products.
+        </span>
+        <span style={{ display: "block" }}>
+          They ship fast and are secure and scalable, built with modern frameworks and AI tools.
+        </span>
       </h2>
       <script
         type="application/ld+json"
