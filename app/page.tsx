@@ -42,9 +42,11 @@ export default function Home() {
         href="/contact"
         style={{
           padding: "10px 20px",
-          border: "1px solid currentColor",
+          background: "#2C3A78",
+          border: "1px solid #2C3A78",
           borderRadius: 6,
-          color: "inherit",
+          color: "#fff",
+          fontWeight: 600,
           textDecoration: "none",
         }}
       >
